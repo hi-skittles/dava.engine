@@ -4,7 +4,7 @@
 #include <Debug/DVAssertDefaultHandlers.h>
 #include <Logger/Logger.h>
 
-#include <NetworkCore.h>
+#include <Network/NetCore.h>
 
 using namespace DAVA;
 
@@ -69,9 +69,9 @@ void TestServer::OnUpdate(float32 frameDelta)
     static int32 frameCount = 0;
     frameCount += 1;
     Logger::Debug("****** update: count=%d, delta=%f", frameCount, frameDelta);
-    if (frameCount >= 100)
-    {
-        Logger::Debug("****** quit");
-        engine.QuitAsync(0);
-    }
+//    if (frameCount >= 100)
+//    {
+//        Logger::Debug("****** quit");
+//        engine.QuitAsync(0);
+//    }
 }

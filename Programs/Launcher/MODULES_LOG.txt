@@ -1,0 +1,17 @@
+
+UNIQUE COMPONENTS LIST
+
+-> 1
+    MODULE_NAME  - QtHelpers [ 0 ]
+    USES_LIST    - 
+    MODULE_CACHE - ROOT_QtHelpers
+    MD5          - b423840bdfacd1b5211a71e07bd71d9f
+
+
+USED UNIQUE COMPONENTS LIST
+
+
+
+UNIQUE      - 1
+USED_UNIQUE - 0
+LIST_LENGTH - 1

@@ -1,0 +1,183 @@
+{
+	"BUILD_DIR" : "/Users/coke/Desktop/dava.engine/Programs/Launcher/QtHelpers/QtHelpers_autogen",
+	"CMAKE_BINARY_DIR" : "/Users/coke/Desktop/dava.engine/Programs/Launcher",
+	"CMAKE_CURRENT_BINARY_DIR" : "/Users/coke/Desktop/dava.engine/Programs/Launcher/QtHelpers",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/Users/coke/Desktop/dava.engine/Modules/QtHelpers",
+	"CMAKE_EXECUTABLE" : "/usr/local/bin/cmake",
+	"CMAKE_LIST_FILES" : 
+	[
+		"/Users/coke/Desktop/dava.engine/Modules/QtHelpers/CMakeLists.txt",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/CMake-common.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/GlobalVariables.cmake",
+		"/Users/coke/Desktop/dava.engine/DavaConfig.in",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/PlatformSettings.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/MergeStaticLibraries.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/FileTreeCheck.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/DavaTemplate.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/DavaTemplateModules.cmake",
+		"/usr/local/share/cmake-3.19/Modules/CMakeDependentOption.cmake",
+		"/usr/local/share/cmake-3.19/Modules/CMakeParseArguments.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/UnityBuild.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/Coverage.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/ModuleHelper.cmake",
+		"/usr/local/share/cmake-3.19/Modules/CMakeParseArguments.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/FindQT5.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/GlobalVariables.cmake",
+		"/Users/coke/Desktop/dava.engine/DavaConfig.in",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/CMake-common.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/GlobalVariables.cmake",
+		"/Users/coke/Desktop/dava.engine/DavaConfig.in",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/PlatformSettings.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/MergeStaticLibraries.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/FileTreeCheck.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/DavaTemplate.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/DavaTemplateModules.cmake",
+		"/usr/local/share/cmake-3.19/Modules/CMakeDependentOption.cmake",
+		"/usr/local/share/cmake-3.19/Modules/CMakeParseArguments.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/UnityBuild.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/Coverage.cmake",
+		"/Users/coke/Desktop/dava.engine/Sources/CMake/Modules/ModuleHelper.cmake",
+		"/usr/local/share/cmake-3.19/Modules/CMakeParseArguments.cmake"
+	],
+	"CMAKE_SOURCE_DIR" : "/Users/coke/Desktop/dava.engine/Programs/Launcher",
+	"DEP_FILE" : "",
+	"DEP_FILE_RULE_NAME" : "",
+	"HEADERS" : 
+	[
+		[
+			"/Users/coke/Desktop/dava.engine/Modules/QtHelpers/QtHelpers/CrashDumpHandler.h",
+			"Mu",
+			"HIV4WT2XY6/moc_CrashDumpHandler.cpp"
+		],
+		[
+			"/Users/coke/Desktop/dava.engine/Modules/QtHelpers/QtHelpers/HelperFunctions.h",
+			"Mu",
+			"HIV4WT2XY6/moc_HelperFunctions.cpp"
+		],
+		[
+			"/Users/coke/Desktop/dava.engine/Modules/QtHelpers/QtHelpers/LauncherListener.h",
+			"Mu",
+			"HIV4WT2XY6/moc_LauncherListener.cpp"
+		],
+		[
+			"/Users/coke/Desktop/dava.engine/Modules/QtHelpers/QtHelpers/Private/LauncherIPCHelpers.h",
+			"Mu",
+			"HJ7UBOARTA/moc_LauncherIPCHelpers.cpp"
+		],
+		[
+			"/Users/coke/Desktop/dava.engine/Modules/QtHelpers/QtHelpers/ProcessHelper.h",
+			"Mu",
+			"HIV4WT2XY6/moc_ProcessHelper.cpp"
+		],
+		[
+			"/Users/coke/Desktop/dava.engine/Modules/QtHelpers/QtHelpers/RunGuard.h",
+			"Mu",
+			"HIV4WT2XY6/moc_RunGuard.cpp"
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "/Users/coke/Desktop/dava.engine/Programs/Launcher/QtHelpers/QtHelpers_autogen/include",
+	"MOC_COMPILATION_FILE" : "/Users/coke/Desktop/dava.engine/Programs/Launcher/QtHelpers/QtHelpers_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : 
+	[
+		"QT_CONCURRENT_LIB",
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_NETWORK_LIB",
+		"QT_NO_DEBUG",
+		"QT_QML_LIB",
+		"QT_QUICKWIDGETS_LIB",
+		"QT_QUICK_LIB",
+		"QT_TESTLIB_LIB",
+		"QT_WIDGETS_LIB",
+		"__DAVAENGINE_APPLE__",
+		"__DAVAENGINE_MACOS__",
+		"__DAVAENGINE_POSIX__",
+		"__DAVAENGINE_QT__"
+	],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"/Users/coke/Desktop/dava.engine/Programs/Launcher/QtHelpers",
+		"/Users/coke/Desktop/dava.engine/Modules/QtHelpers",
+		"/Users/coke/Desktop/dava.engine/Sources/Internal",
+		"/Users/coke/Desktop/dava.engine/Libs/include",
+		"/Users/coke/Desktop/dava.engine/Sources/External",
+		"/Users/coke/Desktop/dava.engine/Libs/glew/include",
+		"/Users/coke/Desktop/dava.engine/Libs/icucommon/source/common",
+		"/Users/coke/Desktop/dava.engine/Libs/openssl/include/mac",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtNetwork.framework",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtNetwork.framework/Headers",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtCore.framework",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtCore.framework/Headers",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/mkspecs/macx-clang",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtGui.framework",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtGui.framework/Headers",
+		"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtWidgets.framework",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtWidgets.framework/Headers",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtConcurrent.framework",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtConcurrent.framework/Headers",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtQml.framework",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtQml.framework/Headers",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtQuick.framework",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtQuick.framework/Headers",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtQuickWidgets.framework",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtQuickWidgets.framework/Headers",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtTest.framework",
+		"/Users/coke/Qt5.6.0/5.6/clang_64/lib/QtTest.framework/Headers",
+		"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1",
+		"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include",
+		"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include",
+		"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : false,
+	"MOC_PREDEFS_CMD" : [],
+	"MOC_PREDEFS_FILE" : "",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : [],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 2,
+	"PARSE_CACHE_FILE" : "/Users/coke/Desktop/dava.engine/Programs/Launcher/QtHelpers/CMakeFiles/QtHelpers_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "/Users/coke/Qt5.6.0/5.6/clang_64/bin/moc",
+	"QT_UIC_EXECUTABLE" : "",
+	"QT_VERSION_MAJOR" : 5,
+	"QT_VERSION_MINOR" : 6,
+	"SETTINGS_FILE" : "/Users/coke/Desktop/dava.engine/Programs/Launcher/QtHelpers/CMakeFiles/QtHelpers_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[
+			"/Users/coke/Desktop/dava.engine/Modules/QtHelpers/QtHelpers/Private/CrashDumpHandler.cpp",
+			"Mu"
+		],
+		[
+			"/Users/coke/Desktop/dava.engine/Modules/QtHelpers/QtHelpers/Private/HelperFunctions.cpp",
+			"Mu"
+		],
+		[
+			"/Users/coke/Desktop/dava.engine/Modules/QtHelpers/QtHelpers/Private/HelperFunctions.mm",
+			"Mu"
+		],
+		[
+			"/Users/coke/Desktop/dava.engine/Modules/QtHelpers/QtHelpers/Private/LauncherListener.cpp",
+			"Mu"
+		],
+		[
+			"/Users/coke/Desktop/dava.engine/Modules/QtHelpers/QtHelpers/Private/ProcessHelper.cpp",
+			"Mu"
+		],
+		[
+			"/Users/coke/Desktop/dava.engine/Modules/QtHelpers/QtHelpers/Private/RunGuard.cpp",
+			"Mu"
+		]
+	],
+	"VERBOSITY" : 0
+}

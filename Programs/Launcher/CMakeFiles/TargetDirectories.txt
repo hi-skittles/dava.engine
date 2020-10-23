@@ -1,0 +1,9 @@
+/Users/coke/Desktop/dava.engine/Programs/Launcher/CMakeFiles/rebuild_cache.dir
+/Users/coke/Desktop/dava.engine/Programs/Launcher/CMakeFiles/edit_cache.dir
+/Users/coke/Desktop/dava.engine/Programs/Launcher/CMakeFiles/FILE_TREE_CHECK.dir
+/Users/coke/Desktop/dava.engine/Programs/Launcher/CMakeFiles/Launcher.dir
+/Users/coke/Desktop/dava.engine/Programs/Launcher/CMakeFiles/Launcher_autogen.dir
+/Users/coke/Desktop/dava.engine/Programs/Launcher/QtHelpers/CMakeFiles/rebuild_cache.dir
+/Users/coke/Desktop/dava.engine/Programs/Launcher/QtHelpers/CMakeFiles/edit_cache.dir
+/Users/coke/Desktop/dava.engine/Programs/Launcher/QtHelpers/CMakeFiles/QtHelpers.dir
+/Users/coke/Desktop/dava.engine/Programs/Launcher/QtHelpers/CMakeFiles/QtHelpers_autogen.dir

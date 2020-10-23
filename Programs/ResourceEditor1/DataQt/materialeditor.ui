@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MaterialEditor</class>
+ <widget class="QDialog" name="MaterialEditor">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>925</width>
+    <height>638</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Material Editor</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="QtIcons.qrc">
+    <normaloff>:/QtIcons/materialeditor.png</normaloff>:/QtIcons/materialeditor.png</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0">
+   <property name="spacing">
+    <number>3</number>
+   </property>
+   <property name="margin">
+    <number>3</number>
+   </property>
+   <item>
+    <widget class="QToolBar" name="toolbar">
+     <property name="iconSize">
+      <size>
+       <width>16</width>
+       <height>16</height>
+      </size>
+     </property>
+     <addaction name="actionAddGlobalMaterial"/>
+     <addaction name="actionRemoveGlobalMaterial"/>
+     <addaction name="separator"/>
+     <addaction name="actionShowAll"/>
+     <addaction name="actionMaterialsInstances"/>
+     <addaction name="actionInstances"/>
+     <addaction name="separator"/>
+     <addaction name="actionAutoExpand"/>
+    </widget>
+   </item>
+   <item>
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="handleWidth">
+      <number>3</number>
+     </property>
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="MaterialTree" name="materialTree">
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="dragEnabled">
+          <bool>true</bool>
+         </property>
+         <property name="dragDropMode">
+          <enum>QAbstractItemView::DragDrop</enum>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::ExtendedSelection</enum>
+         </property>
+         <property name="sortingEnabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QFrame" name="frame_2">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>3</number>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="EditableTabBar" name="tabbar" native="true"/>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_3">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="spacing">
+           <number>2</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>1</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Template:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="templateBox">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>22</height>
+             </size>
+            </property>
+            <property name="maxVisibleItems">
+             <number>20</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="templateButton">
+            <property name="maximumSize">
+             <size>
+              <width>36</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="QtIcons.qrc">
+              <normaloff>:/QtIcons/cplus.png</normaloff>:/QtIcons/cplus.png</iconset>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QtPropertyEditor" name="materialProperty">
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOn</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+  <action name="actionAutoExpand">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="QtIcons.qrc">
+     <normaloff>:/QtIcons/expand_all.png</normaloff>:/QtIcons/expand_all.png</iconset>
+   </property>
+   <property name="text">
+    <string>autoExpand</string>
+   </property>
+   <property name="toolTip">
+    <string>Turn on/off automatin node expanding</string>
+   </property>
+  </action>
+  <action name="actionAddGlobalMaterial">
+   <property name="icon">
+    <iconset resource="QtIcons.qrc">
+     <normaloff>:/QtIcons/global_add.png</normaloff>:/QtIcons/global_add.png</iconset>
+   </property>
+   <property name="text">
+    <string>AddGlobalMaterial</string>
+   </property>
+   <property name="toolTip">
+    <string>Add Global Material</string>
+   </property>
+  </action>
+  <action name="actionRemoveGlobalMaterial">
+   <property name="icon">
+    <iconset resource="QtIcons.qrc">
+     <normaloff>:/QtIcons/global_delete.png</normaloff>:/QtIcons/global_delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>RemoveGlobalMaterial</string>
+   </property>
+   <property name="toolTip">
+    <string>Remove Global Material</string>
+   </property>
+  </action>
+  <action name="actionLoadMaterialPreset">
+   <property name="icon">
+    <iconset resource="QtIcons.qrc">
+     <normaloff>:/QtIcons/openscene.png</normaloff>:/QtIcons/openscene.png</iconset>
+   </property>
+   <property name="text">
+    <string>Load Material Preset...</string>
+   </property>
+   <property name="toolTip">
+    <string>Load Material Preset</string>
+   </property>
+  </action>
+  <action name="actionSaveMaterialPreset">
+   <property name="icon">
+    <iconset resource="QtIcons.qrc">
+     <normaloff>:/QtIcons/save_as.png</normaloff>:/QtIcons/save_as.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save All Configs</string>
+   </property>
+  </action>
+  <action name="actionSaveMaterialCurrentConfigPreset">
+   <property name="icon">
+    <iconset resource="QtIcons.qrc">
+     <normaloff>:/QtIcons/save_as.png</normaloff>:/QtIcons/save_as.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save Current Config</string>
+   </property>
+  </action>
+  <actiongroup name="filterType">
+   <action name="actionShowAll">
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="icon">
+     <iconset resource="QtIcons.qrc">
+      <normaloff>:/QtIcons/tree_view_all.png</normaloff>:/QtIcons/tree_view_all.png</iconset>
+    </property>
+    <property name="text">
+     <string>Show all</string>
+    </property>
+    <property name="toolTip">
+     <string>Shows all materials and instances</string>
+    </property>
+   </action>
+   <action name="actionMaterialsInstances">
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="icon">
+     <iconset resource="QtIcons.qrc">
+      <normaloff>:/QtIcons/tree_view_sel_childs.png</normaloff>:/QtIcons/tree_view_sel_childs.png</iconset>
+    </property>
+    <property name="text">
+     <string>Show Materials and Instances</string>
+    </property>
+    <property name="toolTip">
+     <string>Show all Materials and only selected Instances</string>
+    </property>
+   </action>
+   <action name="actionInstances">
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="icon">
+     <iconset resource="QtIcons.qrc">
+      <normaloff>:/QtIcons/tree_view_sel.png</normaloff>:/QtIcons/tree_view_sel.png</iconset>
+    </property>
+    <property name="text">
+     <string>Show Instances</string>
+    </property>
+    <property name="toolTip">
+     <string>Show only selected Materials and Instances</string>
+    </property>
+   </action>
+  </actiongroup>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QtPropertyEditor</class>
+   <extends>QTreeView</extends>
+   <header>Tools/QtPropertyEditor/QtPropertyEditor.h</header>
+  </customwidget>
+  <customwidget>
+   <class>MaterialTree</class>
+   <extends>QTreeView</extends>
+   <header>MaterialEditor/MaterialTree.h</header>
+  </customwidget>
+  <customwidget>
+   <class>EditableTabBar</class>
+   <extends>QTabBar</extends>
+   <header>QtTools/EditableTabBar/EditableTabBar.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="QtIcons.qrc"/>
+ </resources>
+ <connections/>
+</ui>

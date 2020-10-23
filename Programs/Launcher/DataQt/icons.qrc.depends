@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Icons/refresh.png</file>
+        <file>Icons/cancel.png</file>
+        <file>Icons/launcher.png</file>
+        <file>Icons/delete.png</file>
+        <file>Icons/download.png</file>
+        <file>Icons/run.png</file>
+        <file>Icons/ok.png</file>
+        <file>Icons/url.png</file>
+        <file>Icons/settings.png</file>
+        <file>Icons/openfolder.png</file>
+        <file>Icons/undo.png</file>
+        <file>Icons/copy.png</file>
+        <file>Icons/red.png</file>
+        <file>Icons/green.png</file>
+		<file>Icons/show_in_finder.png</file>
+		<file>Icons/recent.png</file>
+    </qresource>
+</RCC>

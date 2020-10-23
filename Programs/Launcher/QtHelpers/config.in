@@ -1,0 +1,17 @@
+QT_PATH           = /Users/coke/Qt5.6.0/5.6/clang_64
+
+ANDROID_KEY_STORE        = /Users/coke/Desktop/dava.engine/Sources/CMake/Resources/Android/DavaTest.keystore
+ANDROID_KEY_ALIAS        = test
+ANDROID_STORE_PASSWORD   = qazwsx
+ANDROID_ALIAS_PASSWORD   = qazwsx
+
+ANDROID_ANT              = 
+ANDROID_NDK              = 
+ANDROID_SDK              = 
+ANDROID_ABI              = armeabi-v7a
+ANDROID_NATIVE_API_LEVEL = 14
+ANDROID_TARGET_API_LEVEL = 25
+
+GLOBAL_UNITYIGNORE_FILES = /Users/coke/Desktop/dava.engine/dava.unityignore
+
+STEAM_SDK                = 

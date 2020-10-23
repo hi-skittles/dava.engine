@@ -1,0 +1,7 @@
+# Hashes of file build rules.
+cb0cd90692cab05894321700612e53ef CMakeFiles/FILE_TREE_CHECK
+b4cd077fba05da0f8b73de516599a9cc CMakeFiles/Launcher_autogen
+1c0502b1b30736b38b3bbbb017974b25 QtHelpers/CMakeFiles/QtHelpers_autogen
+1b00402634a458b7f180c093153ea5c9 qrc_icons.cpp
+70c5c46ee91fffa4ede55c3c7ce08850 ui_mainwindow.h
+92b66a6851f6136ae3b5847f53ee82e0 ui_preferencesdialog.h
