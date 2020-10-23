@@ -1,0 +1,74 @@
+Header:
+    version: "17"
+StyleSheets:
+-   selector: ".cell"
+    properties:
+        bg-color: [0.211765, 0.211765, 0.211765, 1.000000]
+-   selector: ".cell:selected"
+    properties:
+        bg-color: [0.811765, 0.388235, 0.219608, 1.000000]
+Controls:
+-   class: "UIListCell"
+    name: "Cell0"
+    position: [0.000000, 0.000000]
+    size: [308.000000, 67.000000]
+    classes: "cell"
+    components:
+        Anchor:
+            leftAnchorEnabled: true
+            rightAnchorEnabled: true
+        Background:
+            drawType: "DRAW_FILL"
+        UIDataSourceComponent:
+            dataFile: "~res:/UI/cellData.model"
+    children:
+    -   class: "UIStaticText"
+        name: "UIStaticText"
+        position: [10.000000, 17.000000]
+        size: [288.000000, 32.000000]
+        textcolorInheritType: "COLOR_IGNORE_PARENT"
+        textalign: ["LEFT", "VCENTER"]
+        font: "DejaVuSans_18"
+        components:
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 10.000000
+                rightAnchorEnabled: true
+                rightAnchor: 10.000000
+            UIDataSourceComponent: {}
+            UIDataBindingComponent0:
+                controlField: "UITextComponent.text"
+                expression: "name + \" (\" + str(id) + \")\""
+                updateMode: "Read"
+-   class: "UIListCell"
+    name: "Cell1"
+    position: [0.000000, 0.000000]
+    size: [308.000000, 67.000000]
+    classes: "cell"
+    components:
+        Anchor:
+            leftAnchorEnabled: true
+            rightAnchorEnabled: true
+        Background:
+            drawType: "DRAW_FILL"
+        UIDataSourceComponent:
+            dataFile: "~res:/UI/cellData.model"
+    children:
+    -   class: "UIStaticText"
+        name: "UIStaticText"
+        position: [10.000000, 17.000000]
+        size: [288.000000, 32.000000]
+        textcolorInheritType: "COLOR_IGNORE_PARENT"
+        textalign: ["RIGHT", "VCENTER"]
+        font: "DejaVuSans_18"
+        components:
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 10.000000
+                rightAnchorEnabled: true
+                rightAnchor: 10.000000
+            UIDataSourceComponent: {}
+            UIDataBindingComponent0:
+                controlField: "UITextComponent.text"
+                expression: "name + \" (\" + str(id) + \")\""
+                updateMode: "Read"

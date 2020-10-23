@@ -1,0 +1,8 @@
+INVALID DEFINE NAME
+
+#define AAA 1
+fatal error here
+#define 1AA 11
+
+
+last

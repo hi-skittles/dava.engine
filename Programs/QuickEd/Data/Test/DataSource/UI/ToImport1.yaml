@@ -1,0 +1,11 @@
+Header:
+    version: "11"
+Controls:
+-   class: "UIControl"
+    name: "UIControl"
+    position: [0.000000, 0.000000]
+    size: [389.000000, 93.000000]
+    components:
+        Background:
+            drawType: "DRAW_FILL"
+            color: [0.282353, 1.000000, 0.062745, 1.000000]

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="DAVA::ReflectedObject">
+    <DisplayString>{{ptr={ptr}, type={reflectedType->type->name, na}*}}</DisplayString>
+  </Type>
+  <Type Name="DAVA::ReflectedType">
+    <DisplayString>{{type={type}}}</DisplayString>
+  </Type>
+  <Type Name="DAVA::Reflection::Field">
+    <DisplayString>{{key={key}, ref={ref}}}</DisplayString>
+  </Type>
+</AutoVisualizer>

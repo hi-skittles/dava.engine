@@ -1,0 +1,9 @@
+#include "UnitTests/UnitTests.h"
+
+DAVA_TESTCLASS($UNITTEST_CLASSNAME$)
+{
+    DAVA_TEST(TestFunction)
+    {
+        TEST_VERIFY(false);
+    }
+};

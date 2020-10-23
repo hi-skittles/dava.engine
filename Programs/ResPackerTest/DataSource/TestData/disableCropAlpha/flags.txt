@@ -1,0 +1,1 @@
+--disableCropAlpha --adreno ETC1 --mali ETC1 --tegra DXT1 --PowerVR_Android PVR4 --PowerVR_iOS PVR4

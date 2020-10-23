@@ -1,0 +1,23 @@
+Header:
+    version: "1"
+ProjectProperties:
+    ResourceDirectory: "./DataSource/"
+    AdditionalResourceDirectory: "./Data/"
+    IntermediateResourceDirectory: "./Data/"
+    UiDirectory: "./UI/"
+    FontsDirectory: "./Fonts/"
+    FontsConfigsDirectory: "./UI/Fonts/"
+    TextsDirectory: "./Strings/"
+    DefaultLanguage: "en"
+    GfxDirectories:
+    -   directory: "./Gfx/"
+        resolution: [1024, 768]
+    Library: []
+    Blanks:
+    -   {name: "empty", pathToYaml: "~res:/UI/Empty.yaml", control: "Root", path: ""}
+    -   {name: "flow", pathToYaml: "~res:/UI/Flow/FlowBlank.yaml", control: "Root", path: ""}
+    Devices:
+    -   {name: "iphone4_ru", screenSize: [320, 240], virtualScreenSize: [640, 480], lang: "ru", rtl: false}
+    -   {name: "iphone5_ar", screenSize: [640, 480], virtualScreenSize: [320, 240], lang: "ar", rtl: true}
+    -   {name: "iPad", screenSize: [1024, 768]}
+    -   {name: "default", screenSize: [1024, 768]}

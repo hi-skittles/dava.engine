@@ -1,0 +1,28 @@
+set(MODULE_NAME SceneQuery)
+set(MODULE_TYPE STATIC)#INLINE STATIC DYNAMIC 
+
+get_filename_component(PhysXRoot "${CMAKE_CURRENT_SOURCE_DIR}/../../" ABSOLUTE)
+set(HPP_FILES_RECURSE *.h *.hpp)
+set(CPP_FILES ${PhysXRoot}/Source/SceneQuery/src/SqAABBPruner.cpp
+              ${PhysXRoot}/Source/SceneQuery/src/SqAABBTree.cpp
+              ${PhysXRoot}/Source/SceneQuery/src/SqAABBTreeUpdateMap.cpp
+              ${PhysXRoot}/Source/SceneQuery/src/SqBounds.cpp
+              ${PhysXRoot}/Source/SceneQuery/src/SqBucketPruner.cpp
+              ${PhysXRoot}/Source/SceneQuery/src/SqExtendedBucketPruner.cpp
+              ${PhysXRoot}/Source/SceneQuery/src/SqMetaData.cpp
+              ${PhysXRoot}/Source/SceneQuery/src/SqPruningPool.cpp
+              ${PhysXRoot}/Source/SceneQuery/src/SqPruningStructure.cpp
+              ${PhysXRoot}/Source/SceneQuery/src/SqSceneQueryManager.cpp)
+
+set(DEBUG_POSTFIX "DEBUG")
+set(CHECKED_POSTFIX "CHECKED")
+set(PROFILE_POSTFIX "PROFILE")
+set(RELEASE_POSTFIX "")
+
+set(INCLUDES_PRIVATE "${PhysXRoot}/Source/SceneQuery/include"
+                     "${PhysXRoot}/Source/SimulationController/include"
+                     "${PhysXRoot}/Source/LowLevel/API/include"
+                     "${PhysXRoot}/Source/PhysX/src"
+                     "${PhysXRoot}/Source/PhysX/src/buffering")
+
+setup_main_module()

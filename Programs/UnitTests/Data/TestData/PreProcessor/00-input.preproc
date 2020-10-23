@@ -1,0 +1,19 @@
+BASIC DEFINE/INCLUDE TEST 
+
+first
+second
+#define SOMETHING 7 
+#define LIFE 42 
+third
+
+simple-if 0
+
+#if LIFE == 5
+  unexpected text (if LIFE == 5) 
+#endif
+
+#if LIFE != 5
+  expected text (if LIFE != 5) 
+#endif
+
+last

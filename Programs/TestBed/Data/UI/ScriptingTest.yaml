@@ -1,0 +1,312 @@
+Header:
+    version: "4"
+Controls:
+-   class: "UIControl"
+    name: "MainFrame"
+    position: [0.000000, 0.000000]
+    size: [734.000000, 543.000000]
+    components:
+        Anchor:
+            leftAnchorEnabled: true
+            leftAnchor: 10.000000
+            rightAnchorEnabled: true
+            rightAnchor: 10.000000
+            topAnchorEnabled: true
+            topAnchor: 10.000000
+            bottomAnchorEnabled: true
+            bottomAnchor: 10.000000
+        UIShortcutEventComponent:
+            shortcuts: "LOAD_SCRIPT; RUN_MAIN; RESET_SCRIPT; RUN_10000; RUN_MAIN_NOARGS; RUN_10000_NOARGS; DUMP_STACK"
+        Focus: {}
+    children:
+    -   class: "UITextField"
+        name: "ScriptText"
+        position: [0.000000, 0.000000]
+        size: [513.799988, 380.100006]
+        debugDraw: true
+        text: "demo_text"
+        font: "DroidSansMono_18"
+        textalign: ["LEFT", "TOP"]
+        isMultiline: true
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                horizontalValue: 70.000000
+                verticalPolicy: "PercentOfParent"
+                verticalValue: 70.000000
+            Anchor:
+                leftAnchorEnabled: true
+                topAnchorEnabled: true
+            Focus: {}
+    -   class: "UIStaticText"
+        name: "OutputText"
+        position: [0.000000, 390.960022]
+        size: [513.799988, 152.039993]
+        debugDraw: true
+        multiline: "MULTILINE_ENABLED"
+        textalign: ["LEFT", "TOP"]
+        text: "output text"
+        font: "DroidSansMono_18"
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                horizontalValue: 70.000000
+                verticalPolicy: "PercentOfParent"
+                verticalValue: 28.000000
+            Anchor:
+                leftAnchorEnabled: true
+                bottomAnchorEnabled: true
+    -   class: "UIStaticText"
+        name: "LoadScriptBtn"
+        position: [528.479980, 0.000000]
+        size: [205.520004, 38.000000]
+        noInput: false
+        debugDraw: true
+        text: "Execute string"
+        font: "Korinna_18"
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                horizontalValue: 28.000000
+            Anchor:
+                rightAnchorEnabled: true
+            UIInputEventComponent:
+                onTouchUpInside: "LOAD_SCRIPT"
+    -   class: "UIStaticText"
+        name: "RunMainBtn"
+        position: [528.479980, 43.000000]
+        size: [205.520004, 38.000000]
+        noInput: false
+        debugDraw: true
+        text: "Call main(...)"
+        font: "Korinna_18"
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                horizontalValue: 28.000000
+            Anchor:
+                rightAnchorEnabled: true
+            UIInputEventComponent:
+                onTouchUpInside: "RUN_MAIN"
+    -   class: "UIStaticText"
+        name: "ResetScriptBtn"
+        position: [528.479980, 214.050003]
+        size: [205.520004, 38.000000]
+        noInput: false
+        debugDraw: true
+        text: "Recreate script state"
+        font: "Korinna_18"
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                horizontalValue: 28.000000
+            Anchor:
+                rightAnchorEnabled: true
+            UIInputEventComponent:
+                onTouchUpInside: "RESET_SCRIPT"
+    -   class: "UIStaticText"
+        name: "RunMainMultBtn"
+        position: [528.479980, 129.000000]
+        size: [205.520004, 38.000000]
+        noInput: false
+        debugDraw: true
+        text: "Call main(...) 10k"
+        font: "Korinna_18"
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                horizontalValue: 28.000000
+            Anchor:
+                rightAnchorEnabled: true
+            UIInputEventComponent:
+                onTouchUpInside: "RUN_10000"
+    -   class: "UIStaticText"
+        name: "TimeText"
+        position: [528.479980, 317.000000]
+        size: [205.520004, 38.000000]
+        debugDraw: false
+        text: "Time: 0ns"
+        font: "Korinna_18"
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                horizontalValue: 28.000000
+            Anchor:
+                rightAnchorEnabled: true
+    -   class: "UIStaticText"
+        name: "UIStaticText"
+        position: [550.500000, 373.500000]
+        size: [183.500000, 38.000000]
+        debugDraw: false
+        textalign: ["LEFT", "VCENTER"]
+        text: "Arguments:"
+        font: "Korinna_18"
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                horizontalValue: 25.000000
+            Anchor:
+                rightAnchorEnabled: true
+    -   class: "UIControl"
+        name: "UIControl"
+        position: [528.479980, 416.500000]
+        size: [205.520004, 38.000000]
+        debugDraw: true
+        components:
+            LinearLayout: {}
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                horizontalValue: 28.000000
+                verticalPolicy: "PercentOfMaxChild"
+            Anchor:
+                rightAnchorEnabled: true
+        children:
+        -   class: "UIStaticText"
+            name: "UIStaticText"
+            position: [0.000000, 0.000000]
+            size: [28.000000, 38.000000]
+            debugDraw: false
+            textalign: ["LEFT", "VCENTER"]
+            text: "int:"
+            font: "Korinna_18"
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfContent"
+                    horizontalValue: 100.000000
+                Anchor:
+                    leftAnchorEnabled: true
+                    rightAnchorEnabled: false
+        -   class: "UITextField"
+            name: "IntArgText"
+            position: [28.000000, 0.000000]
+            size: [177.520004, 38.000000]
+            debugDraw: true
+            text: "999"
+            font: "DroidSansMono_18"
+            textalign: ["HCENTER", "VCENTER"]
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                Anchor:
+                    rightAnchorEnabled: true
+                Focus: {}
+    -   class: "UIControl"
+        name: "UIControl"
+        position: [528.479980, 459.500000]
+        size: [205.520004, 38.000000]
+        debugDraw: true
+        components:
+            LinearLayout: {}
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                horizontalValue: 28.000000
+                verticalPolicy: "PercentOfMaxChild"
+            Anchor:
+                rightAnchorEnabled: true
+        children:
+        -   class: "UIStaticText"
+            name: "UIStaticText"
+            position: [0.000000, 0.000000]
+            size: [29.000000, 38.000000]
+            debugDraw: false
+            textalign: ["LEFT", "VCENTER"]
+            text: "str:"
+            font: "Korinna_18"
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfContent"
+                    horizontalValue: 100.000000
+                Anchor:
+                    leftAnchorEnabled: true
+                    rightAnchorEnabled: false
+        -   class: "UITextField"
+            name: "StrArgText"
+            position: [29.000000, 0.000000]
+            size: [176.520004, 38.000000]
+            debugDraw: true
+            text: "string"
+            font: "DroidSansMono_18"
+            textalign: ["HCENTER", "VCENTER"]
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                Anchor:
+                    rightAnchorEnabled: true
+                Focus: {}
+    -   class: "UIControl"
+        name: "UIControl"
+        position: [528.479980, 502.500000]
+        size: [205.520004, 38.000000]
+        debugDraw: true
+        components:
+            LinearLayout: {}
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                horizontalValue: 28.000000
+                verticalPolicy: "PercentOfMaxChild"
+            Anchor:
+                rightAnchorEnabled: true
+        children:
+        -   class: "UIStaticText"
+            name: "UIStaticText"
+            position: [0.000000, 0.000000]
+            size: [205.520004, 38.000000]
+            debugDraw: false
+            textalign: ["LEFT", "VCENTER"]
+            text: "ref: DemoObj"
+            font: "Korinna_18"
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                    horizontalValue: 100.000000
+                Anchor:
+                    leftAnchorEnabled: true
+                    rightAnchorEnabled: false
+    -   class: "UIStaticText"
+        name: "RunMainBtn"
+        position: [528.479980, 86.000000]
+        size: [205.520004, 38.000000]
+        noInput: false
+        debugDraw: true
+        text: "Call main()"
+        font: "Korinna_18"
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                horizontalValue: 28.000000
+            Anchor:
+                rightAnchorEnabled: true
+            UIInputEventComponent:
+                onTouchUpInside: "RUN_MAIN_NOARGS"
+    -   class: "UIStaticText"
+        name: "RunMainMultBtn"
+        position: [528.479980, 171.050003]
+        size: [205.520004, 38.000000]
+        noInput: false
+        debugDraw: true
+        text: "Call main() 10k"
+        font: "Korinna_18"
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                horizontalValue: 28.000000
+            Anchor:
+                rightAnchorEnabled: true
+            UIInputEventComponent:
+                onTouchUpInside: "RUN_10000_NOARGS"
+    -   class: "UIStaticText"
+        name: "ResetScriptBtn"
+        position: [528.479980, 257.049988]
+        size: [205.520004, 38.000000]
+        noInput: false
+        debugDraw: true
+        text: "Dump stack to log"
+        font: "Korinna_18"
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                horizontalValue: 28.000000
+            Anchor:
+                rightAnchorEnabled: true
+            UIInputEventComponent:
+                onTouchUpInside: "DUMP_STACK"

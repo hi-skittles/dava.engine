@@ -1,0 +1,195 @@
+Header:
+    version: "19"
+Controls:
+-   class: "UIControl"
+    name: "Main"
+    size: [32.000000, 32.000000]
+    components:
+        UIFlowStateComponent:
+            services: "flow,UIFlowSystemService;"
+            activateEvents: "MAIN_ACTIVATED;"
+            deactivateEvents: "MAIN_DEACTIVATED;"
+        UIFlowTransitionComponent:
+            transitions: "STATE1,Activate,./**/State1;STATE2,Activate,./**/State2;BASIC_GROUP,Activate,./BasicGroup;SUBSTATE,Activate,./SubState;SUBSTATE_OFF,Deactivate,./SubState;FWD_STATE1,SendEvent,STATE1;STATE2_BG,ActivateBackground,./**/State2;BACK,HistoryBack,@;"
+    children:
+    -   class: "UIControl"
+        name: "DefaultState"
+        size: [32.000000, 32.000000]
+        components:
+            UIFlowStateComponent:
+                stateType: "Single"
+                historyType: "Single"
+    -   class: "UIControl"
+        name: "BasicGroup"
+        size: [32.000000, 32.000000]
+        components:
+            UIFlowStateComponent: {}
+        children:
+        -   class: "UIControl"
+            name: "State1"
+            size: [32.000000, 32.000000]
+            components:
+                UIFlowStateComponent:
+                    stateType: "Single"
+                    historyType: "Single"
+                UIFlowViewComponent:
+                    viewYaml: "~res:/UI/Flow/View1.yaml"
+                    controlName: "View1"
+                    containerPath: "**/FlowRoot/Content"
+        -   class: "UIControl"
+            name: "State2"
+            size: [32.000000, 32.000000]
+            components:
+                UIFlowStateComponent:
+                    stateType: "Single"
+                    historyType: "Single"
+                UIFlowViewComponent:
+                    viewYaml: "~res:/UI/Flow/View2.yaml"
+    -   class: "UIControl"
+        name: "HistoryTests"
+        size: [32.000000, 32.000000]
+        components:
+            UIFlowStateComponent: {}
+        children:
+        -   class: "UIControl"
+            name: "Sibling1"
+            size: [32.000000, 32.000000]
+            components:
+                UIFlowStateComponent:
+                    stateType: "Single"
+                    historyType: "SingleSibling"
+        -   class: "UIControl"
+            name: "Sibling2"
+            size: [32.000000, 32.000000]
+            components:
+                UIFlowStateComponent:
+                    stateType: "Single"
+                    historyType: "SingleSibling"
+        -   class: "UIControl"
+            name: "StateTop"
+            size: [32.000000, 32.000000]
+            components:
+                UIFlowStateComponent:
+                    stateType: "Single"
+                    historyType: "OnlyTop"
+    -   class: "UIControl"
+        name: "CtrlTests"
+        size: [32.000000, 32.000000]
+        components:
+            UIFlowStateComponent: {}
+        children:
+        -   class: "UIControl"
+            name: "LuaCtrlTest"
+            size: [32.000000, 32.000000]
+            components:
+                UIFlowControllerComponent:
+                    luaScriptPath: "~res:/UI/Flow/Lua/MainController.lua"
+                UIFlowStateComponent:
+                    stateType: "Single"
+                    historyType: "Single"
+        -   class: "UIControl"
+            name: "NativeCtrlTest"
+            size: [32.000000, 32.000000]
+            components:
+                UIFlowControllerComponent:
+                    reflectionTypeName: "DemoFlowController"
+                UIFlowStateComponent:
+                    stateType: "Single"
+                    historyType: "Single"
+    -   class: "UIControl"
+        name: "SubState"
+        size: [32.000000, 32.000000]
+        components:
+            UIFlowStateComponent:
+                stateType: "Multiple"
+                historyType: "OnlyTop"
+    -   class: "UIControl"
+        name: "Effects"
+        size: [32.000000, 32.000000]
+        components:
+            UIFlowStateComponent: {}
+        children:
+        -   class: "UIControl"
+            name: "Static"
+            size: [32.000000, 32.000000]
+            components:
+                UIFlowStateComponent:
+                    stateType: "Single"
+                    historyType: "Single"
+                    effectOut: "Static"
+                    effectIn: "Static"
+                    effectDuration: 0.100000
+                UIFlowViewComponent:
+                    viewYaml: "~res:/UI/Flow/View1.yaml"
+        -   class: "UIControl"
+            name: "FadeAlpha"
+            size: [32.000000, 32.000000]
+            components:
+                UIFlowStateComponent:
+                    stateType: "Single"
+                    historyType: "Single"
+                    effectOut: "FadeAlpha"
+                    effectIn: "FadeAlpha"
+                    effectDuration: 0.100000
+                UIFlowViewComponent:
+                    viewYaml: "~res:/UI/Flow/View1.yaml"
+        -   class: "UIControl"
+            name: "Fade"
+            size: [32.000000, 32.000000]
+            components:
+                UIFlowStateComponent:
+                    stateType: "Single"
+                    historyType: "Single"
+                    effectOut: "Fade"
+                    effectIn: "Fade"
+                    effectDuration: 0.100000
+                UIFlowViewComponent:
+                    viewYaml: "~res:/UI/Flow/View1.yaml"
+        -   class: "UIControl"
+            name: "Scale"
+            size: [32.000000, 32.000000]
+            components:
+                UIFlowStateComponent:
+                    stateType: "Single"
+                    historyType: "Single"
+                    effectOut: "Scale"
+                    effectIn: "Scale"
+                    effectDuration: 0.100000
+                UIFlowViewComponent:
+                    viewYaml: "~res:/UI/Flow/View1.yaml"
+        -   class: "UIControl"
+            name: "Flip"
+            size: [32.000000, 32.000000]
+            components:
+                UIFlowStateComponent:
+                    stateType: "Single"
+                    historyType: "Single"
+                    effectOut: "Flip"
+                    effectIn: "Flip"
+                    effectDuration: 0.100000
+                UIFlowViewComponent:
+                    viewYaml: "~res:/UI/Flow/View1.yaml"
+        -   class: "UIControl"
+            name: "MoveLeft"
+            size: [32.000000, 32.000000]
+            components:
+                UIFlowStateComponent:
+                    stateType: "Single"
+                    historyType: "Single"
+                    effectOut: "MoveLeft"
+                    effectIn: "MoveLeft"
+                    effectDuration: 0.100000
+                UIFlowViewComponent:
+                    viewYaml: "~res:/UI/Flow/View1.yaml"
+        -   class: "UIControl"
+            name: "MoveRight"
+            size: [32.000000, 32.000000]
+            components:
+                UIFlowStateComponent:
+                    stateType: "Single"
+                    historyType: "Single"
+                    effectOut: "MoveRight"
+                    effectIn: "MoveRight"
+                    effectDuration: 0.100000
+                UIFlowViewComponent:
+                    viewYaml: "~res:/UI/Flow/View1.yaml"

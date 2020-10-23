@@ -1,0 +1,7 @@
+ENDIF IN INCLUDED FILE
+
+#define AAA 55
+{
+#include "CC03-included-1.preproc"
+}
+last

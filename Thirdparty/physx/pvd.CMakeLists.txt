@@ -1,0 +1,23 @@
+set(MODULE_NAME PxPvdSDK)
+set(MODULE_TYPE STATIC)#INLINE STATIC DYNAMIC 
+
+get_filename_component(PhysXRoot "${CMAKE_CURRENT_SOURCE_DIR}/../../../" ABSOLUTE)
+set(HPP_FILES_RECURSE *.h *.hpp)
+set(CPP_FILES ${PhysXRoot}/PxShared/src/pvd/src/PxProfileEventImpl.cpp
+              ${PhysXRoot}/PxShared/src/pvd/src/PxPvd.cpp
+              ${PhysXRoot}/PxShared/src/pvd/src/PxPvdDataStream.cpp
+              ${PhysXRoot}/PxShared/src/pvd/src/PxPvdDefaultFileTransport.cpp
+              ${PhysXRoot}/PxShared/src/pvd/src/PxPvdDefaultSocketTransport.cpp
+              ${PhysXRoot}/PxShared/src/pvd/src/PxPvdImpl.cpp
+              ${PhysXRoot}/PxShared/src/pvd/src/PxPvdMemClient.cpp
+              ${PhysXRoot}/PxShared/src/pvd/src/PxPvdObjectModelMetaData.cpp
+              ${PhysXRoot}/PxShared/src/pvd/src/PxPvdObjectRegistrar.cpp
+              ${PhysXRoot}/PxShared/src/pvd/src/PxPvdProfileZoneClient.cpp
+              ${PhysXRoot}/PxShared/src/pvd/src/PxPvdUserRenderer.cpp)
+
+set(DEBUG_POSTFIX "DEBUG")
+set(CHECKED_POSTFIX "CHECKED")
+set(PROFILE_POSTFIX "PROFILE")
+set(RELEASE_POSTFIX "")
+
+setup_main_module()

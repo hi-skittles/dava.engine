@@ -1,0 +1,25 @@
+RenderTechnique:
+    Layers: ["ShadowVolumeRenderLayer"]
+    RenderPass:
+        Name: "ForwardPass"
+        Shader: "~res:/Materials/Shaders/ShadowVolume/shadowvolume"
+        RenderState:
+            alphaFunc: "CMP_ALWAYS"
+            alphaFuncCmpValue: 0.0000
+            blendDest: "BLEND_ZERO"
+            blendSrc: "BLEND_ONE"
+            cullMode: "FACE_BACK"
+            depthFunc: "CMP_LEQUAL"
+            fillMode: "FILLMODE_SOLID"
+            state: "STATE_DEPTH_TEST | STATE_STENCIL_TEST"
+            stencil:
+                failBack: "STENCILOP_KEEP"
+                failFront: "STENCILOP_KEEP"
+                funcBack: "CMP_ALWAYS"
+                funcFront: "CMP_ALWAYS"
+                mask: 15
+                passBack: "STENCILOP_KEEP"
+                passFront: "STENCILOP_KEEP"
+                ref: 1
+                zFailBack: "STENCILOP_INCR_WRAP"
+                zFailFront: "STENCILOP_DECR_WRAP"

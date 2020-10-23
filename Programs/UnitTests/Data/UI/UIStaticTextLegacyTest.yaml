@@ -1,0 +1,19 @@
+Header:
+    version: "17"
+Controls:
+-   class: "UIStaticText"
+    name: "UIStaticTextSample"
+    position: [0.000000, 0.000000]
+    size: [499.000000, 157.000000]
+    textColor: [1.000000, 0.000000, 0.000000, 1.000000]
+    textcolorInheritType: "COLOR_IGNORE_PARENT"
+    textperPixelAccuracyType: "PER_PIXEL_ACCURACY_FORCED"
+    shadowoffset: [5.000000, 5.000000]
+    shadowcolor: [0.000000, 0.000000, 1.000000, 1.000000]
+    multiline: "MULTILINE_ENABLED"
+    fitting: ["ENLARGE", "REDUCE"]
+    textalign: ["HCENTER", "BOTTOM"]
+    textUseRtlAlign: "USE_BY_CONTENT"
+    text: "Test text"
+    font: "Korinna_18"
+    forceBiDiSupport: true

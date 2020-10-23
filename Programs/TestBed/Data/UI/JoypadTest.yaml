@@ -1,0 +1,241 @@
+Header:
+    version: "19"
+StyleSheets:
+-   selector: ".hoverOn"
+    properties:
+        bg-drawType: "DRAW_FILL"
+        bg-color: [0.666667, 1.000000, 1.000000, 0.686275]
+-   selector: ".touchDown"
+    properties:
+        bg-drawType: "DRAW_FILL"
+        bg-color: [0.000000, 0.000000, 0.498039, 1.000000]
+Controls:
+-   class: "UIControl"
+    name: "GlobalBase"
+    position: [0.000000, 0.000000]
+    size: [780.000000, 686.000000]
+    components:
+        Anchor:
+            leftAnchorEnabled: true
+            bottomAnchorEnabled: true
+            bottomAnchor: 30.000000
+    children:
+    -   class: "UIControl"
+        name: "JoypadBase"
+        position: [26.000000, 364.000000]
+        size: [413.000000, 312.000000]
+        components:
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 26.000000
+                bottomAnchorEnabled: true
+                bottomAnchor: 10.000000
+            DebugRender: {}
+            UIJoypadComponent:
+                stickAreaControlPath: "StickArea"
+                stickArmControlPath: "StickArm"
+                stickArrowControlPath: "StickArrow"
+                stickAreaRadius: 82.000000
+                isActive: false
+                isDynamic: true
+        children:
+        -   class: "UIControl"
+            name: "StickArm"
+            position: [100.000000, 100.000000]
+            size: [50.000000, 50.000000]
+            components:
+                Background:
+                    drawType: "DRAW_SCALE_TO_RECT"
+                    sprite: ""
+                    perPixelAccuracy: "PER_PIXEL_ACCURACY_FORCED"
+        -   class: "UIControl"
+            name: "StickArea"
+            position: [100.000000, 100.000000]
+            size: [200.000000, 200.000000]
+            components:
+                Background:
+                    drawType: "DRAW_SCALE_TO_RECT"
+                    sprite: ""
+                    perPixelAccuracy: "PER_PIXEL_ACCURACY_FORCED"
+        -   class: "UIControl"
+            name: "StickArrow"
+            position: [100.000000, 100.000000]
+            size: [255.000000, 255.000000]
+            components:
+                Background:
+                    drawType: "DRAW_SCALE_TO_RECT"
+                    sprite: ""
+                    perPixelAccuracy: "PER_PIXEL_ACCURACY_FORCED"
+    -   class: "UIControl"
+        name: "StuffBase"
+        position: [444.000000, 306.000000]
+        size: [318.000000, 300.000000]
+        children:
+        -   class: "UIStaticText"
+            name: "BtnToggleVisibility"
+            position: [26.000000, 85.000000]
+            size: [271.000000, 28.000000]
+            noInput: false
+            components:
+                Background: {}
+                UIInputEventComponent:
+                    onTouchDown: "TouchDown"
+                    onTouchUpInside: "TouchUpIn"
+                    onTouchUpOutside: "TouchUpOut"
+                    onHoverSet: "HoverOn"
+                    onHoverRemoved: "HoverOff"
+                DebugRender:
+                    drawColor: [0.000000, 1.000000, 0.000000, 1.000000]
+                UITextComponent:
+                    text: "Toggle visibility (KB_V) [ON]"
+                    fontName: "Korinna_18"
+                    color: [1.000000, 1.000000, 1.000000, 1.000000]
+        -   class: "UIStaticText"
+            name: "BtnToggleDynamic"
+            position: [26.000000, 131.000000]
+            size: [271.000000, 28.000000]
+            enabled: true
+            noInput: false
+            components:
+                Background: {}
+                UIInputEventComponent:
+                    onTouchDown: "TouchDown"
+                    onTouchUpInside: "TouchUpIn"
+                    onTouchUpOutside: "TouchUpOut"
+                    onHoverSet: "HoverOn"
+                    onHoverRemoved: "HoverOff"
+                DebugRender:
+                    drawColor: [0.000000, 1.000000, 0.000000, 1.000000]
+                UITextComponent:
+                    text: "Toggle dynamic (KB_D) [ON]"
+                    fontName: "Korinna_18"
+        -   class: "UIStaticText"
+            name: "BtnToggleStickArea"
+            position: [26.000000, 177.000000]
+            size: [271.000000, 28.000000]
+            noInput: false
+            components:
+                Background: {}
+                UIInputEventComponent:
+                    onTouchDown: "TouchDown"
+                    onTouchUpInside: "TouchUpIn"
+                    onTouchUpOutside: "TouchUpOut"
+                    onHoverSet: "HoverOn"
+                    onHoverRemoved: "HoverOff"
+                DebugRender:
+                    drawColor: [0.000000, 1.000000, 0.000000, 1.000000]
+                UITextComponent:
+                    text: "Toggle area (KB_A) [ON]"
+                    fontName: "Korinna_18"
+        -   class: "UIStaticText"
+            name: "BtnToggleStickArm"
+            position: [26.000000, 222.000000]
+            size: [271.000000, 28.000000]
+            noInput: false
+            components:
+                Background: {}
+                UIInputEventComponent:
+                    onTouchDown: "TouchDown"
+                    onTouchUpInside: "TouchUpIn"
+                    onTouchUpOutside: "TouchUpOut"
+                    onHoverSet: "HoverOn"
+                    onHoverRemoved: "HoverOff"
+                DebugRender:
+                    drawColor: [0.000000, 1.000000, 0.000000, 1.000000]
+                UITextComponent:
+                    text: "Toggle arm (KB_M) [ON]"
+                    fontName: "Korinna_18"
+        -   class: "UIStaticText"
+            name: "BtnToggleStickArrow"
+            position: [26.000000, 268.000000]
+            size: [271.000000, 28.000000]
+            noInput: false
+            components:
+                Background: {}
+                UIInputEventComponent:
+                    onTouchDown: "TouchDown"
+                    onTouchUpInside: "TouchUpIn"
+                    onTouchUpOutside: "TouchUpOut"
+                    onHoverSet: "HoverOn"
+                    onHoverRemoved: "HoverOff"
+                DebugRender:
+                    drawColor: [0.000000, 1.000000, 0.000000, 1.000000]
+                UITextComponent:
+                    text: "Toggle arrow (KB_W) [ON]"
+                    fontName: "Korinna_18"
+        -   class: "UIStaticText"
+            name: "BtnSetRadius"
+            position: [26.000000, 16.000000]
+            size: [271.000000, 28.000000]
+            noInput: false
+            components:
+                Background: {}
+                UIInputEventComponent:
+                    onTouchDown: "TouchDown"
+                    onTouchUpInside: "TouchUpIn"
+                    onTouchUpOutside: "TouchUpOut"
+                    onHoverSet: "HoverOn"
+                    onHoverRemoved: "HoverOff"
+                DebugRender:
+                    drawColor: [0.000000, 1.000000, 0.000000, 1.000000]
+                UITextComponent:
+                    text: "Set radius (KB_ENTER)"
+                    fontName: "Korinna_18"
+    -   class: "UIControl"
+        name: "CancelZone"
+        position: [195.000000, 210.000000]
+        size: [81.000000, 77.000000]
+        selected: false
+        components:
+            DebugRender: {}
+    -   class: "UIStaticText"
+        name: "UIStaticText"
+        position: [26.000000, 287.000000]
+        size: [134.000000, 32.000000]
+        components:
+            UITextComponent:
+                text: "Coords:"
+                fontName: "Font_18"
+    -   class: "UITextField"
+        name: "Radius"
+        position: [304.000000, 319.000000]
+        size: [135.000000, 32.000000]
+        text: ""
+        font: "Korinna_18"
+        components:
+            Focus: {}
+            DebugRender: {}
+    -   class: "UIStaticText"
+        name: "UIStaticText_1"
+        position: [173.000000, 172.000000]
+        size: [126.000000, 32.000000]
+        components:
+            UITextComponent:
+                text: "Cancel zone:"
+                fontName: "Font_18"
+    -   class: "UIControl"
+        name: "Coords"
+        position: [26.000000, 319.000000]
+        size: [134.000000, 28.000000]
+        components:
+            DebugRender: {}
+            UITextComponent:
+                text: "0.00, 0.00"
+                fontName: "Font_18"
+    -   class: "UIStaticText"
+        name: "UIStaticText_2"
+        position: [304.000000, 287.000000]
+        size: [135.000000, 32.000000]
+        components:
+            UITextComponent:
+                text: "Cancel radius:"
+                fontName: "Font_18"
+CustomData:
+    Guides:
+        GlobalBase:
+            Vertical:
+            - 26.000000
+            - 160.000000
+            - 470.000000
+            Horizontal:
+            - 319.000000

@@ -1,0 +1,22 @@
+IF-ELSE
+
+
+  expected
+  aa 1
+  aa 2
+
+simple-if 2
+
+  expected
+  sss x.1
+  sss x.2
+
+  expected
+  life ie.bb 2
+  life ie.bb 2
+
+  expected
+  life ie.bbb 2
+  life ie.bbb 2
+
+last

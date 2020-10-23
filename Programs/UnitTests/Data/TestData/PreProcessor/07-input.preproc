@@ -1,0 +1,42 @@
+NESTED IF/ELSE
+
+#define GLOBAL_A 1
+#define GLOBAL_B 2
+
+#define LOCAL_11 11
+#define LOCAL_22 22
+#define LOCAL_33 33
+
+
+#define GLOBAL  GLOBAL_B
+#define LOCAL   LOCAL_22
+
+---------------
+#if GLOBAL == GLOBAL_A
+  a
+    #if LOCAL == LOCAL_11
+    a.11
+    #elif LOCAL == LOCAL_22
+    a.22
+    #elif LOCAL == LOCAL_33
+    a.33
+    #else
+    a.xx
+    #endif
+
+#else
+  b
+    #if LOCAL == LOCAL_11
+    b.11
+    #elif LOCAL == LOCAL_22
+    b.22
+    #elif LOCAL == LOCAL_33
+    b.33
+    #else
+    b.xx
+    #endif
+
+#endif
+---------------
+
+last

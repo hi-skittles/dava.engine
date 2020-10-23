@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>DAVA coverage</title>
+  <link rel="stylesheet" type="text/css" href="CoverageFull/gcov.css">
+</head>
+
+<body>
+
+    <br>
+
+    <table width="100%" border=0 cellspacing=0 cellpadding=0>
+      <tr><td class="ruler"><img src="CoverageFull/glass.png" width=3 height=3 alt=""></td></tr>      
+      <tr><td class="title">$full_title</td></tr>
+      <tr><td class="ruler"><img src="CoverageFull/glass.png" width=3 height=3 alt=""></td></tr>
+
+      <tr>
+        <td width="100%">
+          <table cellpadding=1 border=0 width="100%">
+            <tr>
+              <td width="10%" class="headerItem"></td>
+              <td width="35%" class="headerValue"><a href="$full_coverage_href">FULL COVERAGE</a> </td>
+              <td width="5%"></td>
+              <td width="15%"></td>
+              <td width="10%" class="headerCovTableHead">Hit</td>
+              <td width="10%" class="headerCovTableHead">Total</td>
+              <td width="15%" class="headerCovTableHead">Coverage</td>
+            </tr>
+            <tr>
+              <td class="headerItem"></td>
+              <td class="headerValue"></td>
+              <td></td>
+              <td class="headerItem">Lines:</td>
+              <td class="headerCovTableEntry">$full_linesHit</td>
+              <td class="headerCovTableEntry">$full_linesTotal</td>
+              <td class="$full_linesCoverageAtribute">$full_linesCoverage</td>
+            </tr>
+            <tr>
+              <td class="headerItem">Date:</td>
+              <td class="headerValue">$full_date</td>
+              <td></td>
+              <td class="headerItem">Functions:</td>
+              <td class="headerCovTableEntry">$full_funcHit</td>
+              <td class="headerCovTableEntry">$full_funcTotal</td>
+              <td class="$full_funcCoverageAtribute">$full_funcCoverage</td>
+            </tr>
+            <tr>
+              <td class="headerItem">Legend:</td>
+              <td class="headerValueLeg">	    Rating:
+              <span class="coverLegendCovLo" >low: &lt;$full_coverLegendCovLo</span>
+              <span class="coverLegendCovMed">medium: &gt;$full_coverLegendCovMed</span>
+              <span class="coverLegendCovHi" >high: &gt;$full_coverLegendCovHi</span>
+              </td>
+              <td></td>
+            </tr>
+            <tr><td><img src="CoverageFull/glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr><td class="ruler"><br></td></tr>
+      <tr><td class="ruler"><img src="CoverageFull/glass.png" width=3 height=3 alt=""></td></tr>
+      <tr><td class="title">$local_title</td></tr>
+      <tr><td class="ruler"><img src="CoverageFull/glass.png" width=3 height=3 alt=""></td></tr>
+
+      <tr>
+
+        <td width="100%">
+          <table cellpadding=1 border=0 width="100%">
+            <tr>
+              <td width="10%" class="headerItem"></td>
+              <td width="35%" class="headerValue"><a href="$local_coverage_href">TESTS COVERAGE</a></td>
+              <td width="5%"></td>
+              <td width="15%"></td>
+              <td width="10%" class="headerCovTableHead">Hit</td>
+              <td width="10%" class="headerCovTableHead">Total</td>
+              <td width="15%" class="headerCovTableHead">Coverage</td>
+            </tr>
+            <tr>
+              <td class="headerItem"></td>
+              <td class="headerValue"></td>
+              <td></td>
+              <td class="headerItem">Lines:</td>
+              <td class="headerCovTableEntry">$local_linesHit</td>
+              <td class="headerCovTableEntry">$local_linesTotal</td>
+              <td class="$local_linesCoverageAtribute">$local_linesCoverage</td>
+            </tr>
+            <tr>
+              <td class="headerItem">Date:</td>
+              <td class="headerValue">$local_date</td>
+              <td></td>
+              <td class="headerItem">Functions:</td>
+              <td class="headerCovTableEntry">$local_funcHit</td>
+              <td class="headerCovTableEntry">$local_funcTotal</td>
+              <td class="$local_funcCoverageAtribute">$local_funcCoverage</td>
+            </tr>
+            <tr>
+              <td class="headerItem">Legend:</td>
+              <td class="headerValueLeg">     Rating:
+              <span class="coverLegendCovLo" >low: &lt;$local_coverLegendCovLo</span>
+              <span class="coverLegendCovMed">medium: &gt;$local_coverLegendCovMed</span>
+              <span class="coverLegendCovHi" >high: &gt;$local_coverLegendCovHi</span>
+              </td>
+              <td></td>
+            </tr>
+            <tr><td><img src="CoverageFull/glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr><td class="ruler"><img src="CoverageFull/glass.png" width=3 height=3 alt=""></td></tr>
+
+    </table>
+
+  <br>
+
+</body>
+</html>

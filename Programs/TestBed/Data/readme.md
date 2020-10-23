@@ -1,0 +1,1 @@
+local_meta.db - zero size file stub. It will be generated during project build (need only for windows 10 UAP)

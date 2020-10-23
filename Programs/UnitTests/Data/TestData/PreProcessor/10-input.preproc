@@ -1,0 +1,18 @@
+LINE-COMMENT
+
+#define AAA 5
+//#define AAA 7
+#define BBB 50
+partially //commented
+
+#if AAA == 7
+  aaa is seven
+#endif
+#if AAA == 5
+  aaa is five
+#endif
+#if BBB == 50
+  bbb is fifty
+#endif
+
+last

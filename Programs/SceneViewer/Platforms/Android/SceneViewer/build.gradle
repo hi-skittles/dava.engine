@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+apply from: '../../../../../Platforms/Android/common.gradle'
+
+android {
+    signingConfigs {
+        DavaTest {
+            keyAlias 'test'
+            keyPassword 'qazwsx'
+            storeFile file('../../../../../Platforms/Android/DavaTest.keystore')
+            storePassword 'qazwsx'
+        }
+    }
+    defaultConfig {
+        applicationId 'com.dava.uiviewer'
+        externalNativeBuild.cmake.arguments '-DUNITY_BUILD=True'
+    }
+    externalNativeBuild {
+        cmake {
+            path "../../../CMakeLists.txt"
+        }
+    }
+    sourceSets {
+        main {
+            java.srcDirs = ['src']
+            assets.srcDirs = ['assets']
+            manifest.srcFile 'AndroidManifest.xml'
+        }
+    }
+    buildTypes {
+        release {
+            debuggable true
+            jniDebuggable true
+            signingConfig signingConfigs.DavaTest
+        }
+    }
+}
+
+dependencies {
+    compile project(':DavaEngine')
+    compile project(':DavaEngine:ModuleSound')
+}

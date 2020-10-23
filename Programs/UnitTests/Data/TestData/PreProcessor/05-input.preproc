@@ -1,0 +1,17 @@
+DEFINE VIA DEFINE
+
+#define BLEND_OPAQUE    0 
+#define BLEND_ALPHA     1 
+#define BLEND_ADDITIVE  2
+
+#define BLEND           BLEND_ADDITIVE
+ 
+
+is-opaque ?
+#if BLEND != BLEND_OPAQUE
+  transparent
+#else
+  opaque
+#endif
+
+last

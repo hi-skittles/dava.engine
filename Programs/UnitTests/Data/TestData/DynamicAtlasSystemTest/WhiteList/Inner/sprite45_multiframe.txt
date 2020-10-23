@@ -1,0 +1,7 @@
+2
+sprite04.tex
+sprite05.tex
+128 128
+2
+0 0 128 128 0 0 0 frame0
+0 0 128 128 0 0 1 frame1

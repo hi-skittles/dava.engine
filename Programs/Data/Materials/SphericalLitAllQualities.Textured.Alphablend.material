@@ -1,0 +1,4 @@
+MaterialTemplate:    
+    HIGH : "~res:/Materials/SphericalLit9.Textured.Alphablend.material"
+    MEDIUM : "~res:/Materials/SphericalLit4.Textured.Alphablend.material"
+    LOW : "~res:/Materials/SphericalLit1.Textured.Alphablend.material"

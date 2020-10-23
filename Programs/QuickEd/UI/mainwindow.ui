@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>865</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>true</bool>
+  </property>
+  <widget class="QFrame" name="mainFrame">
+   <layout class="QVBoxLayout" name="verticalLayout_8">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="File">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="View">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <widget class="QMenu" name="Dock">
+     <property name="title">
+      <string>Dock Windows</string>
+     </property>
+    </widget>
+    <addaction name="Dock"/>
+   </widget>
+   <widget class="QMenu" name="Tools">
+    <property name="title">
+     <string>&amp;Tools</string>
+    </property>
+    <widget class="QMenu" name="menuDebug">
+     <property name="title">
+      <string>Debug</string>
+     </property>
+     <addaction name="actionDump_Controls"/>
+     <addaction name="actionDump_Sprites"/>
+     <addaction name="actionDump_Textures"/>
+    </widget>
+    <addaction name="separator"/>
+    <addaction name="menuDebug"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="Help">
+    <property name="contextMenuPolicy">
+     <enum>Qt::ActionsContextMenu</enum>
+    </property>
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="Edit">
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="Find">
+    <property name="title">
+     <string>Find</string>
+    </property>
+   </widget>
+   <addaction name="File"/>
+   <addaction name="Edit"/>
+   <addaction name="View"/>
+   <addaction name="Find"/>
+   <addaction name="Tools"/>
+   <addaction name="Help"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="PropertiesWidget" name="propertiesWidget">
+   <property name="windowTitle">
+    <string>Properties</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+  </widget>
+  <widget class="QToolBar" name="toolBarGlobal">
+   <property name="windowTitle">
+    <string>Project ToolBar</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <action name="actionExit">
+   <property name="text">
+    <string>&amp;Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+  </action>
+  <action name="actionDump_Controls">
+   <property name="text">
+    <string>Dump Controls</string>
+   </property>
+  </action>
+  <action name="actionDump_Sprites">
+   <property name="text">
+    <string>Dump Sprites</string>
+   </property>
+  </action>
+  <action name="actionDump_Textures">
+   <property name="text">
+    <string>Dump Textures</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>PropertiesWidget</class>
+   <extends>QDockWidget</extends>
+   <header>UI/Properties/PropertiesWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../DataQt/icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>

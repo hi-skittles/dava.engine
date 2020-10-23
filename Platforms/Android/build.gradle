@@ -1,0 +1,19 @@
+apply plugin: 'com.android.library'
+apply from: 'common.gradle'
+
+android {
+    sourceSets.main {
+        java.srcDirs = ["../../Sources/Internal/Engine/Private/Android/Java/",
+                        "../../Sources/Internal/Notification/Private/Android/Java/"]
+        manifest.srcFile "AndroidManifest.xml"
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:26.1.0'
+    compile files("libs/com.bda.controller.jar")
+}

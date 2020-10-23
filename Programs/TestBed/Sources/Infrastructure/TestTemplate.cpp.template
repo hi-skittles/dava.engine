@@ -1,0 +1,23 @@
+#include "Tests/$UNITTEST_CLASSNAME$.h"
+
+#include "Infrastructure/TestBed.h"
+
+using namespace DAVA;
+
+$UNITTEST_CLASSNAME$::$UNITTEST_CLASSNAME$ (TestBed& app)
+    : BaseScreen(app, "$UNITTEST_CLASSNAME$")
+{
+}
+
+void $UNITTEST_CLASSNAME$::LoadResources()
+{
+    BaseScreen::LoadResources();
+    //TODO: Initialize resources here
+}
+
+void $UNITTEST_CLASSNAME$::UnloadResources()
+{
+    BaseScreen::UnloadResources();
+    //TODO: Release resources here
+}
+

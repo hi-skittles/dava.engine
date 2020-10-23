@@ -1,0 +1,9 @@
+RenderTechnique:
+    Layers: ["DebugRenderLayer"]
+    RenderPass:
+        Name: "ForwardPass"
+        Shader: "~res:/Materials/Shaders/DebugDraw/debugdraw"
+        UniqueDefines: []
+        RenderState:
+            fillMode: "FILLMODE_WIREFRAME"
+            state: "STATE_DEPTH_TEST | STATE_DEPTH_WRITE | STATE_COLORMASK_RED | STATE_COLORMASK_GREEN | STATE_COLORMASK_BLUE | STATE_COLORMASK_ALPHA"

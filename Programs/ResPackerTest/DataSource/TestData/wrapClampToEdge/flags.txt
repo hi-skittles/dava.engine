@@ -1,0 +1,1 @@
+--wrapClampToEdge --PowerVR_iOS PVR4 --adreno ATC_RGB --mali ETC1 --tegra DXT5NM --PowerVR_Android PVR4

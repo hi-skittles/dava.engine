@@ -1,0 +1,286 @@
+#+TITLE:        Прототипы
+#+LANGUAGE:     ru
+#+OPTIONS:      H:3 num:0 toc:nil tags:nil
+#+LATEX_CLASS:  article
+#+LATEX_HEADER: \usepackage[russian]{babel}
+#+LATEX_HEADER: \usepackage{indentfirst}
+#+LATEX_HEADER: \usepackage{subfigure}
+
+* Введение
+
+   Прототипы --- это способ создания нового контрола или новой
+   иерархии контролов на основе существующей. Для этого по имени
+   ищется контрол-прототип, он копируется, изменяются его свойства и
+   добавляются необходимые дочерние элементы.
+
+   Это поможет:
+   - Определить библиотеку общих элементов, настроенных для нашей игры
+     и использовать эти элементов во всех интерфейсах. При
+     необходимости изменений, изменения вносятся только в исходной
+     библиотеке.
+   - Возможность задавать шаблоны однотипных экранов для дальнейшего
+     наполнения их содержанием для каждого конкретного случая.
+   - Возможность сделать интерфейс экрана более модульным. На примере
+     гаража, можно отдельно реализовать интерфейс карусели танков,
+     интерфейс модулей танка, боковое меню и пр., а затем просто
+     склеить эти блоки в один экран, что позволит работать над разными
+     блоками независимо.
+     
+* Простейшая реализация
+
+  Для реализации нам надо клонировать контрол и заменить необходимые
+  нам свойства, по желанию можно добавить дочерние элементы
+  управления.
+  
+#+BEGIN_SRC cpp
+  UIControl *prototype = LoadPrototype();
+  UIControl *control = prototype->Clone();
+  control->FindByPath<UIStaticText*>("header/label)->SetText("newText");
+  control->FindByPath("header/content")->AddControl(LoadConcreteContent());
+#+END_SRC
+
+  Реализация прототипов должна учитывать способ представления
+  информации о прототипе в yaml-файле, способ конструирования нового
+  контрола, способ добавления дочерних контролов и способ изменения
+  свойств.
+
+* Формат файла
+
+   Текущий ямл файл хранит только дочерние элементы одного
+   контрола. Причем предполагается что сам файл представляет один
+   экран или один агрегатор без информации о размере, имени и прочее.
+
+   Предлагаем использовать понятие пакета. Пакет --- это файл, который
+   хранит несколько контролов. При загрузке в память пакет --- это
+   коллекция, где по имени можно получить любой контрол.
+
+#+BEGIN_SRC js
+   Header:
+       version: "0"
+   
+   ImportedPackages:
+       - "~res:/UI/Screens/Common/Buttons.yaml"
+       - "~res:/UI/Screens/Common/Dialogs.yaml"
+       - "~res:/UI/Screens/Common/HangarHeader.yaml"
+   
+   Controls:
+     - name: "header" # will be used as prototype
+       class: "UIControl"
+       backgrounds:
+         - name: "Normal"
+           type: "Aligned"
+           align: "left|top"
+       children:
+         - class: "UIControl"
+           name: "title"
+           children:
+             - class: "UIStaticText"
+               name: "label"
+         - class: "UIControl"
+           name: "content"
+           components:
+               background:
+                   type: "DRAW_ALIGNED" 
+   
+     - name: "screen"
+       children:
+         - name: "testPr"
+           prototype: "header"
+           children:
+             - path: "title/label" # path from root to header
+               text: "Hello world"
+               color: "red"
+               children:
+                 - name: "btn"
+                   class: "UIButton"
+   
+#+END_SRC   
+
+   Файл состоит из нескольких секций:
+   - Заголовок с версией для возможности миграции на следующие версии
+     формата
+   - Список пакетов из которых будут импортироваться прототипы
+   - Списком контролов
+   
+   Прототипом может служить любой контрол, который находится в секции
+   контролов или любой контрол находящийся в импортированных пакетах,
+   при условии, что не будет создано зависимостей контрола самого от
+   себя.
+
+   Для контрола созданного из прототипа можно будет изменять свойства
+   и добавлять дочерние элементы в любое место иерархии.
+
+** Разбор ямл файла
+   - Секция Header, при отсутствии секции считается что контрол
+     старого формата и используется старый загрузчик без возможности
+     использования прототипов.
+   - Секция ImportedPackages. Идет рекурсивная загрузка всех
+     импортированных пакетов. На данный момент считается что мы будем
+     указывать полный путь от начала ресурсов в формате фреймворка,
+     например: "~res:/UI/Screens/HangarHeader.yaml". Именем пакета
+     считается имя файла без расширения. В данном случае это
+     HangarHeader. Данное соглашение может быть изменено.
+   - Секция Controls содержит все контролы пакета к которым можно
+     будет получить доступ. Считается что владелец пакета может
+     поступать с контролами пакета как ему вздумается: изменять их,
+     удалять, копировать, но контролы из импортированных пакетов можно
+     только клонировать, так как они могут кэшироваться и
+     использоваться другими пакетами.
+     
+** Обработка контролов из секции Controls
+   Следующие свойства влияют на создание контрола:
+   - class --- контрол создается прямым инстанцированием указанного
+     класса. При наличии дополнительного свойства customClass, контрол
+     создастся напрямую из customClass. Считается что customClass
+     является наследником class. Если для игры нельзя создать контрол
+     через customClass, то это ошибочная ситуация. Для редактора
+     наоборот customClass может не существовать и контрол создается на
+     основании свойства class.
+   - prototype --- контрол создается путем клонирования прототипа
+     указанного в свойстве. Прототипом может быть контрол из текущего
+     пакета (указывается имя контола, например: "Header"), контрол из
+     импортированного пакета (указывается имя пакета и имя контрола,
+     например: "Common/DefaultButton"). Если указано дополнительное
+     свойство customClass, то будет создан контрол указанного класса и
+     в него скопированны свойства прототипа.
+   - path --- контрол не создается, а ищется дочерний контрол по
+     указанному пути относительно текущего. Это удобно для изменения
+     свойств контролам созданным на основе прототипов.
+     
+* Представление в коде
+** UIPackage
+   Загруженные пакеты представлены классом UIPackage у которого можно
+   получить загруженные контролы, импортированные пакеты (может лишняя
+   возможность, которую потом удалим). Думаю что в будущем пакеты
+   будут хранить вместе с котролами стили и анимации.
+
+#+BEGIN_SRC cpp
+class UIPackage: public BaseObject
+{
+public:
+    UIPackage(const FilePath &packagePath);
+protected:
+    ~UIPackage();
+public:
+    String GetName() const;
+    const FilePath &GetFilePath() const {
+        return packagePath;
+    }
+
+    int32 GetControlsCount() const;
+    UIControl *GetControl(int32 index) const;
+    UIControl *GetControl(const String &name) const;
+    
+    template<class C>
+    C GetControl(const String &name) const
+    {
+        return DynamicTypeCheck<C>(GetControl(name));
+    }
+    
+    void AddControl(UIControl *control);
+    void InsertControlBelow(UIControl *control, const UIControl *belowThis);
+    void RemoveControl(UIControl *control);
+    
+    int32 GetPackagesCount() const;
+    UIPackage *GetPackage(int32 index) const;
+    UIPackage *GetPackage(const String name) const;
+    void AddPackage(UIPackage *package);
+
+    ...
+}
+
+#+END_SRC
+
+** Загрузка пакетов
+   
+   Загрузка пакетов разделена на две части: разбор входного файла,
+   построение пакета на основе входных данных.
+
+   Для разбора файла используется класс UIPackageLoader, который
+   работает с yaml-файлом и дает команды коду, который конструирует
+   пакет. Существует его разновидность LegacyEditorUIPackageLoader,
+   который обрабатывает yaml-файлы старого образца (еще не все
+   контролы поддерживаются). Возможно создание загрузчика для других
+   форматов файлов, например для xml.
+
+#+BEGIN_SRC cpp
+class UIPackageLoader : AbstractUIPackageLoader
+{
+public:
+    UIPackageLoader(AbstractUIPackageBuilder *builder);
+    virtual ~UIPackageLoader();
+
+public:
+    virtual UIPackage *LoadPackage(const FilePath &packagePath) override;
+    virtual bool LoadControlByName(const String &name) override;
+
+... 
+};
+#+END_SRC
+
+   Для построение пакета существует класс
+   DefaultUIPackageBuilder. Класс строит пакет по данным, которые он
+   получает от загрузчика. Данный класс умеет кэшировать
+   импортированные пакеты, которые встречались по ходу
+   загрузки. Т.е. одним экземпляром класса можно пользоваться для
+   построения различных пакетов с возможностью не загружать повторно
+   общие данные. Существует его вариант для редактора
+   EditorUIPackageBuilder, который нужен для создания пакетов для
+   редактора с дополнительной мета-информацией, описывающей прототипы
+   и измененные свойства контролов.
+
+#+BEGIN_SRC cpp
+    class DefaultUIPackageBuilder : public AbstractUIPackageBuilder
+    {
+    public:
+        DefaultUIPackageBuilder();
+        virtual ~DefaultUIPackageBuilder();
+        
+        virtual UIPackage *BeginPackage(const FilePath &packagePath) override;
+        virtual void EndPackage() override;
+        
+        virtual UIPackage *ProcessImportedPackage(const String &packagePath,
+            AbstractUIPackageLoader *loader) override;
+        
+        virtual UIControl *BeginControlWithClass(
+            const String className) override;
+
+        virtual UIControl *BeginControlWithCustomClass(
+            const String customClassName, const String className) override;
+
+        virtual UIControl *BeginControlWithPrototype(
+            const String &packageName, const String &prototypeName,
+            const String &customClassName, AbstractUIPackageLoader *loader) override;
+
+        virtual UIControl *BeginControlWithPath(const String &pathName) override;
+        virtual UIControl *BeginUnknownControl(const YamlNode *node) override;
+        virtual void EndControl() override;
+        
+        virtual void BeginControlPropretiesSection(const String &name) override;
+        virtual void EndControlPropertiesSection() override;
+        
+        virtual UIControlBackground *BeginBgPropertiesSection(int index,
+            bool sectionHasProperties) override;
+        virtual void EndBgPropertiesSection() override;
+        
+        virtual UIControl *BeginInternalControlSection(int index,
+            bool sectionHasProperties) override;
+        virtual void EndInternalControlSection() override;
+        
+        virtual void ProcessProperty(const InspMember *member, const VariantType &value) override;
+
+...
+}
+#+END_SRC
+   
+  
+* Свойства прототипов
+
+  Для управления прототипами нужен более унифицированный подход для
+  работы со свойствами контролов. Свойства доступные для
+  редактирования и сохранения будут заданы через интроспекцию.
+  
+  Свойства задаются как для контролов, так и для баэкграунда
+  контрола. Бэкграундов может быть несколько, например для кнопки. В
+  последствии было бы неплохо привести бэкграунды к компонентам.
+

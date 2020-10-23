@@ -1,0 +1,3 @@
+MaterialTemplate:    
+    MEDIUM : "~res:/Materials/Detail.Opaque.material"
+    LOW : "~res:/Materials/Textured.Opaque.material"

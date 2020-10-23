@@ -1,0 +1,8 @@
+DEFINE
+
+#define OK 1
+
+fatal error here
+#define BULLSHIT
+
+last

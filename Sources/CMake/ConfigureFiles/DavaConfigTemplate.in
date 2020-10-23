@@ -1,0 +1,17 @@
+QT_PATH           = $ENV{QT5_HOME_64}
+
+ANDROID_KEY_STORE        = ${DAVA_ROOT_DIR}/Sources/CMake/Resources/Android/DavaTest.keystore
+ANDROID_KEY_ALIAS        = test
+ANDROID_STORE_PASSWORD   = qazwsx
+ANDROID_ALIAS_PASSWORD   = qazwsx
+
+ANDROID_ANT              = $ENV{ANDROID_ANT_ROOT}
+ANDROID_NDK              = $ENV{ANDROID_NDK_ROOT}
+ANDROID_SDK              = $ENV{ANDROID_SDK_ROOT}
+ANDROID_ABI              = armeabi-v7a
+ANDROID_NATIVE_API_LEVEL = 14
+ANDROID_TARGET_API_LEVEL = 25
+
+GLOBAL_UNITYIGNORE_FILES = ${DAVA_ROOT_DIR}/dava.unityignore
+
+STEAM_SDK                = $ENV{STEAM_SDK}

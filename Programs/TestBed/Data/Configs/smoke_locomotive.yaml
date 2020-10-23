@@ -1,0 +1,57 @@
+emitter:
+    emissionAngle: 1.000000
+    emissionRange: 10.000000
+    emissionVector: [0.000000, 0.000000, 1.000000]
+    emissionVectorInverted: true
+    name: "smoke"
+    radius: 0.300000
+    shortEffect: false
+    size: [1.000000, 1.200000, 0.000000]
+    type: "oncircle"
+layer0:
+    activeLODS: [0, 1, 0, 0]
+    alphaOverLife: [0.000000, 0.000000, 0.140000, 0.500000, 0.765400, 0.489500, 0.990000, 0.000000]
+    angle: 120.000000
+    angleVariation: 120.000000
+    blending: 1
+    colorOverLife: [225.000000, 226.000000, 226.000000, 255.000000]
+    degradeStrategy: 0
+    deltaTime: 0.500000
+    deltaVariation: 0.500000
+    effectFormat: 1
+    enableFog: true
+    enableFrameBlend: false
+    endTime: 6.000000
+    force0: [0.000000, -1.000000, 0.000000]
+    forceCount: 1
+    forceOverLife0: [0.000000, 0.000000, 0.352400, 0.016400, 0.427300, 0.030600, 0.483100, 0.050100, 0.522800, 0.073200, 0.555100, 0.098900, 0.583000, 0.138900, 0.606500, 0.189500, 0.632900, 0.243700, 0.672500, 0.290700, 0.726900, 0.309400, 0.825300, 0.319200]
+    frameOverLifeEnabled: false
+    frameOverLifeFPS: 10.000000
+    inheritPosition: false
+    isLong: true
+    isLooped: true
+    layerType: "particles"
+    life: 8.000000
+    lifeVariation: 7.000000
+    loopEndTime: 1000.000000
+    loopSpriteAnimation: false
+    loopVariation: 0.500000
+    name: "FOG"
+    number: 6.000000
+    numberVariation: 3.000000
+    particleOrientation: 1
+    pivotPoint: [0.000000, 0.000000]
+    randomFrameOnStart: false
+    randomSpinDirection: false
+    scaleVelocityBase: 1.000000
+    scaleVelocityFactor: 0.000000
+    size: [0.500000, 0.500000]
+    sizeOverLifeXY: [0.000000, [0.200000, 0.200000], 0.990000, [4.000000, 4.000000]]
+    sizeVariation: [0.500000, 0.500000]
+    spin: 120.000000
+    spinVariation: 30.000000
+    sprite: "../Gfx/Particles/fog_white"
+    startTime: 0.000000
+    type: "layer"
+    velocity: 0.461300
+    velocityVariation: 0.009000

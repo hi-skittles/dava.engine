@@ -1,0 +1,9 @@
+COMMENTS IN DEFINES
+
+#define AAA 5// must be ignored
+
+#if AAA == 5
+  aaa is five
+#endif
+
+last

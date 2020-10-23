@@ -1,0 +1,16 @@
+UNDEF
+
+#define AAA 42
+#define BBB 13
+#undef AAA
+
+#if defined AAA
+   aaa
+#endif
+
+#if defined BBB
+   bbb
+#endif
+
+
+last

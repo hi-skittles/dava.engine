@@ -1,0 +1,317 @@
+Header:
+    version: "11"
+ImportedPackages:
+- "~res:/UI/ToImport1.yaml"
+- "~res:/UI/ToImport2.yaml"
+- "~res:/UI/ToImport3.yaml"
+- "~res:/UI/CommonStyles.yaml"
+StyleSheets:
+-   selector: ".button:focused"
+    properties:
+        bg-drawType: "DRAW_FILL"
+        bg-color: [0.223529, 0.223529, 0.337255, 1.000000]
+-   selector: ".button:pressed_inside:focused"
+    properties:
+        bg-drawType: "DRAW_FILL"
+        bg-color:
+            value: [0.666667, 0.000000, 1.000000, 0.392157]
+            transitionTime: 0.500000
+            transitionFunction: "SINE_IN"
+-   selector: ".background-dark"
+    properties:
+        bg-color: [0.102000, 0.141000, 0.169000, 0.900000]
+-   selector: "UIStaticText"
+    properties:
+        text-textColor: [1.000000, 1.000000, 1.000000, 1.000000]
+        text-textalign: ["LEFT"]
+Controls:
+-   class: "UIControl"
+    name: "TestScreen"
+    position: [200.000000, 200.000000]
+    size: [1025.000000, 688.000000]
+    scale: [2.000000, 2.000000]
+    pivot: [0.500000, 0.500000]
+    angle: 30.000000
+    noInput: true
+    tag: 100
+    classes: "background-dark"
+    components:
+        Background:
+            drawType: "DRAW_FILL"
+    children:
+    -   class: "UIScrollView"
+        name: "ScrollView"
+        position: [0.000000, 123.000000]
+        size: [1025.000000, 565.000000]
+        debugDraw: true
+        debugDrawColor: [1.000000, 0.000000, 0.000000, 1.000000]
+        autoUpdate: true
+        centerContent: true
+        children:
+        -   class: "UIScrollViewContainer"
+            name: "scrollContainerControl"
+            position: [7.500000, 0.000000]
+            size: [1010.000000, 566.000000]
+            debugDraw: true
+            debugDrawColor: [0.000000, 0.000000, 1.000000, 1.000000]
+            components:
+                LinearLayout:
+                    orientation: "TopDown"
+                    padding: 10.000000
+                    dynamicPadding: false
+                    spacing: 10.000000
+                FlowLayout:
+                    hDynamicPadding: true
+                    vPadding: 108.000000
+                    vSpacing: 10.000000
+                SizePolicy:
+                    horizontalPolicy: "FixedSize"
+                    horizontalValue: 1010.000000
+                    verticalPolicy: "PercentOfChildrenSum"
+            children:
+            -   class: "UIControl"
+                name: "TextContainer"
+                position: [5.000000, 108.000000]
+                size: [1000.000000, 80.000000]
+                classes: "button"
+                debugDraw: true
+                debugDrawColor: [0.666667, 0.000000, 1.000000, 1.000000]
+                components:
+                    Background: {}
+                    Focus: {}
+                children:
+                -   class: "UIStaticText"
+                    name: "Text"
+                    size: [80.000000, 80.000000]
+                    debugDraw: true
+                    debugDrawColor: [0.666667, 0.333333, 0.498039, 1.000000]
+                    textcolorInheritType: "COLOR_IGNORE_PARENT"
+                    textperPixelAccuracyType: "PER_PIXEL_ACCURACY_DISABLED"
+                    multiline: "MULTILINE_ENABLED"
+                    fitting: ["REDUCE"]
+                    text: "SETTINGS_BUTTON_LANGUAGE"
+                    font: ""
+            -   class: "UIControl"
+                name: "Volume"
+                position: [5.000000, 198.000000]
+                size: [1000.000000, 80.000000]
+                classes: "button"
+                debugDraw: true
+                debugDrawColor: [0.666667, 0.000000, 1.000000, 1.000000]
+                components:
+                    Background: {}
+                    Focus: {}
+                children:
+                -   prototype: "ToImport1/UIControl"
+                    name: "Slider"
+                    position: [520.000000, 5.000000]
+                    size: [470.000000, 70.000000]
+                    components:
+                        Anchor:
+                            enabled: false
+                -   class: "UIStaticText"
+                    name: "Text"
+                    position: [0.000000, 0.000000]
+                    size: [80.000000, 80.000000]
+                    debugDraw: true
+                    debugDrawColor: [0.666667, 0.333333, 0.498039, 1.000000]
+                    textcolorInheritType: "COLOR_IGNORE_PARENT"
+                    textperPixelAccuracyType: "PER_PIXEL_ACCURACY_DISABLED"
+                    multiline: "MULTILINE_ENABLED"
+                    fitting: ["REDUCE"]
+                    text: "SETTINGS_GROUP_CAPTION_VOLUME"
+                    font: ""
+                    components:
+                        Anchor:
+                            leftAnchorEnabled: true
+                            rightAnchorEnabled: false
+            -   class: "UIControl"
+                name: "Minimap"
+                position: [5.000000, 288.000000]
+                size: [506.500000, 80.000000]
+                classes: "button"
+                debugDraw: true
+                debugDrawColor: [0.666667, 0.000000, 1.000000, 1.000000]
+                components:
+                    Background: {}
+                    Focus:
+                        requestFocus: true
+                children:
+                -   prototype: "ToImport2/UIControl"
+                    name: "Switch"
+                    position: [412.500000, 15.000000]
+                    components:
+                        Anchor:
+                            rightAnchorEnabled: true
+                            rightAnchor: 10.000000
+                        Sound:
+                            touchDown: ""
+                            valueChanged: "GUI/buttons/choose"
+                -   class: "UIStaticText"
+                    name: "Text"
+                    position: [0.000000, 0.000000]
+                    size: [80.000000, 80.000000]
+                    debugDraw: true
+                    debugDrawColor: [0.666667, 0.333333, 0.498039, 1.000000]
+                    textcolorInheritType: "COLOR_IGNORE_PARENT"
+                    textperPixelAccuracyType: "PER_PIXEL_ACCURACY_DISABLED"
+                    multiline: "MULTILINE_ENABLED"
+                    fitting: ["REDUCE"]
+                    text: "SETTINGS_GROUP_CAPTION_MINIMAP"
+                    font: ""
+                    components:
+                        Anchor:
+                            leftAnchorEnabled: true
+            -   class: "UIControl"
+                name: "TextField"
+                position: [5.000000, 378.000000]
+                size: [1000.000000, 80.000000]
+                classes: "button"
+                debugDraw: true
+                debugDrawColor: [0.666667, 0.000000, 1.000000, 1.000000]
+                components:
+                    Background:
+                        drawType: "DRAW_STRETCH_HORIZONTAL"
+                        sprite: "~res:/Gfx/Images/test"
+                        frame: 0
+                        leftRightStretchCap: 6.000000
+                    Focus: {}
+                children:
+                -   class: "UITextField"
+                    name: "inputMsg"
+                    position: [20.000000, 15.000000]
+                    size: [276.000000, 50.000000]
+                    classes: "button"
+                    text: "enterMessageHint"
+                    font: ""
+                    textcolor: [1.000000, 1.000000, 1.000000, 1.000000]
+                    selectioncolor: [0.000000, 0.666667, 1.000000, 0.392157]
+                    components:
+                        Background: {}
+                        Focus: {}
+    -   class: "UIScrollBar"
+        name: "VerticalScrollBar"
+        position: [1017.000000, 123.000000]
+        size: [8.000000, 565.000000]
+        debugDraw: true
+        debugDrawColor: [0.666667, 0.333333, 0.000000, 1.000000]
+        components:
+            Anchor:
+                rightAnchorEnabled: true
+            Background:
+                topBottomStretchCap: 10.000000
+            ScrollBarDelegate:
+                delegate: "../ScrollView"
+        children:
+        -   class: "UIControl"
+            name: "slider"
+            size: [8.000000, 564.001770]
+            components:
+                Background:
+                    sprite: "~res:/Gfx/Images/test"
+                    topBottomStretchCap: 10.000000
+    -   class: "UIControl"
+        customClass: "UITabSwitcher"
+        name: "tabs"
+        position: [5.000000, 1.000000]
+        size: [1015.000000, 74.000000]
+        components:
+            LinearLayout:
+                spacing: 2.000000
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 5.000000
+                rightAnchorEnabled: true
+                rightAnchor: 5.000000
+                topAnchorEnabled: true
+                topAnchor: 1.000000
+            Background:
+                color: [0.000000, 0.000000, 0.000000, 1.000000]
+        children:
+        -   prototype: "ToImport3/SettingsTabControl"
+            name: "graphicsTab"
+            tag: 1
+            children:
+            -   path: "selected/text"
+                text: "#settings:Graphics"
+            -   path: "selected/icon"
+                components:
+                    Background:
+                        sprite: "~res:/Gfx/Images/test"
+                        frame: 4
+            -   path: "unselected/text"
+                text: "#settings:Graphics"
+            -   path: "unselected/icon"
+                components:
+                    Background:
+                        sprite: "~res:/Gfx/Images/test"
+                        frame: 4
+        -   prototype: "ToImport3/SettingsTabControl"
+            name: "TouchTab"
+            position: [203.399994, 0.000000]
+            tag: 2
+            children:
+            -   path: "selected/text"
+                text: "#settings:Controls"
+            -   path: "selected/icon"
+                components:
+                    Background:
+                        sprite: "~res:/Gfx/Images/test"
+            -   path: "unselected/text"
+                text: "#settings:Controls"
+            -   path: "unselected/icon"
+                components:
+                    Background:
+                        sprite: "~res:/Gfx/Images/test"
+        -   prototype: "ToImport3/SettingsTabControl"
+            name: "markersTab"
+            position: [406.799988, 0.000000]
+            tag: 3
+            children:
+            -   path: "selected/text"
+                text: "#settings:Markers"
+            -   path: "selected/icon"
+                components:
+                    Background:
+                        sprite: "~res:/Gfx/Images/test"
+                        frame: 1
+            -   path: "unselected/text"
+                text: "#settings:Markers"
+            -   path: "unselected/icon"
+                components:
+                    Background:
+                        sprite: "~res:/Gfx/Images/test"
+                        frame: 1
+        -   prototype: "ToImport3/SettingsTabControl"
+            name: "generalTab"
+            tag: 0
+            children:
+            -   path: "selected/text"
+                text: "#settings:Other"
+            -   path: "selected/icon"
+                components:
+                    Background:
+                        sprite: "~res:/Gfx/Images/test"
+                        frame: 0
+            -   path: "unselected/text"
+                text: "#settings:Other"
+            -   path: "unselected/icon"
+                components:
+                    Background:
+                        sprite: "~res:/Gfx/Images/test"
+                        frame: 0
+        -   prototype: "ToImport3/SettingsTabControl"
+            name: "devOptionsTab"
+            tag: 4
+            children:
+            -   path: "selected/text"
+                text: "DEV OPTIONS"
+            -   path: "unselected/text"
+                text: "DEV OPTIONS"
+    -   class: "UIParticles"
+        name: "UIParticles"
+        position: [465.000000, 163.000000]
+        size: [32.000000, 32.000000]
+        effectPath: "~res:/Gfx/Effects/fire.sc2"
+        autoStart: true
+        startDelay: 5.000000

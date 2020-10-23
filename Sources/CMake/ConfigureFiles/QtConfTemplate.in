@@ -1,0 +1,5 @@
+[Paths]
+Prefix=.
+Plugins=@PLUGINS_PATH@
+Imports =@QML_IMPORT_PATH@
+Qml2Imports =@QML2_IMPORT_PATH@

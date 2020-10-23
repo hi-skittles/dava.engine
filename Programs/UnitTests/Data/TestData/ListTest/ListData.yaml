@@ -1,0 +1,35 @@
+UIList1:
+    aggregatorPath: "~res:/TestData/ListTest/Muscule.yaml"
+    aggregatorSize: [100.00, 30.00]
+    clip: "true"
+    drawType: "DRAW_SCALE_TO_RECT"
+    orientation: "ORIENTATION_VERTICAL"
+    rect: [10.0000, 10.0000, 100.0000, 120.0000]
+    type: "UIList"
+
+UIList2:
+    aggregatorPath: "~res:/TestData/ListTest/Drescule.yaml"
+    aggregatorSize: [100.00, 30.00]
+    clip: "true"
+    drawType: "DRAW_SCALE_TO_RECT"
+    orientation: "ORIENTATION_VERTICAL"
+    rect: [170.0000, 10.0000, 100.0000, 120.0000]
+    type: "UIList"
+
+UIList3:
+    aggregatorPath: "~res:/TestData/ListTest/Pascule.yaml"
+    aggregatorSize: [100.00, 30.00]
+    clip: "true"
+    drawType: "DRAW_SCALE_TO_RECT"
+    orientation: "ORIENTATION_VERTICAL"
+    rect: [380.0000, 10.0000, 100.0000, 120.0000]
+    type: "UIList"
+
+UIList4:
+    aggregatorPath: "~res:/TestData/ListTest/Muscule.yaml"
+    aggregatorSize: [100.00, 30.00]
+    clip: "true"
+    drawType: "DRAW_SCALE_TO_RECT"
+    orientation: "ORIENTATION_HORIZONTAL"
+    rect: [10.0000, 200.0000, 300.0000, 40.0000]
+    type: "UIList"

@@ -1,0 +1,163 @@
+#define MAX_JOINTS 32
+#define _PI 3.141592654
+
+
+////////////////////////////////////////////////////////////////////////////////
+// defines
+
+#ensuredefined VERTEX_LIT 0
+
+#ensuredefined PIXEL_LIT 0
+
+#ensuredefined BLINN_PHONG 0
+
+#ensuredefined FAST_NORMALIZATION 0
+
+#ensuredefined NORMALIZED_BLINN_PHONG 0
+
+#ensuredefined DIELECTRIC 0
+
+#ensuredefined FAST_METAL 0
+
+#ensuredefined GOTANDA 0
+
+
+#ensuredefined ALPHA_MASK 0
+#ensuredefined ALPHASTEPVALUE 0
+
+#ensuredefined MATERIAL_TEXTURE 0
+
+#ensuredefined MATERIAL_SKYBOX 0
+#ensuredefined SKYOBJECT 0
+
+#ensuredefined MATERIAL_DETAIL 0
+
+#ensuredefined MATERIAL_DECAL 0
+
+#ensuredefined TILED_DECAL_MASK 0
+
+#ensuredefined TILE_DECAL_ROTATION 0
+
+#ensuredefined MATERIAL_LIGHTMAP 0
+
+#ensuredefined FRAME_BLEND 0
+#ensuredefined FRAMEBUFFER_FETCH 0
+
+#ensuredefined VERTEX_COLOR 0
+
+#ensuredefined FLATCOLOR 0
+#ensuredefined FLATALBEDO 0
+
+#ensuredefined VERTEX_FOG 0
+
+#ensuredefined FOG_LINEAR 0
+
+#ensuredefined FOG_ATMOSPHERE 0
+
+#ensuredefined FOG_ATMOSPHERE_NO_SCATTERING 0
+
+#ensuredefined FOG_ATMOSPHERE_NO_ATTENUATION 0
+
+#ensuredefined FOG_ATMOSPHERE_MAP 0
+
+#ensuredefined FOG_HALFSPACE 0
+
+#ensuredefined FOG_HALFSPACE_LINEAR 0
+
+#ensuredefined DISTANCE_ATTENUATION 0
+
+#ensuredefined SPHERICAL_LIT 0
+
+#ensuredefined SPHERICAL_HARMONICS_9 0
+#ensuredefined SPHERICAL_HARMONICS_4 0
+
+#ensuredefined HARD_SKINNING 0
+#ensuredefined SOFT_SKINNING 0
+
+#ensuredefined SPEED_TREE_LEAF 0
+#ensuredefined CUT_LEAF 0
+#ensuredefined SPEED_TREE_OBJECT 0
+
+#ensuredefined WIND_ANIMATION 0
+#ensuredefined WAVE_ANIMATION 0
+
+#ensuredefined SETUP_LIGHTMAP 0
+
+#ensuredefined TEXTURE0_SHIFT_ENABLED 0
+
+#ensuredefined TEXTURE0_ANIMATION_SHIFT 0
+
+
+#ensuredefined ALPHABLEND 0
+#ensuredefined ALPHATEST 0
+#ensuredefined ALPHATESTVALUE 0
+
+//water flags
+#ensuredefined REAL_REFLECTION 0
+
+#ensuredefined SPECULAR 0
+
+#ensuredefined SEPARATE_NORMALMAPS 0
+
+#ensuredefined DEBUG_UNITY_Z_NORMAL 0
+#ensuredefined DEBUG_Z_NORMAL_SCALE 0
+#ensuredefined DEBUG_NORMAL_ROTATION 0
+
+#ensuredefined FORCE_2D_MODE 0
+
+#ensuredefined VIEW_AMBIENT 0
+#ensuredefined VIEW_DIFFUSE 0
+#ensuredefined VIEW_SPECULAR 0
+#ensuredefined VIEW_ALBEDO 0
+
+#ensuredefined PARTICLES_FLOWMAP 0
+#ensuredefined PARTICLES_NOISE 0
+#ensuredefined PARTICLES_NOISE_AFFECT_FLOW 0
+#ensuredefined PARTICLES_FRESNEL_TO_ALPHA 0
+#ensuredefined PARTICLES_FLOWMAP_ANIMATION 0
+#ensuredefined PARTICLES_ALPHA_REMAP 0
+#ensuredefined PARTICLES_PERSPECTIVE_MAPPING 0
+#ensuredefined PARTICLES_THREE_POINT_GRADIENT 0
+
+#ensuredefined FLOWMAP_SKY 0
+#if FLOWMAP_SKY
+    #define FLOWMAP 1
+#endif
+#ensuredefined FLOWMAP 0
+
+
+#if !VIEW_AMBIENT && !VIEW_DIFFUSE && !VIEW_SPECULAR && !VIEW_ALBEDO
+    #define VIEW_AMBIENT 1
+    #define VIEW_DIFFUSE 1
+    #define VIEW_SPECULAR 1
+    #define VIEW_ALBEDO 1
+#endif
+
+#ensuredefined TEST_OCCLUSION 0
+
+#ensuredefined HEIGHTMAP_FLOAT_TEXTURE 0
+#ensuredefined TILEMASK 1
+#ensuredefined LANDSCAPE_SPECULAR 0
+#ensuredefined LANDSCAPE_MORPHING_COLOR 0
+#ensuredefined LANDSCAPE_USE_INSTANCING 0
+#ensuredefined LANDSCAPE_LOD_MORPHING 0
+#ensuredefined LANDSCAPE_MORPHING_COLOR 0
+#ensuredefined LANDSCAPE_TOOL 0
+#ensuredefined LANDSCAPE_TOOL_MIX 0
+#ensuredefined LANDSCAPE_CURSOR 0
+
+#ensuredefined CURSOR 0
+#ensuredefined DEBUG_2D 0
+
+
+#ensuredefined FRESNEL_TO_ALPHA 0
+#ensuredefined LOD_COLOR 0
+
+#ensuredefined PARTICLE_DEBUG_SHOW_ALPHA 0
+#ensuredefined PARTICLE_DEBUG_SHOW_OVERDRAW 0
+
+#ensuredefined FORCED_SHADOW_DIRECTION 0
+
+#ensuredefined GEO_DECAL 0
+#ensuredefined GEO_DECAL_DEBUG 0
+#ensuredefined GEO_DECAL_SPECULAR 0

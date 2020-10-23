@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<title>InputTest</title>
+
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		html, body, body > div {
+			height: 100%;
+		}
+	</style>
+
+	<script type="text/javascript">
+		function f(event)
+		{
+			event = event ? event : window.event;
+			var t = event.target || event.srcElement;
+
+			if (t.className == "redirect")
+			{
+				document.location = "http://bash.im";
+			}
+		}
+
+		document.onclick = f;
+		if (document.addEventListener)
+			document.addEventListener('touchstart', f);
+	</script>
+</head>
+
+<body>
+	<div class="redirect">
+		<p class="redirect"><a href="http://google.com.ua/search?hl=ru&q=asdf">System browser</a></p>
+		<p class="redirect"><a href="http://apple.com">WebView</a></p>
+		<p class="redirect"><a href="http://microsoft.com">No process</a></p>
+		<p class="redirect">Tap on the blank space</p>
+	</div>
+</body>
+</html>

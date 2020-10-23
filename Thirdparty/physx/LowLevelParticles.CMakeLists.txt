@@ -1,0 +1,37 @@
+set(MODULE_NAME LowLevelParticles)
+set(MODULE_TYPE STATIC)#INLINE STATIC DYNAMIC 
+
+get_filename_component(PhysXRoot "${CMAKE_CURRENT_SOURCE_DIR}/../../" ABSOLUTE)
+
+set(HPP_FILES_RECURSE *.h *.hpp)
+set(CPP_FILES ${PhysXRoot}/Source/LowLevelParticles/src/PtBatcher.cpp
+              ${PhysXRoot}/Source/LowLevelParticles/src/PtBodyTransformVault.cpp
+              ${PhysXRoot}/Source/LowLevelParticles/src/PtCollision.cpp
+              ${PhysXRoot}/Source/LowLevelParticles/src/PtCollisionBox.cpp
+              ${PhysXRoot}/Source/LowLevelParticles/src/PtCollisionCapsule.cpp
+              ${PhysXRoot}/Source/LowLevelParticles/src/PtCollisionConvex.cpp
+              ${PhysXRoot}/Source/LowLevelParticles/src/PtCollisionMesh.cpp
+              ${PhysXRoot}/Source/LowLevelParticles/src/PtCollisionPlane.cpp
+              ${PhysXRoot}/Source/LowLevelParticles/src/PtCollisionSphere.cpp
+              ${PhysXRoot}/Source/LowLevelParticles/src/PtContextCpu.cpp
+              ${PhysXRoot}/Source/LowLevelParticles/src/PtDynamics.cpp
+              ${PhysXRoot}/Source/LowLevelParticles/src/PtParticleData.cpp
+              ${PhysXRoot}/Source/LowLevelParticles/src/PtParticleShapeCpu.cpp
+              ${PhysXRoot}/Source/LowLevelParticles/src/PtParticleSystemSimCpu.cpp
+              ${PhysXRoot}/Source/LowLevelParticles/src/PtSpatialHash.cpp
+              ${PhysXRoot}/Source/LowLevelParticles/src/PtSpatialLocalHash.cpp)
+
+set(DEBUG_POSTFIX "DEBUG")
+set(CHECKED_POSTFIX "CHECKED")
+set(PROFILE_POSTFIX "PROFILE")
+set(RELEASE_POSTFIX "")
+
+set(INCLUDES_PRIVATE "${PhysXRoot}/Source/LowLevel/API/include"
+             "${PhysXRoot}/Source/LowLevel/common/include/utils"
+             "${PhysXRoot}/Source/LowLevelAABB/include"
+             "${PhysXRoot}/Source/LowLevelAABB/src"
+             "${PhysXRoot}/Source/LowLevelAABB/unix/include"
+             "${PhysXRoot}/Source/LowLevelParticles/include"
+             "${PhysXRoot}/Source/LowLevelParticles/src")
+
+setup_main_module()

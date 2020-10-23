@@ -1,0 +1,94 @@
+Header:
+    version: "20"
+Prototypes:
+-   class: "UIControl"
+    name: "Marker"
+    position: [0.000000, 0.000000]
+    size: [6.000000, 75.000000]
+    pivot: [0.500000, 1.000000]
+    noInput: true
+    components:
+        SizePolicy:
+            horizontalPolicy: "PercentOfMaxChild"
+        UIEntityMarkerComponent: {}
+    children:
+    -   class: "UIControl"
+        name: "Title"
+        size: [0.000000, 32.000000]
+        noInput: true
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfContent"
+            Anchor:
+                hCenterAnchorEnabled: true
+            Background:
+                drawType: "DRAW_FILL"
+                color: [0.666667, 0.000000, 0.000000, 0.501961]
+            UITextComponent:
+                text: "Marker"
+                fontName: "Korinna_18"
+    -   class: "UIControl"
+        name: "Distance"
+        position: [3.000000, 32.000000]
+        size: [0.000000, 32.000000]
+        noInput: true
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfContent"
+            Anchor:
+                hCenterAnchorEnabled: true
+            Background:
+                drawType: "DRAW_FILL"
+                color: [0.666667, 0.000000, 0.000000, 0.501961]
+            UITextComponent:
+                text: "0"
+                fontName: "Korinna_18"
+    -   class: "UIControl"
+        name: "Point"
+        position: [3.000000, 75.000000]
+        size: [6.000000, 6.000000]
+        pivot: [0.500000, 0.500000]
+        noInput: true
+        components:
+            Anchor:
+                hCenterAnchorEnabled: true
+                bottomAnchorEnabled: true
+                bottomAnchor: -3.000000
+            Background:
+                drawType: "DRAW_FILL"
+Controls:
+-   class: "UIControl"
+    name: "Main"
+    position: [0.000000, 0.000000]
+    size: [637.000000, 451.000000]
+    components:
+        SizePolicy:
+            horizontalPolicy: "PercentOfParent"
+            verticalPolicy: "PercentOfParent"
+    children:
+    -   class: "UI3DView"
+        name: "UI3DView"
+        position: [0.000000, 0.000000]
+        size: [637.000000, 451.000000]
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                verticalPolicy: "PercentOfParent"
+    -   class: "UIControl"
+        name: "Markers"
+        position: [0.000000, 0.000000]
+        size: [637.000000, 451.000000]
+        noInput: true
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                verticalPolicy: "PercentOfParent"
+            UIEntityMarkersContainerComponent:
+                syncVisibilityEnabled: true
+                syncPositionEnabled: true
+                syncScaleEnabled: true
+                scaleFactor: [15.000000, 15.000000]
+                maxScale: [1.700000, 1.700000]
+                minScale: [0.600000, 0.600000]
+                syncOrderEnabled: true
+                useCustomStrategy: true

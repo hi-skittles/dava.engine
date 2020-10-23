@@ -1,0 +1,14 @@
+diff -ur ./libunibreak_source_orig/src/linebreak.c ./libunibreak_source/src/linebreak.c
+--- ./libunibreak_source_orig/src/linebreak.c	2016-11-03 14:02:58.000000000 +0300
++++ ./libunibreak_source/src/linebreak.c	2016-11-03 14:04:21.000000000 +0300
+@@ -547,8 +547,8 @@
+ {
+     int brk = LINEBREAK_UNDEFINED;
+ 
+-    assert(lbpCtx->lbcCur <= LBP_RI);
+-    assert(lbpCtx->lbcNew <= LBP_RI);
++    assert(lbpCtx->lbcCur <= LBP_ZWJ);
++    assert(lbpCtx->lbcNew <= LBP_ZWJ);
+     switch (baTable[lbpCtx->lbcCur - 1][lbpCtx->lbcNew - 1])
+     {
+     case DIR_BRK:

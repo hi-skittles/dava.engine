@@ -1,0 +1,48 @@
+Header:
+    version: "11"
+StyleSheets:
+-   selector: ".text"
+    properties:
+        text-font: "Korinna_18"
+-   selector: ".text-red"
+    properties:
+        text-textColor: [1.000000, 0.000000, 0.000000, 1.000000]
+-   selector: ".text.text-green"
+    properties:
+        text-textColor: [0.000000, 1.000000, 0.000000, 1.000000]
+-   selector: ".text.dejavu"
+    properties:
+        text-font: "DejaVuSans_18"
+-   selector: ".dejavu"
+    properties:
+        text-font: "DejaVuSans_18"
+-   selector: ".img"
+    properties:
+        bg-drawType: "DRAW_ALIGNED"
+-   selector: ".img.red"
+    properties:
+        bg-color: [1.000000, 0.000000, 0.000000, 1.000000]
+-   selector: ".red"
+    properties:
+        bg-color: [1.000000, 0.000000, 0.000000, 1.000000]
+Prototypes:
+-   class: "UIControl"
+    name: "ProtoControl"
+    size: [32.000000, 32.000000]
+    debugDraw: true
+Controls:
+-   class: "UIControl"
+    name: "RichControl"
+    position: [0.000000, 0.000000]
+    size: [380.000000, 352.000000]
+    components:
+        RichContent: {}
+        RichContentAliases: {}
+        Background: {}
+-   class: "UIControl"
+    name: "CustomControl"
+    size: [32.000000, 32.000000]
+    debugDraw: true
+    debugDrawColor: [0.000000, 1.000000, 0.000000, 1.000000]
+    components:
+        Background: {}

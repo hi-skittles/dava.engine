@@ -1,0 +1,23 @@
+diff -ur ./detours_source_original/src/Makefile ./detours_source/src/Makefile
+--- ./detours_source_original/src/Makefile	2017-08-25 11:27:12.992844200 +0300
++++ ./detours_source/src/Makefile	2017-08-25 11:32:53.647844000 +0300
+@@ -16,7 +16,19 @@
+ 
+ #######################/#######################################################
+ ##
++!IF "$(DETOURS_RUNTIME)" == "DYNAMIC"
++!IF "$(DETOURS_BUILD_MODE)" == "DEBUG"
++CFLAGS=/W4 /WX /Zi /MDd /Zl /Od
++!ELSE
++CFLAGS=/W4 /WX /Zi /MD /Gy /Gm- /Zl /Od
++!ENDIF
++!ELSE
++!IF "$(DETOURS_BUILD_MODE)" == "DEBUG"
++CFLAGS=/W4 /WX /Zi /MTd /Zl /Od
++!ELSE
+ CFLAGS=/W4 /WX /Zi /MT /Gy /Gm- /Zl /Od
++!ENDIF
++!ENDIF
+ 
+ !IF $(DETOURS_SOURCE_BROWSING)==1
+ CFLAGS=$(CFLAGS) /FR

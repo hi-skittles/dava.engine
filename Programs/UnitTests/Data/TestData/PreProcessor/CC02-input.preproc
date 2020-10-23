@@ -1,0 +1,6 @@
+INCLUDE CORNER-CASE (NO LINES INCLUDE DIRECTIVES)
+
+first
+#include "CC02-included-1.preproc"
+#include "CC02-included-2.preproc"
+last

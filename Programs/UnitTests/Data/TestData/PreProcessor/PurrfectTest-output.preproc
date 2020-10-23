@@ -1,0 +1,36 @@
+
+ remaining
+
+ 
+
+ remaining
+
+
+
+void foo(); 
+
+void foo();  
+
+
+
+
+void test() 
+{
+    float expect007 = 0.07; 
+
+    if ((external_value_1) || (external_value_2)) 
+    {
+
+        DoSomething_2();
+    }
+}
+
+
+
+Everything below this kind of comment will be lost
+
+void foo()
+{
+}
+
+

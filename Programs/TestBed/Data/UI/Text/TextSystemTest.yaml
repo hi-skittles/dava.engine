@@ -1,0 +1,776 @@
+Header:
+    version: "18"
+Prototypes:
+-   class: "UIControl"
+    name: "StaticTextComponentTest"
+    position: [0.000000, 0.000000]
+    size: [288.000000, 155.000000]
+    noInput: true
+    components:
+        LinearLayout:
+            padding: 5.000000
+            spacing: 1.000000
+        SizePolicy:
+            horizontalPolicy: "PercentOfParent"
+            verticalPolicy: "PercentOfParent"
+    children:
+    -   class: "UIStaticText"
+        name: "UIStaticText"
+        position: [5.000000, 0.000000]
+        size: [138.500000, 155.000000]
+        classes: ""
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                verticalPolicy: "PercentOfParent"
+            Anchor:
+                leftAnchorEnabled: true
+                rightAnchorEnabled: true
+                topAnchorEnabled: true
+                bottomAnchorEnabled: true
+            Background:
+                drawType: "DRAW_FILL"
+                color: [0.176471, 0.176471, 0.176471, 1.000000]
+            UITextComponent:
+                fontName: "DroidSansMono_18"
+                text: "MULTILINE: DISABLED, FITTING: NONE"
+    -   class: "UIControl"
+        name: "Component"
+        position: [144.500000, 0.000000]
+        size: [138.500000, 155.000000]
+        noInput: true
+        classes: ""
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                verticalPolicy: "PercentOfParent"
+            Anchor:
+                leftAnchorEnabled: true
+                rightAnchorEnabled: true
+                topAnchorEnabled: true
+                bottomAnchorEnabled: true
+            Background:
+                drawType: "DRAW_FILL"
+                color: [0.176471, 0.176471, 0.176471, 1.000000]
+            UITextComponent:
+                fontName: "DroidSansMono_18"
+                text: "MULTILINE: DISABLED, FITTING: NONE"
+Controls:
+-   class: "UIControl"
+    name: "NoMultilineTest"
+    position: [0.000000, 0.000000]
+    size: [533.000000, 385.000000]
+    noInput: true
+    components:
+        LinearLayout:
+            orientation: "TopDown"
+    children:
+    -   prototype: "StaticTextComponentTest"
+        name: "FittingNone"
+        components:
+            LinearLayout:
+                orientation: "TopDown"
+        children:
+        -   path: "UIStaticText"
+            components:
+                UITextComponent:
+                    text: "MULTILINE: DISABLED, FITTING: NONE"
+        -   path: "Component"
+            position: [0.000000, 39.000000]
+            components:
+                UITextComponent:
+                    text: "MULTILINE: DISABLED, FITTING: NONE"
+    -   prototype: "StaticTextComponentTest"
+        name: "FittingEnlarge"
+        position: [0.000000, 77.000000]
+        components:
+            LinearLayout:
+                orientation: "TopDown"
+        children:
+        -   path: "UIStaticText"
+            components:
+                UITextComponent:
+                    fitting: "FITTING_ENLARGE"
+                    text: "MULTILINE: DISABLED, FITTING: ENLARGE"
+        -   path: "Component"
+            components:
+                UITextComponent:
+                    fitting: "FITTING_ENLARGE"
+                    text: "MULTILINE: DISABLED, FITTING: ENLARGE"
+    -   prototype: "StaticTextComponentTest"
+        name: "FittingReduce"
+        position: [0.000000, 154.000000]
+        components:
+            LinearLayout:
+                orientation: "TopDown"
+        children:
+        -   path: "UIStaticText"
+            components:
+                UITextComponent:
+                    fitting: "FITTING_REDUCE"
+                    text: "MULTILINE: DISABLED, FITTING: REDUCE"
+        -   path: "Component"
+            components:
+                UITextComponent:
+                    fitting: "FITTING_REDUCE"
+                    text: "MULTILINE: DISABLED, FITTING: REDUCE"
+    -   prototype: "StaticTextComponentTest"
+        name: "FittingFill"
+        position: [0.000000, 231.000000]
+        components:
+            LinearLayout:
+                orientation: "TopDown"
+        children:
+        -   path: "UIStaticText"
+            components:
+                UITextComponent:
+                    fitting: "FITTING_FILL"
+                    text: "MULTILINE: DISABLED, FITTING: REDUCE|ENLARGE"
+        -   path: "Component"
+            components:
+                UITextComponent:
+                    fitting: "FITTING_FILL"
+                    text: "MULTILINE: DISABLED, FITTING: REDUCE|ENLARGE"
+    -   prototype: "StaticTextComponentTest"
+        name: "FittingPoints"
+        position: [0.000000, 308.000000]
+        components:
+            LinearLayout:
+                orientation: "TopDown"
+        children:
+        -   path: "UIStaticText"
+            components:
+                UITextComponent:
+                    fitting: "FITTING_POINTS"
+                    text: "MULTILINE: DISABLED, FITTING: POINTS"
+        -   path: "Component"
+            components:
+                UITextComponent:
+                    fitting: "FITTING_POINTS"
+                    text: "MULTILINE: DISABLED, FITTING: POINTS"
+-   class: "UIControl"
+    name: "MultilineTest"
+    position: [0.000000, 0.000000]
+    size: [542.000000, 245.000000]
+    noInput: true
+    components:
+        LinearLayout:
+            orientation: "LeftToRight"
+            spacing: 5.000000
+    children:
+    -   class: "UIControl"
+        name: "MultilineTest_1"
+        position: [0.000000, 0.000000]
+        size: [268.500000, 245.000000]
+        noInput: true
+        components:
+            LinearLayout:
+                orientation: "TopDown"
+                spacing: 5.000000
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                verticalPolicy: "PercentOfParent"
+        children:
+        -   prototype: "StaticTextComponentTest"
+            name: "FittingNone"
+            position: [0.000000, 0.000000]
+            children:
+            -   path: "UIStaticText"
+                components:
+                    UITextComponent:
+                        multiline: "MULTILINE_ENABLED"
+                        text: "MULTILINE: DISABLED, FITTING: NONE"
+            -   path: "Component"
+                position: [134.750000, 0.000000]
+                components:
+                    UITextComponent:
+                        multiline: "MULTILINE_ENABLED"
+                        text: "MULTILINE: DISABLED, FITTING: NONE"
+        -   class: "UIControl"
+            name: "Spacer"
+            size: [0.000000, 40.000000]
+        -   prototype: "StaticTextComponentTest"
+            name: "FittingEnlarge"
+            position: [0.000000, 147.500000]
+            children:
+            -   path: "UIStaticText"
+                components:
+                    UITextComponent:
+                        fitting: "FITTING_ENLARGE"
+                        multiline: "MULTILINE_ENABLED"
+                        text: "MULTILINE: DISABLED, FITTING: ENLARGE"
+            -   path: "Component"
+                components:
+                    UITextComponent:
+                        fitting: "FITTING_ENLARGE"
+                        multiline: "MULTILINE_ENABLED"
+                        text: "MULTILINE: DISABLED, FITTING: ENLARGE"
+    -   class: "UIControl"
+        name: "MultilineTest_2"
+        position: [273.500000, 0.000000]
+        size: [268.500000, 245.000000]
+        noInput: true
+        components:
+            LinearLayout:
+                orientation: "TopDown"
+                spacing: 5.000000
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                verticalPolicy: "PercentOfParent"
+        children:
+        -   prototype: "StaticTextComponentTest"
+            name: "FittingReduce"
+            position: [0.000000, 0.000000]
+            children:
+            -   path: "UIStaticText"
+                components:
+                    UITextComponent:
+                        fitting: "FITTING_REDUCE"
+                        multiline: "MULTILINE_ENABLED"
+                        text: "MULTILINE: DISABLED, FITTING: REDUCE"
+            -   path: "Component"
+                components:
+                    UITextComponent:
+                        fitting: "FITTING_REDUCE"
+                        multiline: "MULTILINE_ENABLED"
+                        text: "MULTILINE: DISABLED, FITTING: REDUCE"
+        -   prototype: "StaticTextComponentTest"
+            name: "FittingFill"
+            position: [0.000000, 83.333336]
+            children:
+            -   path: "UIStaticText"
+                components:
+                    UITextComponent:
+                        fitting: "FITTING_FILL"
+                        multiline: "MULTILINE_ENABLED"
+                        text: "MULTILINE: DISABLED, FITTING: REDUCE|ENLARGE"
+            -   path: "Component"
+                components:
+                    UITextComponent:
+                        fitting: "FITTING_FILL"
+                        multiline: "MULTILINE_ENABLED"
+                        text: "MULTILINE: DISABLED, FITTING: REDUCE|ENLARGE"
+        -   prototype: "StaticTextComponentTest"
+            name: "FittingPoints"
+            position: [0.000000, 166.666672]
+            children:
+            -   path: "UIStaticText"
+                components:
+                    UITextComponent:
+                        fitting: "FITTING_POINTS"
+                        multiline: "MULTILINE_ENABLED"
+                        text: "MULTILINE: DISABLED, FITTING: POINTS"
+            -   path: "Component"
+                components:
+                    UITextComponent:
+                        fitting: "FITTING_POINTS"
+                        multiline: "MULTILINE_ENABLED"
+                        text: "MULTILINE: DISABLED, FITTING: POINTS"
+-   class: "UIControl"
+    name: "MultilineBySymbolTest"
+    position: [0.000000, 0.000000]
+    size: [608.000000, 259.000000]
+    noInput: true
+    components:
+        LinearLayout:
+            orientation: "LeftToRight"
+            spacing: 5.000000
+    children:
+    -   class: "UIControl"
+        name: "MultilineBySymbolTest_1"
+        position: [0.000000, 0.000000]
+        size: [301.500000, 259.000000]
+        noInput: true
+        components:
+            LinearLayout:
+                orientation: "TopDown"
+                spacing: 5.000000
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                verticalPolicy: "PercentOfParent"
+        children:
+        -   prototype: "StaticTextComponentTest"
+            name: "FittingNone"
+            position: [0.000000, 0.000000]
+            children:
+            -   path: "UIStaticText"
+                components:
+                    UITextComponent:
+                        multiline: "MULTILINE_ENABLED_BY_SYMBOL"
+                        text: "MULTILINE: DISABLED, FITTING: NONE"
+            -   path: "Component"
+                position: [151.250000, 0.000000]
+                components:
+                    UITextComponent:
+                        multiline: "MULTILINE_ENABLED_BY_SYMBOL"
+                        text: "MULTILINE: DISABLED, FITTING: NONE"
+        -   class: "UIControl"
+            name: "Spacer"
+            size: [0.000000, 40.000000]
+        -   prototype: "StaticTextComponentTest"
+            name: "FittingEnlarge"
+            position: [0.000000, 132.000000]
+            children:
+            -   path: "UIStaticText"
+                components:
+                    UITextComponent:
+                        fitting: "FITTING_ENLARGE"
+                        multiline: "MULTILINE_ENABLED_BY_SYMBOL"
+                        text: "MULTILINE: DISABLED, FITTING: ENLARGE"
+            -   path: "Component"
+                components:
+                    UITextComponent:
+                        fitting: "FITTING_ENLARGE"
+                        multiline: "MULTILINE_ENABLED_BY_SYMBOL"
+                        text: "MULTILINE: DISABLED, FITTING: ENLARGE"
+        -   class: "UIControl"
+            name: "Spacer"
+            size: [0.000000, 40.000000]
+    -   class: "UIControl"
+        name: "MultilineBySymbolTest_2"
+        position: [306.500000, 0.000000]
+        size: [301.500000, 259.000000]
+        noInput: true
+        components:
+            LinearLayout:
+                orientation: "TopDown"
+                spacing: 5.000000
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                verticalPolicy: "PercentOfParent"
+        children:
+        -   prototype: "StaticTextComponentTest"
+            name: "FittingReduce"
+            position: [0.000000, 0.000000]
+            children:
+            -   path: "UIStaticText"
+                components:
+                    UITextComponent:
+                        fitting: "FITTING_REDUCE"
+                        multiline: "MULTILINE_ENABLED_BY_SYMBOL"
+                        text: "MULTILINE: DISABLED, FITTING: REDUCE"
+            -   path: "Component"
+                components:
+                    UITextComponent:
+                        fitting: "FITTING_REDUCE"
+                        multiline: "MULTILINE_ENABLED_BY_SYMBOL"
+                        text: "MULTILINE: DISABLED, FITTING: REDUCE"
+        -   prototype: "StaticTextComponentTest"
+            name: "FittingFill"
+            position: [0.000000, 88.000000]
+            children:
+            -   path: "UIStaticText"
+                components:
+                    UITextComponent:
+                        fitting: "FITTING_FILL"
+                        multiline: "MULTILINE_ENABLED_BY_SYMBOL"
+                        text: "MULTILINE: DISABLED, FITTING: REDUCE|ENLARGE"
+            -   path: "Component"
+                components:
+                    UITextComponent:
+                        fitting: "FITTING_FILL"
+                        multiline: "MULTILINE_ENABLED_BY_SYMBOL"
+                        text: "MULTILINE: DISABLED, FITTING: REDUCE|ENLARGE"
+        -   prototype: "StaticTextComponentTest"
+            name: "FittingPoints"
+            position: [0.000000, 176.000000]
+            children:
+            -   path: "UIStaticText"
+                components:
+                    UITextComponent:
+                        fitting: "FITTING_POINTS"
+                        multiline: "MULTILINE_ENABLED_BY_SYMBOL"
+                        text: "MULTILINE: DISABLED, FITTING: POINTS"
+            -   path: "Component"
+                components:
+                    UITextComponent:
+                        fitting: "FITTING_POINTS"
+                        multiline: "MULTILINE_ENABLED_BY_SYMBOL"
+                        text: "MULTILINE: DISABLED, FITTING: POINTS"
+-   class: "UIControl"
+    name: "ShadowTest"
+    position: [0.000000, 0.000000]
+    size: [524.000000, 168.000000]
+    children:
+    -   prototype: "StaticTextComponentTest"
+        name: "StaticTextComponentTest"
+        children:
+        -   path: "UIStaticText"
+            components:
+                UITextComponent:
+                    multiline: "MULTILINE_ENABLED"
+                    shadowColor: [0.000000, 1.000000, 0.000000, 1.000000]
+                    shadowOffset: [3.000000, 3.000000]
+                    text: "Lorem ipsum dolor sit amet"
+        -   path: "Component"
+            components:
+                UITextComponent:
+                    multiline: "MULTILINE_ENABLED"
+                    shadowColor: [0.000000, 1.000000, 0.000000, 1.000000]
+                    shadowOffset: [3.000000, 3.000000]
+                    text: "Lorem ipsum dolor sit amet"
+-   class: "UIControl"
+    name: "ParentColorTest"
+    position: [0.000000, 0.000000]
+    size: [476.000000, 342.000000]
+    components:
+        LinearLayout:
+            orientation: "TopDown"
+            spacing: 5.000000
+    children:
+    -   prototype: "StaticTextComponentTest"
+        name: "StaticTextComponentTest"
+        position: [0.000000, 0.000000]
+        children:
+        -   path: "UIStaticText"
+            components:
+                UITextComponent:
+                    color: [1.000000, 1.000000, 0.000000, 1.000000]
+                    colorInheritType: "COLOR_MULTIPLY_ON_PARENT"
+                    multiline: "MULTILINE_ENABLED"
+                    shadowColor: [0.000000, 0.000000, 0.000000, 1.000000]
+                    shadowOffset: [0.000000, 0.000000]
+                    text: "Lorem ipsum dolor sit amet"
+        -   path: "Component"
+            components:
+                UITextComponent:
+                    color: [1.000000, 1.000000, 0.000000, 1.000000]
+                    colorInheritType: "COLOR_MULTIPLY_ON_PARENT"
+                    multiline: "MULTILINE_ENABLED"
+                    shadowColor: [0.000000, 0.000000, 0.000000, 1.000000]
+                    shadowOffset: [0.000000, 0.000000]
+                    text: "Lorem ipsum dolor sit amet"
+    -   prototype: "StaticTextComponentTest"
+        name: "StaticTextComponentTest"
+        position: [0.000000, 69.400002]
+        children:
+        -   path: "UIStaticText"
+            components:
+                UITextComponent:
+                    color: [1.000000, 1.000000, 0.000000, 1.000000]
+                    colorInheritType: "COLOR_ADD_TO_PARENT"
+                    multiline: "MULTILINE_ENABLED"
+                    shadowColor: [0.000000, 0.000000, 0.000000, 1.000000]
+                    shadowOffset: [0.000000, 0.000000]
+                    text: "Lorem ipsum dolor sit amet"
+        -   path: "Component"
+            position: [238.500000, 0.000000]
+            components:
+                UITextComponent:
+                    color: [1.000000, 1.000000, 0.000000, 1.000000]
+                    colorInheritType: "COLOR_ADD_TO_PARENT"
+                    multiline: "MULTILINE_ENABLED"
+                    shadowColor: [0.000000, 0.000000, 0.000000, 1.000000]
+                    shadowOffset: [0.000000, 0.000000]
+                    text: "Lorem ipsum dolor sit amet"
+    -   prototype: "StaticTextComponentTest"
+        name: "StaticTextComponentTest"
+        position: [0.000000, 138.800003]
+        children:
+        -   path: "UIStaticText"
+            components:
+                UITextComponent:
+                    color: [1.000000, 1.000000, 0.000000, 1.000000]
+                    colorInheritType: "COLOR_REPLACE_TO_PARENT"
+                    multiline: "MULTILINE_ENABLED"
+                    shadowColor: [0.000000, 0.000000, 0.000000, 1.000000]
+                    shadowOffset: [0.000000, 0.000000]
+                    text: "Lorem ipsum dolor sit amet"
+        -   path: "Component"
+            position: [238.500000, 0.000000]
+            components:
+                UITextComponent:
+                    color: [1.000000, 1.000000, 0.000000, 1.000000]
+                    colorInheritType: "COLOR_REPLACE_TO_PARENT"
+                    multiline: "MULTILINE_ENABLED"
+                    shadowColor: [0.000000, 0.000000, 0.000000, 1.000000]
+                    shadowOffset: [0.000000, 0.000000]
+                    text: "Lorem ipsum dolor sit amet"
+    -   prototype: "StaticTextComponentTest"
+        name: "StaticTextComponentTest"
+        position: [0.000000, 208.200012]
+        children:
+        -   path: "UIStaticText"
+            components:
+                UITextComponent:
+                    color: [1.000000, 1.000000, 0.000000, 1.000000]
+                    colorInheritType: "COLOR_MULTIPLY_ALPHA_ONLY"
+                    multiline: "MULTILINE_ENABLED"
+                    shadowColor: [0.000000, 0.000000, 0.000000, 1.000000]
+                    shadowOffset: [0.000000, 0.000000]
+                    text: "Lorem ipsum dolor sit amet"
+        -   path: "Component"
+            position: [238.500000, 0.000000]
+            components:
+                UITextComponent:
+                    color: [1.000000, 1.000000, 0.000000, 1.000000]
+                    colorInheritType: "COLOR_MULTIPLY_ALPHA_ONLY"
+                    multiline: "MULTILINE_ENABLED"
+                    shadowColor: [0.000000, 0.000000, 0.000000, 1.000000]
+                    shadowOffset: [0.000000, 0.000000]
+                    text: "Lorem ipsum dolor sit amet"
+    -   prototype: "StaticTextComponentTest"
+        name: "StaticTextComponentTest"
+        position: [0.000000, 277.600006]
+        children:
+        -   path: "UIStaticText"
+            components:
+                UITextComponent:
+                    color: [1.000000, 1.000000, 0.000000, 1.000000]
+                    colorInheritType: "COLOR_REPLACE_ALPHA_ONLY"
+                    multiline: "MULTILINE_ENABLED"
+                    shadowColor: [0.000000, 0.000000, 0.000000, 1.000000]
+                    shadowOffset: [0.000000, 0.000000]
+                    text: "Lorem ipsum dolor sit amet"
+        -   path: "Component"
+            position: [238.500000, 0.000000]
+            components:
+                UITextComponent:
+                    color: [1.000000, 1.000000, 0.000000, 1.000000]
+                    colorInheritType: "COLOR_REPLACE_ALPHA_ONLY"
+                    multiline: "MULTILINE_ENABLED"
+                    shadowColor: [0.000000, 0.000000, 0.000000, 1.000000]
+                    shadowOffset: [0.000000, 0.000000]
+                    text: "Lorem ipsum dolor sit amet"
+-   class: "UIControl"
+    name: "PercentOfContentTest"
+    position: [0.000000, 0.000000]
+    size: [548.000000, 0.000000]
+    components:
+        LinearLayout:
+            orientation: "LeftToRight"
+        SizePolicy:
+            horizontalPolicy: "Ignore"
+            verticalPolicy: "PercentOfContent"
+            verticalValue: 100.000000
+    children:
+    -   class: "UIControl"
+        name: "PercentOfContentTest_1"
+        position: [0.000000, 0.000000]
+        size: [274.000000, 0.000000]
+        components:
+            LinearLayout:
+                orientation: "TopDown"
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                verticalPolicy: "PercentOfContent"
+                verticalValue: 100.000000
+        children:
+        -   class: "UIStaticText"
+            name: "UIStaticText"
+            position: [0.000000, 0.000000]
+            size: [274.000000, 86.400002]
+            classes: "text1 text-color-white"
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                    verticalPolicy: "PercentOfContent"
+                    verticalValue: 120.000000
+                Anchor:
+                    leftAnchorEnabled: true
+                    rightAnchorEnabled: true
+                    topAnchorEnabled: true
+                    bottomAnchorEnabled: true
+                Background:
+                    drawType: "DRAW_FILL"
+                    color: [0.176471, 0.176471, 0.176471, 1.000000]
+                UITextComponent:
+                    colorInheritType: "COLOR_IGNORE_PARENT"
+                    fontName: "DroidSansMono_18"
+                    multiline: "MULTILINE_ENABLED"
+                    text: "Lorem ipsum dolor sit amet"
+        -   class: "UIControl"
+            name: "Component"
+            position: [0.000000, 86.400002]
+            size: [274.000000, 86.400002]
+            noInput: true
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                    verticalPolicy: "PercentOfContent"
+                    verticalValue: 120.000000
+                Anchor:
+                    leftAnchorEnabled: true
+                    rightAnchorEnabled: true
+                    topAnchorEnabled: true
+                    vCenterAnchorEnabled: false
+                    bottomAnchorEnabled: true
+                Background:
+                    drawType: "DRAW_FILL"
+                    color: [0.176471, 0.176471, 0.176471, 1.000000]
+                UITextComponent:
+                    fontName: "DroidSansMono_18"
+                    multiline: "MULTILINE_ENABLED"
+                    text: "Lorem ipsum dolor sit amet"
+    -   class: "UIControl"
+        name: "PercentOfContentTest_2"
+        position: [274.000000, 0.000000]
+        size: [274.000000, 0.000000]
+        components:
+            LinearLayout:
+                orientation: "TopDown"
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                verticalPolicy: "PercentOfContent"
+                verticalValue: 100.000000
+        children:
+        -   class: "UIStaticText"
+            name: "UIStaticText"
+            position: [0.000000, 0.000000]
+            size: [274.000000, 108.000000]
+            classes: "text1 text-color-white"
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                    horizontalValue: 100.000000
+                    verticalPolicy: "PercentOfContent"
+                    verticalValue: 150.000000
+                Anchor:
+                    leftAnchorEnabled: true
+                    rightAnchorEnabled: true
+                    topAnchorEnabled: true
+                    bottomAnchorEnabled: true
+                Background:
+                    drawType: "DRAW_FILL"
+                    color: [0.113725, 0.176471, 0.101961, 1.000000]
+                UITextComponent:
+                    colorInheritType: "COLOR_IGNORE_PARENT"
+                    fontName: "DroidSansMono_18"
+                    multiline: "MULTILINE_ENABLED"
+                    text: "Lorem ipsum dolor sit amet"
+        -   class: "UIControl"
+            name: "Component"
+            position: [0.000000, 108.000000]
+            size: [274.000000, 108.000000]
+            noInput: true
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                    horizontalValue: 100.000000
+                    verticalPolicy: "PercentOfContent"
+                    verticalValue: 150.000000
+                Anchor:
+                    leftAnchorEnabled: true
+                    rightAnchorEnabled: true
+                    topAnchorEnabled: true
+                    vCenterAnchorEnabled: false
+                    bottomAnchorEnabled: true
+                Background:
+                    drawType: "DRAW_FILL"
+                    color: [0.113725, 0.176471, 0.101961, 1.000000]
+                UITextComponent:
+                    fontName: "DroidSansMono_18"
+                    multiline: "MULTILINE_ENABLED"
+                    text: "Lorem ipsum dolor sit amet"
+-   class: "UIControl"
+    name: "MainFrame"
+    position: [0.000000, 0.000000]
+    size: [755.000000, 546.000000]
+    noInput: true
+    components:
+        SizePolicy:
+            horizontalPolicy: "PercentOfParent"
+            verticalPolicy: "PercentOfParent"
+        UIEventBindingComponent: {}
+        Focus: {}
+    children:
+    -   class: "UIControl"
+        name: "Holder"
+        position: [11.000000, 120.000000]
+        size: [253.000000, 238.000000]
+        noInput: true
+    -   class: "UIControl"
+        name: "UIControl"
+        position: [21.000000, 10.000000]
+        size: [228.000000, 48.000000]
+        components:
+            LinearLayout: {}
+        children:
+        -   class: "UIStaticText"
+            name: "StartBtn"
+            position: [0.000000, 0.000000]
+            size: [114.000000, 38.000000]
+            noInput: false
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                    horizontalValue: 50.000000
+                UIInputEventComponent:
+                    onTouchDown: "START"
+                DebugRender:
+                    enabled: true
+                UITextComponent:
+                    fontName: "Korinna_18"
+                    text: "Start"
+        -   class: "UIStaticText"
+            name: "StopBtn"
+            position: [114.000000, 0.000000]
+            size: [114.000000, 38.000000]
+            noInput: false
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                    horizontalValue: 50.000000
+                UIInputEventComponent:
+                    onTouchDown: "STOP"
+                DebugRender:
+                    enabled: true
+                UITextComponent:
+                    fontName: "Korinna_18"
+                    text: "Stop"
+    -   class: "UIControl"
+        name: "UIControl"
+        position: [21.000000, 60.000000]
+        size: [228.000000, 40.000000]
+        components:
+            LinearLayout: {}
+        children:
+        -   class: "UIStaticText"
+            name: "StartBtn"
+            position: [0.000000, 0.000000]
+            size: [114.000000, 38.000000]
+            noInput: false
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                    horizontalValue: 50.000000
+                UIInputEventComponent:
+                    onTouchDown: "PREV"
+                DebugRender:
+                    enabled: true
+                UITextComponent:
+                    fontName: "Korinna_18"
+                    text: "Prev test"
+        -   class: "UIStaticText"
+            name: "StopBtn"
+            position: [114.000000, 0.000000]
+            size: [114.000000, 38.000000]
+            noInput: false
+            components:
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                    horizontalValue: 50.000000
+                UIInputEventComponent:
+                    onTouchDown: "NEXT"
+                DebugRender:
+                    enabled: true
+                UITextComponent:
+                    fontName: "Korinna_18"
+                    text: "Next test"
+    -   class: "UIStaticText"
+        name: "StatusText"
+        position: [264.000000, 10.000000]
+        size: [465.000000, 90.000000]
+        noInput: false
+        components:
+            SizePolicy:
+                horizontalPolicy: "Ignore"
+                horizontalValue: 50.000000
+            UIInputEventComponent:
+                onTouchDown: "STOP"
+            DebugRender:
+                enabled: true
+            UITextComponent:
+                fontName: "Korinna_18"
+                multiline: "MULTILINE_ENABLED"
+                text: "FPS: 0"

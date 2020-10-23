@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TextureBrowser</class>
+ <widget class="QDialog" name="TextureBrowser">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1136</width>
+    <height>835</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Texture Converter</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Resources.qrc">
+    <normaloff>:/QtIcons/textureeditor.png</normaloff>:/QtIcons/textureeditor.png</iconset>
+  </property>
+  <property name="statusTip">
+   <string/>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>false</bool>
+  </property>
+  <property name="modal">
+   <bool>false</bool>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="margin">
+    <number>3</number>
+   </property>
+   <item>
+    <widget class="QSplitter" name="splitterMain">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QFrame" name="frameList">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>1</number>
+       </property>
+       <property name="margin">
+        <number>2</number>
+       </property>
+       <item>
+        <widget class="QToolBar" name="textureListToolbar">
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+         <addaction name="actionViewImagesList"/>
+         <addaction name="actionViewTextList"/>
+         <addaction name="separator"/>
+         <addaction name="actionFilterSelectedNode"/>
+         <addaction name="actionConvertForAllGPU"/>
+         <addaction name="actionConvertAll"/>
+         <addaction name="actionConvertModified"/>
+         <addaction name="actionConvertTagged"/>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_5">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="spacing">
+           <number>3</number>
+          </property>
+          <property name="margin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLineEdit" name="textureFilterEdit">
+            <property name="toolTip">
+             <string>Type here to search</string>
+            </property>
+            <property name="statusTip">
+             <string/>
+            </property>
+            <property name="placeholderText">
+             <string>Type here to search</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="clearFilterButton">
+            <property name="minimumSize">
+             <size>
+              <width>23</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>23</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Clear search results</string>
+            </property>
+            <property name="statusTip">
+             <string/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>:/QtTools/Icons/close-10.png</normaloff>:/QtTools/Icons/close-10.png</iconset>
+            </property>
+            <property name="autoRaise">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="TextureList" name="listViewTextures">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="verticalScrollMode">
+          <enum>QAbstractItemView::ScrollPerPixel</enum>
+         </property>
+         <property name="horizontalScrollMode">
+          <enum>QAbstractItemView::ScrollPerPixel</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolBar" name="textureListSortToolbar">
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QFrame" name="frameMain">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <property name="spacing">
+        <number>5</number>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QToolBar" name="textureToolbar">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="baseSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonIconOnly</enum>
+         </property>
+         <property name="floatable">
+          <bool>true</bool>
+         </property>
+         <addaction name="actionColorR"/>
+         <addaction name="actionColorG"/>
+         <addaction name="actionColorB"/>
+         <addaction name="actionColorA"/>
+         <addaction name="separator"/>
+         <addaction name="actionShowBorder"/>
+         <addaction name="actionShowBgMask"/>
+         <addaction name="separator"/>
+         <addaction name="actionZoomFit"/>
+         <addaction name="actionZoom100"/>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frameTextureAndProp">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Sunken</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <property name="spacing">
+           <number>1</number>
+          </property>
+          <property name="margin">
+           <number>5</number>
+          </property>
+          <item>
+           <widget class="QTabBar" name="viewTabBar" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSplitter" name="splitter_2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <widget class="QFrame" name="frameTextures">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>3</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_3" columnstretch="1,1">
+              <property name="margin">
+               <number>0</number>
+              </property>
+              <property name="spacing">
+               <number>2</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QGroupBox" name="groupBox_4">
+                <property name="title">
+                 <string>Original texture info</string>
+                </property>
+                <property name="flat">
+                 <bool>false</bool>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_2">
+                 <property name="horizontalSpacing">
+                  <number>10</number>
+                 </property>
+                 <item row="0" column="1">
+                  <widget class="QLabel" name="labelOriginalFormat">
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                   </property>
+                   <property name="wordWrap">
+                    <bool>true</bool>
+                   </property>
+                   <property name="margin">
+                    <number>3</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="3">
+                  <widget class="QLabel" name="labelOriginalXY">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Plain</enum>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+                   </property>
+                   <property name="margin">
+                    <number>3</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="4">
+                  <widget class="QLabel" name="labelOriginalRGBA">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+                   </property>
+                   <property name="margin">
+                    <number>3</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="TextureScrollArea" name="textureAreaConverted">
+                <property name="cursor" stdset="0">
+                 <cursorShape>ArrowCursor</cursorShape>
+                </property>
+                <property name="mouseTracking">
+                 <bool>true</bool>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Sunken</enum>
+                </property>
+                <property name="widgetResizable" stdset="0">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QGroupBox" name="groupBox_3">
+                <property name="title">
+                 <string>Converted texture info</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+                <layout class="QGridLayout" name="gridLayout">
+                 <property name="horizontalSpacing">
+                  <number>10</number>
+                 </property>
+                 <item row="0" column="2">
+                  <widget class="QLabel" name="labelConvertedFormat">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                   </property>
+                   <property name="wordWrap">
+                    <bool>true</bool>
+                   </property>
+                   <property name="margin">
+                    <number>3</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLabel" name="labelConvertedXY">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                   </property>
+                   <property name="margin">
+                    <number>3</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="labelConvertedRGBA">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                   </property>
+                   <property name="margin">
+                    <number>3</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="TextureScrollArea" name="textureAreaOriginal">
+                <property name="cursor" stdset="0">
+                 <cursorShape>ArrowCursor</cursorShape>
+                </property>
+                <property name="mouseTracking">
+                 <bool>true</bool>
+                </property>
+                <property name="widgetResizable" stdset="0">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QFrame" name="frameProperties">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <property name="spacing">
+               <number>2</number>
+              </property>
+              <property name="leftMargin">
+               <number>4</number>
+              </property>
+              <property name="topMargin">
+               <number>2</number>
+              </property>
+              <property name="rightMargin">
+               <number>2</number>
+              </property>
+              <property name="bottomMargin">
+               <number>2</number>
+              </property>
+              <item>
+               <widget class="TextureProperties" name="textureProperties">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="alternatingRowColors">
+                 <bool>true</bool>
+                </property>
+                <property name="indentation">
+                 <number>16</number>
+                </property>
+                <property name="rootIsDecorated">
+                 <bool>false</bool>
+                </property>
+                <property name="itemsExpandable">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QToolButton" name="convertToolButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>...</string>
+                </property>
+                <property name="toolButtonStyle">
+                 <enum>Qt::ToolButtonTextBesideIcon</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="warningLabel">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+                <property name="margin">
+                 <number>3</number>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+  <action name="actionColorR">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/QtIconsTextureDialog/red.png</normaloff>:/QtIconsTextureDialog/red.png</iconset>
+   </property>
+   <property name="text">
+    <string>colorR</string>
+   </property>
+   <property name="toolTip">
+    <string>Show RED color channel</string>
+   </property>
+  </action>
+  <action name="actionColorG">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/QtIconsTextureDialog/green.png</normaloff>:/QtIconsTextureDialog/green.png</iconset>
+   </property>
+   <property name="text">
+    <string>colorG</string>
+   </property>
+   <property name="toolTip">
+    <string>Show GREEN color channel</string>
+   </property>
+  </action>
+  <action name="actionColorB">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/QtIconsTextureDialog/blue.png</normaloff>:/QtIconsTextureDialog/blue.png</iconset>
+   </property>
+   <property name="text">
+    <string>colorB</string>
+   </property>
+   <property name="toolTip">
+    <string>Show BLUE color channel</string>
+   </property>
+  </action>
+  <action name="actionColorA">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/QtIconsTextureDialog/alpha.png</normaloff>:/QtIconsTextureDialog/alpha.png</iconset>
+   </property>
+   <property name="text">
+    <string>colorA</string>
+   </property>
+   <property name="toolTip">
+    <string>Show ALPHA channel</string>
+   </property>
+  </action>
+  <action name="actionViewImagesList">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/QtIconsTextureDialog/view_pictures.png</normaloff>:/QtIconsTextureDialog/view_pictures.png</iconset>
+   </property>
+   <property name="text">
+    <string>viewImagesList</string>
+   </property>
+   <property name="toolTip">
+    <string>View textrures priview</string>
+   </property>
+  </action>
+  <action name="actionViewTextList">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/QtIconsTextureDialog/view_list.png</normaloff>:/QtIconsTextureDialog/view_list.png</iconset>
+   </property>
+   <property name="text">
+    <string>viewTextList</string>
+   </property>
+   <property name="toolTip">
+    <string>View simple textutes list</string>
+   </property>
+  </action>
+  <action name="actionShowBorder">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/QtIconsTextureDialog/border.png</normaloff>:/QtIconsTextureDialog/border.png</iconset>
+   </property>
+   <property name="text">
+    <string>showBorder</string>
+   </property>
+   <property name="toolTip">
+    <string>Show texture border</string>
+   </property>
+  </action>
+  <action name="actionShowBgMask">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/QtIconsTextureDialog/opacity.png</normaloff>:/QtIconsTextureDialog/opacity.png</iconset>
+   </property>
+   <property name="text">
+    <string>showBgMask</string>
+   </property>
+   <property name="toolTip">
+    <string>Show tiled background</string>
+   </property>
+  </action>
+  <action name="actionZoom100">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/QtIconsTextureDialog/zoom_100.png</normaloff>:/QtIconsTextureDialog/zoom_100.png</iconset>
+   </property>
+   <property name="text">
+    <string>zoom100</string>
+   </property>
+   <property name="toolTip">
+    <string>Zoom to 100%</string>
+   </property>
+  </action>
+  <action name="actionZoomFit">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/QtIconsTextureDialog/zoom_fit.png</normaloff>:/QtIconsTextureDialog/zoom_fit.png</iconset>
+   </property>
+   <property name="text">
+    <string>zoomFit</string>
+   </property>
+   <property name="toolTip">
+    <string>Zoom to fit</string>
+   </property>
+  </action>
+  <action name="actionFilterSelectedNode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/QtIconsTextureDialog/filter.png</normaloff>:/QtIconsTextureDialog/filter.png</iconset>
+   </property>
+   <property name="text">
+    <string>filterSelectedNode</string>
+   </property>
+   <property name="toolTip">
+    <string>filterSelectedNode</string>
+   </property>
+  </action>
+  <action name="actionConvert">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/QtIconsTextureDialog/convert.png</normaloff>:/QtIconsTextureDialog/convert.png</iconset>
+   </property>
+   <property name="text">
+    <string>Convert</string>
+   </property>
+   <property name="toolTip">
+    <string>Force to convert current texture</string>
+   </property>
+  </action>
+  <action name="actionConvertAll">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/QtIconsTextureDialog/convertall.png</normaloff>:/QtIconsTextureDialog/convertall.png</iconset>
+   </property>
+   <property name="text">
+    <string>Convert all</string>
+   </property>
+   <property name="toolTip">
+    <string>Force convert all textures</string>
+   </property>
+  </action>
+  <action name="actionConvertModified">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/QtIconsTextureDialog/convertModified.png</normaloff>:/QtIconsTextureDialog/convertModified.png</iconset>
+   </property>
+   <property name="text">
+    <string>Convert modified</string>
+   </property>
+   <property name="toolTip">
+    <string>Convert modified textures</string>
+   </property>
+  </action>
+  <action name="actionConvertForAllGPU">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/QtIconsTextureDialog/convertallgpu.png</normaloff>:/QtIconsTextureDialog/convertallgpu.png</iconset>
+   </property>
+   <property name="text">
+    <string>Convert for all GPU</string>
+   </property>
+   <property name="toolTip">
+    <string>Convert current texture for all GPU</string>
+   </property>
+  </action>
+  <action name="actionConvertTagged">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/QtIconsTextureDialog/convertTagged.png</normaloff>:/QtIconsTextureDialog/convertTagged.png</iconset>
+   </property>
+   <property name="text">
+    <string>Convert tagged</string>
+   </property>
+   <property name="toolTip">
+    <string>Convert tagged textures</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>TextureScrollArea</class>
+   <extends>QGraphicsView</extends>
+   <header>Classes/Qt/TextureBrowser/TextureScrollArea.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TextureList</class>
+   <extends>QListView</extends>
+   <header>Classes/Qt/TextureBrowser/TextureList.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QTabBar</class>
+   <extends>QWidget</extends>
+   <header>qtabbar.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TextureProperties</class>
+   <extends>QTreeView</extends>
+   <header>Classes/Qt/TextureBrowser/TextureProperties.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>textureAreaOriginal</tabstop>
+  <tabstop>textureAreaConverted</tabstop>
+  <tabstop>textureFilterEdit</tabstop>
+  <tabstop>clearFilterButton</tabstop>
+ </tabstops>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

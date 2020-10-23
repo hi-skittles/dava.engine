@@ -1,0 +1,4 @@
+type: "graphic"
+fontPath: "~res:/Fonts/DejaVuSans_df.fnt"
+verticalSpacing: 0
+texturePath: "~res:/Fonts/DejaVuSans_df.tex"

@@ -1,0 +1,59 @@
+Header:
+    version: "19"
+Controls:
+-   class: "UIControl"
+    name: "UIControl"
+    position: [0.000000, 0.000000]
+    size: [679.000000, 605.000000]
+    children:
+    -   class: "UIControl"
+        name: "Spinner"
+        position: [322.000000, 302.000000]
+        size: [123.000000, 123.000000]
+        pivot: [0.500000, 0.500000]
+        components:
+            DebugRender: {}
+            UIScriptComponent:
+                luaScriptPath: "~res:/Lua/Components/RotateComponent.lua"
+                parameters: "1"
+        children:
+        -   class: "UIControl"
+            name: "Spinner_1"
+            position: [200.000000, 203.000000]
+            size: [123.000000, 123.000000]
+            pivot: [0.500000, 0.500000]
+            components:
+                DebugRender: {}
+                UIScriptComponent:
+                    luaScriptPath: "~res:/Lua/Components/RotateComponent.lua"
+                    parameters: "1"
+        -   class: "UIControl"
+            name: "Spinner_2"
+            position: [-79.000000, -75.000000]
+            size: [123.000000, 123.000000]
+            pivot: [0.500000, 0.500000]
+            components:
+                DebugRender: {}
+                UIScriptComponent:
+                    luaScriptPath: "~res:/Lua/Components/RotateComponent.lua"
+                    parameters: "-3"
+        -   class: "UIControl"
+            name: "Spinner_3"
+            position: [-79.000000, 203.000000]
+            size: [123.000000, 123.000000]
+            pivot: [0.500000, 0.500000]
+            components:
+                DebugRender: {}
+                UIScriptComponent:
+                    luaScriptPath: "~res:/Lua/Components/RotateComponent.lua"
+                    parameters: "-3"
+        -   class: "UIControl"
+            name: "Spinner_4"
+            position: [200.000000, -75.000000]
+            size: [123.000000, 123.000000]
+            pivot: [0.500000, 0.500000]
+            components:
+                DebugRender: {}
+                UIScriptComponent:
+                    luaScriptPath: "~res:/Lua/Components/RotateComponent.lua"
+                    parameters: "-3"

@@ -1,0 +1,9 @@
+
+(letter_a + ((letter_c)) - (letter_b))
+letter_a letter_a letter_a letter_a letter_a
+letter_a
+letter_a (letter_b)
+letter_a (letter_b) ((letter_c))
+(letter_b) ((letter_c))
+((letter_c))
+letter_a + (letter_b)

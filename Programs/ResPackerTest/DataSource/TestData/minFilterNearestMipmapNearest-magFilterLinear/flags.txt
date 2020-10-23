@@ -1,0 +1,1 @@
+--minFilterNearestMipmapNearest --magFilterLinear --PowerVR_iOS RGB565 --adreno RGB565 --mali RGB565 --tegra DXT5NM --PowerVR_Android RGB565

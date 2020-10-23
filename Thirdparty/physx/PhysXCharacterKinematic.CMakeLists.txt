@@ -1,0 +1,22 @@
+set(MODULE_NAME PhysX3CharacterKinematic)
+set(MODULE_TYPE STATIC)#INLINE STATIC DYNAMIC 
+
+get_filename_component(PhysXRoot "${CMAKE_CURRENT_SOURCE_DIR}/../../" ABSOLUTE)
+set(HPP_FILES_RECURSE *.h *.hpp)
+set(CPP_FILES ${PhysXRoot}/Source/PhysXCharacterKinematic/src/CctBoxController.cpp
+              ${PhysXRoot}/Source/PhysXCharacterKinematic/src/CctCapsuleController.cpp
+              ${PhysXRoot}/Source/PhysXCharacterKinematic/src/CctCharacterController.cpp
+              ${PhysXRoot}/Source/PhysXCharacterKinematic/src/CctCharacterControllerCallbacks.cpp
+              ${PhysXRoot}/Source/PhysXCharacterKinematic/src/CctCharacterControllerManager.cpp
+              ${PhysXRoot}/Source/PhysXCharacterKinematic/src/CctController.cpp
+              ${PhysXRoot}/Source/PhysXCharacterKinematic/src/CctObstacleContext.cpp
+              ${PhysXRoot}/Source/PhysXCharacterKinematic/src/CctSweptBox.cpp
+              ${PhysXRoot}/Source/PhysXCharacterKinematic/src/CctSweptCapsule.cpp
+              ${PhysXRoot}/Source/PhysXCharacterKinematic/src/CctSweptVolume.cpp)
+
+set(DEBUG_POSTFIX "DEBUG")
+set(CHECKED_POSTFIX "CHECKED")
+set(PROFILE_POSTFIX "PROFILE")
+set(RELEASE_POSTFIX "")
+
+setup_main_module()

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LocalDebuggerWorkingDirectory>@CMAKE_CURRENT_LIST_DIR@</LocalDebuggerWorkingDirectory>
+    <LocalDebuggerEnvironment>PATH=@DAVA_BINARY_WIN32_DIR@</LocalDebuggerEnvironment>
+    <AppxPriConfigXmlDefaultSnippetPath>UWPPriConfigDefault.xml</AppxPriConfigXmlDefaultSnippetPath>
+    <AppxPriConfigXmlPackagingSnippetPath>UWPPriConfigPackaging.xml</AppxPriConfigXmlPackagingSnippetPath>
+  </PropertyGroup>
+</Project>

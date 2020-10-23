@@ -1,0 +1,13 @@
+IF/ELIF CORNER-CASE
+
+#define AAA 1
+#define BBB 0
+#define DDD 1
+
+#if AAA  ||  BBB
+  aaa,bbb
+#elif DDD
+  ddd
+#endif
+
+last

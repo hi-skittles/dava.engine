@@ -1,0 +1,1 @@
+--minFilterNearestMipmapNearest --magFilterNearest --PowerVR_iOS PVR4 --adreno ATC_RGBA_INTERPOLATED_ALPHA --mali ETC1 --tegra DXT5NM --PowerVR_Android PVR4

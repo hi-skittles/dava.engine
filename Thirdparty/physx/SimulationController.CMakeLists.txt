@@ -1,0 +1,72 @@
+set(MODULE_NAME SimulationController)
+set(MODULE_TYPE STATIC)
+
+get_filename_component(PhysXRoot "${CMAKE_CURRENT_SOURCE_DIR}/../../" ABSOLUTE)
+set(HPP_FILES_RECURSE *.h *.hpp)
+set(CPP_FILES ${PhysXRoot}/Source/SimulationController/src/ScActorCore.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScActorSim.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScArticulationCore.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScArticulationJointCore.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScArticulationJointSim.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScArticulationSim.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScBodyCore.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScBodyCoreKinematic.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScBodySim.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScConstraintCore.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScConstraintGroupNode.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScConstraintInteraction.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScConstraintProjectionManager.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScConstraintProjectionTree.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScConstraintSim.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScElementInteractionMarker.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScElementSim.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScInteraction.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScIterators.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScMaterialCore.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScMetaData.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScNPhaseCore.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScPhysics.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScRigidCore.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScRigidSim.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScScene.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScShapeCore.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScShapeInteraction.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScShapeSim.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScSimStats.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScSimulationController.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScSqBoundsManager.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScStaticCore.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScStaticSim.cpp
+              ${PhysXRoot}/Source/SimulationController/src/ScTriggerInteraction.cpp
+              ${PhysXRoot}/Source/SimulationController/src/particles/ScParticleBodyInteraction.cpp
+              ${PhysXRoot}/Source/SimulationController/src/particles/ScParticlePacketShape.cpp
+              ${PhysXRoot}/Source/SimulationController/src/particles/ScParticleSystemCore.cpp
+              ${PhysXRoot}/Source/SimulationController/src/particles/ScParticleSystemSim.cpp
+              ${PhysXRoot}/Source/SimulationController/src/cloth/ScClothCore.cpp
+              ${PhysXRoot}/Source/SimulationController/src/cloth/ScClothFabricCore.cpp
+              ${PhysXRoot}/Source/SimulationController/src/cloth/ScClothShape.cpp
+              ${PhysXRoot}/Source/SimulationController/src/cloth/ScClothSim.cpp)
+
+set(DEBUG_POSTFIX "DEBUG")
+set(CHECKED_POSTFIX "CHECKED")
+set(PROFILE_POSTFIX "PROFILE")
+set(RELEASE_POSTFIX "")
+
+set(INCLUDES_PRIVATE "${PhysXRoot}/Source/SimulationController/include"
+                     "${PhysXRoot}/Source/SimulationController/src"
+                     "${PhysXRoot}/Source/SimulationController/src/particles"
+                     "${PhysXRoot}/Source/SimulationController/src/cloth"
+                     "${PhysXRoot}/Source/LowLevel/unix/include"
+                     "${PhysXRoot}/Source/LowLevel/API/include"
+                     "${PhysXRoot}/Source/LowLevel/software/include"
+                     "${PhysXRoot}/Source/LowLevel/common/include/math"
+                     "${PhysXRoot}/Source/LowLevel/common/include/utils"
+                     "${PhysXRoot}/Source/LowLevel/common/include/collision"
+                     "${PhysXRoot}/Source/LowLevel/common/include/pipeline"
+                     "${PhysXRoot}/Source/LowLevelCloth/include"
+                     "${PhysXRoot}/Source/LowLevelAABB/include"
+                     "${PhysXRoot}/Source/LowLevelCloth/include"
+                     "${PhysXRoot}/Source/LowLevelDynamics/include"
+                     "${PhysXRoot}/Source/LowLevelParticles/include")
+
+setup_main_module()

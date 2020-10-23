@@ -1,0 +1,125 @@
+Header:
+    version: "11"
+Prototypes:
+-   class: "UIControl"
+    name: "SettingsTabControl"
+    size: [150.000000, 74.000000]
+    noInput: true
+    tag: 0
+    classes: "tab"
+    components:
+        SizePolicy:
+            horizontalPolicy: "PercentOfParent"
+        Anchor:
+            topAnchorEnabled: true
+            topAnchor: 0.000000
+            bottomAnchorEnabled: true
+            bottomAnchor: 0.000000
+    children:
+    -   class: "UIControl"
+        name: "selected"
+        size: [150.000000, 74.000000]
+        noInput: true
+        components:
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 0.000000
+                rightAnchorEnabled: true
+                rightAnchor: 0.000000
+                topAnchorEnabled: true
+                topAnchor: 0.000000
+                bottomAnchorEnabled: true
+                bottomAnchor: 0.000000
+            Background:
+                drawType: "DRAW_STRETCH_BOTH"
+                sprite: "~res:/Gfx/Images/test"
+                leftRightStretchCap: 5.000000
+                topBottomStretchCap: 5.000000
+        children:
+        -   class: "UIStaticText"
+            name: "text"
+            size: [150.000000, 72.000000]
+            noInput: true
+            classes: "text-color-selectable"
+            textcolorInheritType: "COLOR_IGNORE_PARENT"
+            textalign: ["HCENTER", "BOTTOM"]
+            textUseRtlAlign: "DONT_USE"
+            text: ""
+            font: "Font_18_bold"
+            components:
+                Anchor:
+                    leftAnchorEnabled: true
+                    leftAnchor: 0.000000
+                    rightAnchorEnabled: true
+                    rightAnchor: 0.000000
+                    topAnchorEnabled: true
+                    topAnchor: 0.000000
+                    bottomAnchorEnabled: true
+                    bottomAnchor: 2.000000
+        -   class: "UIControl"
+            name: "icon"
+            size: [32.000000, 32.000000]
+            noInput: true
+            components:
+                Anchor:
+                    hCenterAnchorEnabled: true
+                    vCenterAnchorEnabled: true
+                    vCenterAnchor: -8.000000
+                Background:
+                    sprite: ""
+    -   class: "UIControl"
+        name: "unselected"
+        size: [150.000000, 74.000000]
+        noInput: true
+        components:
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 0.000000
+                rightAnchorEnabled: true
+                rightAnchor: 0.000000
+                topAnchorEnabled: true
+                topAnchor: 0.000000
+                bottomAnchorEnabled: true
+                bottomAnchor: 0.000000
+        children:
+        -   class: "UIStaticText"
+            name: "text"
+            size: [150.000000, 72.000000]
+            noInput: true
+            classes: "text-color-selectable"
+            textcolorInheritType: "COLOR_IGNORE_PARENT"
+            textalign: ["HCENTER", "BOTTOM"]
+            textUseRtlAlign: "DONT_USE"
+            text: ""
+            font: "Font_18_bold"
+            components:
+                Anchor:
+                    leftAnchorEnabled: true
+                    leftAnchor: 0.000000
+                    rightAnchorEnabled: true
+                    rightAnchor: 0.000000
+                    topAnchorEnabled: true
+                    topAnchor: 0.000000
+                    bottomAnchorEnabled: true
+                    bottomAnchor: 2.000000
+        -   class: "UIControl"
+            name: "icon"
+            size: [32.000000, 32.000000]
+            noInput: true
+            components:
+                Anchor:
+                    hCenterAnchorEnabled: true
+                    vCenterAnchorEnabled: true
+                    vCenterAnchor: -8.000000
+                Background:
+                    sprite: ""
+                    color: [0.745098, 0.800000, 0.807843, 1.000000]
+Controls:
+-   class: "UIControl"
+    name: "UIControl"
+    position: [0.000000, 0.000000]
+    size: [389.000000, 93.000000]
+    components:
+        Background:
+            drawType: "DRAW_FILL"
+            color: [1.000000, 0.000000, 0.000000, 1.000000]

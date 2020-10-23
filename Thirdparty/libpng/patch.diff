@@ -1,0 +1,34 @@
+diff -ur ./libpng_source_original/pngpriv.h ./libpng_source/pngpriv.h
+--- ./libpng_source_original/pngpriv.h	2016-08-31 22:26:44.000000000 +0300
++++ ./libpng_source/pngpriv.h	2016-09-16 16:57:16.890666000 +0300
+@@ -486,11 +486,8 @@
+ 
+ /* Memory model/platform independent fns */
+ #ifndef PNG_ABORT
+-#  ifdef _WINDOWS_
+-#    define PNG_ABORT() ExitProcess(0)
+-#  else
+-#    define PNG_ABORT() abort()
+-#  endif
++// PATCHED: ExitProcess isn't supported in UWP so just use abort on every platform
++#  define PNG_ABORT() abort()
+ #endif
+ 
+ /* These macros may need to be architecture dependent. */
+diff -ur ./libpng_source_original/scripts/genout.cmake.in ./libpng_source/scripts/genout.cmake.in
+--- ./libpng_source_original/scripts/genout.cmake.in	2016-05-04 10:34:50.000000000 +0300
++++ ./libpng_source/scripts/genout.cmake.in	2016-09-16 16:56:32.971145500 +0300
+@@ -34,6 +34,13 @@
+   endif()
+ endif()
+ 
++# PATCHED: VS ARM Compiler requires _ARM_WINAPI_PARTITION_DESKTOP_SDK_AVAILABLE to be set
++if(WIN32)
++  if (CMAKE_C_COMPILER MATCHES "VC/bin/x86_arm" OR CMAKE_C_COMPILER MATCHES "VC/bin/amd64_arm")
++    set(PLATFORM_C_FLAGS ${PLATFORM_C_FLAGS} /D "_ARM_WINAPI_PARTITION_DESKTOP_SDK_AVAILABLE=1")
++  endif()
++endif()
++
+ get_filename_component(INPUTEXT "${INPUT}" EXT)
+ get_filename_component(OUTPUTEXT "${OUTPUT}" EXT)
+ get_filename_component(INPUTBASE "${INPUT}" NAME_WE)

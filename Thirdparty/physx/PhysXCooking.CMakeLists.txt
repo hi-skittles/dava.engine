@@ -1,0 +1,45 @@
+set(MODULE_NAME PhysX3Cooking)
+set(MODULE_TYPE STATIC)#INLINE STATIC DYNAMIC 
+
+get_filename_component(PhysXRoot "${CMAKE_CURRENT_SOURCE_DIR}/../../" ABSOLUTE)
+set(HPP_FILES_RECURSE *.h *.hpp)
+set(CPP_FILES ${PhysXRoot}/Source/PhysXCooking/src/Adjacencies.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/Cooking.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/CookingUtils.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/EdgeList.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/MeshCleaner.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/Quantizer.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/mesh/GrbTriangleMeshCooking.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/mesh/HeightFieldCooking.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/mesh/RTreeCooking.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/mesh/TriangleMeshBuilder.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/convex/BigConvexDataBuilder.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/convex/ConvexHullBuilder.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/convex/ConvexHullLib.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/convex/ConvexHullUtils.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/convex/ConvexMeshBuilder.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/convex/ConvexPolygonsBuilder.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/convex/InflationConvexHullLib.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/convex/QuickHullConvexHullLib.cpp
+              ${PhysXRoot}/Source/PhysXCooking/src/convex/VolumeIntegration.cpp)
+
+set(DEBUG_POSTFIX "DEBUG")
+set(CHECKED_POSTFIX "CHECKED")
+set(PROFILE_POSTFIX "PROFILE")
+set(RELEASE_POSTFIX "")
+
+set(INCLUDES_PRIVATE "${PhysXRoot}/Source/PhysXCooking/src"
+                     "${PhysXRoot}/Source/PhysXCooking/src/mesh"
+                     "${PhysXRoot}/Source/PhysXCooking/src/convex"
+                     "${PhysXRoot}/Source/PhysXExtensions/src")
+
+set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -DPX_COOKING")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DPX_COOKING")
+set(CMAKE_C_FLAGS_CHECKED "${CMAKE_C_FLAGS_CHECKED} -DPX_COOKING")
+set(CMAKE_CXX_FLAGS_CHECKED "${CMAKE_CXX_FLAGS_CHECKED} -DPX_COOKING")
+set(CMAKE_C_FLAGS_PROFILE "${CMAKE_C_FLAGS_PROFILE} -DPX_COOKING")
+set(CMAKE_CXX_FLAGS_PROFILE "${CMAKE_CXX_FLAGS_PROFILE} -DPX_COOKING")
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -DPX_COOKING")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DPX_COOKING")
+
+setup_main_module()

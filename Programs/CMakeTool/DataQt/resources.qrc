@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Icons/error.png</file>
+        <file>Icons/ok.png</file>
+        <file>Icons/openfolder.png</file>
+        <file>Icons/run.png</file>
+        <file>Icons/stop.png</file>
+        <file>Icons/help.png</file>
+        <file>Icons/msvs.png</file>
+        <file>Icons/xcode.png</file>
+        <file>Icons/settings.png</file>
+        <file>main.qml</file>
+        <file>UIComponents/ComboBoxBuilds.qml</file>
+        <file>UIComponents/RowLayoutPath.qml</file>
+        <file>UIComponents/MutableContentItem.qml</file>
+        <file>UIComponents/ColumnLayoutOutput.qml</file>
+        <file>UIComponents/PreferencesDialog.qml</file>
+        <file>Scripts/commandLine.js</file>
+    </qresource>
+</RCC>

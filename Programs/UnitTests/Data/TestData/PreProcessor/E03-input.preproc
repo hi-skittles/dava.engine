@@ -1,0 +1,10 @@
+MISSING DEFINE
+
+#define AAA 1
+
+fatal error here
+#if AAA && BBB
+  something happened
+#endif
+
+last

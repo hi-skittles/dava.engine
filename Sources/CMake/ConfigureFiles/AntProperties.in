@@ -1,0 +1,4 @@
+key.store=@ANDROID_KEY_STORE@
+key.alias=@ANDROID_KEY_ALIAS@
+key.store.password=@ANDROID_STORE_PASSWORD@
+key.alias.password=@ANDROID_ALIAS_PASSWORD@

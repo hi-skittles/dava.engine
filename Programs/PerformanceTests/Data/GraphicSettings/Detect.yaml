@@ -1,0 +1,76 @@
+--- 
+#default values
+default:
+  base: L2.yaml
+iOS: 
+  base: L1.yaml
+Android: 
+  textureQuality: 
+    string: HIGHEST
+  base: L0.yaml
+#levels for exact devices
+OldIOS: 
+  base: L0.yaml
+  stencilShadows:
+    bool: true
+  devices: 
+    - "iPhone 3GS"
+    - "iPhone 4 GSM"
+    - "iPhone 4 CDMA"
+    - "iPhone 4S"
+BaseIOS: 
+  base: L0.yaml
+  fxQuality:
+    string: FX
+  stencilShadows:
+    bool: true
+  devices: 
+    - "iPad 2 WiFi"
+    - "iPad 2 3G GSM"
+    - "iPad 2 3G CDMA"
+    - "iPad Mini WiFi"
+    - "iPad Mini GSM LTE"
+    - "iPad Mini GSM CDMA LTE"
+IPad3: 
+  base: L0.yaml 
+  textureQuality: 
+    string: HIGHEST
+  stencilShadows:
+    bool: true
+  devices: 
+    - "iPad 3 WiFi"
+    - "iPad 3 CDMA LTE"
+    - "iPad 3 GSM LTE"
+IPad4: 
+  base: L1.yaml
+  devices: 
+    - "iPad 4 WiFi"
+    - "iPad 4 CDMA LTE"
+    - "iPad 4 GSM LTE"
+IPhone5: 
+  base: L2.yaml
+  vegetation: 
+    string: LOW
+  devices: 
+    - "iPhone 5 GSM LTE"
+    - "iPhone 5 CDMA LTE"
+    - "iPhone 5C GSM"
+    - "iPhone 5C GSM+CDMA"
+NewIos: 
+  base: L2.yaml
+  devices: 
+    - "iPad 5 WiFi"
+    - "iPad 5 GSM CDMA LTE"
+    - "iPad 5 (China)"
+    - "iPad Mini 2 WiFi"
+    - "iPad Mini 2 GSM CDMA LTE"
+    - "iPad Mini 2 (China)"
+    - "iPad Mini 3 WiFi"
+    - "iPad Mini 3 Cellular"
+    - "iPad Mini 3 (China)"
+    - "iPad 6 WiFi"
+    - "iPad 6 Cellular"
+    - "iPhone 5S GSM"
+    - "iPhone 5S GSM+CDMA"
+    - "iPhone 6"
+    - "iPhone 6 Plus"

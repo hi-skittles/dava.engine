@@ -1,0 +1,82 @@
+diff --git a/src/tup/luaparser.c b/src/tup/luaparser.c
+index 6b64468..b0a37a5 100644
+--- a/src/tup/luaparser.c
++++ b/src/tup/luaparser.c
+@@ -156,6 +156,69 @@ static int tuplua_function_include(lua_State *ls)
+ 	return 0;
+ }
+ 
++static int tuplua_function_davainclude(lua_State *ls)
++{
++	struct tupfile *tf = lua_touserdata(ls, lua_upvalueindex(1));
++	char *file = NULL;
++	int rc = -1;
++
++	file = tuplua_strdup(ls, -1);
++	lua_pop(ls, 1);
++	assert(lua_gettop(ls) == 0);
++
++	if(file == NULL)
++		return luaL_error(ls, "Must be passed a filename as an argument.");
++
++
++	int fd = openat(tf->cur_dfd, file, O_RDONLY);
++	if(fd < 0) {
++		fprintf(tf->f, "tup error: Failed to open file '%s' relative curdir\n", file);
++		goto dv_out;
++	}
++
++	struct buf b;
++	if(fslurp_null(fd, &b) < 0) {
++		goto dv_outclose;
++	}
++
++	struct tuplua_reader_data lrd;
++	lrd.read = 0;
++	lrd.b = &b;
++
++	if(lua_load(ls, &tuplua_reader, &lrd, file, 0) != LUA_OK) {
++		fprintf(tf->f, "tup error %s\n", tuplua_tostring(ls, -1));
++		goto dv_outfree;
++	}
++
++	if(lua_pcall(ls, 0, 0, 1) != LUA_OK) {
++		fprintf(tf->f, "tup error %s\n", tuplua_tostring(ls, -1));
++		goto dv_outfree;
++	}
++
++	if(NULL != strstr(file, "Tupdava.lua")) {
++		lua_pushstring(ls, file);
++		lua_setglobal(ls, "davapath");
++	}
++
++	rc = 0;
++
++dv_outfree:
++	free(b.s);
++
++dv_outclose:
++	close(fd);
++
++dv_out:
++	free(file);
++
++	if(rc < 0) {
++		fprintf(tf->f, "tup error: Failed to parse included file '%s'\n", file);
++		return -1;
++	}
++
++	return 0;
++}
++
+ static int tuplua_table_to_path_list(lua_State *ls, const char *table, struct tupfile *tf, struct path_list_head *plist, int allow_nodes)
+ {
+ 	lua_getfield(ls, 1, table);
+@@ -741,6 +804,7 @@ int parse_lua_tupfile(struct tupfile *tf, struct buf *b, const char *name)
+ 		/* Register tup interaction functions in the "tup" table in Lua */
+ 		lua_newtable(ls);
+ 		tuplua_register_function(ls, "include", tuplua_function_include, tf);
++		tuplua_register_function(ls, "davainclude", tuplua_function_davainclude, tf);
+ 		tuplua_register_function(ls, "definerule", tuplua_function_definerule, tf);
+ 		tuplua_register_function(ls, "append_table", tuplua_function_append_table, tf);
+ 		tuplua_register_function(ls, "getcwd", tuplua_function_getcwd, tf);

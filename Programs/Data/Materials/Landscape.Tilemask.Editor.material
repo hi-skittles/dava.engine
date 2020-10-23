@@ -1,0 +1,26 @@
+RenderTechnique:
+    Layers: ["OpaqueRenderLayer"]
+    RenderPass:
+        Name: "2d"
+        Shader: "~res:/Materials/Shaders/Landscape/tilemask-editor"
+        UniqueDefines: []
+        RenderState:
+            alphaFunc: "CMP_ALWAYS"
+            alphaFuncCmpValue: 0.0000
+            blendDest: "BLEND_ZERO"
+            blendSrc: "BLEND_ONE"
+            cullMode: "FACE_BACK"
+            depthFunc: "CMP_LESS"
+            state: "STATE_COLORMASK_RED | STATE_COLORMASK_GREEN | STATE_COLORMASK_BLUE | STATE_COLORMASK_ALPHA"
+            fillMode: "FILLMODE_SOLID"
+            stencil:
+                failBack: "STENCILOP_KEEP"
+                failFront: "STENCILOP_KEEP"
+                funcBack: "CMP_ALWAYS"
+                funcFront: "CMP_ALWAYS"
+                mask: -1
+                passBack: "STENCILOP_KEEP"
+                passFront: "STENCILOP_KEEP"
+                ref: 0
+                zFailBack: "STENCILOP_KEEP"
+                zFailFront: "STENCILOP_KEEP"

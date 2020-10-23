@@ -1,0 +1,79 @@
+/**
+ * This file can be included in application's or library build.gradle to 
+ * add android default settings for Sdk, BuildTools or CMake cpp flags.
+ */
+if (project.plugins.hasPlugin('com.android.library') || project.plugins.hasPlugin('com.android.application')) {
+    android {
+        compileSdkVersion 26
+        buildToolsVersion '26.0.3'
+
+        defaultConfig {
+            minSdkVersion 16
+            targetSdkVersion 26
+
+            externalNativeBuild {
+                cmake {
+                    arguments "-DANDROID_ARM_NEON=TRUE", "-DANDROID_STL=c++_shared"
+                }
+            }
+            // Can be uncommented to limit gradle build to specified ABIs
+            // ndk {
+            //    abiFilters "armeabi-v7a", "x86"
+            // }
+        }
+        signingConfigs {
+            DavaTest {
+                storeFile file("DavaTest.keystore")
+                storePassword "qazwsx"
+                keyAlias "test"
+                keyPassword "qazwsx"
+            }
+        }
+    }
+
+    if (project.plugins.hasPlugin('com.android.application')) {
+        android {
+            flavorDimensions "abi"
+
+            productFlavors {
+                fat {
+                    dimension "abi"
+                    ndk {
+                        abiFilters "armeabi-v7a", "x86"
+                    }
+                    externalNativeBuild {
+                        cmake {
+                            abiFilters "armeabi-v7a", "x86"
+                        }
+                    }
+                }
+
+                x86 {
+                    dimension "abi"
+                    ndk {
+                        abiFilters "x86"
+                    }
+                    externalNativeBuild {
+                        cmake {
+                            abiFilters "x86"
+                        }
+                    }
+                }
+
+                arm {
+                    dimension "abi"
+                    ndk {
+                        abiFilters "armeabi-v7a"
+                    }
+                    externalNativeBuild {
+                        cmake {
+                            abiFilters "armeabi-v7a"
+                        }
+                    }
+                }
+            }
+        }
+    }
+} else {
+    throw new StopExecutionException('You should apply \'com.android.library\' or \'com.android.application\' before applying this file.')
+}

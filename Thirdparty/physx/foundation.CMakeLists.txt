@@ -1,0 +1,29 @@
+set(MODULE_NAME PxFoundation)
+set(MODULE_TYPE STATIC)#INLINE STATIC DYNAMIC 
+
+get_filename_component(PhysXRoot "${CMAKE_CURRENT_SOURCE_DIR}/../../../" ABSOLUTE)
+set(HPP_FILES_RECURSE *.h *.hpp)
+set(CPP_FILES ${PhysXRoot}/PxShared/src/foundation/src/PsAllocator.cpp
+              ${PhysXRoot}/PxShared/src/foundation/src/PsAssert.cpp
+              ${PhysXRoot}/PxShared/src/foundation/src/PsFoundation.cpp
+              ${PhysXRoot}/PxShared/src/foundation/src/PsMathUtils.cpp
+              ${PhysXRoot}/PxShared/src/foundation/src/PsString.cpp
+              ${PhysXRoot}/PxShared/src/foundation/src/PsTempAllocator.cpp
+              ${PhysXRoot}/PxShared/src/foundation/src/PsUtilities.cpp
+              ${PhysXRoot}/PxShared/src/foundation/src/unix/PsUnixAtomic.cpp
+              ${PhysXRoot}/PxShared/src/foundation/src/unix/PsUnixCpu.cpp
+              ${PhysXRoot}/PxShared/src/foundation/src/unix/PsUnixFPU.cpp
+              ${PhysXRoot}/PxShared/src/foundation/src/unix/PsUnixMutex.cpp
+              ${PhysXRoot}/PxShared/src/foundation/src/unix/PsUnixPrintString.cpp
+              ${PhysXRoot}/PxShared/src/foundation/src/unix/PsUnixSList.cpp
+              ${PhysXRoot}/PxShared/src/foundation/src/unix/PsUnixSocket.cpp
+              ${PhysXRoot}/PxShared/src/foundation/src/unix/PsUnixSync.cpp
+              ${PhysXRoot}/PxShared/src/foundation/src/unix/PsUnixThread.cpp
+              ${PhysXRoot}/PxShared/src/foundation/src/unix/PsUnixTime.cpp)
+
+set(DEBUG_POSTFIX "DEBUG")
+set(CHECKED_POSTFIX "CHECKED")
+set(PROFILE_POSTFIX "PROFILE")
+set(RELEASE_POSTFIX "")
+
+setup_main_module()

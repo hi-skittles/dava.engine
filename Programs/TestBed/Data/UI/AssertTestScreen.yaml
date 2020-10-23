@@ -1,0 +1,118 @@
+Header:
+    version: "10"
+Controls:
+-   class: "UIControl"
+    name: "MainFrame"
+    size: [479.000000, 457.000000]
+    noInput: true
+    components:
+        UIShortcutEventComponent:
+            shortcuts: "ASSERT_ALWAYS, F1; ASSERT, F2; DELAYED_ASSERT, F3"
+        Focus: {}
+    children:
+    -   class: "UIStaticText"
+        name: ""
+        position: [20.000000, 20.000000]
+        size: [439.000000, 32.000000]
+        noInput: false
+        debugDraw: true
+        text: "Assert_always"
+        font: "Korinna_18"
+        components:
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 20.000000
+                rightAnchorEnabled: true
+                rightAnchor: 20.000000
+            UIInputEventComponent:
+                onTouchUpInside: "ASSERT_ALWAYS"
+    -   class: "UIStaticText"
+        name: ""
+        position: [20.000000, 57.000000]
+        size: [439.000000, 32.000000]
+        noInput: false
+        debugDraw: true
+        text: "Assert"
+        font: "Korinna_18"
+        components:
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 20.000000
+                rightAnchorEnabled: true
+                rightAnchor: 20.000000
+            UIInputEventComponent:
+                onTouchUpInside: "ASSERT"
+    -   class: "UIStaticText"
+        name: ""
+        position: [20.000000, 94.000000]
+        size: [399.000000, 32.000000]
+        noInput: false
+        debugDraw: true
+        text: "Delayed assert"
+        font: "Korinna_18"
+        components:
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 20.000000
+                rightAnchorEnabled: true
+                rightAnchor: 60.000000
+            UIInputEventComponent:
+                onTouchUpInside: "DELAYED_ASSERT"
+    -   class: "UIStaticText"
+        name: "Countdown"
+        position: [427.000000, 94.000000]
+        size: [32.000000, 32.000000]
+        text: "0"
+        font: "Korinna_18"
+        components:
+            Anchor:
+                rightAnchorEnabled: true
+                rightAnchor: 20.000000
+    -   class: "UIStaticText"
+        name: "msgbox_mainthread"
+        position: [20.000000, 131.000000]
+        size: [399.000000, 32.000000]
+        noInput: false
+        debugDraw: true
+        text: "Show message box from main thread"
+        font: "Korinna_18"
+        components:
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 20.000000
+                rightAnchorEnabled: true
+                rightAnchor: 60.000000
+            UIInputEventComponent:
+                onTouchUpInside: "MSGBOX_MAINTHREAD"
+    -   class: "UIStaticText"
+        name: "msgbox_uithread"
+        position: [20.000000, 168.000000]
+        size: [399.000000, 32.000000]
+        noInput: false
+        debugDraw: true
+        text: "Show message box from UI thread"
+        font: "Korinna_18"
+        components:
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 20.000000
+                rightAnchorEnabled: true
+                rightAnchor: 60.000000
+            UIInputEventComponent:
+                onTouchUpInside: "MSGBOX_UITHREAD"
+    -   class: "UIStaticText"
+        name: "msgbox_otherthreads"
+        position: [20.000000, 205.000000]
+        size: [399.000000, 32.000000]
+        noInput: false
+        debugDraw: true
+        text: "Show message box from multiple threads"
+        font: "Korinna_18"
+        components:
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 20.000000
+                rightAnchorEnabled: true
+                rightAnchor: 60.000000
+            UIInputEventComponent:
+                onTouchUpInside: "MSGBOX_OTHERTHREADS"

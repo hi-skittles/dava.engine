@@ -1,0 +1,44 @@
+diff -ur ./mongodb_source_original/src/bson.h ./mongodb_source/src/bson.h
+--- ./mongodb_source_original/src/bson.h	2012-05-05 00:45:23.000000000 +0300
++++ ./mongodb_source/src/bson.h	2017-06-20 15:51:36.000000000 +0300
+@@ -21,6 +21,10 @@
+ #ifndef BSON_H_
+ #define BSON_H_
+ 
++// PATCHED
++#define MONGO_HAVE_STDINT
++#define MONGO_STATIC_BUILD
++
+ #include <time.h>
+ #include <stdlib.h>
+ #include <string.h>
+diff -ur ./mongodb_source_original/src/env_standard.c ./mongodb_source/src/env_standard.c
+--- ./mongodb_source_original/src/env_standard.c	2012-05-05 00:45:23.000000000 +0300
++++ ./mongodb_source/src/env_standard.c	2017-06-20 15:28:28.000000000 +0300
+@@ -38,6 +38,7 @@
+ #include <netinet/tcp.h>
+ #include <fcntl.h>
+ #include <unistd.h>
++#include <signal.h> // PATCHED: to avoid implicit declaration of sigaction function
+ #endif
+ 
+ #ifndef NI_MAXSERV
+diff -ur ./mongodb_source_original/src/gridfs.h ./mongodb_source/src/gridfs.h
+--- ./mongodb_source_original/src/gridfs.h	2012-05-05 00:45:23.000000000 +0300
++++ ./mongodb_source/src/gridfs.h	2017-06-20 15:10:00.000000000 +0300
+@@ -24,6 +24,8 @@
+ #ifndef MONGO_GRIDFS_H_
+ #define MONGO_GRIDFS_H_
+ 
++MONGO_EXTERN_C_START
++
+ enum {DEFAULT_CHUNK_SIZE = 256 * 1024};
+ 
+ typedef uint64_t gridfs_offset;
+@@ -329,4 +331,6 @@
+  */
+ MONGO_EXPORT gridfs_offset gridfile_seek( gridfile *gfile, gridfs_offset offset );
+ 
++MONGO_EXTERN_C_END
++
+ #endif

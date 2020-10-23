@@ -1,0 +1,233 @@
+Header:
+    version: "0"
+StyleSheets: []
+ImportedPackages: []
+Controls:
+-   class: "UIControl"
+    name: "ReportItem"
+    size: [300.000000, 300.000000]
+    noInput: true
+    leftAlignEnabled: true
+    leftAlign: 0.000000
+    topAlignEnabled: true
+    topAlign: 0.000000
+    components:
+        Background:
+            drawType: "DRAW_ALIGNED"
+            color: [1.000000, 1.000000, 1.000000, 1.000000]
+            colorInherit: "COLOR_IGNORE_PARENT"
+    children:
+    -   class: "UIStaticText"
+        name: "TestName"
+        position: [10.000000, 10.000000]
+        size: [150.000000, 10.000000]
+        noInput: true
+        text: "TestName"
+        font: "korinna"
+        textColor: [0.000000, 1.000000, 0.000000, 1.000000]
+        textcolorInheritType: "COLOR_REPLACE_ALPHA_ONLY"
+        textalign: ["LEFT", "VCENTER"]
+        components:
+            Background:
+                colorInherit: "COLOR_REPLACE_ALPHA_ONLY"
+                align: ["LEFT", "TOP"]
+    -   class: "UIStaticText"
+        name: "UpDelimetr"
+        position: [5.000000, 25.000000]
+        size: [180.000000, 10.000000]
+        noInput: true
+        text: "========================"
+        font: "korinna"
+        textColor: [0.000000, 1.000000, 0.000000, 1.000000]
+        textcolorInheritType: "COLOR_REPLACE_ALPHA_ONLY"
+        textalign: ["LEFT", "VCENTER"]
+        components:
+            Background:
+                colorInherit: "COLOR_REPLACE_ALPHA_ONLY"
+    -   class: "UIControl"
+        name: "MinDelta"
+        position: [10.000000, 40.000000]
+        size: [180.000000, 10.000000]
+        noInput: true
+        components:
+            Background:
+                drawType: "DRAW_ALIGNED"
+                colorInherit: "COLOR_MULTIPLY_ON_PARENT"
+        children:
+        -   class: "UIStaticText"
+            name: "MinDeltaText"
+            size: [80.000000, 10.000000]
+            noInput: true
+            text: "Min delta: "
+            font: "korinna"
+            textColor: [0.000000, 1.000000, 0.000000, 1.000000]
+            textcolorInheritType: "COLOR_REPLACE_ALPHA_ONLY"
+            textalign: ["LEFT", "VCENTER"]
+        -   class: "UIStaticText"
+            name: "MinDeltaValue"
+            position: [110.000000, 0.000000]
+            size: [60.000000, 10.000000]
+            noInput: true
+            text: "0.0f"
+            font: "korinna"
+            textColor: [0.000000, 1.000000, 0.000000, 1.000000]
+            textcolorInheritType: "COLOR_REPLACE_ALPHA_ONLY"
+            textalign: ["LEFT", "VCENTER"]
+    -   class: "UIControl"
+        name: "MaxDelta"
+        position: [10.000000, 55.000000]
+        size: [180.000000, 10.000000]
+        noInput: true
+        components:
+            Background:
+                drawType: "DRAW_ALIGNED"
+                colorInherit: "COLOR_MULTIPLY_ON_PARENT"
+        children:
+        -   class: "UIStaticText"
+            name: "MaxDeltaText"
+            size: [80.000000, 10.000000]
+            noInput: true
+            text: "Max delta: "
+            font: "korinna"
+            textColor: [0.000000, 1.000000, 0.000000, 1.000000]
+            textcolorInheritType: "COLOR_REPLACE_ALPHA_ONLY"
+            textalign: ["LEFT", "VCENTER"]
+        -   class: "UIStaticText"
+            name: "MaxDeltaValue"
+            position: [110.000000, 0.000000]
+            size: [60.000000, 10.000000]
+            noInput: true
+            text: "0.0f"
+            font: "korinna"
+            textColor: [0.000000, 1.000000, 0.000000, 1.000000]
+            textcolorInheritType: "COLOR_REPLACE_ALPHA_ONLY"
+            textalign: ["LEFT", "VCENTER"]
+    -   class: "UIControl"
+        name: "AverageDelta"
+        position: [10.000000, 70.000000]
+        size: [180.000000, 10.000000]
+        noInput: true
+        components:
+            Background:
+                drawType: "DRAW_ALIGNED"
+                colorInherit: "COLOR_MULTIPLY_ON_PARENT"
+        children:
+        -   class: "UIStaticText"
+            name: "AverageDeltaText"
+            size: [80.000000, 10.000000]
+            noInput: true
+            text: "Average delta: "
+            font: "korinna"
+            textColor: [0.000000, 1.000000, 0.000000, 1.000000]
+            textcolorInheritType: "COLOR_REPLACE_ALPHA_ONLY"
+            textalign: ["LEFT", "VCENTER"]
+        -   class: "UIStaticText"
+            name: "AverageDeltaValue"
+            position: [110.000000, 0.000000]
+            size: [60.000000, 10.000000]
+            noInput: true
+            text: "0.0f"
+            font: "korinna"
+            textColor: [0.000000, 1.000000, 0.000000, 1.000000]
+            textcolorInheritType: "COLOR_REPLACE_ALPHA_ONLY"
+            textalign: ["LEFT", "VCENTER"]
+    -   class: "UIControl"
+        name: "TestTime"
+        position: [10.000000, 85.000000]
+        size: [180.000000, 10.000000]
+        noInput: true
+        components:
+            Background:
+                drawType: "DRAW_ALIGNED"
+                colorInherit: "COLOR_MULTIPLY_ON_PARENT"
+        children:
+        -   class: "UIStaticText"
+            name: "TestTimeText"
+            size: [80.000000, 10.000000]
+            noInput: true
+            text: "Test time: "
+            font: "korinna"
+            textColor: [0.000000, 1.000000, 0.000000, 1.000000]
+            textcolorInheritType: "COLOR_REPLACE_ALPHA_ONLY"
+            textalign: ["LEFT", "VCENTER"]
+        -   class: "UIStaticText"
+            name: "TestTimeValue"
+            position: [110.000000, 0.000000]
+            size: [60.000000, 10.000000]
+            noInput: true
+            text: "0.0f"
+            font: "korinna"
+            textColor: [0.000000, 1.000000, 0.000000, 1.000000]
+            textcolorInheritType: "COLOR_REPLACE_ALPHA_ONLY"
+            textalign: ["LEFT", "VCENTER"]
+    -   class: "UIControl"
+        name: "ElapsedTime"
+        position: [10.000000, 100.000000]
+        size: [180.000000, 10.000000]
+        noInput: true
+        components:
+            Background:
+                drawType: "DRAW_ALIGNED"
+                colorInherit: "COLOR_MULTIPLY_ON_PARENT"
+        children:
+        -   class: "UIStaticText"
+            name: "ElapsedTimeText"
+            size: [80.000000, 10.000000]
+            noInput: true
+            text: "Elapsed time: "
+            font: "korinna"
+            textColor: [0.000000, 1.000000, 0.000000, 1.000000]
+            textcolorInheritType: "COLOR_REPLACE_ALPHA_ONLY"
+            textalign: ["LEFT", "VCENTER"]
+        -   class: "UIStaticText"
+            name: "ElapsedTimeValue"
+            position: [110.000000, 0.000000]
+            size: [60.000000, 10.000000]
+            noInput: true
+            text: "0.0f"
+            font: "korinna"
+            textColor: [0.000000, 1.000000, 0.000000, 1.000000]
+            textcolorInheritType: "COLOR_REPLACE_ALPHA_ONLY"
+            textalign: ["LEFT", "VCENTER"]
+    -   class: "UIControl"
+        name: "FramesRendered"
+        position: [10.000000, 115.000000]
+        size: [180.000000, 10.000000]
+        noInput: true
+        components:
+            Background:
+                drawType: "DRAW_ALIGNED"
+                colorInherit: "COLOR_MULTIPLY_ON_PARENT"
+        children:
+        -   class: "UIStaticText"
+            name: "FramesRenderedText"
+            size: [80.000000, 10.000000]
+            noInput: true
+            text: "Frames rendered: "
+            font: "korinna"
+            textColor: [0.000000, 1.000000, 0.000000, 1.000000]
+            textcolorInheritType: "COLOR_REPLACE_ALPHA_ONLY"
+            textalign: ["LEFT", "VCENTER"]
+        -   class: "UIStaticText"
+            name: "FramesRenderedValue"
+            position: [110.000000, 0.000000]
+            size: [60.000000, 10.000000]
+            noInput: true
+            text: "0.0f"
+            font: "korinna"
+            textColor: [0.000000, 1.000000, 0.000000, 1.000000]
+            textcolorInheritType: "COLOR_REPLACE_ALPHA_ONLY"
+            textalign: ["LEFT", "VCENTER"]
+    -   class: "UIStaticText"
+        name: "DownDelimetr"
+        position: [5.000000, 130.000000]
+        size: [180.000000, 10.000000]
+        noInput: true
+        text: "========================"
+        font: "korinna"
+        textColor: [0.000000, 1.000000, 0.000000, 1.000000]
+        textcolorInheritType: "COLOR_REPLACE_ALPHA_ONLY"
+        textalign: ["LEFT", "VCENTER"]
+        components:
+            Background:
+                colorInherit: "COLOR_REPLACE_ALPHA_ONLY"

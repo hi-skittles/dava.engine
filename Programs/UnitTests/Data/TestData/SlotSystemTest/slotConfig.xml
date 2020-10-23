@@ -1,0 +1,4 @@
+<items>
+  <item Name="TestItem1" Path="~res:/3d/Maps/SlotItem/tree_k2_test3.sc2" Type="SimpleItem">
+  <item Name="TestItem2" Path="~res:/3d/Maps/SlotItem/big01.sc2" Type="Test">
+</items>

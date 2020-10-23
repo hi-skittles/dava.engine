@@ -1,0 +1,28 @@
+set(MODULE_NAME LowLevelAABB)
+set(MODULE_TYPE STATIC)#INLINE STATIC DYNAMIC 
+
+get_filename_component(PhysXRoot "${CMAKE_CURRENT_SOURCE_DIR}/../../" ABSOLUTE)
+set(HPP_FILES_RECURSE *.h *.hpp)
+set(CPP_FILES ${PhysXRoot}/Source/LowLevelAABB/src/BpBroadPhase.cpp
+              ${PhysXRoot}/Source/LowLevelAABB/src/BpBroadPhaseMBP.cpp
+              ${PhysXRoot}/Source/LowLevelAABB/src/BpBroadPhaseSap.cpp
+              ${PhysXRoot}/Source/LowLevelAABB/src/BpBroadPhaseSapAux.cpp
+              ${PhysXRoot}/Source/LowLevelAABB/src/BpMBPTasks.cpp
+              ${PhysXRoot}/Source/LowLevelAABB/src/BpSAPTasks.cpp
+              ${PhysXRoot}/Source/LowLevelAABB/src/BpSimpleAABBManager.cpp)
+
+set(DEBUG_POSTFIX "DEBUG")
+set(CHECKED_POSTFIX "CHECKED")
+set(PROFILE_POSTFIX "PROFILE")
+set(RELEASE_POSTFIX "")
+
+set(INCLUDES_PRIVATE "${PhysXRoot}/Source/LowLevel/API/include"
+             "${PhysXRoot}/Source/LowLevel/common/include/utils"
+             "${PhysXRoot}/Source/LowLevel/common/include/pipeline"
+             "${PhysXRoot}/Source/LowLevel/common/software/include"
+             "${PhysXRoot}/Source/LowLevel/common/software/include/unix"
+             "${PhysXRoot}/Source/LowLevelAABB/include"
+             "${PhysXRoot}/Source/LowLevelAABB/src"
+             "${PhysXRoot}/Source/LowLevelAABB/unix/include")
+
+setup_main_module()

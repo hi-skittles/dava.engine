@@ -1,0 +1,308 @@
+Header:
+    version: "20"
+Prototypes:
+-   class: "UIControl"
+    name: "StaticTextComponentTest"
+    position: [0.000000, 0.000000]
+    size: [288.000000, 155.000000]
+    noInput: true
+    components:
+        LinearLayout:
+            padding: 5.000000
+            spacing: 1.000000
+        SizePolicy:
+            horizontalPolicy: "PercentOfParent"
+            verticalPolicy: "PercentOfParent"
+    children:
+    -   class: "UIStaticText"
+        name: "UIStaticText"
+        position: [5.000000, 0.000000]
+        size: [138.500000, 155.000000]
+        classes: ""
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                verticalPolicy: "PercentOfParent"
+            Anchor:
+                leftAnchorEnabled: true
+                rightAnchorEnabled: true
+                topAnchorEnabled: true
+                bottomAnchorEnabled: true
+            Background:
+                drawType: "DRAW_FILL"
+                color: [0.176471, 0.176471, 0.176471, 1.000000]
+            UITextComponent:
+                text: "MULTILINE: DISABLED, FITTING: NONE"
+                fontName: "DroidSansMono_18"
+    -   class: "UIControl"
+        name: "Component"
+        position: [144.500000, 0.000000]
+        size: [138.500000, 155.000000]
+        noInput: true
+        classes: ""
+        components:
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                verticalPolicy: "PercentOfParent"
+            Anchor:
+                leftAnchorEnabled: true
+                rightAnchorEnabled: true
+                topAnchorEnabled: true
+                bottomAnchorEnabled: true
+            Background:
+                drawType: "DRAW_FILL"
+                color: [0.176471, 0.176471, 0.176471, 1.000000]
+            UITextComponent:
+                text: "MULTILINE: DISABLED, FITTING: NONE"
+                fontName: "DroidSansMono_18"
+Controls:
+-   class: "UIControl"
+    name: "MainFrame"
+    position: [0.000000, 0.000000]
+    size: [755.000000, 546.000000]
+    noInput: true
+    components:
+        SizePolicy:
+            horizontalPolicy: "PercentOfParent"
+            verticalPolicy: "PercentOfParent"
+        Focus: {}
+        UIEventBindingComponent: {}
+    children:
+    -   class: "UIStaticText"
+        name: "StatusText"
+        position: [34.000000, 302.000000]
+        size: [465.000000, 90.000000]
+        noInput: false
+        components:
+            SizePolicy:
+                horizontalPolicy: "Ignore"
+                horizontalValue: 50.000000
+            UIInputEventComponent:
+                onTouchDown: "STOP"
+            DebugRender:
+                enabled: true
+            UITextComponent:
+                text: "Status Text"
+                fontName: "Korinna_18"
+                multiline: "MULTILINE_ENABLED"
+    -   class: "UIControl"
+        name: "UIControl"
+        position: [18.000000, 17.000000]
+        size: [535.000000, 128.000000]
+        components:
+            LinearLayout:
+                orientation: "TopDown"
+                dynamicSpacing: false
+        children:
+        -   class: "UIControl"
+            name: "UIControl_0"
+            size: [535.000000, 48.000000]
+            components:
+                LinearLayout: {}
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+            children:
+            -   class: "UIStaticText"
+                name: "PrepateBtn"
+                position: [0.000000, 0.000000]
+                size: [178.333328, 38.000000]
+                noInput: false
+                components:
+                    SizePolicy:
+                        horizontalPolicy: "PercentOfParent"
+                        horizontalValue: 50.000000
+                    UIInputEventComponent:
+                        onTouchDown: "PREPARE"
+                    DebugRender:
+                        enabled: true
+                        drawColor: [0.000000, 0.000000, 1.000000, 1.000000]
+                    UITextComponent:
+                        text: "Prepare files"
+                        fontName: "Korinna_18"
+            -   class: "UIStaticText"
+                name: "PrepateBtn_1"
+                position: [178.333328, 0.000000]
+                size: [178.333328, 38.000000]
+                noInput: false
+                components:
+                    SizePolicy:
+                        horizontalPolicy: "PercentOfParent"
+                        horizontalValue: 50.000000
+                    UIInputEventComponent:
+                        onTouchDown: "PREPARE_NOISE"
+                    DebugRender:
+                        enabled: true
+                        drawColor: [0.000000, 0.000000, 1.000000, 1.000000]
+                    UITextComponent:
+                        text: "Prepare noise files"
+                        fontName: "Korinna_18"
+            -   class: "UIStaticText"
+                name: "CleanBtn"
+                position: [356.666656, 0.000000]
+                size: [178.333328, 38.000000]
+                noInput: false
+                components:
+                    SizePolicy:
+                        horizontalPolicy: "PercentOfParent"
+                        horizontalValue: 50.000000
+                    UIInputEventComponent:
+                        onTouchDown: "CLEAN"
+                    DebugRender:
+                        enabled: true
+                        drawColor: [0.000000, 0.000000, 1.000000, 1.000000]
+                    UITextComponent:
+                        text: "Clean"
+                        fontName: "Korinna_18"
+        -   class: "UIControl"
+            name: "UIControl_1"
+            size: [535.000000, 48.000000]
+            components:
+                LinearLayout: {}
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+            children:
+            -   class: "UIStaticText"
+                name: "StartBtn"
+                position: [0.000000, 0.000000]
+                size: [267.500000, 38.000000]
+                noInput: false
+                components:
+                    SizePolicy:
+                        horizontalPolicy: "PercentOfParent"
+                        horizontalValue: 50.000000
+                    UIInputEventComponent:
+                        onTouchDown: "LOAD_ATLAS"
+                    DebugRender:
+                        enabled: true
+                    UITextComponent:
+                        text: "Load Atlas (As Texture)"
+                        fontName: "Korinna_18"
+            -   class: "UIStaticText"
+                name: "ResultText"
+                position: [267.500000, 0.000000]
+                size: [267.500000, 38.000000]
+                noInput: false
+                components:
+                    SizePolicy:
+                        horizontalPolicy: "PercentOfParent"
+                        horizontalValue: 50.000000
+                    DebugRender:
+                        enabled: true
+                    UITextComponent:
+                        text: "....."
+                        fontName: "Korinna_18"
+        -   class: "UIControl"
+            name: "UIControl_2"
+            size: [535.000000, 48.000000]
+            components:
+                LinearLayout: {}
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+            children:
+            -   class: "UIStaticText"
+                name: "StartBtn"
+                position: [0.000000, 0.000000]
+                size: [267.500000, 38.000000]
+                noInput: false
+                components:
+                    SizePolicy:
+                        horizontalPolicy: "PercentOfParent"
+                        horizontalValue: 50.000000
+                    UIInputEventComponent:
+                        onTouchDown: "LOAD_FILES"
+                    DebugRender:
+                        enabled: true
+                    UITextComponent:
+                        text: "Load Many Files (As Textures)"
+                        fontName: "Korinna_18"
+            -   class: "UIStaticText"
+                name: "ResultText"
+                position: [267.500000, 0.000000]
+                size: [267.500000, 38.000000]
+                noInput: false
+                components:
+                    SizePolicy:
+                        horizontalPolicy: "PercentOfParent"
+                        horizontalValue: 50.000000
+                    DebugRender:
+                        enabled: true
+                    UITextComponent:
+                        text: "....."
+                        fontName: "Korinna_18"
+        -   class: "UIControl"
+            name: "UIControl_3"
+            size: [535.000000, 48.000000]
+            components:
+                LinearLayout: {}
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+            children:
+            -   class: "UIStaticText"
+                name: "StartBtn"
+                position: [0.000000, 0.000000]
+                size: [267.500000, 38.000000]
+                noInput: false
+                components:
+                    SizePolicy:
+                        horizontalPolicy: "PercentOfParent"
+                        horizontalValue: 50.000000
+                    UIInputEventComponent:
+                        onTouchDown: "LOAD_FILES_MT"
+                    DebugRender:
+                        enabled: true
+                    UITextComponent:
+                        text: "Load Many Files (Two Threads)"
+                        fontName: "Korinna_18"
+            -   class: "UIStaticText"
+                name: "ResultText"
+                position: [267.500000, 0.000000]
+                size: [267.500000, 38.000000]
+                noInput: false
+                components:
+                    SizePolicy:
+                        horizontalPolicy: "PercentOfParent"
+                        horizontalValue: 50.000000
+                    DebugRender:
+                        enabled: true
+                    UITextComponent:
+                        text: "....."
+                        fontName: "Korinna_18"
+        -   class: "UIControl"
+            name: "UIControl_4"
+            position: [0.000000, 192.000000]
+            size: [535.000000, 48.000000]
+            components:
+                LinearLayout: {}
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+            children:
+            -   class: "UIStaticText"
+                name: "StartBtn"
+                position: [0.000000, 0.000000]
+                size: [267.500000, 38.000000]
+                noInput: false
+                components:
+                    SizePolicy:
+                        horizontalPolicy: "PercentOfParent"
+                        horizontalValue: 50.000000
+                    UIInputEventComponent:
+                        onTouchDown: "LOAD_FILES_DATA"
+                    DebugRender:
+                        enabled: true
+                    UITextComponent:
+                        text: "Load Many Files (As Bytes)"
+                        fontName: "Korinna_18"
+            -   class: "UIStaticText"
+                name: "ResultText"
+                position: [267.500000, 0.000000]
+                size: [267.500000, 38.000000]
+                noInput: false
+                components:
+                    SizePolicy:
+                        horizontalPolicy: "PercentOfParent"
+                        horizontalValue: 50.000000
+                    DebugRender:
+                        enabled: true
+                    UITextComponent:
+                        text: "....."
+                        fontName: "Korinna_18"

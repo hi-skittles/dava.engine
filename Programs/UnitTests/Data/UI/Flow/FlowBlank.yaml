@@ -1,0 +1,31 @@
+Header:
+    version: "17"
+Controls:
+-   class: "UIControl"
+    name: "Root"
+    position: [0.000000, 0.000000]
+    size: [664.000000, 465.000000]
+    noInput: false
+    components:
+        UIEventBindingComponent:
+            commands: "STATE1,FlowSetState,,PreLogin/Login;\nSTATE2,FlowSetState,,Lobby/Hangar/Chat;\nSTATE3,FlowSetState,,Lobby/Hangar/Shop;\nSTATE4,FlowSetState,,"
+        UIShortcutEventComponent:
+            shortcuts: "STATE1, F1; STATE2, F2; STATE3, F3; STATE4, F4"
+        Focus: {}
+        SizePolicy:
+            horizontalPolicy: "PercentOfParent"
+            verticalPolicy: "PercentOfParent"
+    children:
+    -   class: "UIControl"
+        name: "FlowRootView"
+        size: [664.000000, 415.000000]
+        components:
+            Anchor:
+                leftAnchorEnabled: true
+                rightAnchorEnabled: true
+                topAnchorEnabled: true
+                bottomAnchorEnabled: true
+                bottomAnchor: 50.000000
+            DebugRender:
+                drawColor: [0.000000, 1.000000, 0.000000, 1.000000]
+            Focus: {}

@@ -1,0 +1,51 @@
+Header:
+    version: "21"
+Controls:
+-   class: "UIControl"
+    name: "MainFrame"
+    size: [1000.000000, 500.000000]
+    noInput: true
+    children:
+    -   class: "UIStaticText"
+        name: "startupFiles"
+        position: [10.000000, 10.000000]
+        size: [980.000000, 100.000000]
+        components:
+            DebugRender: {}
+            UITextComponent:
+                fontName: "Korinna_18"
+                color: [0.000000, 0.666667, 0.000000, 1.000000]
+                multiline: "MULTILINE_ENABLED"
+                align: ["LEFT", "TOP"]
+    -   class: "UIStaticText"
+        name: "activationFiles"
+        position: [10.000000, 120.000000]
+        size: [980.000000, 152.000000]
+        components:
+            DebugRender: {}
+            UITextComponent:
+                fontName: "Korinna_18"
+                multiline: "MULTILINE_ENABLED"
+                align: ["LEFT", "TOP"]
+    -   class: "UIStaticText"
+        name: "latestFiles"
+        position: [10.000000, 280.000000]
+        size: [980.000000, 100.000000]
+        components:
+            DebugRender: {}
+            UITextComponent:
+                fontName: "Korinna_18"
+                color: [0.666667, 0.000000, 0.000000, 1.000000]
+                multiline: "MULTILINE_ENABLED"
+                align: ["LEFT", "TOP"]
+    -   class: "UIControl"
+        name: "dump"
+        position: [10.000000, 400.000000]
+        size: [135.000000, 32.000000]
+        components:
+            UIInputEventComponent:
+                onTouchUpInside: "DUMP_TO_LOG"
+            DebugRender: {}
+            UITextComponent:
+                text: "Dump to log"
+                fontName: "Korinna_18"

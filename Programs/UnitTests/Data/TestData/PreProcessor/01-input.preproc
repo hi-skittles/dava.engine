@@ -1,0 +1,10 @@
+BASIC INCLUDE TEST
+
+first
+#include "01-included.preproc"  
+second
+#define SOMETHING 7 
+#define LIFE 42 
+third
+
+last

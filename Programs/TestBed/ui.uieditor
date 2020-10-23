@@ -1,0 +1,26 @@
+Header:
+    version: "1"
+ProjectProperties:
+    ResourceDirectory: "./DataSource/"
+    AdditionalResourceDirectory: "./Data/"
+    IntermediateResourceDirectory: "./Data/"
+    UiDirectory: "./UI/"
+    FontsDirectory: "./Fonts/"
+    FontsConfigsDirectory: "./UI/Fonts/"
+    TextsDirectory: "./Strings/"
+    DefaultLanguage: "en"
+    GfxDirectories:
+    -   directory: "./Gfx/"
+        resolution: [1024, 768]
+    -   directory: "./Gfx2/"
+        resolution: [2048, 1536]
+    Library: []
+    Blanks:
+    -   {name: "blank", pathToYaml: "~res:/UI/Blank.yaml", control: "Root", path: ""}
+    Devices:
+    -   {name: "default", screenSize: [1024, 768]}
+    -   {name: "iPad", screenSize: [1024, 768], virtualKeyboardHeight: 353}
+    -   {name: "iPhone6", screenSize: [1334, 750], virtualKeyboardHeight: 342}
+    -   {name: "iPhone6Plus", screenSize: [1920, 1080], virtualKeyboardHeight: 342}
+    -   {name: "iphone4_ru", screenSize: [320, 240], virtualScreenSize: [640, 480], lang: "ru", rtl: false}
+    -   {name: "iphone5_ar", screenSize: [640, 480], virtualScreenSize: [320, 240], lang: "ar", rtl: true}

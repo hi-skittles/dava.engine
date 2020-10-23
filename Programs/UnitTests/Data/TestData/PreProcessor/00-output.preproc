@@ -1,0 +1,12 @@
+BASIC DEFINE/INCLUDE TEST 
+
+first
+second
+third
+
+simple-if 0
+
+
+  expected text (if 42 != 5) 
+
+last

@@ -1,0 +1,33 @@
+#include <stdlib.h>  
+#include <string>
+
+using namespace std;
+
+void replace( string &s, const string &search, const string &replace ) {
+    for( size_t pos = 0; ; pos += replace.length() ) {
+        // Locate the substring to replace
+        pos = s.find( search, pos );
+        if( pos == string::npos ) break;
+        // Replace by erasing and inserting
+        s.erase( pos, search.length() );
+        s.insert( pos, replace );
+    }
+}
+
+int main ()
+{
+  string coveredCall( "@COVERAGE_COMMAND_GENERATE_HTML@" );
+
+#ifdef __DEBUG
+    replace( coveredCall, "$(CONFIGURATION)", "Debug" );
+#endif
+
+#ifdef __RELEASE
+    replace( coveredCall, "$(CONFIGURATION)", "Release" );
+#endif
+      
+  system ( coveredCall.c_str() );
+  system ("open @COVERAGE_INDEX_HTML@");
+
+  return 1;
+}

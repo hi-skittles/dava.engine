@@ -1,0 +1,4 @@
+MaterialTemplate:    
+    HIGH : "~res:/Materials/NormalizedBlinnPhongPerPixel.GeoDecal.material"
+    MEDIUM: "~res:/Materials/NormalizedBlinnPhongPerPixelFast.GeoDecal.material"
+    LOW : "~res:/Materials/NormalizedBlinnPhongPerVertex.GeoDecal.material"

@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+apply from: '../../../../../Platforms/Android/common.gradle'
+
+android {
+    signingConfigs {
+        DavaTest {
+            keyAlias 'test'
+            keyPassword 'qazwsx'
+            storeFile file('../../../../../Platforms/Android/DavaTest.keystore')
+            storePassword 'qazwsx'
+        }
+    }
+    defaultConfig {
+        applicationId 'com.dava.performancetests'
+        externalNativeBuild.cmake.arguments '-DUNITY_BUILD=True'
+    }
+    externalNativeBuild {
+        cmake {
+            path "../../../CMakeLists.txt"
+        }
+    }
+    sourceSets {
+        main {
+            java.srcDirs = ['src']
+            assets.srcDirs = ['assets']
+            manifest.srcFile 'AndroidManifest.xml'
+        }
+    }
+    buildTypes {
+        release {
+            debuggable true
+            jniDebuggable true
+            signingConfig signingConfigs.DavaTest
+        }
+    }
+}
+
+dependencies {
+    compile project(':DavaEngine')
+    compile project(':DavaEngine:ModuleSound')
+}
+
+task copyFiles(type: Copy) {
+    from '../../../Data'
+    into 'assets/Data'
+}
+
+/* Resources are prepared and converted in cmake, we need to copy them after cmake build */
+tasks.whenTaskAdded { task ->
+    if (task.name.startsWith("externalNativeBuild") && !task.name.contains("Clean")) {
+        task.finalizedBy copyFiles
+    }
+}

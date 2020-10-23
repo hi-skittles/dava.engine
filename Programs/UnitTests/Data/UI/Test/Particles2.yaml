@@ -1,0 +1,14 @@
+UIParticles3:
+    drawType: "DRAW_FILL"
+    effectPath: "~res:/3d/FX/Tut_eye.sc2"
+    noInput: "true"
+    rect: [150.0000, 300.0000, 100.0000, 46.0000]
+    type: "UIParticles"
+
+UIParticles4:
+    drawType: "DRAW_FILL"
+    effectPath: "~res:/3d/FX/Tut_eye.sc2"
+    noInput: "true"
+    rect: [450.0000, 300.0000, 100.0000, 30.0000]
+    type: "UIParticles"
+

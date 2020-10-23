@@ -1,0 +1,27 @@
+Header:
+    version: "19"
+Controls:
+-   class: "UIStaticText"
+    name: "UIStaticText"
+    position: [0.000000, 0.000000]
+    size: [198.000000, 32.000000]
+    components:
+        UITextComponent:
+            fontName: "DejaVuSans_18"
+            color: [1.000000, 1.000000, 1.000000, 1.000000]
+        UIDataBindingComponent0:
+            controlField: "UITextComponent.text"
+            expression: "name"
+            updateMode: "Read"
+-   class: "UIStaticText"
+    name: "UIStaticText_1"
+    position: [0.000000, 0.000000]
+    size: [198.000000, 32.000000]
+    components:
+        UITextComponent:
+            fontName: "DejaVuSans_18"
+            color: [1.000000, 1.000000, 1.000000, 1.000000]
+        UIDataBindingComponent0:
+            controlField: "UITextComponent.text"
+            expression: "name"
+            updateMode: "Read"

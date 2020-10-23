@@ -1,0 +1,48 @@
+IF-ELSE
+
+#define SOMETHING 7 
+#define LIFE 42 
+
+#if SOMETHING == 7
+  expected
+  aa 1
+  aa 2
+#else
+  not-expected
+  bb 1
+  bb 2
+#endif
+
+simple-if 2
+
+#if  SOMETHING == 3
+  sss 3.1
+  sss 3.2
+#else
+  expected
+  sss x.1
+  sss x.2
+#endif
+
+#if LIFE == 13
+  life ie.aa 1
+  life ie.aa 2
+#elif LIFE == 42 
+  expected
+  life ie.bb 2
+  life ie.bb 2
+#else
+  life ie.cc 1
+  life ie.cc 2
+#endif
+
+#if LIFE == 666
+  life ie.aaa 1
+  life ie.aaa 2
+#elif LIFE == 42 
+  expected
+  life ie.bbb 2
+  life ie.bbb 2
+#endif
+
+last

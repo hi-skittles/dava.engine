@@ -1,0 +1,11 @@
+--- openssl_source_original/Configurations/10-main.conf	2016-09-22 13:14:50.000000000 +0300
++++ openssl_source/Configurations/10-main.conf	2016-09-23 11:20:20.000000000 +0300
+@@ -887,7 +887,7 @@
+         # systems are perfectly capable of executing binaries targeting
+         # Froyo. Keep in mind that in the nutshell Android builds are
+         # about JNI, i.e. shared libraries, not applications.
+-        cflags           => add(picker(default => "-mandroid -fPIC --sysroot=\$(CROSS_SYSROOT) -Wa,--noexecstack")),
++        cflags           => add(picker(default => "$ENV{'CRYSTAX_LDFLAGS'} -mandroid -fPIC --sysroot=\$(CROSS_SYSROOT) -Wa,--noexecstack")),
+         bin_cflags       => "-pie",
+     },
+     "android-x86" => {

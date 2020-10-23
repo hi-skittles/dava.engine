@@ -1,0 +1,101 @@
+{
+    "platforms": [
+        {
+            "name": "Windows",
+            "value": "$CMAKE_PATH -G \"Visual Studio 15%1\" $SOURCE_PATH %2",
+            "defaults": [
+                "",
+                ""
+            ],
+            "options": [
+                {
+                    "name": "x64",
+                    "type": "checkbox",
+                    "substring number": 1,
+                    "value": " Win64"
+                },
+                {
+                    "name": "Unity build",
+                    "type": "checkbox",
+                    "substring number": 2,
+                    "value": "-DUNITY_BUILD=true"
+                }
+            ]
+        },
+        {
+            "name": "Android",
+            "value": "$CMAKE_PATH -G \"%1%2\" -DCMAKE_TOOLCHAIN_FILE=$DAVA_FRAMEWORK_PATH/Sources/CMake/Toolchains/android.toolchain.cmake $SOURCE_PATH %3",
+            "defaults": [
+                "Eclipse CDT4 - ",
+                "NMake Makefiles",
+                ""
+            ],
+            "options": [
+                {
+                    "name": "console",
+                    "type": "checkbox",
+                    "substring number": 1,
+                    "value": ""
+                },
+                {
+                    "name": "use MinGW",
+                    "type": "checkbox",
+                    "substring number": 2,
+                    "value": "MinGW Makefiles"
+                },
+                {
+                    "name": "Unity build",
+                    "type": "checkbox",
+                    "substring number": 3,
+                    "value": "-DUNITY_BUILD=true"
+                }
+            ]
+        },
+        {
+            "name": "Windows 10",
+            "value": "$DAVA_FRAMEWORK_PATH/Bin/CMakeWin10/bin/cmake.exe -G \"Visual Studio 14 2015\" -DCMAKE_TOOLCHAIN_FILE=$DAVA_FRAMEWORK_PATH/Sources/CMake/Toolchains/win_uap.toolchain.cmake %1 $SOURCE_PATH %2",
+            "defaults": [
+                "",
+                ""
+            ],
+            "options": [
+                {
+                    "name": "all",
+                    "type": "radiobutton",
+                    "substring number": 1,
+                    "value": ""
+                },
+                {
+                    "name": "ARM",
+                    "type": "radiobutton",
+                    "substring number": 1,
+                    "value": "ARM"
+                },
+                {
+                    "name": "Win32",
+                    "type": "radiobutton",
+                    "substring number": 1,
+                    "value": "Win32"
+                },
+                {
+                    "name": "Win64",
+                    "type": "radiobutton",
+                    "substring number": 1,
+                    "value": "x64"
+                },
+                {
+                    "name": "Unity build",
+                    "type": "checkbox",
+                    "substring number": 2,
+                    "value": "-DUNITY_BUILD=true"
+                }
+            ]
+        }
+    ],
+    "global options": [
+        {
+            "name": "deploy",
+            "value": "-DDEPLOY=true"
+        }
+    ]
+}

@@ -1,0 +1,4 @@
+MaterialTemplate:    
+    HIGH : "~res:/Materials/SphericalLit9.Textured.VertexColor.Opaque.material"
+    MEDIUM : "~res:/Materials/SphericalLit4.Textured.VertexColor.Opaque.material"
+    LOW : "~res:/Materials/SphericalLit1.Textured.VertexColor.Opaque.material"

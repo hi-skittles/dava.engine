@@ -1,0 +1,9 @@
+IF/ENDIF CORNER-CASE (NO LINES BETWEEN IF AND ENDIF)
+
+#define AAA 0
+
+first
+    #if AAA
+    #endif
+    bbb
+last

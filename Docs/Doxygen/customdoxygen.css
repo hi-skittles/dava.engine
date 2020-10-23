@@ -1,0 +1,16 @@
+code {
+    background-color: #f0f0f0;
+    padding: 1px 5px 1px 5px;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;    
+}
+
+div.fragment {
+    padding: 10px;
+}
+
+.memtitle {
+    font-size: xx-small;
+    background-image: none;
+    padding: 3px;
+}

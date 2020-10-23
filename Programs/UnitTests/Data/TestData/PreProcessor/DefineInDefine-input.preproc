@@ -1,0 +1,19 @@
+#define SILON silon
+#define EPSILON 0.00001
+#define XUEPSILON 0.1
+#define TEST XUEPSILON
+#define FEEE EPSILON
+#define BLA FEEE
+
+EPSILON
+XUEPSILON
+TEST
+SILON
+a = FEEE;
+b = BLA;
+
+#if (BLA)
+expected
+#endif
+
+XUEPSILON_EPSILON(TEST)

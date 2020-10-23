@@ -1,0 +1,215 @@
+cmake_minimum_required (VERSION 3.0)
+
+function(JOIN OUTPUT_VAR INPUT_VAR)
+  foreach(FLAG ${INPUT_VAR})
+    set(TMP_VAR "${TMP_VAR} ${FLAG}")
+  endforeach()
+  set(${OUTPUT_VAR} "${TMP_VAR}" PARENT_SCOPE)
+endfunction()
+
+set(CMAKE_CONFIGURATION_TYPES "debug;checked;profile;release" CACHE STRING "limited configs" FORCE )
+project(PhysX)
+
+if (NOT FRAMEWORK_ROOT_PATH)
+  message(FATAL_ERROR "FRAMEWORK_ROOT_PATH variable should be set")
+endif()
+
+get_filename_component(FRAMEWORK_PATH "${FRAMEWORK_ROOT_PATH}" ABSOLUTE)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${FRAMEWORK_PATH}/Sources/CMake/Modules/")
+
+set(PHYS_X_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/..")
+
+include_directories("${PHYS_X_ROOT}/Source/Common/include")
+include_directories("${PHYS_X_ROOT}/Source/Common/src")
+include_directories("${PHYS_X_ROOT}/Source/Common/src/unix")
+include_directories("${PHYS_X_ROOT}/Source/GeomUtils/headers")
+include_directories("${PHYS_X_ROOT}/Source/GeomUtils/src/contact")
+include_directories("${PHYS_X_ROOT}/Source/GeomUtils/src/common")
+include_directories("${PHYS_X_ROOT}/Source/GeomUtils/src/convex")
+include_directories("${PHYS_X_ROOT}/Source/GeomUtils/src/distance")
+include_directories("${PHYS_X_ROOT}/Source/GeomUtils/src/gjk")
+include_directories("${PHYS_X_ROOT}/Source/GeomUtils/src/intersection")
+include_directories("${PHYS_X_ROOT}/Source/GeomUtils/src/mesh")
+include_directories("${PHYS_X_ROOT}/Source/GeomUtils/src/hf")
+include_directories("${PHYS_X_ROOT}/Source/GeomUtils/src/pcm")
+include_directories("${PHYS_X_ROOT}/Source/GeomUtils/src/ccd")
+include_directories("${PHYS_X_ROOT}/Source/GeomUtils/src/sweep")
+include_directories("${PHYS_X_ROOT}/Source/GeomUtils/src")
+
+include_directories("${PHYS_X_ROOT}/../Externals/nvToolsExt/1/include")
+include_directories("${PHYS_X_ROOT}/../PxShared/include")
+include_directories("${PHYS_X_ROOT}/../PxShared/src/foundation/include")
+include_directories("${PHYS_X_ROOT}/../PxShared/src/fastxml/include")
+include_directories("${PHYS_X_ROOT}/../PxShared/src/pvd/include")
+include_directories("${PHYS_X_ROOT}/../PxShared/src/NvSimd/include")
+include_directories("${PHYS_X_ROOT}/../PxShared/src/filebuf/include")
+include_directories("${PHYS_X_ROOT}/Include")
+include_directories("${PHYS_X_ROOT}/Include/common")
+include_directories("${PHYS_X_ROOT}/Include/characterkinematic")
+include_directories("${PHYS_X_ROOT}/Include/extensions")
+include_directories("${PHYS_X_ROOT}/Include/cooking")
+include_directories("${PHYS_X_ROOT}/Include/cloth")
+include_directories("${PHYS_X_ROOT}/Include/particles")
+include_directories("${PHYS_X_ROOT}/Include/geometry")
+include_directories("${PHYS_X_ROOT}/Include/vehicle")
+include_directories("${PHYS_X_ROOT}/Include/GeomUtils")
+include_directories("${PHYS_X_ROOT}/Include/pvd")
+
+set(PxShaderPath ${PHYS_X_ROOT}/../PxShared/src/)
+
+include(CMake-common)
+include(ModuleHelper)
+
+set(COMMON_DEFINES "-DANDROID"
+                   "-DGLES2"
+                   "-D__ARM_ARCH_5__"
+                   "-D__ARM_ARCH_5T__"
+                   "-D__ARM_ARCH_5E__"
+                   "-D__ARM_ARCH_5TE__"
+                   "-DPX_PHYSX_STATIC_LIB")
+
+set(COMMON_FLAGS "-MMD"
+                 "-fpic"
+                 "-fno-exceptions"
+                 "-mfpu=neon"
+                 "-marm"
+                 "-mfloat-abi=softfp"
+                 "-Wall"
+                 "-Wextra"
+                 "-Wpedantic"
+                 "-fpack-struct=16"
+                 "-Wstrict-aliasing=2"
+                 "-Wno-uninitialized"
+                 "-Wno-unused-variable"
+                 "-Wno-variadic-macros")
+
+set(COMMON_C_FLAGS "-std=c99")
+
+set(COMMON_CXX_FLAGS "-fno-rtti"
+                     "-Wno-invalid-offsetof")
+
+############################################################################
+# DEBUG
+############################################################################
+
+set(DEBUG_DEFINES ${COMMON_DEFINES}
+                  "-D_DEBUG"
+                  "-DPX_DEBUG=1"
+                  "-DPX_CHECKED=1"
+                  "-DPX_SUPPORT_PVD=1"
+                  "-DPX_NVTX=1")
+
+set(DEBUG_COMMON_FLAGS ${COMMON_FLAGS}
+                       "-g3"
+                       "-gdwarf-2"
+                       ${DEBUG_DEFINES})
+
+set(DEBUG_C_FLAGS ${DEBUG_COMMON_FLAGS} ${COMMON_C_FLAGS})
+set(DEBUG_CXX_FLAGS ${DEBUG_COMMON_FLAGS} ${COMMON_CXX_FLAGS})
+
+join(DEBUG_C_FLAGS "${DEBUG_C_FLAGS}")
+join(DEBUG_CXX_FLAGS "${DEBUG_CXX_FLAGS}")
+
+set(CMAKE_C_FLAGS_DEBUG  "${CMAKE_C_FLAGS} ${DEBUG_C_FLAGS}")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} ${DEBUG_CXX_FLAGS}")
+
+############################################################################
+# CHECKED
+############################################################################
+set(CHECKED_DEFINES ${COMMON_DEFINES}
+                    "-DNDEBUG"
+                    "-DPX_CHECKED=1"
+                    "-DPX_SUPPORT_PVD=1"
+                    "-DPX_NVTX=1")
+
+set(CHECKED_COMMON_FLAGS ${COMMON_FLAGS}
+                         "-g3"
+                         "-gdwarf-2"
+                         "-O3"
+                         "-fno-strict-aliasing"
+                         "-ffunction-sections"
+                         "-funwind-tables"
+                         "-fstack-protector"
+                         "-fomit-frame-pointer"
+                         ${CHECKED_DEFINES})
+
+set(CHECKED_C_FLAGS ${CHECKED_COMMON_FLAGS} ${COMMON_C_FLAGS})
+set(CHECKED_CXX_FLAGS ${CHECKED_COMMON_FLAGS} ${COMMON_CXX_FLAGS})
+
+join(CHECKED_C_FLAGS "${CHECKED_C_FLAGS}")
+join(CHECKED_CXX_FLAGS "${CHECKED_CXX_FLAGS}")
+
+set(CMAKE_C_FLAGS_CHECKED  "${CMAKE_C_FLAGS} ${CHECKED_C_FLAGS}")
+set(CMAKE_CXX_FLAGS_CHECKED "${CMAKE_CXX_FLAGS} ${CHECKED_CXX_FLAGS}")
+
+############################################################################
+# PROFILE
+############################################################################
+set(PROFILE_DEFINES ${COMMON_DEFINES}
+                    "-DNDEBUG"
+                    "-PX_PROFILE=1"
+                    "-DPX_SUPPORT_PVD=1"
+                    "-DPX_NVTX=1")
+
+set(PROFILE_COMMON_FLAGS ${COMMON_FLAGS}
+                         "-O3"
+                         "-fno-strict-aliasing"
+                         "-ffunction-sections"
+                         "-funwind-tables"
+                         "-fstack-protector"
+                         "-fomit-frame-pointer"
+                         ${PROFILE_DEFINES})
+
+set(PROFILE_C_FLAGS ${PROFILE_COMMON_FLAGS} ${COMMON_C_FLAGS})
+set(PROFILE_CXX_FLAGS ${PROFILE_COMMON_FLAGS} ${COMMON_CXX_FLAGS})
+
+join(PROFILE_C_FLAGS "${PROFILE_C_FLAGS}")
+join(PROFILE_CXX_FLAGS "${PROFILE_CXX_FLAGS}")
+
+set(CMAKE_C_FLAGS_PROFILE  "${CMAKE_C_FLAGS} ${PROFILE_C_FLAGS}")
+set(CMAKE_CXX_FLAGS_PROFILE "${CMAKE_CXX_FLAGS} ${PROFILE_CXX_FLAGS}")
+
+############################################################################
+# RELEASE
+############################################################################
+set(RELEASE_DEFINES ${COMMON_DEFINES}
+                    "-DNDEBUG"
+                    "-DPX_SUPPORT_PVD=0")
+
+set(RELEASE_COMMON_FLAGS ${COMMON_FLAGS}
+                         "-O3"
+                         "-fno-strict-aliasing"
+                         "-ffunction-sections"
+                         "-funwind-tables"
+                         "-fstack-protector"
+                         "-fomit-frame-pointer"
+                         ${RELEASE_DEFINES})
+
+set(RELEASE_C_FLAGS ${RELEASE_COMMON_FLAGS} ${COMMON_C_FLAGS})
+set(RELEASE_CXX_FLAGS ${RELEASE_COMMON_FLAGS} ${COMMON_CXX_FLAGS})
+
+join(RELEASE_C_FLAGS "${RELEASE_C_FLAGS}")
+join(RELEASE_CXX_FLAGS "${RELEASE_CXX_FLAGS}")
+
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS} ${RELEASE_C_FLAGS}")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} ${RELEASE_CXX_FLAGS}")
+
+add_module_subdirectory(LowLevel "LowLevel")
+add_module_subdirectory(LowLevelAABB "LowLevelAABB")
+add_module_subdirectory(LowLevelCloth "LowLevelCloth")
+add_module_subdirectory(LowLevelDynamics "LowLevelDynamics")
+add_module_subdirectory(LowLevelParticles "LowLevelParticles")
+add_module_subdirectory(PhysXCommon "Common")
+add_module_subdirectory(PhysX "PhysX")
+add_module_subdirectory(PhysXCharacterKinematic "PhysXCharacterKinematic")
+add_module_subdirectory(PhysXCooking "PhysXCooking")
+add_module_subdirectory(PhysXExtensions "PhysXExtensions")
+add_module_subdirectory(PhysXVehicle "PhysXVehicle")
+add_module_subdirectory(SceneQuery "SceneQuery")
+add_module_subdirectory(SimulationController "SimulationController")
+
+add_module_subdirectory(PsFastXml "${PxShaderPath}/fastxml")
+add_module_subdirectory(PxFoundation "${PxShaderPath}/foundation")
+add_module_subdirectory(PxTask "${PxShaderPath}/task")
+add_module_subdirectory(PxPvdSDK "${PxShaderPath}/pvd")
+

@@ -1,0 +1,1 @@
+--add0pixel --adreno RGBA5551 --mali RGBA5551 --tegra RGBA5551 --PowerVR_Android RGBA5551 --PowerVR_iOS PVR2

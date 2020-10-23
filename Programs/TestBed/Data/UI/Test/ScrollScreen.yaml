@@ -1,0 +1,87 @@
+Header:
+    version: "1"
+Controls:
+-   class: "UIControl"
+    name: "ScreenContent"
+    size: [960.000000, 640.000000]
+    components:
+        Anchor:
+            leftAnchorEnabled: true
+            rightAnchorEnabled: true
+            topAnchorEnabled: true
+            bottomAnchorEnabled: true
+    children:
+    -   class: "UIScrollView"
+        name: "Scrollview"
+        position: [0.000000, 0.000000]
+        size: [940.000000, 620.000000]
+        clip: true
+        components:
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 0.000000
+                rightAnchorEnabled: true
+                rightAnchor: 20.000000
+                topAnchorEnabled: true
+                topAnchor: 0.000000
+                bottomAnchorEnabled: true
+                bottomAnchor: 20.000000
+            Background:
+                drawType: "DRAW_ALIGNED"
+        children:
+        -   class: "UIScrollViewContainer"
+            name: "scrollContainerControl"
+            position: [0.000000, 0.000000]
+            size: [1500.000000, 2000.000000]
+            components:
+                Background:
+                    drawType: "DRAW_ALIGNED"
+            children:
+            -   class: "UIControl"
+                name: "BigContent"
+                position: [0.000000, 0.000000]
+                size: [1500.000000, 2000.000000]
+                noInput: true
+                components:
+                    Background:
+                        drawType: "DRAW_FILL"
+                children:
+                -   class: "UIControl"
+                    name: "UIControl1"
+                    position: [420.000000, 336.000000]
+                    size: [201.000000, 173.000000]
+                    noInput: true
+                    components:
+                        Background:
+                            drawType: "DRAW_FILL"
+                            color: [0.643100, 0.062700, 1.000000, 1.000000]
+    -   class: "UIControl"
+        customClass: "UIScrollBar"
+        name: "VerticalScrollbar"
+        position: [940.000000, 0.000000]
+        size: [20.000000, 620.000000]
+        components:
+            Anchor:
+                rightAnchorEnabled: true
+                rightAnchor: 0.000000
+                topAnchorEnabled: true
+                topAnchor: 0.000000
+                bottomAnchorEnabled: true
+                bottomAnchor: 20.000000
+            Background:
+                drawType: "DRAW_ALIGNED"
+    -   class: "UIControl"
+        customClass: "UIScrollBar"
+        name: "HorizontalScrollbar"
+        position: [0.000000, 620.000000]
+        size: [940.000000, 20.000000]
+        components:
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 0.000000
+                rightAnchorEnabled: true
+                rightAnchor: 20.000000
+                bottomAnchorEnabled: true
+                bottomAnchor: 0.000000
+            Background:
+                drawType: "DRAW_ALIGNED"

@@ -1,0 +1,1 @@
+--minFilterNearestMipmapLinear --magFilterLinear --PowerVR_iOS A8 --adreno A8 --mali A8 --tegra DXT5 --PowerVR_Android A8

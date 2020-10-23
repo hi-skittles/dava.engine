@@ -1,0 +1,17 @@
+Header:
+    version: "18"
+Controls:
+-   class: "UIControl"
+    name: "NewText"
+    position: [0.000000, 0.000000]
+    size: [176.000000, 32.000000]
+    components:
+        UITextComponent:
+            fontName: "Korinna_18"
+            text: "1234567890"
+-   class: "UIStaticText"
+    name: "OldText"
+    position: [0.000000, 0.000000]
+    size: [176.000000, 32.000000]
+    text: "1234567890"
+    font: "Korinna_18"

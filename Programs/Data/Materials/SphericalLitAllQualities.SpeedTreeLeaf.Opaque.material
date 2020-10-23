@@ -1,0 +1,4 @@
+MaterialTemplate:
+    HIGH : "~res:/Materials/SphericalLit9.SpeedTreeLeaf.Opaque.material"
+    MEDIUM : "~res:/Materials/SphericalLit4.SpeedTreeLeaf.Opaque.material"
+    LOW : "~res:/Materials/SphericalLit1.SpeedTreeLeaf.Opaque.material"

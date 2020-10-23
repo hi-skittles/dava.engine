@@ -1,0 +1,4 @@
+TEST
+/*
+    unterminated comment
+    preprocessor should fail

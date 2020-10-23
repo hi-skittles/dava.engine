@@ -1,0 +1,5 @@
+korinna:
+    name: "~res:/Fonts/korinna.ttf"
+    size: 12.000000
+    type: "FTFont"
+    verticalSpacing: 0

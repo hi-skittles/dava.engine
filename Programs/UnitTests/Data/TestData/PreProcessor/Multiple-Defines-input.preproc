@@ -1,0 +1,12 @@
+#define A letter_a
+#define B (letter_b)
+#define C ((letter_c))
+
+(A + C - B)
+A A A A A
+A
+A B
+A B C
+B C
+C
+A + B

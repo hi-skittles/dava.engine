@@ -1,0 +1,121 @@
+launcher: 
+    version: 0.9
+    url: "http://dl.dropboxusercontent.com/u/98164998/Launcher.zip"
+    webpage: "http://by2-svn.wargaming.net/dava.framework/win/launcher/launcher_page_win.html"
+    newsID: 0
+
+strings:
+    DEV: "Development"
+    TM: "To Master"
+    QA: "Development QA"
+    MASTER: "Master"
+    TMQA: "To Master QA"
+    RE: "Resource Editor"
+    UI: "UIEditor"
+    TE: "Tank Editor"
+    TV: "Tank Viewer"
+    webpage : " News"
+    
+branches:
+    MASTER:
+        RE:
+            2013-07-08_12_58_43__0300:
+                runpath: "ResourceEditor/dava.framework/Tools/ResourceEditorResourceEditor.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/stable/ResourceEditor_win_2013-07-08_12_58_43__0300.zip
+        TE:
+            0.1.90:
+                runpath: "TankEditor/TankEditor_VS2010.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/stable/TankEditor_win.zip
+
+        TV:
+            0.1.72:
+                runpath: "TankViewer/TankViewer_VS2010.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/stable/TankViewer_win.zip
+        UI:
+            2013-04-12_17_44_53__0300:
+                runpath: "UIEditor/UIEditor.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/development/UIEditor_win_2013-04-12_17_44_53__0300.zip
+    TMQA:
+        RE:
+            2013-08-09_13_14_24__0300:
+                runpath: "ResourceEditor/dava.framework/Tools/ResourceEditorResourceEditor.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/to_master/ResourceEditor_win_2013-08-09_13_14_24__0300.zip
+        UI:
+            2013-08-09_12_40_01__0300:
+                runpath: "UIEditor/UIEditor.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/development/UIEditor_win_2013-08-09_12_40_01__0300.zip
+    TM:
+        RE:
+            2013-08-09_13_14_24__0300:
+                runpath: "ResourceEditor/dava.framework/Tools/ResourceEditorResourceEditor.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/to_master/ResourceEditor_win_2013-08-09_13_14_24__0300.zip
+        UI:
+            2013-08-09_12_40_01__0300:
+                runpath: "UIEditor/UIEditor.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/development/UIEditor_win_2013-08-09_12_40_01__0300.zip
+    DEV:
+        RE:
+            2013-08-13_23_11_13__0300:
+                runpath: "ResourceEditor/dava.framework/Tools/ResourceEditorResourceEditor.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/development/ResourceEditor_win_2013-08-13_23_11_13__0300.zip
+            2013-08-14_19_26_04__0300:
+                runpath: "ResourceEditor/dava.framework/Tools/ResourceEditorResourceEditor.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/development/ResourceEditor_win_2013-08-14_19_26_04__0300.zip
+            2013-08-15_16_19_44__0300:
+                runpath: "ResourceEditor/dava.framework/Tools/ResourceEditorResourceEditor.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/development/ResourceEditor_win_2013-08-15_16_19_44__0300.zip
+            2013-08-19_18_21_12__0300:
+                runpath: "ResourceEditor/dava.framework/Tools/ResourceEditorResourceEditor.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/development/ResourceEditor_win_2013-08-19_18_21_12__0300.zip
+            2013-08-16_18_24_38__0300:
+                runpath: "ResourceEditor/dava.framework/Tools/ResourceEditorResourceEditor.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/development/ResourceEditor_win_2013-08-16_18_24_38__0300.zip
+            2013-08-20_19_08_19__0300:
+                runpath: "ResourceEditor/dava.framework/Tools/ResourceEditorResourceEditor.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/development/ResourceEditor_win_2013-08-20_19_08_19__0300.zip
+            2013-08-13_13_03_49__0300:
+                runpath: "ResourceEditor/dava.framework/Tools/ResourceEditorResourceEditor.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/development/ResourceEditor_win_2013-08-13_13_03_49__0300.zip
+            2013-08-12_19_18_02__0300:
+                runpath: "ResourceEditor/dava.framework/Tools/ResourceEditorResourceEditor.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/development/ResourceEditor_win_2013-08-12_19_18_02__0300.zip
+        UI:
+            2013-08-07_16_18_41__0300:
+                runpath: "UIEditor/UIEditor.exe"
+                cmd: ""
+                url: "http://by2-svn.wargaming.net/dava.framework/win/development/UIEditor_win_2013-08-07_16_18_41__0300.zip"
+            2013-08-06_18_38_11__0300:
+                runpath: "UIEditor/UIEditor.exe"
+                cmd: ""
+                url: "http://by2-svn.wargaming.net/dava.framework/win/development/UIEditor_win_2013-08-06_18_38_11__0300.zip"
+            2013-08-08_18_28_25__0300:
+                runpath: "UIEditor/UIEditor.exe"
+                cmd: ""
+                url: "http://by2-svn.wargaming.net/dava.framework/win/development/UIEditor_win_2013-08-08_18_28_25__0300.zip"
+    QA:
+        RE:
+            2013-08-20_19_06_39__0300:
+                runpath: "ResourceEditor/dava.framework/Tools/ResourceEditorResourceEditor.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/qa/ResourceEditor_win_2013-08-20_19_06_39__0300.zip
+        UI:
+            2013-08-09_12_40_01__0300:
+                runpath: "UIEditor/UIEditor.exe"
+                cmd: ""
+                url: http://by2-svn.wargaming.net/dava.framework/win/development/UIEditor_win_2013-08-09_12_40_01__0300.zip

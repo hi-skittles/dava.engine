@@ -1,0 +1,7 @@
+INCLUDE MISSING FILE
+
+#include "some-non-existing-file"
+
+and all this stuff
+doesn't matter
+because fatal error

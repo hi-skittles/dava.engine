@@ -1,0 +1,57 @@
+// commented out /* commented out */ commented out
+/* commented out /* commented out */ remaining
+/* commented out //* commented out commented out */
+/* commented out */ // commented out
+/*/ commented out */
+/**/ remaining
+
+#define ONOTOLE 1
+#   define ONOTOLE 1
+    #define ONOTOLE 1
+    #   define ONOTOLE 1
+
+#define EPSILON         0.00001
+
+#if (EPSILON < 0.1)
+#define ONOTOLE 1
+void foo(); /* EPSILON < 0.1 */
+#endif
+
+#      if (ONOTOLE >= 0)
+void foo(); /* ONOTOLE >= 0 */ 
+# endif
+
+// skip ?
+
+#define XUEPSILON       0.07 /* e_X_tended _U_niform _EPSILON_ -> XUEPSILON */
+#define DEFINITION_1    (external_value_1) /* assume external symbol */
+#define DEFINITION_2    (external_value_2) /* assume external symbol */
+
+void test() // skip ?
+{
+    float expect007 = XUEPSILON; // actually now will be "XU0.00001"
+
+    if (DEFINITION_1 || DEFINITION_2) /* actually now DEFINITION_1 or DEFINITION_2 will not be expanded */
+    {
+    #if (XUEPSILON > 0.08) /* comparison operator will not work */
+        DoSomething_1();
+    #endif
+
+    #if (EPSILON < 0.001) /* comparison operator will not work */
+        DoSomething_2();
+    #endif
+    }
+}
+
+/*/
+    Something commented out, but could be enabled easily
+    by removing one asterisk symbol above
+// */
+
+Everything below this kind of comment will be lost
+
+void foo()
+{
+}
+
+// commented out /* commented out */ commented out

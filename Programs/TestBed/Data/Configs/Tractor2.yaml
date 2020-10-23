@@ -1,0 +1,58 @@
+emitter:
+    emissionAngle: 60.0000
+    emissionRange: 80.0000
+    emissionVector: [0.1000, -0.0100, 1.0000]
+    emissionVectorInverted: "true"
+    name: "Particle Emitter"
+    radius: 2.0000
+    shortEffect: "false"
+    size: [1.0000, 0.0000, 0.0000]
+    type: "rect"
+
+layer0:
+    activeLODS: [0, 1, 1, 0]
+    alphaOverLife: [0.0000, 0.0000, 0.0900, 0.8000, 0.7993, 0.0000, 0.9900, 0.0000]
+    angle: 180.0000
+    angleVariation: 180.0000
+    colorOverLife: [0.0000, [95.0000, 89.0000, 75.0000, 255.0000], 0.9979, [93.0000, 93.0000, 93.0000, 255.0000]]
+    degradeStrategy: 0
+    deltaTime: 0.0000
+    deltaVariation: 0.0000
+    dstBlendFactor: "BLEND_ONE_MINUS_SRC_ALPHA"
+    effectFormat: 1
+    enableFog: "true"
+    enableFrameBlend: "false"
+    endTime: 0.1000
+    force0: [0.0000, [0.0000, 0.0000, -2.0000], 0.3000, [0.0100, 0.0000, 0.0000], 0.9000, [0.0000, 0.0000, -0.9387]]
+    forceCount: 1
+    frameOverLifeEnabled: "false"
+    frameOverLifeFPS: 0.0000
+    inheritPosition: "false"
+    isLong: "false"
+    isLooped: "false"
+    layerType: "particles"
+    life: 5.0000
+    lifeVariation: 3.0000
+    loopEndTime: 0.0000
+    loopSpriteAnimation: "false"
+    loopVariation: 0.0000
+    name: "smoke"
+    number: 50.0000
+    particleOrientation: 1
+    pivotPoint: [0.0000, 0.0000]
+    randomFrameOnStart: "false"
+    randomSpinDirection: "false"
+    scaleVelocityBase: 1.0000
+    scaleVelocityFactor: 0.0000
+    size: [1.0000, 1.0000]
+    sizeOverLifeXY: [0.0000, [3.4451, 3.4451], 0.3557, [3.5049, 3.5049], 0.9933, [5.0409, 5.0409]]
+    spin: [0.0000, 5.0000, 0.1000, 3.3333]
+    spinOverLife: [0.0000, 1.0000, 0.3000, 0.0000]
+    sprite: "../Gfx/Particles/explosion_smoke_white"
+    srcBlendFactor: "BLEND_SRC_ALPHA"
+    startTime: 0.0000
+    type: "layer"
+    velocity: 3.0000
+    velocityOverLife: [0.0000, 1.0000, 0.1271, 0.5546, 0.4200, 0.1000, 0.8963, 0.1314]
+    velocityVariation: 1.0000
+

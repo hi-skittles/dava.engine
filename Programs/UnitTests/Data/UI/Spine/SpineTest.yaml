@@ -1,0 +1,9 @@
+Header:
+    version: "15"
+Controls:
+-   class: "UIControl"
+    name: "UIControl"
+    size: [32.000000, 32.000000]
+    components:
+        Background: {}
+        UISpineComponent: {}

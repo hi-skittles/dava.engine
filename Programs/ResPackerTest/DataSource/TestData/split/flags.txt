@@ -1,0 +1,1 @@
+--split --PowerVR_iOS PVR2 --adreno ATC_RGBA_EXPLICIT_ALPHA --mali ETC1 --tegra DXT1A --PowerVR_Android PVR2

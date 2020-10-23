@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='LIB Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\lib;..\..\..\..\..\..\..\..\Libs\openssl\include\win32\x86;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;BUILDING_LIBCURL;DEBUGBUILD;CURL_STATICLIB;USE_OPENSSL;CURL_DISABLE_FTP;CURL_DISABLE_LDAP;CURL_DISABLE_LDAPS;CURL_DISABLE_TELNET;CURL_DISABLE_DICT;CURL_DISABLE_FILE;CURL_DISABLE_TFTP;CURL_DISABLE_RTSP;CURL_DISABLE_POP3;CURL_DISABLE_IMAP;CURL_DISABLE_SMTP;CURL_DISABLE_GOPHER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='LIB Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\lib;..\..\..\..\..\..\..\..\Libs\openssl\include\win32\x64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;BUILDING_LIBCURL;DEBUGBUILD;CURL_STATICLIB;USE_OPENSSL;CURL_DISABLE_FTP;CURL_DISABLE_LDAP;CURL_DISABLE_LDAPS;CURL_DISABLE_TELNET;CURL_DISABLE_DICT;CURL_DISABLE_FILE;CURL_DISABLE_TFTP;CURL_DISABLE_RTSP;CURL_DISABLE_POP3;CURL_DISABLE_IMAP;CURL_DISABLE_SMTP;CURL_DISABLE_GOPHER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='LIB Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\lib;..\..\..\..\..\..\..\..\Libs\openssl\include\win32\x86;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;BUILDING_LIBCURL;CURL_STATICLIB;USE_OPENSSL;CURL_DISABLE_FTP;CURL_DISABLE_LDAP;CURL_DISABLE_LDAPS;CURL_DISABLE_TELNET;CURL_DISABLE_DICT;CURL_DISABLE_FILE;CURL_DISABLE_TFTP;CURL_DISABLE_RTSP;CURL_DISABLE_POP3;CURL_DISABLE_IMAP;CURL_DISABLE_SMTP;CURL_DISABLE_GOPHER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='LIB Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\..\include;..\..\..\..\lib;..\..\..\..\..\..\..\..\Libs\openssl\include\win32\x64;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;BUILDING_LIBCURL;CURL_STATICLIB;USE_OPENSSL;CURL_DISABLE_FTP;CURL_DISABLE_LDAP;CURL_DISABLE_LDAPS;CURL_DISABLE_TELNET;CURL_DISABLE_DICT;CURL_DISABLE_FILE;CURL_DISABLE_TFTP;CURL_DISABLE_RTSP;CURL_DISABLE_POP3;CURL_DISABLE_IMAP;CURL_DISABLE_SMTP;CURL_DISABLE_GOPHER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+</Project>

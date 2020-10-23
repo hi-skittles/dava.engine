@@ -1,0 +1,21 @@
+# Data driven test.
+# Format:
+#   - input: "text in resources"
+#     visual: "displayed text after bidi transform, layouting and cleaning"
+#
+# PS. if input text has line breaks you should use "\n" to separate lines in visual line
+
+- input: "شارات التفوق: وسام الاحتراف"
+  visual: "ﻑﺍﺮﺘﺣﻻﺍ ﻡﺎﺳﻭ :ﻕﻮﻔﺘﻟﺍ ﺕﺍﺭﺎﺷ"
+- input: "\u061C\t• M46 Patton\n\t• M48A1 Patton III\n\n• يتم إضافة سلسلة الانتصارات المحققة في جميع المركبات.\n• وتم إضافة الجوائز المستلمة مؤخرًا معًا."
+  visual: "M46 Patton • \nM48A1 Patton III • \n\n.ﺕﺎﺒﻛﺮﻤﻟﺍ ﻊﻴﻤﺟ ﻲﻓ ﺔﻘﻘﺤﻤﻟﺍ ﺕﺍﺭﺎﺼﺘﻧﻻﺍ ﺔﻠﺴﻠﺳ ﺔﻓﺎﺿﺇ ﻢﺘﻳ •\n.ﺎﹱﻌﻣ ﺍﹰﺮﺧﺆﻣ ﺔﻤﻠﺘﺴﻤﻟﺍ ﺰﺋﺍﻮﺠﻟﺍ ﺔﻓﺎﺿﺇ ﻢﺗﻭ •"
+- input: "التفوق: M46 Patton"
+  visual: "M46 Patton :ﻕﻮﻔﺘﻟﺍ"
+- input: "\t\u061C• Tiger II\n\t• Panther\n\t• Panther II\n\t• Panther/M10\n\t• Jagdpanther\n\t• Tiger \u202A(P)\u202C\n\t• Tiger I\n\t• Jagdtiger\n\t• Jagdtiger 8,8\n\t• Snowstorm Jagdtiger 8,8\n\t• Löwe\n\n• تم تضمين إجمالي النتائج المحققة باستخدام جميع المركبات.\n• كما تمت إضافة الجوائز المستلمة مؤخرًا معًا."
+  visual: "Tiger II • \nPanther • \nPanther II • \nPanther/M10 • \nJagdpanther • \nTiger (P) • \nTiger I • \nJagdtiger • \nJagdtiger 8,8 • \nSnowstorm Jagdtiger 8,8 • \nLöwe • \n\n.ﺕﺎﺒﻛﺮﻤﻟﺍ ﻊﻴﻤﺟ ﻡﺍﺪﺨﺘﺳﺎﺑ ﺔﻘﻘﺤﻤﻟﺍ ﺞﺋﺎﺘﻨﻟﺍ ﻲﻟﺎﻤﺟﺇ ﻦﻴﻤﻀﺗ ﻢﺗ •\n.ﺎﹱﻌﻣ ﺍﹰﺮﺧﺆﻣ ﺔﻤﻠﺘﺴﻤﻟﺍ ﺰﺋﺍﻮﺠﻟﺍ ﺔﻓﺎﺿﺇ ﺖﻤﺗ ﺎﻤﻛ •"
+- input: "المساحة الخالية: الانتصارات"
+  visual: "ﺕﺍﺭﺎﺼﺘﻧﻻﺍ :ﺔﻴﻟﺎﺨﻟﺍ ﺔﺣﺎﺴﻤﻟﺍ"
+- input: "\u061C\u202A%(blabla)\u202C: المساحة الخالية"
+  visual: "ﺔﻴﻟﺎﺨﻟﺍ ﺔﺣﺎﺴﻤﻟﺍ :%(blabla)"
+- input: "المساحة الخالية: \u202A%(blabla)\u202C"
+  visual: "%(blabla) :ﺔﻴﻟﺎﺨﻟﺍ ﺔﺣﺎﺴﻤﻟﺍ"

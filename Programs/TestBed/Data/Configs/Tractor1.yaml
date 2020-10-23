@@ -1,0 +1,46 @@
+emitter:
+    emissionAngle: 0.0000
+    emissionRange: 1.0000
+    emissionVector: [0.0000, 0.0000, 1.0000]
+    emissionVectorInverted: "true"
+    name: "Particle Emitter"
+    shortEffect: "true"
+    size: [0.0000, 0.0000, 0.0000]
+    type: "point"
+
+layer0:
+    activeLODS: [1, 1, 1, 0]
+    alphaOverLife: [0.0000, 1.0000, 0.9900, 0.0000]
+    degradeStrategy: 0
+    deltaTime: 0.0000
+    deltaVariation: 0.0000
+    dstBlendFactor: "BLEND_ONE"
+    effectFormat: 1
+    enableFog: "false"
+    enableFrameBlend: "true"
+    endTime: 0.2000
+    frameOverLifeEnabled: "true"
+    frameOverLifeFPS: 25.0000
+    inheritPosition: "false"
+    isLong: "false"
+    isLooped: "false"
+    layerType: "single"
+    life: 1.0000
+    loopEndTime: 0.0000
+    loopSpriteAnimation: "false"
+    loopVariation: 0.0000
+    name: "exp"
+    particleOrientation: 1
+    pivotPoint: [0.0000, -4.0000]
+    randomFrameOnStart: "false"
+    randomSpinDirection: "false"
+    scaleVelocityBase: 1.0000
+    scaleVelocityFactor: 0.0000
+    size: [2.5000, 2.5000]
+    sizeOverLifeXY: [0.0000, [1.0000, 1.0000], 1.0000, [2.0000, 2.0000]]
+    sprite: "../Gfx/Particles/exp_anim_fire"
+    srcBlendFactor: "BLEND_SRC_ALPHA"
+    startTime: 0.0000
+    type: "layer"
+    velocity: 1.0000
+

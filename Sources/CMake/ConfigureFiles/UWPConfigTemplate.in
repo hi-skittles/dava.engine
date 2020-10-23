@@ -1,0 +1,4 @@
+WINDOWS_UAP_ASSETS_DIR       = ${DAVA_ROOT_DIR}/Sources/CMake/Resources/WindowsStore/Assets
+WINDOWS_UAP_MANIFEST_FILE    = ${DAVA_ROOT_DIR}/Sources/CMake/ConfigureFiles/UWPManifest.appxmanifest.in
+WINDOWS_UAP_CERTIFICATE_FILE = ${DAVA_ROOT_DIR}/Sources/CMake/Resources/WindowsStore/TemporaryKey.pfx
+WINDOWS_UAP_PACKAGE_LANGUAGES = x-generate

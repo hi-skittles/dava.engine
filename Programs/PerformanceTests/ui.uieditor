@@ -1,0 +1,10 @@
+font:
+    DefaultFontsPath: "~res:/UI/Fonts/fonts.yaml"
+platforms:
+    win:
+        width: 1920
+        height: 1200
+        screens:
+        - "ReportItem"
+        - "TestChooserItem"
+        aggregators: {}

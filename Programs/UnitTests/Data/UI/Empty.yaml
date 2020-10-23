@@ -1,0 +1,9 @@
+Header:
+    version: "17"
+Controls:
+-   class: "UIControl"
+    name: "Root"
+    position: [0.000000, 0.000000]
+    size: [647.000000, 430.000000]
+    components:
+        Background: {}

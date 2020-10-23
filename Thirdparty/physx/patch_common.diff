@@ -1,0 +1,45 @@
+PATCHED: Define DISABLE_CUDA_PHYSX added into PxPreprocessor.h to disable CUDA. Enable __STDC_LIMIT_MACROS in PxSimpleTypes.h for Android
+
+From 7137f0ecc52fbdc790f3ef10cdec885559c0c5f1 Mon Sep 17 00:00:00 2001
+From: y_rakhuba <y_rakhuba@wargaming.net>
+Date: Tue, 13 Jun 2017 13:19:41 +0300
+Subject: [PATCH] diff 2
+
+---
+ .../PhysX-3.4-master/PxShared/include/foundation/PxSimpleTypes.h      | 4 +++-
+ .../PhysX-3.4-master/PxShared/include/foundation/PxPreprocessor.h      |  2 ++
+ 2 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PxShared/include/foundation/PxSimpleTypes.h b/Thirdparty/output/physx/PhysX-3.4-master/PxShared/include/foundation/PxSimpleTypes.h
+index 6ecba13e5e..0e3cdc3431 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PxShared/include/foundation/PxSimpleTypes.h
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PxShared/include/foundation/PxSimpleTypes.h
+@@ -44,9 +44,11 @@
+ // header
+ #endif
+ 
+-#if PX_LINUX
++#if PX_LINUX || PX_ANDROID
++#ifndef __STDC_LIMIT_MACROS
+ #define __STDC_LIMIT_MACROS
+ #endif
++#endif
+ 
+ #include <stdint.h>
+ #if PX_VC
+ diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PxShared/include/foundation/PxPreprocessor.h b/Thirdparty/output/physx/PhysX-3.4-master/PxShared/include/foundation/PxPreprocessor.h
+index 7921217d..6d0af986 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PxShared/include/foundation/PxPreprocessor.h
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PxShared/include/foundation/PxPreprocessor.h
+@@ -30,6 +30,8 @@
+ #ifndef PXFOUNDATION_PXPREPROCESSOR_H
+ #define PXFOUNDATION_PXPREPROCESSOR_H
+ 
++#define DISABLE_CUDA_PHYSX
++
+ #include <stddef.h>
+ #if !defined(PX_GENERATE_META_DATA)
+ #include <ciso646>  
+-- 
+2.11.0 (Apple Git-81)
+

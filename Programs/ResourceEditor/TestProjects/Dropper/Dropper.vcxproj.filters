@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c;def</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Debug">
+      <UniqueIdentifier>{398c505e-f697-4778-9055-c27a00363861}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release">
+      <UniqueIdentifier>{d87181cc-6f4b-4c04-b62b-e2d8c7009da0}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Helpers">
+      <UniqueIdentifier>{9e741ce9-1855-4069-bfeb-4bb060a1f981}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Widgets">
+      <UniqueIdentifier>{5b3c0afa-a31f-4348-b4ce-39945d057600}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ColorPicker">
+      <UniqueIdentifier>{68dcad6a-c85e-4dd1-a4c4-d4d0bf7d4636}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dropper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_dropper.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_dropper.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_dropper.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Helpers\MouseHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_MouseHelper.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_MouseHelper.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Helpers\PaintingHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_AbstractSlider.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_AbstractSlider.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Widgets\AbstractSlider.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GradientSlider.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GradientSlider.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorPicker\GradientSlider.cpp">
+      <Filter>ColorPicker</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_PaletteHSV.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_PaletteHSV.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorPicker\PaletteHSV.cpp">
+      <Filter>ColorPicker</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ColorPreview.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ColorPreview.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorPicker\ColorPreview.cpp">
+      <Filter>ColorPicker</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ValueSlider.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ValueSlider.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Widgets\ValueSlider.cpp">
+      <Filter>Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ColorPicker.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ColorPicker.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorPicker\ColorPicker.cpp">
+      <Filter>ColorPicker</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_AbstractColorPicker.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_AbstractColorPicker.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorPicker\AbstractColorPicker.cpp">
+      <Filter>ColorPicker</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ColorPickerHSV.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ColorPickerHSV.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorPicker\ColorPickerHSV.cpp">
+      <Filter>ColorPicker</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ColorComponentSlider.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ColorComponentSlider.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorPicker\ColorComponentSlider.cpp">
+      <Filter>ColorPicker</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ColorPickerRGBAM.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ColorPickerRGBAM.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorPicker\ColorPickerRGBAM.cpp">
+      <Filter>ColorPicker</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_EyeDropper.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_EyeDropper.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorPicker\EyeDropper.cpp">
+      <Filter>ColorPicker</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="dropper.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="dropper.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="dropper.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Helpers\MouseHelper.h">
+      <Filter>Helpers</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Widgets\AbstractSlider.h">
+      <Filter>Widgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ColorPicker\GradientSlider.h">
+      <Filter>ColorPicker</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ColorPicker\PaletteHSV.h">
+      <Filter>ColorPicker</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ColorPicker\ColorPreview.h">
+      <Filter>ColorPicker</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Widgets\ValueSlider.h">
+      <Filter>Widgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ColorPicker\ColorPicker.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ColorPicker\ColorPicker.h">
+      <Filter>ColorPicker</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ColorPicker\AbstractColorPicker.h">
+      <Filter>ColorPicker</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ColorPicker\ColorPickerHSV.h">
+      <Filter>ColorPicker</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ColorPicker\ColorComponentSlider.h">
+      <Filter>ColorPicker</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ColorPicker\ColorPickerRGBAM.h">
+      <Filter>ColorPicker</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ColorPicker\EyeDropper.h">
+      <Filter>ColorPicker</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GeneratedFiles\ui_dropper.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers\PaintingHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_ColorPicker.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\DataQt\QtIcons\pivot_mote_to_center.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\pivot_move_to_zero.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\global_add.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\global.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\global_delete.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\tree_view_sel_childs.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\tree_view_all.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\tree_view_sel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\tree_view_top.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\attach.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\pencil_add.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\pencil.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\brush.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\grass.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\layer_invisible.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\layer_visible.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\land_gras.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIconsTextureDialog\convertModified.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\light_settings.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\sphere_add.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\sphere-clone.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\3d.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\sphere.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\all.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\star.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\star_empty.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\gizmo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\object_select.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\switch.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\curcor_move.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\curcor_rotate.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\curcor_scale.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\land_settings.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\land_visibility.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\land_custcolor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\land_ruler.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\land_unpassable.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\land_height.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\land_tile.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\cloud.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\customcolors.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\visibilitytool.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\eye.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\camera.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\refresh_particle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\wait.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\move_absolute.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\move_offset.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\pivot_center.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\pivot_common.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\pivot_zero.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\lod_object.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\user_object.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\file.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\play.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\restart.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\stop.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\stop_clear.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\pause.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\step_forward.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\effect.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\emitter_particle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\force.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\external.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\layer_particle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\node.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\error.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\box_closed.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\box_open.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\render_object.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\lock_add.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\lock_delete.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\locked.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\mipmap.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\help.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\zoom.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIconsTextureDialog\convertall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIconsTextureDialog\convert.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\color.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\keyminus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\keyplus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\ccancel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\removecomponent.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\settings.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\remove.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\addcomponent.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\cminus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\cplus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\add_blue.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\advanced.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\add_green.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\textureeditor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\edit_redo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\edit_undo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\refresh.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\savescenetofolder.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\modify_select.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\modify_move.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\modify_rotate.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\modify_placeonland.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\modify_snaptoland.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\modify_scale.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\expand_all.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\collapse_all.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtImages\tree-closed.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtImages\tree-open.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIconsTextureDialog\filter.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIconsTextureDialog\alpha.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIconsTextureDialog\editclear.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIconsTextureDialog\blue.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIconsTextureDialog\green.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIconsTextureDialog\red.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIconsTextureDialog\opacity.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIconsTextureDialog\zoom_fit.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIconsTextureDialog\border.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIconsTextureDialog\view_list.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIconsTextureDialog\view_pictures.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIconsTextureDialog\zoom_100.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\newscene.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\openproject.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\openscene.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\savescene.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\save_as.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\materialeditor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\reloadtextures.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\notpassableterrain.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\heightmapeditor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\tilemapeditor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\rulertool.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\transform_bake.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\shadow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\light.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\cubemap.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\clone.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\remove_layer.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\remove_force.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\reset.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\btn_rotate_ccw.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\btn_rotate_cw.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\skybox.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\landscapesettings.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\sound.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\sound_group.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\hangingobjects.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\map.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\image_splitter.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\wind.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\reload_shaders.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\switches_with_different_lods.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\clone_batches.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtImages\sky_example0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtImages\sky_example1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtImages\sky_example2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtImages\sky_example3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtImages\sky_example4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtImages\sky_example5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtImages\sky_example6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtImages\sky_example7.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtLibraryIcons\orientation.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtLibraryIcons\lodmaterial.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\DataQt\QtIcons\so.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

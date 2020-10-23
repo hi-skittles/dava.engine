@@ -1,0 +1,8 @@
+DEFINED()
+
+expected line
+#if defined(STUFF)
+  not supposed to see it
+#endif
+
+last

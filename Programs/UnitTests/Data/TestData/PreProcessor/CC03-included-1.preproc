@@ -1,0 +1,5 @@
+#if AAA
+  aaa-1
+  aaa-2
+  aaa-last
+#endif

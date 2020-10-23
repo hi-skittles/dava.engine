@@ -1,0 +1,13 @@
+\R handling
+
+#if !defined STUFF
+#define STUFF 0
+#endif
+
+#if STUFF
+  stuff
+#else
+  not stuff
+#endif
+
+last

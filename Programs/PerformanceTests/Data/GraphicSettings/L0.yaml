@@ -1,0 +1,22 @@
+
+keyedArchive: 
+    textureQuality: 
+        string: HIGH
+    sfxQuality:
+        string: LOW
+    fxQuality:
+        string: FXLow
+    water: 
+        string: LOW
+    vegetation: 
+        string: LOW
+    tree_lighting:
+        string: LOW
+    landscape:
+        string: MEDIUM
+    static_object:
+        string: LOW
+    vegetationAnimation:
+        bool: false
+    stencilShadows:
+        bool: false

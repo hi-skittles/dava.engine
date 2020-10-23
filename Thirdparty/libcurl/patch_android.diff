@@ -1,0 +1,23 @@
+Only in ./libcurl_source: config.log
+diff -ur ./libcurl_source_original/configure ./libcurl_source/configure
+--- ./libcurl_source_original/configure	2016-09-07 16:45:51.000000000 +0300
++++ ./libcurl_source/configure	2017-06-16 15:15:41.000000000 +0300
+@@ -29362,7 +29362,7 @@
+ #define RECVCALLCONV
+ #endif
+                       extern $recv_retv RECVCALLCONV
+-                      recv($recv_arg1, $recv_arg2, $recv_arg3, $recv_arg4);
++                      recv($recv_arg1, $recv_arg2, $recv_arg3, $recv_arg4) __overloadable;
+ 
+ int main (void)
+ {
+@@ -29550,7 +29550,7 @@
+ #define SENDCALLCONV
+ #endif
+                       extern $send_retv SENDCALLCONV
+-                      send($send_arg1, $send_arg2, $send_arg3, $send_arg4);
++                      send($send_arg1, $send_arg2, $send_arg3, $send_arg4) __overloadable;
+ 
+ int main (void)
+ {
+Only in ./libcurl_source_original/include/curl: curlbuild.h

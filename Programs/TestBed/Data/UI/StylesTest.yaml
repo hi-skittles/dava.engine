@@ -1,0 +1,195 @@
+Header:
+    version: "19"
+StyleSheets:
+-   selector: ".on .proto"
+    properties:
+        bg-color:
+            value: [0.000000, 1.000000, 0.000000, 1.000000]
+            transitionTime: 3.000000
+            transitionFunction: "LINEAR"
+-   selector: ".off .proto"
+    properties:
+        bg-color:
+            value: [1.000000, 1.000000, 1.000000, 1.000000]
+            transitionTime: 3.000000
+            transitionFunction: "LINEAR"
+-   selector: ".test_text"
+    properties:
+        text-color: [0.666667, 0.000000, 0.000000, 1.000000]
+-   selector: ".test_text.global"
+    properties:
+        text-color: [0.000000, 1.000000, 0.000000, 1.000000]
+Controls:
+-   class: "UIControl"
+    name: "Window"
+    position: [0.000000, 0.000000]
+    size: [555.000000, 586.000000]
+    noInput: true
+    components:
+        SizePolicy:
+            horizontalPolicy: "PercentOfParent"
+            verticalPolicy: "PercentOfParent"
+        UIShortcutEventComponent:
+            shortcuts: "ADD; REMOVE; MORE"
+        Focus: {}
+    children:
+    -   class: "UIControl"
+        name: "TopPanel"
+        size: [535.000000, 536.000000]
+        components:
+            LinearLayout:
+                orientation: "TopDown"
+                spacing: 10.000000
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 10.000000
+                rightAnchorEnabled: true
+                rightAnchor: 10.000000
+                topAnchorEnabled: true
+                topAnchor: 10.000000
+                bottomAnchorEnabled: true
+                bottomAnchor: 40.000000
+        children:
+        -   class: "UIControl"
+            name: "ControlsPanel"
+            position: [0.000000, 0.000000]
+            size: [535.000000, 40.000000]
+            components:
+                LinearLayout:
+                    spacing: 10.000000
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                    verticalPolicy: "PercentOfMaxChild"
+            children:
+            -   class: "UIStaticText"
+                name: "AddStyleButton"
+                position: [0.000000, 0.000000]
+                size: [130.000000, 40.000000]
+                noInput: false
+                exclusiveInput: true
+                components:
+                    UIInputEventComponent:
+                        onTouchUpInside: "ADD"
+                    DebugRender:
+                        enabled: true
+                    UITextComponent:
+                        text: "Add style"
+                        fontName: "Font_18"
+            -   class: "UIStaticText"
+                name: "RemoveStyleButton"
+                position: [140.000000, 0.000000]
+                size: [140.000000, 40.000000]
+                noInput: false
+                exclusiveInput: true
+                components:
+                    UIInputEventComponent:
+                        onTouchUpInside: "REMOVE"
+                    DebugRender:
+                        enabled: true
+                    UITextComponent:
+                        text: "Remove style"
+                        fontName: "Font_18"
+            -   class: "UIStaticText"
+                name: "MoreButton"
+                position: [290.000000, 0.000000]
+                size: [140.000000, 40.000000]
+                noInput: false
+                exclusiveInput: true
+                components:
+                    UIInputEventComponent:
+                        onTouchUpInside: "MORE"
+                    DebugRender:
+                        enabled: true
+                    UITextComponent:
+                        text: "More controls"
+                        fontName: "Font_18"
+            -   class: "UIStaticText"
+                name: "StatusText"
+                position: [440.000000, 0.000000]
+                size: [95.000000, 40.000000]
+                components:
+                    SizePolicy:
+                        horizontalPolicy: "PercentOfParent"
+                    DebugRender:
+                        enabled: false
+                    UITextComponent:
+                        text: "<status>"
+                        fontName: "Font_18"
+                        align: ["LEFT", "VCENTER"]
+        -   class: "UIControl"
+            name: "GlobalPanel"
+            position: [0.000000, 50.000000]
+            size: [535.000000, 40.000000]
+            components:
+                LinearLayout:
+                    spacing: 10.000000
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                    verticalPolicy: "PercentOfMaxChild"
+            children:
+            -   class: "UIStaticText"
+                name: "AddGlobalClassButton"
+                position: [0.000000, 0.000000]
+                size: [167.000000, 40.000000]
+                noInput: false
+                exclusiveInput: true
+                components:
+                    UIInputEventComponent:
+                        onTouchUpInside: "ADD_GLOBAL"
+                    DebugRender:
+                        enabled: true
+                    UITextComponent:
+                        text: "Add global class"
+                        fontName: "Font_18"
+            -   class: "UIStaticText"
+                name: "RemoveGlobalClassButton"
+                position: [177.000000, 0.000000]
+                size: [204.000000, 40.000000]
+                noInput: false
+                exclusiveInput: true
+                components:
+                    UIInputEventComponent:
+                        onTouchUpInside: "REMOVE_GLOBAL"
+                    DebugRender:
+                        enabled: true
+                    UITextComponent:
+                        text: "Remove global class"
+                        fontName: "Font_18"
+            -   class: "UIStaticText"
+                name: "TestText"
+                position: [391.000000, 0.000000]
+                size: [144.000000, 40.000000]
+                classes: "test_text"
+                components:
+                    SizePolicy:
+                        horizontalPolicy: "PercentOfParent"
+                    DebugRender:
+                        enabled: true
+                        drawColor: [1.000000, 1.000000, 0.000000, 1.000000]
+                    UITextComponent:
+                        text: "TEST TEXT"
+                        fontName: "Font_18"
+                        align: ["LEFT", "VCENTER"]
+        -   class: "UIControl"
+            name: "Container"
+            position: [0.000000, 100.000000]
+            size: [535.000000, 436.000000]
+            classes: ""
+            components:
+                FlowLayout:
+                    skipInvisible: true
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                    verticalPolicy: "PercentOfParent"
+                DebugRender:
+                    enabled: true
+-   class: "UIControl"
+    name: "Proto"
+    position: [0.000000, 0.000000]
+    size: [8.000000, 8.000000]
+    classes: "proto"
+    components:
+        Background:
+            drawType: "DRAW_FILL"
+        DebugRender:
+            enabled: true

@@ -1,0 +1,20 @@
+ALTERNATIVE IF-EXPRESSION
+
+#define SOMETHING 7 
+#define LIFE 42 
+
+first
+#ifdef LIFE//ignored garbage
+  expected
+  ssl 1
+  ssl 2
+#endif
+
+second
+#ifndef DEATH
+  expected
+  aab 1
+  aab 2
+#endif
+
+last

@@ -1,0 +1,139 @@
+textures:
+ default: "HIGHEST"
+ qualities:
+  - 
+   quality: "HIGHEST"
+   albedo: 0
+   normalmap: 0
+   minsize: 64
+  - 
+   quality: "HIGH"
+   albedo: 1
+   normalmap: 1
+   minsize: 64
+  -
+   quality: "MEDIUM"
+   albedo: 2
+   normalmap: 2
+   minsize: 64
+  -
+   quality: "LOW"
+   albedo: 3
+   normalmap: 3
+   minsize: 64
+  -
+   quality: "LOWEST"
+   albedo: 4
+   normalmap: 4
+   minsize: 64
+  
+anisotropy:
+ default: "HIGHEST"
+ qualities:
+  - 
+   quality: "HIGHEST"
+   max: 16
+  - 
+   quality: "HIGH"
+   max: 8
+  -
+   quality: "MEDIUM"
+   max: 4
+  -
+   quality: "LOW"
+   max: 2
+  -
+   quality: "DISABLED"
+   max: 1
+
+msaa:
+ default: "MSAA_4X"
+ qualities:
+  - 
+   quality: "MSAA_4X"
+  - 
+   quality: "MSAA_2X"
+  -
+   quality: "NONE"
+
+materials:
+ -
+  group: "Water"
+  quality: ["ULTRA_HIGH", "HIGH", "LOW"]
+  default: "LOW"
+
+ -
+  group: "VegetationCount"
+  quality: ["500k", "60k", "regular"] 
+  default: "regular"
+
+ -
+  group: "Static object"
+  quality: ["MEDIUM", "LOW"]
+  default: "MEDIUM"
+
+ -
+  group: "Decoration Objects"
+  quality: ["ON", "OFF"]
+  default: "ON"
+
+ -
+  group: "Landscape"
+  quality: ["HIGH", "MEDIUM", "LOW"]
+  default: "MEDIUM"
+
+ -
+  group: "Particle"
+  quality: ["HIGH", "LOW"]
+  default: "HIGH"
+
+ -
+  group: "Tank"
+  quality: ["HIGH", "MEDIUM", "LOW"]
+  default: "HIGH"
+
+ -
+  group: "Vegetation"
+  quality: ["HIGH", "LOW"]
+  default: "HIGH"
+
+ -
+  group: "Spherical Harmonics"
+  quality: ["HIGH", "MEDIUM", "LOW"]
+  default: "HIGH"
+  
+ -
+  group: "Lightmaps"
+  quality: ["HIGH", "LOW"] 
+  default: "HIGH"
+
+landscape:
+ default: "LOW"
+ qualities:
+  - 
+   quality: "LOW"
+   morphing: true
+   normalMaxHeightError: 0.014
+   normalMaxPatchRadiusError: 0.45
+   normalMaxAbsoluteHeightError: 3.0
+   zoomMaxHeightError: 0.03
+   zoomMaxPatchRadiusError: 0.9
+   zoomMaxAbsoluteHeightError: 3.0
+  - 
+   quality: "MEDIUM"
+   morphing: true
+   normalMaxHeightError: 0.012
+   normalMaxPatchRadiusError: 0.4
+   normalMaxAbsoluteHeightError: 2.5
+   zoomMaxHeightError: 0.025
+   zoomMaxPatchRadiusError: 0.8
+   zoomMaxAbsoluteHeightError: 2.5
+  -
+   quality: "HIGH"
+   morphing: true
+   normalMaxHeightError: 0.01
+   normalMaxPatchRadiusError: 0.3
+   normalMaxAbsoluteHeightError: 1.0
+   zoomMaxHeightError: 0.015
+   zoomMaxPatchRadiusError: 0.6
+   zoomMaxAbsoluteHeightError: 1.0

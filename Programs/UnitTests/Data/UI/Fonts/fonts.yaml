@@ -1,0 +1,14 @@
+Korinna_18:
+    ascendScale: 1.000000
+    descendScale: 1.000000
+    name: "~res:/Fonts/korinna.ttf"
+    size: 18.000000
+    type: "FTFont"
+    verticalSpacing: 0
+DejaVuSans_18:
+    ascendScale: 1.000000
+    descendScale: 1.000000
+    name: "~res:/Fonts/DejaVuSans.ttf"
+    size: 18.000000
+    type: "FTFont"
+    verticalSpacing: 0

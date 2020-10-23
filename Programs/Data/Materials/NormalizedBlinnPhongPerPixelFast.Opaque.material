@@ -1,0 +1,26 @@
+RenderTechnique:
+    Layers: ["OpaqueRenderLayer"]
+    RenderPass:
+        Name: "ForwardPass"
+        Shader: "~res:/Materials/Shaders/Default/materials"
+        UniqueDefines: ["MATERIAL_TEXTURE", "PIXEL_LIT", "NORMALIZED_BLINN_PHONG", "FAST_NORMALIZATION", "FAST_METAL"]
+        RenderState:
+            alphaFunc: "CMP_ALWAYS"
+            alphaFuncCmpValue: 0.0000
+            blendDest: "BLEND_ZERO"
+            blendSrc: "BLEND_ONE"
+            cullMode: "FACE_BACK"
+            depthFunc: "CMP_LESS"
+            fillMode: "FILLMODE_SOLID"
+            state: "STATE_DEPTH_TEST | STATE_DEPTH_WRITE | STATE_CULL | STATE_COLORMASK_RED | STATE_COLORMASK_GREEN | STATE_COLORMASK_BLUE | STATE_COLORMASK_ALPHA"
+            stencil:
+                failBack: "STENCILOP_KEEP"
+                failFront: "STENCILOP_KEEP"
+                funcBack: "CMP_ALWAYS"
+                funcFront: "CMP_ALWAYS"
+                mask: -1
+                passBack: "STENCILOP_KEEP"
+                passFront: "STENCILOP_KEEP"
+                ref: 0
+                zFailBack: "STENCILOP_KEEP"
+                zFailFront: "STENCILOP_KEEP"

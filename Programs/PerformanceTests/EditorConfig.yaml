@@ -1,0 +1,172 @@
+# type: Bool, Int, Float String, Combobox, CollisionTypeMap
+-
+    name: "CollisionType"
+    type: "CollisionTypeMap"
+    default: 0
+    hidden: true
+    list: [["No Collision", 0], ["Fragile Proj", 3], ["Fragile ^Proj", 4], ["Falling", 5], ["Building", 6], ["Invisible Wall", 7], ["SpeedTree", 8], ["Water", 9]]
+-
+    name: "CollisionTypeCrashed"
+    type: "CollisionTypeMap"
+    default: 0
+    hidden: true
+    list: [["No Collision", 0], ["Fragile Proj", 3], ["Fragile ^Proj", 4], ["Falling", 5], ["Building", 6], ["Invisible Wall", 7], ["SpeedTree", 8]]
+-
+    name: "CollisionTypeIgnoreVisibilityCheck"
+    type: "CollisionTypeMap"
+    hidden: true
+    default: 0
+    list: [["No Collision", 0], ["Fragile ^Proj", 4], ["Falling", 5], ["SpeedTree", 8]]
+-
+    name: "CollisionTypeColor"
+    type: "ColorList"
+    default: 0
+    hidden: true
+    list: [[0, 0, 0, 255], [255, 255, 255, 255], [255, 255, 0, 255], [255, 0, 255, 255], [0, 255, 255, 255], [255, 0, 0, 255], [0, 255, 0, 255], [0, 0, 255, 255]]
+-
+    name: "MaterialKind"
+    type: "Combobox"
+    default: 0
+    list: ["ground", "stone", "wood", "metal", "snow", "sand"]
+-
+    name: "SpawnPreferredVehicleType"
+    type: "Combobox"
+    default: 0
+    list: ["<any>", "lightTank", "mediumTank", "heavyTank", "AT-SPG"]
+-
+    name: "FallType"
+    type: "Combobox"
+    default: 0
+    list: ["Tree", "Palma", "Stolb", "Bush"]
+-
+    name: "touchdownEffect"
+    type: "String"
+    default: "none"
+-
+    name: "Health"
+    type: "Int"
+    default: 10
+-
+    name: "Density"
+    type: "Float"
+    default: 0.9
+-
+    name: "botname"
+    type: "String"
+    default: "#battle_tutorial:bot_2"
+-
+    name: "type"
+    type: "String"
+    default: "spawnpoint"
+-
+    name: "team"
+    type: "Int"
+    default: 1
+-
+    name: "pathID"
+    type: "Int"
+    default: 1
+-
+    name: "pointNumber"
+    type: "Int"
+    default: 1
+-
+    name: "script"
+    type: "String"
+    default: "patrol"
+-
+    name: "directive"
+    type: "String"
+    default: "wait shoot"
+-
+    name: "group"
+    type: "Int"
+    default: 0
+-
+    name: "vehicle"
+    type: "String"
+    default: "germany:PzVIB_Tiger_II_training"
+-
+    name: "performanceTestBot"
+    type: "Bool"
+    default: true
+-
+    name: "customCameraBot"
+    type: "Bool"
+    default: true
+-
+    name: "LandscapeCustomColors"
+    type: "ColorList"
+    default: 0
+    list: [[0, 255, 0, 255], [255, 255, 0, 255], [255, 0, 0, 255]]
+-
+    name: "LandscapeCustomColorsDescription"
+    type: "Combobox"
+    default: 0
+    list: ["Firm", "Medium", "Soft"]
+-
+    name: "LevelVisibilityColors"
+    type: "ColorList"
+    default: 0
+    list: [[0, 100, 0, 255], [255, 0, 0, 255], [255, 255, 0, 255], [0, 255, 0, 255]]
+-
+    name: "LevelVisibilityDensity"
+    type: Float
+    default: 10.0
+-
+    name: "LevelVisibilityPointHeights"
+    type: "Combobox"
+    default: 0
+    list: [2.0, 0.1, 2.0, 4.0]
+-
+    name: "RotationSpeedX"
+    type: Float
+    default: 10.0
+-
+    name: "RotationSpeedY"
+    type: Float
+    default: 10.0
+-
+    name: "RotationSpeedZ"
+    type: Float
+    default: 10.0
+-
+    name: "borderTopX"
+    type: "Float"
+    default: -250.0
+-
+    name: "borderTopY"
+    type: "Float"
+    default: -250.0
+-
+    name: "borderBotX"
+    type: "Float"
+    default: 250.0
+-
+    name: "borderBotY"
+    type: "Float"
+    default: 250.0
+-
+    name: "testString"
+    type: "String"
+    default: "test"
+-
+    name: "pointsPerSecond"
+    type: "Float"
+    default: 1.0
+-
+    name: "maxPointsPerSecond"
+    type: "Float"
+    default: 3.0
+-
+    name: "radius"
+    type: "Float"
+    default: 25.0
+-
+    name: "testFloat2"
+    type: "Float"
+    default: 2.0
+-
+    name: "TestBool"
+    type: "Bool"
+    default: true

@@ -1,0 +1,79 @@
+textures:
+ default: "HIGHEST"
+ qualities:
+  - 
+   quality: "HIGHEST"
+   albedo: 0
+   normalmap: 0
+   minsize: 64
+  - 
+   quality: "HIGH"
+   albedo: 1
+   normalmap: 1
+   minsize: 64
+  -
+   quality: "MEDIUM"
+   albedo: 2
+   normalmap: 2
+   minsize: 64
+  -
+   quality: "LOW"
+   albedo: 3
+   normalmap: 3
+   minsize: 64
+  -
+   quality: "LOWEST"
+   albedo: 4
+   normalmap: 4
+   minsize: 64
+
+materials:
+ -
+  group: "Water"
+  quality: ["ULTRA_HIGH", "HIGH", "MEDIUM", "LOW", "ULTRA_LOW"]
+  default: "ULTRA_LOW"
+
+ -
+  group: "Static object"
+  quality: ["HIGH", "LOW"]
+  default: "HIGH"
+
+ -
+  group: "Landscape"
+  quality: ["HIGH", "MEDIUM", "LOW"]
+  default: "MEDIUM"
+
+ -
+  group: "Particle"
+  quality: ["HIGH", "LOW"]
+  default: "HIGH"
+
+ -
+  group: "Tank"
+  quality: ["HIGH", "MEDIUM", "LOW"]
+  default: "HIGH"
+
+ -
+  group: "Vegetation"
+  quality: ["HIGH", "LOW"] 
+  default: "HIGH"
+
+ -
+  group: "Spherical Harmonics"
+  quality: ["HIGH", "MEDIUM", "LOW"]
+  default: "HIGH"
+
+ -
+  group: "Lightmaps"
+  quality: ["HIGH", "LOW"] 
+  default: "HIGH"
+
+sounds:
+ default: "LOW"
+ qualities:
+  - 
+   quality: "HIGH"
+   configPath: "~res:/Configs/Sfx/sfx_high.yaml"
+  - 
+   quality: "LOW"
+   configPath: "~res:/Configs/Sfx/sfx_low.yaml"

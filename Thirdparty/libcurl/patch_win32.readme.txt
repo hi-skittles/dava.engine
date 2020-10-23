@@ -1,0 +1,17 @@
+Whats changed (overrided in override_win32.props):
+1. Added ipv6 support
+2. Added curl build definitions: 
+  CURL_DISABLE_FTP
+  CURL_DISABLE_LDAP
+  CURL_DISABLE_LDAPS
+  CURL_DISABLE_TELNET
+  CURL_DISABLE_DICT
+  CURL_DISABLE_FILE
+  CURL_DISABLE_TFTP
+  CURL_DISABLE_RTSP
+  CURL_DISABLE_POP3
+  CURL_DISABLE_IMAP
+  CURL_DISABLE_SMTP
+  CURL_DISABLE_GOPHER
+3. Added include directory for OpenSSL
+  dava.framework/Libs/openssl/win32/<Arch>

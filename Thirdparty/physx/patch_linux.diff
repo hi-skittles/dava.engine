@@ -1,0 +1,667 @@
+From 0e17ed99c489503fb98a79a793d2773fd8282294 Mon Sep 17 00:00:00 2001
+From: y_rakhuba <y_rakhuba@wargaming.net>
+Date: Wed, 9 Aug 2017 11:46:54 +0300
+Subject: [PATCH] patch
+
+---
+ .../PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile     | 6 +++---
+ .../PhysX_3.4/Source/compiler/linux64/Makefile.LowLevel.mk          | 4 ++++
+ .../PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelAABB.mk      | 4 ++++
+ .../PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelCloth.mk     | 4 ++++
+ .../PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelDynamics.mk  | 4 ++++
+ .../PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelParticles.mk | 4 ++++
+ .../PhysX_3.4/Source/compiler/linux64/Makefile.PhysX.mk             | 4 ++++
+ .../Source/compiler/linux64/Makefile.PhysXCharacterKinematic.mk     | 4 ++++
+ .../PhysX_3.4/Source/compiler/linux64/Makefile.PhysXCommon.mk       | 4 ++++
+ .../PhysX_3.4/Source/compiler/linux64/Makefile.PhysXCooking.mk      | 4 ++++
+ .../PhysX_3.4/Source/compiler/linux64/Makefile.PhysXExtensions.mk   | 4 ++++
+ .../PhysX_3.4/Source/compiler/linux64/Makefile.PhysXVehicle.mk      | 4 ++++
+ .../PhysX_3.4/Source/compiler/linux64/Makefile.PsFastXml.mk         | 4 ++++
+ .../PhysX_3.4/Source/compiler/linux64/Makefile.PxFoundation.mk      | 4 ++++
+ .../PhysX_3.4/Source/compiler/linux64/Makefile.PxPvdSDK.mk          | 4 ++++
+ .../PhysX_3.4/Source/compiler/linux64/Makefile.PxTask.mk            | 4 ++++
+ .../PhysX_3.4/Source/compiler/linux64/Makefile.SceneQuery.mk        | 4 ++++
+ .../Source/compiler/linux64/Makefile.SimulationController.mk        | 4 ++++
+ .../PhysX_3.4/Source/compiler/linux64/Makefile.custom               | 1 +
+ 19 files changed, 72 insertions(+), 3 deletions(-)
+ create mode 100644 Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.custom
+
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile
+index 455b917b57..e6095b240d 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile
+@@ -6,9 +6,9 @@ DEPSDIR = .deps
+ OBJS_DIR  = build
+ RMDIR     = rm -fr
+ ECHO      = echo
+-CCLD      =  g++
+-CXX       =  g++
+-CC        =  gcc
++CCLD      =  clang++
++CXX       =  clang++
++CC        =  clang
+ RANLIB    = ranlib
+ AR		 = ar
+ STRIP     = strip
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevel.mk b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevel.mk
+index 7db768898c..53fb23fbaf 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevel.mk
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevel.mk
+@@ -98,6 +98,7 @@ LowLevel_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnostics
+ LowLevel_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevel_debug_common_cflags  += -Wno-missing-field-initializers
+ LowLevel_debug_common_cflags  += -g3 -gdwarf-2
++LowLevel_debug_common_cflags  += $(DAVA_custom_flags)
+ LowLevel_debug_cflags	:= $(LowLevel_debug_common_cflags)
+ LowLevel_debug_cppflags	:= $(LowLevel_debug_common_cflags)
+ LowLevel_debug_lflags    := $(LowLevel_custom_lflags)
+@@ -213,6 +214,7 @@ LowLevel_checked_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnosti
+ LowLevel_checked_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevel_checked_common_cflags  += -Wno-missing-field-initializers
+ LowLevel_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
++LowLevel_checked_common_cflags  += $(DAVA_custom_flags)
+ LowLevel_checked_cflags	:= $(LowLevel_checked_common_cflags)
+ LowLevel_checked_cppflags	:= $(LowLevel_checked_common_cflags)
+ LowLevel_checked_lflags    := $(LowLevel_custom_lflags)
+@@ -328,6 +330,7 @@ LowLevel_profile_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnosti
+ LowLevel_profile_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevel_profile_common_cflags  += -Wno-missing-field-initializers
+ LowLevel_profile_common_cflags  += -O3 -fno-strict-aliasing
++LowLevel_profile_common_cflags  += $(DAVA_custom_flags)
+ LowLevel_profile_cflags	:= $(LowLevel_profile_common_cflags)
+ LowLevel_profile_cppflags	:= $(LowLevel_profile_common_cflags)
+ LowLevel_profile_lflags    := $(LowLevel_custom_lflags)
+@@ -442,6 +445,7 @@ LowLevel_release_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnosti
+ LowLevel_release_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevel_release_common_cflags  += -Wno-missing-field-initializers
+ LowLevel_release_common_cflags  += -O3 -fno-strict-aliasing
++LowLevel_release_common_cflags  += $(DAVA_custom_flags)
+ LowLevel_release_cflags	:= $(LowLevel_release_common_cflags)
+ LowLevel_release_cppflags	:= $(LowLevel_release_common_cflags)
+ LowLevel_release_lflags    := $(LowLevel_custom_lflags)
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelAABB.mk b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelAABB.mk
+index 384e877f4f..f52d8d8c53 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelAABB.mk
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelAABB.mk
+@@ -69,6 +69,7 @@ LowLevelAABB_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnos
+ LowLevelAABB_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevelAABB_debug_common_cflags  += -Wno-missing-field-initializers
+ LowLevelAABB_debug_common_cflags  += -g3 -gdwarf-2
++LowLevelAABB_debug_common_cflags  += $(DAVA_custom_flags)
+ LowLevelAABB_debug_cflags	:= $(LowLevelAABB_debug_common_cflags)
+ LowLevelAABB_debug_cppflags	:= $(LowLevelAABB_debug_common_cflags)
+ LowLevelAABB_debug_lflags    := $(LowLevelAABB_custom_lflags)
+@@ -169,6 +170,7 @@ LowLevelAABB_checked_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagn
+ LowLevelAABB_checked_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevelAABB_checked_common_cflags  += -Wno-missing-field-initializers
+ LowLevelAABB_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
++LowLevelAABB_checked_common_cflags  += $(DAVA_custom_flags)
+ LowLevelAABB_checked_cflags	:= $(LowLevelAABB_checked_common_cflags)
+ LowLevelAABB_checked_cppflags	:= $(LowLevelAABB_checked_common_cflags)
+ LowLevelAABB_checked_lflags    := $(LowLevelAABB_custom_lflags)
+@@ -269,6 +271,7 @@ LowLevelAABB_profile_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagn
+ LowLevelAABB_profile_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevelAABB_profile_common_cflags  += -Wno-missing-field-initializers
+ LowLevelAABB_profile_common_cflags  += -O3 -fno-strict-aliasing
++LowLevelAABB_profile_common_cflags  += $(DAVA_custom_flags)
+ LowLevelAABB_profile_cflags	:= $(LowLevelAABB_profile_common_cflags)
+ LowLevelAABB_profile_cppflags	:= $(LowLevelAABB_profile_common_cflags)
+ LowLevelAABB_profile_lflags    := $(LowLevelAABB_custom_lflags)
+@@ -368,6 +371,7 @@ LowLevelAABB_release_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagn
+ LowLevelAABB_release_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevelAABB_release_common_cflags  += -Wno-missing-field-initializers
+ LowLevelAABB_release_common_cflags  += -O3 -fno-strict-aliasing
++LowLevelAABB_release_common_cflags  += $(DAVA_custom_flags)
+ LowLevelAABB_release_cflags	:= $(LowLevelAABB_release_common_cflags)
+ LowLevelAABB_release_cppflags	:= $(LowLevelAABB_release_common_cflags)
+ LowLevelAABB_release_lflags    := $(LowLevelAABB_custom_lflags)
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelCloth.mk b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelCloth.mk
+index 5d5a6761fc..959a50df5f 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelCloth.mk
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelCloth.mk
+@@ -65,6 +65,7 @@ LowLevelCloth_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagno
+ LowLevelCloth_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevelCloth_debug_common_cflags  += -Wno-missing-field-initializers
+ LowLevelCloth_debug_common_cflags  += -g3 -gdwarf-2
++LowLevelCloth_debug_common_cflags  += $(DAVA_custom_flags)
+ LowLevelCloth_debug_cflags	:= $(LowLevelCloth_debug_common_cflags)
+ LowLevelCloth_debug_cppflags	:= $(LowLevelCloth_debug_common_cflags)
+ LowLevelCloth_debug_lflags    := $(LowLevelCloth_custom_lflags)
+@@ -155,6 +156,7 @@ LowLevelCloth_checked_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiag
+ LowLevelCloth_checked_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevelCloth_checked_common_cflags  += -Wno-missing-field-initializers
+ LowLevelCloth_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
++LowLevelCloth_checked_common_cflags  += $(DAVA_custom_flags)
+ LowLevelCloth_checked_cflags	:= $(LowLevelCloth_checked_common_cflags)
+ LowLevelCloth_checked_cppflags	:= $(LowLevelCloth_checked_common_cflags)
+ LowLevelCloth_checked_lflags    := $(LowLevelCloth_custom_lflags)
+@@ -245,6 +247,7 @@ LowLevelCloth_profile_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiag
+ LowLevelCloth_profile_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevelCloth_profile_common_cflags  += -Wno-missing-field-initializers
+ LowLevelCloth_profile_common_cflags  += -O3 -fno-strict-aliasing
++LowLevelCloth_profile_common_cflags  += $(DAVA_custom_flags)
+ LowLevelCloth_profile_cflags	:= $(LowLevelCloth_profile_common_cflags)
+ LowLevelCloth_profile_cppflags	:= $(LowLevelCloth_profile_common_cflags)
+ LowLevelCloth_profile_lflags    := $(LowLevelCloth_custom_lflags)
+@@ -334,6 +337,7 @@ LowLevelCloth_release_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiag
+ LowLevelCloth_release_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevelCloth_release_common_cflags  += -Wno-missing-field-initializers
+ LowLevelCloth_release_common_cflags  += -O3 -fno-strict-aliasing
++LowLevelCloth_release_common_cflags  += $(DAVA_custom_flags)
+ LowLevelCloth_release_cflags	:= $(LowLevelCloth_release_common_cflags)
+ LowLevelCloth_release_cppflags	:= $(LowLevelCloth_release_common_cflags)
+ LowLevelCloth_release_lflags    := $(LowLevelCloth_custom_lflags)
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelDynamics.mk b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelDynamics.mk
+index 3a21e17489..bef69da3ff 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelDynamics.mk
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelDynamics.mk
+@@ -91,6 +91,7 @@ LowLevelDynamics_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdia
+ LowLevelDynamics_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevelDynamics_debug_common_cflags  += -Wno-missing-field-initializers
+ LowLevelDynamics_debug_common_cflags  += -g3 -gdwarf-2
++LowLevelDynamics_debug_common_cflags  += $(DAVA_custom_flags)
+ LowLevelDynamics_debug_cflags	:= $(LowLevelDynamics_debug_common_cflags)
+ LowLevelDynamics_debug_cppflags	:= $(LowLevelDynamics_debug_common_cflags)
+ LowLevelDynamics_debug_lflags    := $(LowLevelDynamics_custom_lflags)
+@@ -196,6 +197,7 @@ LowLevelDynamics_checked_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fd
+ LowLevelDynamics_checked_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevelDynamics_checked_common_cflags  += -Wno-missing-field-initializers
+ LowLevelDynamics_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
++LowLevelDynamics_checked_common_cflags  += $(DAVA_custom_flags)
+ LowLevelDynamics_checked_cflags	:= $(LowLevelDynamics_checked_common_cflags)
+ LowLevelDynamics_checked_cppflags	:= $(LowLevelDynamics_checked_common_cflags)
+ LowLevelDynamics_checked_lflags    := $(LowLevelDynamics_custom_lflags)
+@@ -301,6 +303,7 @@ LowLevelDynamics_profile_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fd
+ LowLevelDynamics_profile_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevelDynamics_profile_common_cflags  += -Wno-missing-field-initializers
+ LowLevelDynamics_profile_common_cflags  += -O3 -fno-strict-aliasing
++LowLevelDynamics_profile_common_cflags  += $(DAVA_custom_flags)
+ LowLevelDynamics_profile_cflags	:= $(LowLevelDynamics_profile_common_cflags)
+ LowLevelDynamics_profile_cppflags	:= $(LowLevelDynamics_profile_common_cflags)
+ LowLevelDynamics_profile_lflags    := $(LowLevelDynamics_custom_lflags)
+@@ -405,6 +408,7 @@ LowLevelDynamics_release_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fd
+ LowLevelDynamics_release_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevelDynamics_release_common_cflags  += -Wno-missing-field-initializers
+ LowLevelDynamics_release_common_cflags  += -O3 -fno-strict-aliasing
++LowLevelDynamics_release_common_cflags  += $(DAVA_custom_flags)
+ LowLevelDynamics_release_cflags	:= $(LowLevelDynamics_release_common_cflags)
+ LowLevelDynamics_release_cppflags	:= $(LowLevelDynamics_release_common_cflags)
+ LowLevelDynamics_release_lflags    := $(LowLevelDynamics_custom_lflags)
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelParticles.mk b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelParticles.mk
+index 6b2f71d982..eb9b6d79c5 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelParticles.mk
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.LowLevelParticles.mk
+@@ -78,6 +78,7 @@ LowLevelParticles_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdi
+ LowLevelParticles_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevelParticles_debug_common_cflags  += -Wno-missing-field-initializers
+ LowLevelParticles_debug_common_cflags  += -g3 -gdwarf-2
++LowLevelParticles_debug_common_cflags  += $(DAVA_custom_flags)
+ LowLevelParticles_debug_cflags	:= $(LowLevelParticles_debug_common_cflags)
+ LowLevelParticles_debug_cppflags	:= $(LowLevelParticles_debug_common_cflags)
+ LowLevelParticles_debug_lflags    := $(LowLevelParticles_custom_lflags)
+@@ -177,6 +178,7 @@ LowLevelParticles_checked_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -f
+ LowLevelParticles_checked_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevelParticles_checked_common_cflags  += -Wno-missing-field-initializers
+ LowLevelParticles_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
++LowLevelParticles_checked_common_cflags  += $(DAVA_custom_flags)
+ LowLevelParticles_checked_cflags	:= $(LowLevelParticles_checked_common_cflags)
+ LowLevelParticles_checked_cppflags	:= $(LowLevelParticles_checked_common_cflags)
+ LowLevelParticles_checked_lflags    := $(LowLevelParticles_custom_lflags)
+@@ -276,6 +278,7 @@ LowLevelParticles_profile_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -f
+ LowLevelParticles_profile_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevelParticles_profile_common_cflags  += -Wno-missing-field-initializers
+ LowLevelParticles_profile_common_cflags  += -O3 -fno-strict-aliasing
++LowLevelParticles_profile_common_cflags  += $(DAVA_custom_flags)
+ LowLevelParticles_profile_cflags	:= $(LowLevelParticles_profile_common_cflags)
+ LowLevelParticles_profile_cppflags	:= $(LowLevelParticles_profile_common_cflags)
+ LowLevelParticles_profile_lflags    := $(LowLevelParticles_custom_lflags)
+@@ -374,6 +377,7 @@ LowLevelParticles_release_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -f
+ LowLevelParticles_release_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ LowLevelParticles_release_common_cflags  += -Wno-missing-field-initializers
+ LowLevelParticles_release_common_cflags  += -O3 -fno-strict-aliasing
++LowLevelParticles_release_common_cflags  += $(DAVA_custom_flags)
+ LowLevelParticles_release_cflags	:= $(LowLevelParticles_release_common_cflags)
+ LowLevelParticles_release_cppflags	:= $(LowLevelParticles_release_common_cflags)
+ LowLevelParticles_release_lflags    := $(LowLevelParticles_custom_lflags)
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysX.mk b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysX.mk
+index 270f6c0c59..5547846ecc 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysX.mk
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysX.mk
+@@ -151,6 +151,7 @@ PhysX_release_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnostics-
+ PhysX_release_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysX_release_common_cflags  += -Wno-missing-field-initializers
+ PhysX_release_common_cflags  += -O3 -fno-strict-aliasing
++PhysX_release_common_cflags  += $(DAVA_custom_flags)
+ PhysX_release_cflags	:= $(PhysX_release_common_cflags)
+ PhysX_release_cppflags	:= $(PhysX_release_common_cflags)
+ PhysX_release_lflags    := $(PhysX_custom_lflags)
+@@ -296,6 +297,7 @@ PhysX_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnostics-sh
+ PhysX_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysX_debug_common_cflags  += -Wno-missing-field-initializers
+ PhysX_debug_common_cflags  += -g3 -gdwarf-2
++PhysX_debug_common_cflags  += $(DAVA_custom_flags)
+ PhysX_debug_cflags	:= $(PhysX_debug_common_cflags)
+ PhysX_debug_cppflags	:= $(PhysX_debug_common_cflags)
+ PhysX_debug_lflags    := $(PhysX_custom_lflags)
+@@ -440,6 +442,7 @@ PhysX_checked_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnostics-
+ PhysX_checked_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysX_checked_common_cflags  += -Wno-missing-field-initializers
+ PhysX_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
++PhysX_checked_common_cflags  += $(DAVA_custom_flags)
+ PhysX_checked_cflags	:= $(PhysX_checked_common_cflags)
+ PhysX_checked_cppflags	:= $(PhysX_checked_common_cflags)
+ PhysX_checked_lflags    := $(PhysX_custom_lflags)
+@@ -584,6 +587,7 @@ PhysX_profile_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnostics-
+ PhysX_profile_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysX_profile_common_cflags  += -Wno-missing-field-initializers
+ PhysX_profile_common_cflags  += -O3 -fno-strict-aliasing
++PhysX_profile_common_cflags  += $(DAVA_custom_flags)
+ PhysX_profile_cflags	:= $(PhysX_profile_common_cflags)
+ PhysX_profile_cppflags	:= $(PhysX_profile_common_cflags)
+ PhysX_profile_lflags    := $(PhysX_custom_lflags)
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXCharacterKinematic.mk b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXCharacterKinematic.mk
+index 683fc9bff0..e9c5edcb83 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXCharacterKinematic.mk
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXCharacterKinematic.mk
+@@ -80,6 +80,7 @@ PhysXCharacterKinematic_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=
+ PhysXCharacterKinematic_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXCharacterKinematic_debug_common_cflags  += -Wno-missing-field-initializers
+ PhysXCharacterKinematic_debug_common_cflags  += -g3 -gdwarf-2
++PhysXCharacterKinematic_debug_common_cflags  += $(DAVA_custom_flags)
+ PhysXCharacterKinematic_debug_cflags	:= $(PhysXCharacterKinematic_debug_common_cflags)
+ PhysXCharacterKinematic_debug_cppflags	:= $(PhysXCharacterKinematic_debug_common_cflags)
+ PhysXCharacterKinematic_debug_lflags    := $(PhysXCharacterKinematic_custom_lflags)
+@@ -188,6 +189,7 @@ PhysXCharacterKinematic_checked_common_cflags  += -Wall -Wextra -Wstrict-aliasin
+ PhysXCharacterKinematic_checked_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXCharacterKinematic_checked_common_cflags  += -Wno-missing-field-initializers
+ PhysXCharacterKinematic_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
++PhysXCharacterKinematic_checked_common_cflags  += $(DAVA_custom_flags)
+ PhysXCharacterKinematic_checked_cflags	:= $(PhysXCharacterKinematic_checked_common_cflags)
+ PhysXCharacterKinematic_checked_cppflags	:= $(PhysXCharacterKinematic_checked_common_cflags)
+ PhysXCharacterKinematic_checked_lflags    := $(PhysXCharacterKinematic_custom_lflags)
+@@ -296,6 +298,7 @@ PhysXCharacterKinematic_profile_common_cflags  += -Wall -Wextra -Wstrict-aliasin
+ PhysXCharacterKinematic_profile_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXCharacterKinematic_profile_common_cflags  += -Wno-missing-field-initializers
+ PhysXCharacterKinematic_profile_common_cflags  += -O3 -fno-strict-aliasing
++PhysXCharacterKinematic_profile_common_cflags  += $(DAVA_custom_flags)
+ PhysXCharacterKinematic_profile_cflags	:= $(PhysXCharacterKinematic_profile_common_cflags)
+ PhysXCharacterKinematic_profile_cppflags	:= $(PhysXCharacterKinematic_profile_common_cflags)
+ PhysXCharacterKinematic_profile_lflags    := $(PhysXCharacterKinematic_custom_lflags)
+@@ -403,6 +406,7 @@ PhysXCharacterKinematic_release_common_cflags  += -Wall -Wextra -Wstrict-aliasin
+ PhysXCharacterKinematic_release_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXCharacterKinematic_release_common_cflags  += -Wno-missing-field-initializers
+ PhysXCharacterKinematic_release_common_cflags  += -O3 -fno-strict-aliasing
++PhysXCharacterKinematic_release_common_cflags  += $(DAVA_custom_flags)
+ PhysXCharacterKinematic_release_cflags	:= $(PhysXCharacterKinematic_release_common_cflags)
+ PhysXCharacterKinematic_release_cppflags	:= $(PhysXCharacterKinematic_release_common_cflags)
+ PhysXCharacterKinematic_release_lflags    := $(PhysXCharacterKinematic_custom_lflags)
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXCommon.mk b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXCommon.mk
+index 863131bf28..2d54c74860 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXCommon.mk
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXCommon.mk
+@@ -204,6 +204,7 @@ PhysXCommon_release_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagno
+ PhysXCommon_release_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXCommon_release_common_cflags  += -Wno-missing-field-initializers
+ PhysXCommon_release_common_cflags  += -O3 -fno-strict-aliasing
++PhysXCommon_release_common_cflags  += $(DAVA_custom_flags)
+ PhysXCommon_release_cflags	:= $(PhysXCommon_release_common_cflags)
+ PhysXCommon_release_cppflags	:= $(PhysXCommon_release_common_cflags)
+ PhysXCommon_release_lflags    := $(PhysXCommon_custom_lflags)
+@@ -314,6 +315,7 @@ PhysXCommon_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnost
+ PhysXCommon_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXCommon_debug_common_cflags  += -Wno-missing-field-initializers
+ PhysXCommon_debug_common_cflags  += -g3 -gdwarf-2
++PhysXCommon_debug_common_cflags  += $(DAVA_custom_flags)
+ PhysXCommon_debug_cflags	:= $(PhysXCommon_debug_common_cflags)
+ PhysXCommon_debug_cppflags	:= $(PhysXCommon_debug_common_cflags)
+ PhysXCommon_debug_lflags    := $(PhysXCommon_custom_lflags)
+@@ -423,6 +425,7 @@ PhysXCommon_checked_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagno
+ PhysXCommon_checked_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXCommon_checked_common_cflags  += -Wno-missing-field-initializers
+ PhysXCommon_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
++PhysXCommon_checked_common_cflags  += $(DAVA_custom_flags)
+ PhysXCommon_checked_cflags	:= $(PhysXCommon_checked_common_cflags)
+ PhysXCommon_checked_cppflags	:= $(PhysXCommon_checked_common_cflags)
+ PhysXCommon_checked_lflags    := $(PhysXCommon_custom_lflags)
+@@ -532,6 +535,7 @@ PhysXCommon_profile_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagno
+ PhysXCommon_profile_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXCommon_profile_common_cflags  += -Wno-missing-field-initializers
+ PhysXCommon_profile_common_cflags  += -O3 -fno-strict-aliasing
++PhysXCommon_profile_common_cflags  += $(DAVA_custom_flags)
+ PhysXCommon_profile_cflags	:= $(PhysXCommon_profile_common_cflags)
+ PhysXCommon_profile_cppflags	:= $(PhysXCommon_profile_common_cflags)
+ PhysXCommon_profile_lflags    := $(PhysXCommon_custom_lflags)
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXCooking.mk b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXCooking.mk
+index 12c62cb7c4..e79bb1b697 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXCooking.mk
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXCooking.mk
+@@ -97,6 +97,7 @@ PhysXCooking_release_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagn
+ PhysXCooking_release_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXCooking_release_common_cflags  += -Wno-missing-field-initializers
+ PhysXCooking_release_common_cflags  += -O3 -fno-strict-aliasing
++PhysXCooking_release_common_cflags  += $(DAVA_custom_flags)
+ PhysXCooking_release_cflags	:= $(PhysXCooking_release_common_cflags)
+ PhysXCooking_release_cppflags	:= $(PhysXCooking_release_common_cflags)
+ PhysXCooking_release_lflags    := $(PhysXCooking_custom_lflags)
+@@ -216,6 +217,7 @@ PhysXCooking_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnos
+ PhysXCooking_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXCooking_debug_common_cflags  += -Wno-missing-field-initializers
+ PhysXCooking_debug_common_cflags  += -g3 -gdwarf-2
++PhysXCooking_debug_common_cflags  += $(DAVA_custom_flags)
+ PhysXCooking_debug_cflags	:= $(PhysXCooking_debug_common_cflags)
+ PhysXCooking_debug_cppflags	:= $(PhysXCooking_debug_common_cflags)
+ PhysXCooking_debug_lflags    := $(PhysXCooking_custom_lflags)
+@@ -334,6 +336,7 @@ PhysXCooking_checked_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagn
+ PhysXCooking_checked_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXCooking_checked_common_cflags  += -Wno-missing-field-initializers
+ PhysXCooking_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
++PhysXCooking_checked_common_cflags  += $(DAVA_custom_flags)
+ PhysXCooking_checked_cflags	:= $(PhysXCooking_checked_common_cflags)
+ PhysXCooking_checked_cppflags	:= $(PhysXCooking_checked_common_cflags)
+ PhysXCooking_checked_lflags    := $(PhysXCooking_custom_lflags)
+@@ -452,6 +455,7 @@ PhysXCooking_profile_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagn
+ PhysXCooking_profile_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXCooking_profile_common_cflags  += -Wno-missing-field-initializers
+ PhysXCooking_profile_common_cflags  += -O3 -fno-strict-aliasing
++PhysXCooking_profile_common_cflags  += $(DAVA_custom_flags)
+ PhysXCooking_profile_cflags	:= $(PhysXCooking_profile_common_cflags)
+ PhysXCooking_profile_cppflags	:= $(PhysXCooking_profile_common_cflags)
+ PhysXCooking_profile_lflags    := $(PhysXCooking_custom_lflags)
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXExtensions.mk b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXExtensions.mk
+index a5ca13d007..5ed4824ff0 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXExtensions.mk
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXExtensions.mk
+@@ -132,6 +132,7 @@ PhysXExtensions_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiag
+ PhysXExtensions_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXExtensions_debug_common_cflags  += -Wno-missing-field-initializers
+ PhysXExtensions_debug_common_cflags  += -g3 -gdwarf-2
++PhysXExtensions_debug_common_cflags  += $(DAVA_custom_flags)
+ PhysXExtensions_debug_cflags	:= $(PhysXExtensions_debug_common_cflags)
+ PhysXExtensions_debug_cppflags	:= $(PhysXExtensions_debug_common_cflags)
+ PhysXExtensions_debug_lflags    := $(PhysXExtensions_custom_lflags)
+@@ -248,6 +249,7 @@ PhysXExtensions_checked_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdi
+ PhysXExtensions_checked_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXExtensions_checked_common_cflags  += -Wno-missing-field-initializers
+ PhysXExtensions_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
++PhysXExtensions_checked_common_cflags  += $(DAVA_custom_flags)
+ PhysXExtensions_checked_cflags	:= $(PhysXExtensions_checked_common_cflags)
+ PhysXExtensions_checked_cppflags	:= $(PhysXExtensions_checked_common_cflags)
+ PhysXExtensions_checked_lflags    := $(PhysXExtensions_custom_lflags)
+@@ -364,6 +366,7 @@ PhysXExtensions_profile_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdi
+ PhysXExtensions_profile_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXExtensions_profile_common_cflags  += -Wno-missing-field-initializers
+ PhysXExtensions_profile_common_cflags  += -O3 -fno-strict-aliasing
++PhysXExtensions_profile_common_cflags  += $(DAVA_custom_flags)
+ PhysXExtensions_profile_cflags	:= $(PhysXExtensions_profile_common_cflags)
+ PhysXExtensions_profile_cppflags	:= $(PhysXExtensions_profile_common_cflags)
+ PhysXExtensions_profile_lflags    := $(PhysXExtensions_custom_lflags)
+@@ -479,6 +482,7 @@ PhysXExtensions_release_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdi
+ PhysXExtensions_release_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXExtensions_release_common_cflags  += -Wno-missing-field-initializers
+ PhysXExtensions_release_common_cflags  += -O3 -fno-strict-aliasing
++PhysXExtensions_release_common_cflags  += $(DAVA_custom_flags)
+ PhysXExtensions_release_cflags	:= $(PhysXExtensions_release_common_cflags)
+ PhysXExtensions_release_cppflags	:= $(PhysXExtensions_release_common_cflags)
+ PhysXExtensions_release_lflags    := $(PhysXExtensions_custom_lflags)
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXVehicle.mk b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXVehicle.mk
+index cb7c559e5f..44d5a56275 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXVehicle.mk
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PhysXVehicle.mk
+@@ -79,6 +79,7 @@ PhysXVehicle_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnos
+ PhysXVehicle_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXVehicle_debug_common_cflags  += -Wno-missing-field-initializers
+ PhysXVehicle_debug_common_cflags  += -g3 -gdwarf-2
++PhysXVehicle_debug_common_cflags  += $(DAVA_custom_flags)
+ PhysXVehicle_debug_cflags	:= $(PhysXVehicle_debug_common_cflags)
+ PhysXVehicle_debug_cppflags	:= $(PhysXVehicle_debug_common_cflags)
+ PhysXVehicle_debug_lflags    := $(PhysXVehicle_custom_lflags)
+@@ -178,6 +179,7 @@ PhysXVehicle_checked_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagn
+ PhysXVehicle_checked_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXVehicle_checked_common_cflags  += -Wno-missing-field-initializers
+ PhysXVehicle_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
++PhysXVehicle_checked_common_cflags  += $(DAVA_custom_flags)
+ PhysXVehicle_checked_cflags	:= $(PhysXVehicle_checked_common_cflags)
+ PhysXVehicle_checked_cppflags	:= $(PhysXVehicle_checked_common_cflags)
+ PhysXVehicle_checked_lflags    := $(PhysXVehicle_custom_lflags)
+@@ -277,6 +279,7 @@ PhysXVehicle_profile_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagn
+ PhysXVehicle_profile_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXVehicle_profile_common_cflags  += -Wno-missing-field-initializers
+ PhysXVehicle_profile_common_cflags  += -O3 -fno-strict-aliasing
++PhysXVehicle_profile_common_cflags  += $(DAVA_custom_flags)
+ PhysXVehicle_profile_cflags	:= $(PhysXVehicle_profile_common_cflags)
+ PhysXVehicle_profile_cppflags	:= $(PhysXVehicle_profile_common_cflags)
+ PhysXVehicle_profile_lflags    := $(PhysXVehicle_custom_lflags)
+@@ -375,6 +378,7 @@ PhysXVehicle_release_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagn
+ PhysXVehicle_release_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PhysXVehicle_release_common_cflags  += -Wno-missing-field-initializers
+ PhysXVehicle_release_common_cflags  += -O3 -fno-strict-aliasing
++PhysXVehicle_release_common_cflags  += $(DAVA_custom_flags)
+ PhysXVehicle_release_cflags	:= $(PhysXVehicle_release_common_cflags)
+ PhysXVehicle_release_cppflags	:= $(PhysXVehicle_release_common_cflags)
+ PhysXVehicle_release_lflags    := $(PhysXVehicle_custom_lflags)
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PsFastXml.mk b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PsFastXml.mk
+index 013093a4e0..661d622eb9 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PsFastXml.mk
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PsFastXml.mk
+@@ -44,6 +44,7 @@ PsFastXml_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnostic
+ PsFastXml_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PsFastXml_debug_common_cflags  += -Wno-missing-field-initializers
+ PsFastXml_debug_common_cflags  += -g3 -gdwarf-2
++PsFastXml_debug_common_cflags += $(DAVA_custom_flags)
+ PsFastXml_debug_cflags	:= $(PsFastXml_debug_common_cflags)
+ PsFastXml_debug_cppflags	:= $(PsFastXml_debug_common_cflags)
+ PsFastXml_debug_lflags    := $(PsFastXml_custom_lflags)
+@@ -124,6 +125,7 @@ PsFastXml_release_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnost
+ PsFastXml_release_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PsFastXml_release_common_cflags  += -Wno-missing-field-initializers
+ PsFastXml_release_common_cflags  += -O3 -fno-strict-aliasing
++PsFastXml_release_common_cflags  += $(DAVA_custom_flags)
+ PsFastXml_release_cflags	:= $(PsFastXml_release_common_cflags)
+ PsFastXml_release_cppflags	:= $(PsFastXml_release_common_cflags)
+ PsFastXml_release_lflags    := $(PsFastXml_custom_lflags)
+@@ -205,6 +207,7 @@ PsFastXml_checked_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnost
+ PsFastXml_checked_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PsFastXml_checked_common_cflags  += -Wno-missing-field-initializers
+ PsFastXml_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
++PsFastXml_checked_common_cflags  += $(DAVA_custom_flags)
+ PsFastXml_checked_cflags	:= $(PsFastXml_checked_common_cflags)
+ PsFastXml_checked_cppflags	:= $(PsFastXml_checked_common_cflags)
+ PsFastXml_checked_lflags    := $(PsFastXml_custom_lflags)
+@@ -286,6 +289,7 @@ PsFastXml_profile_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnost
+ PsFastXml_profile_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PsFastXml_profile_common_cflags  += -Wno-missing-field-initializers
+ PsFastXml_profile_common_cflags  += -O3 -fno-strict-aliasing
++PsFastXml_profile_common_cflags  += $(DAVA_custom_flags)
+ PsFastXml_profile_cflags	:= $(PsFastXml_profile_common_cflags)
+ PsFastXml_profile_cppflags	:= $(PsFastXml_profile_common_cflags)
+ PsFastXml_profile_lflags    := $(PsFastXml_custom_lflags)
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PxFoundation.mk b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PxFoundation.mk
+index ff472d36b7..416f8bc8d5 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PxFoundation.mk
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PxFoundation.mk
+@@ -60,6 +60,7 @@ PxFoundation_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnos
+ PxFoundation_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PxFoundation_debug_common_cflags  += -Wno-missing-field-initializers
+ PxFoundation_debug_common_cflags  += -g3 -gdwarf-2
++PxFoundation_debug_common_cflags  += $(DAVA_custom_flags)
+ PxFoundation_debug_cflags	:= $(PxFoundation_debug_common_cflags)
+ PxFoundation_debug_cppflags	:= $(PxFoundation_debug_common_cflags)
+ PxFoundation_debug_lflags    := $(PxFoundation_custom_lflags)
+@@ -140,6 +141,7 @@ PxFoundation_release_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagn
+ PxFoundation_release_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PxFoundation_release_common_cflags  += -Wno-missing-field-initializers
+ PxFoundation_release_common_cflags  += -O3 -fno-strict-aliasing
++PxFoundation_release_common_cflags  += $(DAVA_custom_flags)
+ PxFoundation_release_cflags	:= $(PxFoundation_release_common_cflags)
+ PxFoundation_release_cppflags	:= $(PxFoundation_release_common_cflags)
+ PxFoundation_release_lflags    := $(PxFoundation_custom_lflags)
+@@ -221,6 +223,7 @@ PxFoundation_checked_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagn
+ PxFoundation_checked_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PxFoundation_checked_common_cflags  += -Wno-missing-field-initializers
+ PxFoundation_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
++PxFoundation_checked_common_cflags  += $(DAVA_custom_flags)
+ PxFoundation_checked_cflags	:= $(PxFoundation_checked_common_cflags)
+ PxFoundation_checked_cppflags	:= $(PxFoundation_checked_common_cflags)
+ PxFoundation_checked_lflags    := $(PxFoundation_custom_lflags)
+@@ -302,6 +305,7 @@ PxFoundation_profile_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagn
+ PxFoundation_profile_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PxFoundation_profile_common_cflags  += -Wno-missing-field-initializers
+ PxFoundation_profile_common_cflags  += -O3 -fno-strict-aliasing
++PxFoundation_profile_common_cflags  += $(DAVA_custom_flags)
+ PxFoundation_profile_cflags	:= $(PxFoundation_profile_common_cflags)
+ PxFoundation_profile_cppflags	:= $(PxFoundation_profile_common_cflags)
+ PxFoundation_profile_lflags    := $(PxFoundation_custom_lflags)
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PxPvdSDK.mk b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PxPvdSDK.mk
+index 902e9a7c01..edca44e70f 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PxPvdSDK.mk
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PxPvdSDK.mk
+@@ -59,6 +59,7 @@ PxPvdSDK_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnostics
+ PxPvdSDK_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PxPvdSDK_debug_common_cflags  += -Wno-missing-field-initializers
+ PxPvdSDK_debug_common_cflags  += -g3 -gdwarf-2
++PxPvdSDK_debug_common_cflags  += $(DAVA_custom_flags)
+ PxPvdSDK_debug_cflags	:= $(PxPvdSDK_debug_common_cflags)
+ PxPvdSDK_debug_cppflags	:= $(PxPvdSDK_debug_common_cflags)
+ PxPvdSDK_debug_lflags    := $(PxPvdSDK_custom_lflags)
+@@ -144,6 +145,7 @@ PxPvdSDK_release_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnosti
+ PxPvdSDK_release_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PxPvdSDK_release_common_cflags  += -Wno-missing-field-initializers
+ PxPvdSDK_release_common_cflags  += -O3 -fno-strict-aliasing
++PxPvdSDK_release_common_cflags  += $(DAVA_custom_flags)
+ PxPvdSDK_release_cflags	:= $(PxPvdSDK_release_common_cflags)
+ PxPvdSDK_release_cppflags	:= $(PxPvdSDK_release_common_cflags)
+ PxPvdSDK_release_lflags    := $(PxPvdSDK_custom_lflags)
+@@ -230,6 +232,7 @@ PxPvdSDK_checked_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnosti
+ PxPvdSDK_checked_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PxPvdSDK_checked_common_cflags  += -Wno-missing-field-initializers
+ PxPvdSDK_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
++PxPvdSDK_checked_common_cflags  += $(DAVA_custom_flags)
+ PxPvdSDK_checked_cflags	:= $(PxPvdSDK_checked_common_cflags)
+ PxPvdSDK_checked_cppflags	:= $(PxPvdSDK_checked_common_cflags)
+ PxPvdSDK_checked_lflags    := $(PxPvdSDK_custom_lflags)
+@@ -316,6 +319,7 @@ PxPvdSDK_profile_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnosti
+ PxPvdSDK_profile_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PxPvdSDK_profile_common_cflags  += -Wno-missing-field-initializers
+ PxPvdSDK_profile_common_cflags  += -O3 -fno-strict-aliasing
++PxPvdSDK_profile_common_cflags  += $(DAVA_custom_flags)
+ PxPvdSDK_profile_cflags	:= $(PxPvdSDK_profile_common_cflags)
+ PxPvdSDK_profile_cppflags	:= $(PxPvdSDK_profile_common_cflags)
+ PxPvdSDK_profile_lflags    := $(PxPvdSDK_custom_lflags)
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PxTask.mk b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PxTask.mk
+index 736aa61c7c..52c639b068 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PxTask.mk
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.PxTask.mk
+@@ -43,6 +43,7 @@ PxTask_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnostics-s
+ PxTask_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PxTask_debug_common_cflags  += -Wno-missing-field-initializers
+ PxTask_debug_common_cflags  += -g3 -gdwarf-2
++PxTask_debug_common_cflags  += $(DAVA_custom_flags)
+ PxTask_debug_cflags	:= $(PxTask_debug_common_cflags)
+ PxTask_debug_cppflags	:= $(PxTask_debug_common_cflags)
+ PxTask_debug_lflags    := $(PxTask_custom_lflags)
+@@ -122,6 +123,7 @@ PxTask_release_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnostics
+ PxTask_release_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PxTask_release_common_cflags  += -Wno-missing-field-initializers
+ PxTask_release_common_cflags  += -O3 -fno-strict-aliasing
++PxTask_release_common_cflags  += $(DAVA_custom_flags)
+ PxTask_release_cflags	:= $(PxTask_release_common_cflags)
+ PxTask_release_cppflags	:= $(PxTask_release_common_cflags)
+ PxTask_release_lflags    := $(PxTask_custom_lflags)
+@@ -202,6 +204,7 @@ PxTask_checked_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnostics
+ PxTask_checked_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PxTask_checked_common_cflags  += -Wno-missing-field-initializers
+ PxTask_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
++PxTask_checked_common_cflags  += $(DAVA_custom_flags)
+ PxTask_checked_cflags	:= $(PxTask_checked_common_cflags)
+ PxTask_checked_cppflags	:= $(PxTask_checked_common_cflags)
+ PxTask_checked_lflags    := $(PxTask_custom_lflags)
+@@ -282,6 +285,7 @@ PxTask_profile_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnostics
+ PxTask_profile_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ PxTask_profile_common_cflags  += -Wno-missing-field-initializers
+ PxTask_profile_common_cflags  += -O3 -fno-strict-aliasing
++PxTask_profile_common_cflags  += $(DAVA_custom_flags)
+ PxTask_profile_cflags	:= $(PxTask_profile_common_cflags)
+ PxTask_profile_cppflags	:= $(PxTask_profile_common_cflags)
+ PxTask_profile_lflags    := $(PxTask_custom_lflags)
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.SceneQuery.mk b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.SceneQuery.mk
+index 5b1a313b81..3dc6761b36 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.SceneQuery.mk
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.SceneQuery.mk
+@@ -81,6 +81,7 @@ SceneQuery_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnosti
+ SceneQuery_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ SceneQuery_debug_common_cflags  += -Wno-missing-field-initializers
+ SceneQuery_debug_common_cflags  += -g3 -gdwarf-2
++SceneQuery_debug_common_cflags  += $(DAVA_custom_flags)
+ SceneQuery_debug_cflags	:= $(SceneQuery_debug_common_cflags)
+ SceneQuery_debug_cppflags	:= $(SceneQuery_debug_common_cflags)
+ SceneQuery_debug_lflags    := $(SceneQuery_custom_lflags)
+@@ -190,6 +191,7 @@ SceneQuery_checked_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnos
+ SceneQuery_checked_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ SceneQuery_checked_common_cflags  += -Wno-missing-field-initializers
+ SceneQuery_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
++SceneQuery_checked_common_cflags  += $(DAVA_custom_flags)
+ SceneQuery_checked_cflags	:= $(SceneQuery_checked_common_cflags)
+ SceneQuery_checked_cppflags	:= $(SceneQuery_checked_common_cflags)
+ SceneQuery_checked_lflags    := $(SceneQuery_custom_lflags)
+@@ -299,6 +301,7 @@ SceneQuery_profile_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnos
+ SceneQuery_profile_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ SceneQuery_profile_common_cflags  += -Wno-missing-field-initializers
+ SceneQuery_profile_common_cflags  += -O3 -fno-strict-aliasing
++SceneQuery_profile_common_cflags  += $(DAVA_custom_flags)
+ SceneQuery_profile_cflags	:= $(SceneQuery_profile_common_cflags)
+ SceneQuery_profile_cppflags	:= $(SceneQuery_profile_common_cflags)
+ SceneQuery_profile_lflags    := $(SceneQuery_custom_lflags)
+@@ -407,6 +410,7 @@ SceneQuery_release_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnos
+ SceneQuery_release_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ SceneQuery_release_common_cflags  += -Wno-missing-field-initializers
+ SceneQuery_release_common_cflags  += -O3 -fno-strict-aliasing
++SceneQuery_release_common_cflags  += $(DAVA_custom_flags)
+ SceneQuery_release_cflags	:= $(SceneQuery_release_common_cflags)
+ SceneQuery_release_cppflags	:= $(SceneQuery_release_common_cflags)
+ SceneQuery_release_lflags    := $(SceneQuery_custom_lflags)
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.SimulationController.mk b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.SimulationController.mk
+index 9948ce56a7..aa1ad6a00b 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.SimulationController.mk
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.SimulationController.mk
+@@ -127,6 +127,7 @@ SimulationController_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -
+ SimulationController_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ SimulationController_debug_common_cflags  += -Wno-missing-field-initializers
+ SimulationController_debug_common_cflags  += -g3 -gdwarf-2
++SimulationController_debug_common_cflags  += $(DAVA_custom_flags)
+ SimulationController_debug_cflags	:= $(SimulationController_debug_common_cflags)
+ SimulationController_debug_cppflags	:= $(SimulationController_debug_common_cflags)
+ SimulationController_debug_lflags    := $(SimulationController_custom_lflags)
+@@ -249,6 +250,7 @@ SimulationController_checked_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2
+ SimulationController_checked_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ SimulationController_checked_common_cflags  += -Wno-missing-field-initializers
+ SimulationController_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
++SimulationController_checked_common_cflags  += $(DAVA_custom_flags)
+ SimulationController_checked_cflags	:= $(SimulationController_checked_common_cflags)
+ SimulationController_checked_cppflags	:= $(SimulationController_checked_common_cflags)
+ SimulationController_checked_lflags    := $(SimulationController_custom_lflags)
+@@ -371,6 +373,7 @@ SimulationController_profile_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2
+ SimulationController_profile_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ SimulationController_profile_common_cflags  += -Wno-missing-field-initializers
+ SimulationController_profile_common_cflags  += -O3 -fno-strict-aliasing
++SimulationController_profile_common_cflags  += $(DAVA_custom_flags)
+ SimulationController_profile_cflags	:= $(SimulationController_profile_common_cflags)
+ SimulationController_profile_cppflags	:= $(SimulationController_profile_common_cflags)
+ SimulationController_profile_lflags    := $(SimulationController_custom_lflags)
+@@ -492,6 +495,7 @@ SimulationController_release_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2
+ SimulationController_release_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized
+ SimulationController_release_common_cflags  += -Wno-missing-field-initializers
+ SimulationController_release_common_cflags  += -O3 -fno-strict-aliasing
++SimulationController_release_common_cflags  += $(DAVA_custom_flags)
+ SimulationController_release_cflags	:= $(SimulationController_release_common_cflags)
+ SimulationController_release_cppflags	:= $(SimulationController_release_common_cflags)
+ SimulationController_release_lflags    := $(SimulationController_custom_lflags)
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.custom b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.custom
+new file mode 100644
+index 0000000000..7f1ecec67e
+--- /dev/null
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/linux64/Makefile.custom
+@@ -0,0 +1 @@
++DAVA_custom_flags = -Wno-return-type-c-linkage -Wno-invalid-noreturn -Wno-unused-local-typedef -Wno-undefined-bool-conversion -Wno-unused-private-field
+-- 
+2.11.0 (Apple Git-81)
+

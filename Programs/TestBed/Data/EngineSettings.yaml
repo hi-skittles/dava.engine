@@ -1,0 +1,2 @@
+#'Landscape.RenderMode' can be 'Landscape.RenderMode.NoInstancing', 'Landscape.RenderMode.Morphing' or 'Landscape.RenderMode.Morphing'
+Landscape.RenderMode: Landscape.RenderMode.Morphing

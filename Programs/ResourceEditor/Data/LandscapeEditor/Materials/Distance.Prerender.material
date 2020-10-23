@@ -1,0 +1,26 @@
+RenderTechnique:
+    Layers: ["OpaqueRenderLayer"]
+    RenderPass:
+        Name: "ForwardPass"
+        Shader: "~res:/ResourceEditor/LandscapeEditor/Materials/VisibilityCheckTool/distance"
+        UniqueDefines: ["PRERENDER"]
+        RenderState:
+            alphaFunc: "CMP_ALWAYS"
+            alphaFuncCmpValue: 0.0000
+            blendDest: "BLEND_ZERO"
+            blendSrc: "BLEND_ONE"
+            cullMode: "FACE_BACK"
+            depthFunc: "CMP_LESS"
+            fillMode: "FILLMODE_SOLID"
+            state: "STATE_DEPTH_WRITE | STATE_DEPTH_TEST"
+            stencil:
+                failBack: "STENCILOP_KEEP"
+                failFront: "STENCILOP_KEEP"
+                funcBack: "CMP_ALWAYS"
+                funcFront: "CMP_ALWAYS"
+                mask: -1
+                passBack: "STENCILOP_KEEP"
+                passFront: "STENCILOP_KEEP"
+                ref: 0
+                zFailBack: "STENCILOP_KEEP"
+                zFailFront: "STENCILOP_KEEP"

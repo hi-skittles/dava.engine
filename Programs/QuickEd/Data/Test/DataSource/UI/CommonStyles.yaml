@@ -1,0 +1,69 @@
+Header:
+    version: "9"
+StyleSheets:
+-   selector: ".background-dark"
+    properties:
+        bg-color: [0.102000, 0.141000, 0.169000, 0.900000]
+-   selector: ".background"
+    properties:
+        bg-color: [0.200000, 0.270000, 0.320000, 0.600000]
+-   selector: ".background:pressed_inside"
+    properties:
+        bg-color: [0.200000, 0.270000, 0.320000, 0.300000]
+-   selector: ".background-light"
+    properties:
+        bg-color: [0.230000, 0.390000, 0.510000, 0.500000]
+-   selector: ".background-light:pressed_inside"
+    properties:
+        bg-color: [0.230000, 0.390000, 0.510000, 0.250000]
+-   selector: ".background-light-tab:selected"
+    properties:
+        bg-color: [0.230000, 0.390000, 0.510000, 0.500000]
+-   selector: ".background-light-tab"
+    properties:
+        bg-color: [0.230000, 0.390000, 0.510000, 0.250000]
+-   selector: ".text-color-comment"
+    properties:
+        text-textColor: [0.620000, 0.720000, 0.800000, 1.000000]
+-   selector: ".text-color-selectable"
+    properties:
+        text-textColor: [0.620000, 0.720000, 0.800000, 1.000000]
+-   selector: ".text-color-selectable:selected"
+    properties:
+        text-textColor: [1.000000, 1.000000, 1.000000, 1.000000]
+-   selector: "UISwitch:disabled"
+    properties:
+        bg-color: [1.000000, 1.000000, 1.000000, 0.500000]
+-   selector: "UISwitch:disabled #buttonLeft, UISwitch:disabled:selected #buttonRight"
+    properties:
+        bg-color: [1.000000, 1.000000, 1.000000, 0.000000]
+-   selector: "UISwitch:disabled:selected #buttonLeft"
+    properties:
+        bg-color: [1.000000, 1.000000, 1.000000, 1.000000]
+-   selector: ".panel-background"
+    properties:
+        bg-color: [0.200000, 0.274510, 0.321569, 0.705882]
+-   selector: ".win-rate-ultra"
+    properties:
+        text-textColor: [0.607843, 0.529412, 0.937255, 1.000000]
+-   selector: ".win-rate-high"
+    properties:
+        text-textColor: [0.266667, 0.662745, 0.945098, 1.000000]
+-   selector: ".win-rate-medium"
+    properties:
+        text-textColor: [0.776471, 0.890196, 0.658824, 1.000000]
+-   selector: ".win-rate-low"
+    properties:
+        text-textColor: [1.000000, 1.000000, 1.000000, 1.000000]
+-   selector: ".panel-background:pressed_inside"
+    properties:
+        bg-color: [0.200000, 0.274510, 0.321569, 0.313726]
+-   selector: ".panel-background_self"
+    properties:
+        bg-color: [0.200000, 0.274510, 0.321569, 0.901961]
+-   selector: ".panel-background_self:pressed_inside"
+    properties:
+        bg-color: [0.200000, 0.274510, 0.321569, 0.313726]
+-   selector: ".panel-background-error"
+    properties:
+        bg-color: [1.000000, 0.000000, 0.000000, 0.235294]

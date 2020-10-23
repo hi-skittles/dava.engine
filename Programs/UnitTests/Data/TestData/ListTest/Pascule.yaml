@@ -1,0 +1,13 @@
+UIStaticText1:
+    align: ["HCENTER", "VCENTER"]
+    drawType: "DRAW_ALIGNED"
+    font: "Font_0"
+    multiline: "true"
+    noInput: "true"
+    rect: [-1.0000, -1.0000, 100.0000, 30.0000]
+    shadowcolor: [0.0000, 0.0000, 0.0000, 1.0000]
+    shadowoffset: [0.0000, 0.0000]
+    text: "Masterpiece"
+    textcolor: [1.0000, 1.0000, 1.0000, 1.0000]
+    type: "UIStaticText"
+

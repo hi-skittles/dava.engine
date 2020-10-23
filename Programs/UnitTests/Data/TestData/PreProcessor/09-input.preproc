@@ -1,0 +1,13 @@
+BLOCK-COMMENT
+
+ignored /*text
+#define BLA_BLA 111
+should be ignored
+something */else
+
+#if defined BLA_BLA
+    bla-bla
+#else
+    not bla-bla
+#endif
+last

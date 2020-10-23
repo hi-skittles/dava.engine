@@ -1,0 +1,14 @@
+ALTERNATIVE IF-EXPRESSION
+
+
+first
+  expected
+  ssl 1
+  ssl 2
+
+second
+  expected
+  aab 1
+  aab 2
+
+last

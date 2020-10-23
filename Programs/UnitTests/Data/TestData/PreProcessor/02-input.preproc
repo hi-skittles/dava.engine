@@ -1,0 +1,13 @@
+COMLEX IF-EXPRESSION
+
+#define SOMETHING 7 
+#define LIFE 42 
+
+first
+#if SOMETHING == 7 &&  LIFE != 7 // a condition
+  expected
+  ssl 1
+  ssl 2
+#endif
+
+last

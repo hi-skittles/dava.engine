@@ -1,0 +1,142 @@
+Header:
+    version: "19"
+StyleSheets:
+-   selector: ".button:pressed_inside"
+    properties:
+        bg-color: [0.145098, 0.462745, 0.058824, 1.000000]
+-   selector: ".button"
+    properties:
+        bg-color: [0.188235, 0.600000, 0.074510, 1.000000]
+Controls:
+-   class: "UIControl"
+    name: "Dialog"
+    position: [0.000000, 0.000000]
+    size: [508.000000, 393.000000]
+    components:
+        Anchor:
+            leftAnchorEnabled: true
+            rightAnchorEnabled: true
+            topAnchorEnabled: true
+            bottomAnchorEnabled: true
+        Background:
+            drawType: "DRAW_FILL"
+            color: [0.333333, 0.333333, 0.498039, 1.000000]
+        ActionBinding:
+            actions: "AddPlayer"
+        UIDataSourceComponent:
+            dataFile: "~res:/UI/data.model"
+    children:
+    -   class: "UIList"
+        name: "UIList"
+        position: [14.000000, 10.000000]
+        size: [240.000000, 361.000000]
+        components:
+            UIDataListComponent:
+                cellPackage: "~res:/UI/DataBindingTestCell.yaml"
+                cellControl: "Cell0"
+                dataContainer: "players"
+                selectionSupported: true
+            UIDataBindingComponent0:
+                controlField: "UIDataListComponent.selectedIndex"
+                expression: "currentPlayer"
+                updateMode: "ReadWrite"
+    -   class: "UITextField"
+        name: "UITextField"
+        position: [264.000000, 42.000000]
+        size: [234.000000, 53.000000]
+        font: "DejaVuSans_18"
+        components:
+            Anchor:
+                hCenterAnchorEnabled: true
+                hCenterAnchor: 10.000000
+                rightAnchorEnabled: true
+                rightAnchor: 10.000000
+            Background:
+                drawType: "DRAW_FILL"
+                color: [0.278431, 0.278431, 0.415686, 1.000000]
+            Focus: {}
+            UIDataBindingComponent0:
+                controlField: "text"
+                expression: "players[currentPlayer].name"
+                updateMode: "ReadWrite"
+    -   class: "UIStaticText"
+        name: "UIStaticText"
+        position: [264.000000, 10.000000]
+        size: [234.000000, 32.000000]
+        components:
+            Anchor:
+                hCenterAnchorEnabled: true
+                hCenterAnchor: 10.000000
+                rightAnchorEnabled: true
+                rightAnchor: 10.000000
+            UITextComponent:
+                fontName: "DejaVuSans_18"
+                colorInheritType: "COLOR_IGNORE_PARENT"
+                align: ["LEFT", "VCENTER"]
+            UIDataBindingComponent0:
+                controlField: "UITextComponent.text"
+                expression: "currentPlayer"
+                updateMode: "Read"
+    -   class: "UIControl"
+        name: "Line"
+        position: [264.000000, 166.000000]
+        size: [234.000000, 1.000000]
+        components:
+            Anchor:
+                hCenterAnchorEnabled: true
+                hCenterAnchor: 10.000000
+                rightAnchorEnabled: true
+                rightAnchor: 10.000000
+            Background:
+                drawType: "DRAW_FILL"
+    -   class: "UITextField"
+        name: "NewPlayerName"
+        position: [264.000000, 270.000000]
+        size: [234.000000, 53.000000]
+        font: "DejaVuSans_18"
+        components:
+            Anchor:
+                hCenterAnchorEnabled: true
+                hCenterAnchor: 10.000000
+                rightAnchorEnabled: true
+                rightAnchor: 10.000000
+                bottomAnchorEnabled: true
+                bottomAnchor: 70.000000
+            Background:
+                drawType: "DRAW_FILL"
+                color: [0.278431, 0.278431, 0.415686, 1.000000]
+            Focus: {}
+            UIDataBindingComponent0:
+                controlField: "text"
+                expression: "newPlayerName"
+                updateMode: "Write"
+    -   class: "UIControl"
+        name: "UIControl"
+        position: [304.000000, 337.000000]
+        size: [194.000000, 46.000000]
+        classes: "button"
+        components:
+            Anchor:
+                rightAnchorEnabled: true
+                rightAnchor: 10.000000
+                bottomAnchorEnabled: true
+                bottomAnchor: 10.000000
+            Background:
+                drawType: "DRAW_FILL"
+            Action:
+                action: "AddPlayer"
+        children:
+        -   class: "UIStaticText"
+            name: "UIStaticText"
+            position: [5.000000, 7.000000]
+            size: [184.000000, 32.000000]
+            components:
+                Anchor:
+                    leftAnchorEnabled: true
+                    leftAnchor: 5.000000
+                    rightAnchorEnabled: true
+                    rightAnchor: 5.000000
+                UITextComponent:
+                    text: "Add Player"
+                    fontName: "DejaVuSans_18"
+                    colorInheritType: "COLOR_IGNORE_PARENT"

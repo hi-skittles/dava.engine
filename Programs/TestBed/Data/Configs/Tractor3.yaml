@@ -1,0 +1,190 @@
+emitter:
+    emissionAngle: 0.0000
+    emissionRange: 70.0000
+    emissionVector: [0.0000, 0.0000, 1.0000]
+    emissionVectorInverted: "true"
+    name: "Particle Emitter"
+    shortEffect: "false"
+    size: [1.0000, 1.0000, 0.0000]
+    type: "shockwave"
+
+layer0:
+    activeLODS: [1, 1, 0, 0]
+    angle: 100.0000
+    angleVariation: 100.0000
+    colorOverLife: [173.0000, 170.0000, 147.0000, 255.0000]
+    degradeStrategy: 0
+    deltaTime: 0.0000
+    deltaVariation: 0.0000
+    dstBlendFactor: "BLEND_ONE_MINUS_SRC_ALPHA"
+    effectFormat: 1
+    enableFog: "true"
+    enableFrameBlend: "false"
+    endTime: 0.3000
+    force0: [0.0000, 0.0000, -1.0000]
+    forceCount: 1
+    forceOverLife0: [0.0000, 0.0000, 0.9900, 30.0000]
+    frameOverLifeEnabled: "false"
+    frameOverLifeFPS: 16.0000
+    inheritPosition: "false"
+    isLong: "false"
+    isLooped: "false"
+    layerType: "particles"
+    life: 4.0000
+    loopEndTime: 0.0000
+    loopSpriteAnimation: "false"
+    loopVariation: 0.0000
+    name: "debris_car"
+    number: 30.0000
+    particleOrientation: 1
+    pivotPoint: [0.0000, 0.0000]
+    randomFrameOnStart: "false"
+    randomSpinDirection: "true"
+    scaleVelocityBase: 1.0000
+    scaleVelocityFactor: 0.0000
+    size: [0.2000, 0.1000]
+    sizeVariation: [0.1793, 0.0808]
+    spin: 60.0000
+    spinVariation: 60.0000
+    sprite: "../Gfx/Particles/fragment_car_one_snow"
+    srcBlendFactor: "BLEND_SRC_ALPHA"
+    startTime: 0.0000
+    type: "layer"
+    velocity: 2.0000
+    velocityOverLife: [0.0000, 1.0000, 0.4800, 0.3000, 0.9900, 1.0034]
+
+layer1:
+    activeLODS: [1, 1, 0, 0]
+    angle: 100.0000
+    angleVariation: 100.0000
+    colorOverLife: [173.0000, 179.0000, 161.0000, 255.0000]
+    degradeStrategy: 0
+    deltaTime: 0.0000
+    deltaVariation: 0.0000
+    dstBlendFactor: "BLEND_ONE_MINUS_SRC_ALPHA"
+    effectFormat: 1
+    enableFog: "true"
+    enableFrameBlend: "false"
+    endTime: 0.3000
+    force0: [0.0000, 0.0000, -1.0000]
+    forceCount: 1
+    forceOverLife0: [0.0000, 0.0000, 0.9900, 30.0000]
+    frameOverLifeEnabled: "false"
+    frameOverLifeFPS: 20.0000
+    inheritPosition: "false"
+    isLong: "false"
+    isLooped: "false"
+    layerType: "particles"
+    life: 4.0000
+    loopEndTime: 0.0000
+    loopSpriteAnimation: "false"
+    loopVariation: 0.0000
+    name: "debris_car2"
+    number: 40.0000
+    particleOrientation: 1
+    pivotPoint: [0.0000, 0.0000]
+    randomFrameOnStart: "false"
+    randomSpinDirection: "true"
+    scaleVelocityBase: 1.0000
+    scaleVelocityFactor: 0.0000
+    size: [0.2000, 0.2000]
+    sizeVariation: [0.0500, 0.0500]
+    spin: 60.0000
+    spinVariation: 60.0000
+    sprite: "../Gfx/Particles/fragment_car_snow"
+    srcBlendFactor: "BLEND_SRC_ALPHA"
+    startTime: 0.0000
+    type: "layer"
+    velocity: 3.0000
+    velocityOverLife: [0.0000, 1.0000, 0.4800, 0.3000, 0.9900, 1.0034]
+
+layer2:
+    activeLODS: [1, 1, 0, 0]
+    angle: 100.0000
+    angleVariation: 100.0000
+    colorOverLife: [173.0000, 179.0000, 161.0000, 255.0000]
+    degradeStrategy: 0
+    deltaTime: 0.0000
+    deltaVariation: 0.0000
+    dstBlendFactor: "BLEND_ONE_MINUS_SRC_ALPHA"
+    effectFormat: 1
+    enableFog: "true"
+    enableFrameBlend: "false"
+    endTime: 0.3000
+    force0: [0.0000, 0.0000, -1.0000]
+    forceCount: 1
+    forceOverLife0: [0.0000, 0.0000, 0.9900, 30.0000]
+    frameOverLifeEnabled: "false"
+    frameOverLifeFPS: 15.0000
+    inheritPosition: "false"
+    isLong: "false"
+    isLooped: "false"
+    layerType: "particles"
+    life: 4.0000
+    loopEndTime: 0.0000
+    loopSpriteAnimation: "false"
+    loopVariation: 0.0000
+    name: "debris_glass"
+    number: 15.0000
+    particleOrientation: 1
+    pivotPoint: [0.0000, 0.0000]
+    randomFrameOnStart: "false"
+    randomSpinDirection: "true"
+    scaleVelocityBase: 1.0000
+    scaleVelocityFactor: 0.0000
+    size: [0.1500, 0.1500]
+    sizeVariation: [0.2000, 0.2000]
+    spin: 60.0000
+    spinVariation: 60.0000
+    sprite: "../Gfx/Particles/Glass"
+    srcBlendFactor: "BLEND_SRC_ALPHA"
+    startTime: 0.0000
+    type: "layer"
+    velocity: 4.0000
+    velocityOverLife: [0.0000, 1.0000, 0.4800, 0.3000, 0.9900, 1.0034]
+
+layer3:
+    activeLODS: [1, 1, 0, 0]
+    angle: 100.0000
+    angleVariation: 100.0000
+    colorOverLife: [173.0000, 179.0000, 161.0000, 255.0000]
+    degradeStrategy: 0
+    deltaTime: 0.0000
+    deltaVariation: 0.0000
+    dstBlendFactor: "BLEND_ONE_MINUS_SRC_ALPHA"
+    effectFormat: 1
+    enableFog: "true"
+    enableFrameBlend: "false"
+    endTime: 0.3000
+    force0: [0.0000, 0.0000, -1.0000]
+    forceCount: 1
+    forceOverLife0: [0.0000, 0.0000, 0.9900, 30.0000]
+    frameOverLifeEnabled: "false"
+    frameOverLifeFPS: 26.0000
+    inheritPosition: "false"
+    isLong: "false"
+    isLooped: "false"
+    layerType: "particles"
+    life: 4.0000
+    loopEndTime: 0.0000
+    loopSpriteAnimation: "false"
+    loopVariation: 0.0000
+    name: "debris_glass2"
+    number: 40.0000
+    particleOrientation: 1
+    pivotPoint: [0.0000, 0.0000]
+    randomFrameOnStart: "false"
+    randomSpinDirection: "true"
+    scaleVelocityBase: 1.0000
+    scaleVelocityFactor: 0.0000
+    size: [0.0250, 0.2500]
+    sizeVariation: [0.0500, 0.0500]
+    spin: 60.0000
+    spinVariation: 60.0000
+    sprite: "../Gfx/Particles/Glass_two"
+    srcBlendFactor: "BLEND_SRC_ALPHA"
+    startTime: 0.0000
+    type: "layer"
+    velocity: 3.0000
+    velocityOverLife: [0.0000, 1.0000, 0.4800, 0.3000, 0.9900, 1.0034]
+

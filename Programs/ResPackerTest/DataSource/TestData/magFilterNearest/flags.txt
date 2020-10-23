@@ -1,0 +1,1 @@
+--magFilterNearest --PowerVR_iOS PVR2 --adreno ATC_RGBA_EXPLICIT_ALPHA --mali ETC1 --tegra DXT1 --PowerVR_Android PVR2

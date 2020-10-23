@@ -1,0 +1,909 @@
+diff -ur ./libpsd_source_original/include/libpsd.h ./libpsd_source/include/libpsd.h
+--- ./libpsd_source_original/include/libpsd.h	2007-02-06 19:42:32.000000000 +0300
++++ ./libpsd_source/include/libpsd.h	2017-10-10 11:43:12.164870700 +0300
+@@ -255,7 +255,7 @@
+ 	psd_layer_effects_bevel_emboss_inner_shadow,
+ 	psd_layer_effects_bevel_emboss_inner_light,
+ 	psd_layer_effects_bevel_emboss_texture
+-};
++} psd_layer_effects_bevel_emboss_type;
+ #define psd_layer_effects_image_count		(psd_layer_effects_bevel_emboss_texture + 1)
+ 
+ typedef enum {
+@@ -420,7 +420,8 @@
+ // Slices resource format
+ // Adobe Photoshop 6.0 and later stores slices information for an image in an image
+ // resource block. .
+-typedef struct _psd_slices_resource{
++typedef struct _psd_slices_resource
++{
+ 	psd_int						bounding_top;	// Bounding rectangle for all of the slices: top, left, bottom, right of all the slices
+ 	psd_int						bounding_left;
+ 	psd_int						bounding_bottom;
+@@ -614,7 +615,7 @@
+ 	
+ 	psd_int						layer_info_count;
+ 	psd_layer_info_type			layer_info_type[psd_layer_info_type_count];
+-	psd_uint					layer_info_data[psd_layer_info_type_count];
++	psd_pointer					layer_info_data[psd_layer_info_type_count];
+ 	psd_bool					adjustment_valid;
+ 	
+ 	psd_uchar 					fill_opacity;
+diff -ur ./libpsd_source_original/include/psd_config.h ./libpsd_source/include/psd_config.h
+--- ./libpsd_source_original/include/psd_config.h	2007-02-24 19:06:08.000000000 +0300
++++ ./libpsd_source/include/psd_config.h	2017-10-10 11:43:18.787479500 +0300
+@@ -4,7 +4,7 @@
+ 
+ // we need libjpeg to get the thumbnail
+ // You can download libjpeg from http://sourceforge.net/projects/libjpeg
+-#if 1
++#if 0
+ #define PSD_INCLUDE_LIBJPEG
+ #endif
+ 
+@@ -27,7 +27,7 @@
+ // but we seldom use the XMP metadata to get the information of PSD file,
+ // so you don't have to define this macro
+ // You can download libxml from http://sourceforge.net/projects/libxml
+-#if 1
++#if 0
+ #if defined(PSD_GET_ALL_IMAGE_RESOURCE)
+ #define PSD_INCLUDE_LIBXML
+ #endif
+@@ -38,7 +38,7 @@
+ // Exif: Exchangeable image file format for Digital Still Cameras
+ // http://www.pima.net/standards/it10/PIMA15740/exif.htm
+ // You can download EXIF Tag Parsing Library from http://sourceforge.net/projects/libexif
+-#if 1
++#if 0
+ #if defined(PSD_GET_ALL_IMAGE_RESOURCE)
+ #define PSD_INCLUDDE_LIBEXIF
+ #endif
+diff -ur ./libpsd_source_original/include/psd_types.h ./libpsd_source/include/psd_types.h
+--- ./libpsd_source_original/include/psd_types.h	2007-02-01 14:18:00.000000000 +0300
++++ ./libpsd_source/include/psd_types.h	2017-10-10 11:43:23.676634100 +0300
+@@ -17,6 +17,7 @@
+ typedef unsigned int			psd_uint;
+ typedef float					psd_float;
+ typedef double					psd_double;
++typedef size_t					psd_pointer;
+ 
+ 
+ typedef unsigned char			psd_color_component;
+diff -ur ./libpsd_source_original/src/adjustment.c ./libpsd_source/src/adjustment.c
+--- ./libpsd_source_original/src/adjustment.c	2007-01-28 19:40:58.000000000 +0300
++++ ./libpsd_source/src/adjustment.c	2017-10-10 11:44:30.419274000 +0300
+@@ -33,7 +33,7 @@
+ #include "psd_math.h"
+ 
+ 
+-typedef void psd_adjustment_blend_proc(psd_uint layer_info_data, psd_int * red, psd_int * green, psd_int * blue);
++typedef void psd_adjustment_blend_proc(psd_pointer layer_info_data, psd_int * red, psd_int * green, psd_int * blue);
+ 
+ extern psd_bool psd_layer_blend_levels(psd_context * context, psd_layer_record * layer, psd_rect * dst_rect);
+ extern psd_bool psd_layer_blend_curves(psd_context * context, psd_layer_record * layer, psd_rect * dst_rect);
+@@ -115,6 +115,8 @@
+ 		case psd_layer_type_photo_filter:
+ 			result = psd_layer_blend_photo_filter(context, layer, dst_rect);
+ 			break;
++		default:
++			psd_assert(0);
+ 	}
+ 
+ 	return result;
+@@ -231,7 +233,7 @@
+ }
+ 
+ void psd_adjustment_blend_color(psd_context * context, psd_layer_record * layer, psd_rect * dst_rect, 
+-	psd_adjustment_blend_proc * blend_proc, psd_uint layer_info_data)
++	psd_adjustment_blend_proc * blend_proc, psd_pointer layer_info_data)
+ {
+ 	psd_int i, j, width, height;
+ 	psd_int dst_red, dst_green, dst_blue, dst_alpha, src_red, src_green, src_blue;
+diff -ur ./libpsd_source_original/src/blend.c ./libpsd_source/src/blend.c
+--- ./libpsd_source_original/src/blend.c	2007-02-04 15:04:16.000000000 +0300
++++ ./libpsd_source/src/blend.c	2017-10-10 11:44:43.604737700 +0300
+@@ -619,12 +619,16 @@
+ 						case psd_blend_mode_luminosity:
+ 							dst_brightness = src_brightness;
+ 							break;
++						default:
++							psd_assert(0);
+ 					}
+ 					psd_inthsb_to_rgb(dst_hue, dst_saturation, dst_brightness, &src_red, &src_green, &src_blue);
+ 					dst_red = PSD_BLEND_CHANNEL(dst_red, src_red, mix_alpha);
+ 					dst_green = PSD_BLEND_CHANNEL(dst_green, src_green, mix_alpha);
+ 					dst_blue = PSD_BLEND_CHANNEL(dst_blue, src_blue, mix_alpha);
+ 					break;
++				default:
++					psd_assert(0);
+ 			}
+ 			
+ 			*dst_data = PSD_ARGB_TO_COLOR(dst_alpha, dst_red, dst_green, dst_blue);
+@@ -1179,12 +1183,16 @@
+ 						case psd_blend_mode_luminosity:
+ 							dst_brightness = src_brightness;
+ 							break;
++						default:
++							psd_assert(0);
+ 					}
+ 					psd_inthsb_to_rgb(dst_hue, dst_saturation, dst_brightness, &src_red, &src_green, &src_blue);
+ 					dst_red = PSD_BLEND_CHANNEL(dst_red, src_red, mix_alpha);
+ 					dst_green = PSD_BLEND_CHANNEL(dst_green, src_green, mix_alpha);
+ 					dst_blue = PSD_BLEND_CHANNEL(dst_blue, src_blue, mix_alpha);
+ 					break;
++				default:
++					psd_assert(0);
+ 			}
+ 			
+ 			*dst_data = PSD_ARGB_TO_COLOR(dst_alpha, dst_red, dst_green, dst_blue);
+diff -ur ./libpsd_source_original/src/boundary.c ./libpsd_source/src/boundary.c
+--- ./libpsd_source_original/src/boundary.c	2007-02-01 14:09:30.000000000 +0300
++++ ./libpsd_source/src/boundary.c	2017-10-10 11:45:07.725339700 +0300
+@@ -258,9 +258,6 @@
+   psd_art_svp_render_aa_step *steps;
+ } psd_art_svp_render_aa_iter;
+ 
+-extern psd_float psd_carm_sqrt(psd_float x);
+-
+-
+ static psd_bool psd_get_bounds(psd_bitmap * src_bmp, psd_int *x1, psd_int *y1, psd_int *x2, psd_int *y2)
+ {
+ 	psd_int tx1, tx2, ty1, ty2;
+@@ -899,7 +896,7 @@
+ 	psd_double aradius;
+ 
+ 	aradius = PSD_ABS(radius);
+-	theta = 2 * PSD_M_SQRT2 * (psd_double)psd_carm_sqrt((psd_float)(flatness / aradius));
++	theta = 2 * PSD_M_SQRT2 * (psd_double)sqrtf((psd_float)(flatness / aradius));
+ 	th_0 = atan2(y0, x0);
+ 	th_1 = atan2(y1, x1);
+ 	if(radius > 0)
+@@ -963,13 +960,13 @@
+ 
+ 	/* Set dl[xy]0 to the vector from i0 to i1, rotated counterclockwise
+ 	90 degrees, and scaled to the length of line_width. */
+-	scale = line_width / (psd_double)psd_carm_sqrt((psd_float)(dx0 * dx0 + dy0 * dy0));
++	scale = line_width / (psd_double)sqrtf((psd_float)(dx0 * dx0 + dy0 * dy0));
+ 	dlx0 = dy0 * scale;
+ 	dly0 = -dx0 * scale;
+ 
+ 	/* Set dl[xy]1 to the vector from i1 to i2, rotated counterclockwise
+ 	90 degrees, and scaled to the length of line_width. */
+-	scale = line_width / (psd_double)psd_carm_sqrt((psd_float)(dx1 * dx1 + dy1 * dy1));
++	scale = line_width / (psd_double)sqrtf((psd_float)(dx1 * dx1 + dy1 * dy1));
+ 	dlx1 = dy1 * scale;
+ 	dly1 = -dx1 * scale;
+ 
+@@ -1084,11 +1081,11 @@
+ 
+ 	/* Set dl[xy]0 to the vector from i0 to i1, rotated counterclockwise
+ 	90 degrees, and scaled to the length of line_width. */
+-	scale = line_width / (psd_double)psd_carm_sqrt((psd_float)(dx0 * dx0 + dy0 * dy0));
++	scale = line_width / (psd_double)sqrtf((psd_float)(dx0 * dx0 + dy0 * dy0));
+ 	dlx0 = dy0 * scale;
+ 	dly0 = -dx0 * scale;
+ 
+-	n_pts = (psd_int)ceil(PSD_PI / (2.0 * PSD_M_SQRT2 * (psd_double)psd_carm_sqrt((psd_float)(flatness / line_width))));
++	n_pts = (psd_int)ceil(PSD_PI / (2.0 * PSD_M_SQRT2 * (psd_double)sqrtf((psd_float)(flatness / line_width))));
+ 	psd_art_vpath_add_point(p_result, pn_result, pn_result_max,
+ 		PSD_ART_LINETO, vpath[i1].x - dlx0, vpath[i1].y - dly0);
+ 	for(i = 1; i < n_pts; i++)
+@@ -1838,7 +1835,7 @@
+ 	dx = x1 - x0;
+ 	dy = y1 - y0;
+ 	r2 = dx * dx + dy * dy;
+-	s = r2 == 0 ? 1 : 1 / (psd_double)psd_carm_sqrt((psd_float)r2);
++	s = r2 == 0 ? 1 : 1 / (psd_double)sqrtf((psd_float)r2);
+ 	seg->a = a = dy * s;
+ 	seg->b = b = -dx * s;
+ 	seg->c = -(a * x0 + b * y0);
+diff -ur ./libpsd_source_original/src/brightness_contrast.c ./libpsd_source/src/brightness_contrast.c
+--- ./libpsd_source_original/src/brightness_contrast.c	2007-01-28 19:32:42.000000000 +0300
++++ ./libpsd_source/src/brightness_contrast.c	2017-10-10 11:45:12.495313000 +0300
+@@ -47,7 +47,7 @@
+ 	if(data == NULL)
+ 		return psd_status_malloc_failed;
+ 	memset(data, 0, sizeof(psd_layer_brightness_contrast));
+-	layer->layer_info_data[layer->layer_info_count] = (psd_uint)data;
++	layer->layer_info_data[layer->layer_info_count] = (psd_pointer)data;
+ 	layer->layer_info_count ++;
+ 
+ 	// Brightness
+diff -ur ./libpsd_source_original/src/channel_mixer.c ./libpsd_source/src/channel_mixer.c
+--- ./libpsd_source_original/src/channel_mixer.c	2007-01-28 19:32:02.000000000 +0300
++++ ./libpsd_source/src/channel_mixer.c	2017-10-10 11:45:22.577286600 +0300
+@@ -32,9 +32,9 @@
+ #include "psd_math.h"
+ 
+ 
+-typedef void psd_adjustment_blend_proc(psd_uint layer_info_data, psd_int * red, psd_int * green, psd_int * blue);
++typedef void psd_adjustment_blend_proc(psd_pointer layer_info_data, psd_int * red, psd_int * green, psd_int * blue);
+ extern void psd_adjustment_blend_color(psd_context * context, psd_layer_record * layer, psd_rect * dst_rect, 
+-	psd_adjustment_blend_proc * blend_proc, psd_uint layer_info_data);
++	psd_adjustment_blend_proc * blend_proc, psd_pointer layer_info_data);
+ 
+ 
+ psd_status psd_get_layer_channel_mixer(psd_context * context, psd_layer_record * layer)
+@@ -49,7 +49,7 @@
+ 	if(data == NULL)
+ 		return psd_status_malloc_failed;
+ 	memset(data, 0, sizeof(psd_layer_channel_mixer));
+-	layer->layer_info_data[layer->layer_info_count] = (psd_uint)data;
++	layer->layer_info_data[layer->layer_info_count] = (psd_pointer)data;
+ 	layer->layer_info_count ++;
+ 
+ 	// Version ( = 1)
+@@ -75,7 +75,7 @@
+ 	return psd_status_done;
+ }
+ 
+-static void psd_channel_mixer_proc(psd_uint layer_info_data, psd_int * red, psd_int * green, psd_int * blue)
++static void psd_channel_mixer_proc(psd_pointer layer_info_data, psd_int * red, psd_int * green, psd_int * blue)
+ {
+ 	psd_layer_channel_mixer * data = (psd_layer_channel_mixer *)layer_info_data;
+ 	psd_int dst_red, dst_green, dst_blue, src_red, src_green, src_blue, gray;
+@@ -135,7 +135,7 @@
+ 
+ psd_bool psd_layer_blend_channel_mixer(psd_context * context, psd_layer_record * layer, psd_rect * dst_rect)
+ {
+-	psd_uint layer_info_data;
++	psd_pointer layer_info_data;
+ 	psd_int i;
+ 
+ 	if(context->color_mode != psd_color_mode_rgb)
+diff -ur ./libpsd_source_original/src/color.c ./libpsd_source/src/color.c
+--- ./libpsd_source_original/src/color.c	2007-02-01 14:10:04.000000000 +0300
++++ ./libpsd_source/src/color.c	2017-10-10 11:45:28.022074900 +0300
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include <math.h>
++#include <string.h>
+ #include "libpsd.h"
+ #include "psd_color.h"
+ #include "psd_math.h"
+diff -ur ./libpsd_source_original/src/color_balance.c ./libpsd_source/src/color_balance.c
+--- ./libpsd_source_original/src/color_balance.c	2007-01-28 19:29:24.000000000 +0300
++++ ./libpsd_source/src/color_balance.c	2017-10-10 11:45:31.672961900 +0300
+@@ -63,7 +63,7 @@
+ 	if(data == NULL)
+ 		return psd_status_malloc_failed;
+ 	memset(data, 0, sizeof(psd_layer_color_balance));
+-	layer->layer_info_data[layer->layer_info_count] = (psd_uint)data;
++	layer->layer_info_data[layer->layer_info_count] = (psd_pointer)data;
+ 	layer->layer_info_count ++;
+ 
+ 	// shadows, midtones, highlights
+diff -ur ./libpsd_source_original/src/color_overlay.c ./libpsd_source/src/color_overlay.c
+--- ./libpsd_source_original/src/color_overlay.c	2007-01-30 16:45:38.000000000 +0300
++++ ./libpsd_source/src/color_overlay.c	2017-10-10 11:45:35.558568400 +0300
+@@ -23,6 +23,7 @@
+  * $Id: color_overlay.c, created by Patrick in 2006.05.23, libpsd@graphest.com Exp $
+  */
+ 
++#include <string.h>
+ #include "libpsd.h"
+ #include "psd_config.h"
+ #include "psd_system.h"
+diff -ur ./libpsd_source_original/src/curves.c ./libpsd_source/src/curves.c
+--- ./libpsd_source_original/src/curves.c	2007-02-01 14:10:10.000000000 +0300
++++ ./libpsd_source/src/curves.c	2017-10-10 11:45:42.614932300 +0300
+@@ -65,7 +65,7 @@
+ 	if(data == NULL)
+ 		return psd_status_malloc_failed;
+ 	memset(data, 0, sizeof(psd_layer_curves));
+-	layer->layer_info_data[layer->layer_info_count] = (psd_uint)data;
++	layer->layer_info_data[layer->layer_info_count] = (psd_pointer)data;
+ 	layer->layer_info_count ++;
+ 
+ 	// padding, document is wrong, maybe photoshop is wrong
+@@ -175,7 +175,7 @@
+ 	return psd_status_done;
+ }
+ 
+-void psd_layer_curves_free(psd_uint info_data)
++void psd_layer_curves_free(psd_pointer info_data)
+ {
+ 	psd_layer_curves * data;
+ 
+diff -ur ./libpsd_source_original/src/effects.c ./libpsd_source/src/effects.c
+--- ./libpsd_source_original/src/effects.c	2007-01-30 16:46:22.000000000 +0300
++++ ./libpsd_source/src/effects.c	2017-10-10 11:45:50.408124200 +0300
+@@ -80,7 +80,7 @@
+ 	if(data == NULL)
+ 		return psd_status_malloc_failed;
+ 	memset(data, 0, sizeof(psd_layer_effects));
+-	layer->layer_info_data[layer->layer_info_count] = (psd_uint)(void *)data;
++	layer->layer_info_data[layer->layer_info_count] = (psd_pointer)(void *)data;
+ 	layer->layer_info_count ++;
+ 
+ 	// Version: 0
+@@ -170,7 +170,7 @@
+ 	if(data == NULL)
+ 		return psd_status_malloc_failed;
+ 	memset(data, 0, sizeof(psd_layer_effects));
+-	layer->layer_info_data[layer->layer_info_count] = (psd_uint)(void *)data;
++	layer->layer_info_data[layer->layer_info_count] = (psd_pointer)(void *)data;
+ 	layer->layer_info_count ++;
+ 	
+ 	// Object effects version: 0
+@@ -782,7 +782,7 @@
+ 	psd_freeif(pattern_info->name);
+ }
+ 
+-void psd_layer_effects_free(psd_uint layer_info)
++void psd_layer_effects_free(psd_pointer layer_info)
+ {
+ 	psd_layer_effects * data;
+ 	psd_int i;
+diff -ur ./libpsd_source_original/src/gradient_blend.c ./libpsd_source/src/gradient_blend.c
+--- ./libpsd_source_original/src/gradient_blend.c	2007-01-28 19:21:46.000000000 +0300
++++ ./libpsd_source/src/gradient_blend.c	2017-10-10 11:46:03.522509800 +0300
+@@ -30,33 +30,10 @@
+ #include "psd_bitmap.h"
+ #include "psd_gradient.h"
+ #include "psd_math.h"
+-
++#include <math.h>
+ 
+ #define PSD_COLOR_SCALE				4
+ 
+-
+-// from quake3 source code
+-psd_float psd_carm_sqrt(psd_float x)
+-{
+-	union
+-	{
+-		psd_int 	intPart;
+-		psd_float 	floatPart;
+-	} convertor;
+-	union
+-	{
+-		psd_int 	intPart;
+-		psd_float 	floatPart;
+-	} convertor2;
+-	
+-	convertor.floatPart = x;
+-	convertor2.floatPart = x;
+-	convertor.intPart = 0x1FBCF800 + (convertor.intPart >> 1);
+-	convertor2.intPart = 0x5f3759df - (convertor2.intPart >> 1);
+-	
+-	return 0.5f*(convertor.floatPart + (x * convertor2.floatPart));
+-}
+-
+ void psd_gradient_color_get_table(psd_gradient_color * gradient_color, psd_argb_color * color_table, psd_int table_count, psd_bool reverse)
+ {
+ 	psd_int i, j;
+@@ -366,7 +343,7 @@
+ 	
+ 	else
+ 	{
+-		distance = (psd_int)psd_carm_sqrt((psd_float)((end_x - start_x) * (end_x - start_x) + (end_y - start_y) * (end_y - start_y)) + 0.5f);
++		distance = (psd_int)sqrtf((psd_float)((end_x - start_x) * (end_x - start_x) + (end_y - start_y) * (end_y - start_y)) + 0.5f);
+ 		table_count = distance * PSD_COLOR_SCALE;
+ 		color_table = (psd_argb_color *)psd_malloc(table_count * 4);
+ 		if(color_table == NULL)
+@@ -508,7 +485,7 @@
+ 		dst_data = bitmap->image_data + i * width + (left + 1);
+ 		for(j = left + 1; j < center_x; j ++, dst_data ++)
+ 		{
+-			distance = (psd_int)(psd_carm_sqrt((psd_float)(ii + (center_x - j) * (center_x - j))) * PSD_COLOR_SCALE + 0.5);
++			distance = (psd_int)(sqrtf((psd_float)(ii + (center_x - j) * (center_x - j))) * PSD_COLOR_SCALE + 0.5);
+ 			if(distance >= table_count)
+ 				cur_color = color_table[table_count - 1];
+ 			else
+@@ -768,7 +745,7 @@
+ 	
+ 	else
+ 	{
+-		distance = (psd_int)psd_carm_sqrt((psd_float)((end_x - start_x) * (end_x - start_x) + (end_y - start_y) * (end_y - start_y)) + 0.5f);
++		distance = (psd_int)sqrtf((psd_float)((end_x - start_x) * (end_x - start_x) + (end_y - start_y) * (end_y - start_y)) + 0.5f);
+ 		table_count = distance * PSD_COLOR_SCALE;
+ 		color_table = (psd_argb_color *)psd_malloc(table_count * 4);
+ 		if(color_table == NULL)
+@@ -862,7 +839,7 @@
+ 			ay = 1;
+ 			ax = (90 - angle) / 45.0f;
+ 		}
+-		xy = psd_carm_sqrt(ax * ax + ay * ay);
++		xy = sqrtf(ax * ax + ay * ay);
+ 		angle_sin = psd_fixed_16_16_float(ax / xy);
+ 		angle_cos = psd_fixed_16_16_float(ay / xy);
+ 
+diff -ur ./libpsd_source_original/src/gradient_fill.c ./libpsd_source/src/gradient_fill.c
+--- ./libpsd_source_original/src/gradient_fill.c	2007-01-30 16:46:32.000000000 +0300
++++ ./libpsd_source/src/gradient_fill.c	2017-10-10 11:46:10.717286600 +0300
+@@ -45,7 +45,7 @@
+ 	if(data == NULL)
+ 		return psd_status_malloc_failed;
+ 	memset(data, 0, sizeof(psd_layer_gradient_fill));
+-	layer->layer_info_data[layer->layer_info_count] = (psd_uint)data;
++	layer->layer_info_data[layer->layer_info_count] = (psd_pointer)data;
+ 	layer->layer_info_count ++;
+ 
+ 	// default value
+diff -ur ./libpsd_source_original/src/gradient_map.c ./libpsd_source/src/gradient_map.c
+--- ./libpsd_source_original/src/gradient_map.c	2007-01-30 16:46:38.000000000 +0300
++++ ./libpsd_source/src/gradient_map.c	2017-10-10 11:46:22.119652600 +0300
+@@ -30,9 +30,9 @@
+ #include "psd_rect.h"
+ 
+ 
+-typedef void psd_adjustment_blend_proc(psd_uint layer_info_data, psd_int * red, psd_int * green, psd_int * blue);
++typedef void psd_adjustment_blend_proc(psd_pointer layer_info_data, psd_int * red, psd_int * green, psd_int * blue);
+ extern void psd_adjustment_blend_color(psd_context * context, psd_layer_record * layer, psd_rect * dst_rect, 
+-	psd_adjustment_blend_proc * blend_proc, psd_uint layer_info_data);
++	psd_adjustment_blend_proc * blend_proc, psd_pointer layer_info_data);
+ 
+ 
+ // Gradient settings
+@@ -51,7 +51,7 @@
+ 	if(data == NULL)
+ 		return psd_status_malloc_failed;
+ 	memset(data, 0, sizeof(psd_layer_gradient_map));
+-	layer->layer_info_data[layer->layer_info_count] = (psd_uint)data;
++	layer->layer_info_data[layer->layer_info_count] = (psd_pointer)data;
+ 	layer->layer_info_count ++;
+ 
+ 	// Version ( =1 for Photoshop 6.0)
+@@ -161,7 +161,7 @@
+ 	return psd_status_done;
+ }
+ 
+-void psd_layer_gradient_map_free(psd_uint info_data)
++void psd_layer_gradient_map_free(psd_pointer info_data)
+ {
+ 	psd_layer_gradient_map * data;
+ 
+@@ -172,7 +172,7 @@
+ 	psd_free(data);
+ }
+ 
+-static void psd_gradient_map_proc(psd_uint layer_info_data, psd_int * red, psd_int * green, psd_int * blue)
++static void psd_gradient_map_proc(psd_pointer layer_info_data, psd_int * red, psd_int * green, psd_int * blue)
+ {
+ 	psd_layer_gradient_map * data = (psd_layer_gradient_map *)layer_info_data;
+ 	psd_int gray;
+@@ -191,7 +191,7 @@
+ 
+ psd_bool psd_layer_blend_gradient_map(psd_context * context, psd_layer_record * layer, psd_rect * dst_rect)
+ {
+-	psd_uint layer_info_data;
++	psd_pointer layer_info_data;
+ 	psd_layer_gradient_map * data;
+ 	psd_int i, j, start_pos, end_pos, mid_pos;
+ 	psd_int start_red, start_green, start_blue, 
+diff -ur ./libpsd_source_original/src/gradient_overlay.c ./libpsd_source/src/gradient_overlay.c
+--- ./libpsd_source_original/src/gradient_overlay.c	2007-01-30 16:46:42.000000000 +0300
++++ ./libpsd_source/src/gradient_overlay.c	2017-10-10 11:46:26.713567000 +0300
+@@ -272,7 +272,7 @@
+ 		radius_y = height;
+ 		radius_x = (psd_int)(radius_y / PSD_TAN(angle) + 0.5);
+ 	}
+-	radius_corner = (psd_int)(psd_carm_sqrt((psd_float)(radius_x * radius_x + radius_y * radius_y)) + 0.5);
++	radius_corner = (psd_int)(sqrtf((psd_float)(radius_x * radius_x + radius_y * radius_y)) + 0.5);
+ 
+ 	switch(gradient_overlay->style)
+ 	{
+diff -ur ./libpsd_source_original/src/hue_saturation.c ./libpsd_source/src/hue_saturation.c
+--- ./libpsd_source_original/src/hue_saturation.c	2007-01-28 16:32:30.000000000 +0300
++++ ./libpsd_source/src/hue_saturation.c	2017-10-10 11:46:36.078537300 +0300
+@@ -31,9 +31,9 @@
+ #include "psd_math.h"
+ 
+ 
+-typedef void psd_adjustment_blend_proc(psd_uint layer_info_data, psd_int * red, psd_int * green, psd_int * blue);
++typedef void psd_adjustment_blend_proc(psd_pointer layer_info_data, psd_int * red, psd_int * green, psd_int * blue);
+ extern void psd_adjustment_blend_color(psd_context * context, psd_layer_record * layer, psd_rect * dst_rect, 
+-	psd_adjustment_blend_proc * blend_proc, psd_uint layer_info_data);
++	psd_adjustment_blend_proc * blend_proc, psd_pointer layer_info_data);
+ 
+ 
+ // New Hue/saturation, Photoshop 5.0
+@@ -49,7 +49,7 @@
+ 	if(data == NULL)
+ 		return psd_status_malloc_failed;
+ 	memset(data, 0, sizeof(psd_layer_hue_saturation));
+-	layer->layer_info_data[layer->layer_info_count] = (psd_uint)data;
++	layer->layer_info_data[layer->layer_info_count] = (psd_pointer)data;
+ 	layer->layer_info_count ++;
+ 
+ 	// Version ( = 2)
+@@ -102,7 +102,7 @@
+ 	return psd_status_done;
+ }
+ 
+-static void psd_hue_saturation_proc(psd_uint layer_info_data, psd_int * red, psd_int * green, psd_int * blue)
++static void psd_hue_saturation_proc(psd_pointer layer_info_data, psd_int * red, psd_int * green, psd_int * blue)
+ {
+ 	psd_layer_hue_saturation * data = (psd_layer_hue_saturation *)layer_info_data;
+ 	psd_int src_hue, src_saturation, src_lightness;
+@@ -139,7 +139,7 @@
+ 
+ psd_bool psd_layer_blend_hue_saturation(psd_context * context, psd_layer_record * layer, psd_rect * dst_rect)
+ {
+-	psd_uint layer_info_data;
++	psd_pointer layer_info_data;
+ 	psd_layer_hue_saturation * data = NULL;
+ 	psd_int i, j, increase, range_value[4];
+ 
+diff -ur ./libpsd_source_original/src/image_resource.c ./libpsd_source/src/image_resource.c
+--- ./libpsd_source_original/src/image_resource.c	2007-02-24 19:06:10.000000000 +0300
++++ ./libpsd_source/src/image_resource.c	2017-10-10 11:46:52.802476100 +0300
+@@ -39,6 +39,7 @@
+ #include <libxml/parser.h>
+ #endif
+ 
++#define DISABLE_SLICES 1
+ 
+ extern psd_status psd_thumbnail_decode_jpeg(psd_argb_color ** dst_image, psd_int compress_len, psd_context * context);
+ extern psd_status psd_thumbnail_decode_raw(psd_argb_color ** dst_image, psd_int image_len, psd_context * context);
+@@ -114,6 +115,8 @@
+ 						continue;
+ 					}
+ 					break;
++				default:
++					break;
+ 			}
+ 
+ 			prev_stream_pos = context->stream.current_pos;
+@@ -479,6 +482,7 @@
+ 						break;
+ 						
+ 					// (Photoshop 6.0) Slices
++#if (!DISABLE_SLICES)
+ 					case 1050:
+ 						// Version ( = 6)
+ 						psd_assert(psd_stream_get_int(context) == 6);
+@@ -535,7 +539,7 @@
+ 						}
+ 						context->fill_slices_resource = psd_true;
+ 						break;
+-
++#endif
+ 					// (Photoshop 6.0) URL List
+ 					case 1054:
+ 						// 4 byte count of URLs
+@@ -630,12 +634,21 @@
+ 
+ 					// (Photoshop CS) Pixel Aspect Ratio
+ 					case 1064:
++					{
+ 						// 4 bytes (version = 1)
+-						psd_assert(psd_stream_get_int(context) == 1);
+-						// 8 bytes double, x / y of a pixel
++						psd_int num_aspects = psd_stream_get_int(context);
++						psd_assert((num_aspects == 1) || (num_aspects == 2));
++						if (num_aspects == 1)
++						{
+ 						context->pixel_aspect_ratio = psd_stream_get_double(context);
++						}
++						else
++						{
++							context->pixel_aspect_ratio = psd_stream_get_float(context);
++							psd_stream_get_float(context);
++						}
+ 						break;
+-
++					}
+ 					// Print flags information
+ 					case 10000:
+ 						// 2 bytes version ( = 1)
+diff -ur ./libpsd_source_original/src/inner_glow.c ./libpsd_source/src/inner_glow.c
+--- ./libpsd_source_original/src/inner_glow.c	2007-02-01 14:10:48.000000000 +0300
++++ ./libpsd_source/src/inner_glow.c	2017-10-10 11:46:57.820688600 +0300
+@@ -23,6 +23,7 @@
+  * $Id: inner_glow.c, created by Patrick in 2006.06.18, libpsd@graphest.com Exp $
+  */
+ 
++#include <string.h>
+ #include "libpsd.h"
+ #include "psd_config.h"
+ #include "psd_system.h"
+diff -ur ./libpsd_source_original/src/inner_shadow.c ./libpsd_source/src/inner_shadow.c
+--- ./libpsd_source_original/src/inner_shadow.c	2007-02-01 14:12:16.000000000 +0300
++++ ./libpsd_source/src/inner_shadow.c	2017-10-10 11:47:01.300302400 +0300
+@@ -24,6 +24,7 @@
+  */
+ 
+ #include <math.h>
++#include <string.h>
+ #include "libpsd.h"
+ #include "psd_config.h"
+ #include "psd_system.h"
+diff -ur ./libpsd_source_original/src/layer_mask.c ./libpsd_source/src/layer_mask.c
+--- ./libpsd_source_original/src/layer_mask.c	2007-02-06 19:34:24.000000000 +0300
++++ ./libpsd_source/src/layer_mask.c	2017-10-10 11:47:13.760912200 +0300
+@@ -30,9 +30,9 @@
+ 
+ 
+ extern psd_status psd_get_layer_levels(psd_context * context, psd_layer_record * layer, psd_int data_length);
+-extern void psd_layer_levels_free(psd_uint info_data);
++extern void psd_layer_levels_free(psd_pointer info_data);
+ extern psd_status psd_get_layer_curves(psd_context * context, psd_layer_record * layer, psd_int data_length);
+-extern void psd_layer_curves_free(psd_uint info_data);
++extern void psd_layer_curves_free(psd_pointer info_data);
+ extern psd_status psd_get_layer_brightness_contrast(psd_context * context, psd_layer_record * layer);
+ extern psd_status psd_get_layer_color_balance(psd_context * context, psd_layer_record * layer);
+ extern psd_status psd_get_layer_hue_saturation(psd_context * context, psd_layer_record * layer);
+@@ -43,7 +43,7 @@
+ extern psd_status psd_get_layer_channel_mixer(psd_context * context, psd_layer_record * layer);
+ extern psd_status psd_get_layer_photo_filter(psd_context * context, psd_layer_record * layer);
+ extern psd_status psd_get_layer_gradient_map(psd_context * context, psd_layer_record * layer);
+-extern void psd_layer_gradient_map_free(psd_uint info_data);
++extern void psd_layer_gradient_map_free(psd_pointer info_data);
+ extern psd_status psd_get_layer_effects(psd_context * context, psd_layer_record * layer);
+ extern psd_status psd_get_layer_effects2(psd_context * context, psd_layer_record * layer);
+ extern psd_status psd_get_layer_solid_color(psd_context * context, psd_layer_record * layer);
+@@ -53,9 +53,9 @@
+ extern psd_status psd_get_layer_type_tool(psd_context * context, psd_layer_record * layer);
+ extern psd_status psd_get_pattern(psd_context * context);
+ extern psd_status psd_get_layer_vector_mask(psd_context * context, psd_layer_record * layer, psd_int size);
+-extern void psd_layer_type_tool_free(psd_uint info_data);
++extern void psd_layer_type_tool_free(psd_pointer info_data);
+ extern void psd_layer_vector_mask_free(psd_layer_record * layer);
+-extern void psd_layer_effects_free(psd_uint layer_info);
++extern void psd_layer_effects_free(psd_pointer layer_info);
+ extern void psd_pattern_free(psd_context * context);
+ static void psd_layer_free(psd_layer_record * layer);
+ 
+@@ -495,6 +495,11 @@
+ 		// LAYER BLENDING RANGES DATA
+ 		// Length of layer blending ranges data
+ 		size = psd_stream_get_int(context);
++		if (size == 0)
++		{
++			psd_layer_free(layer);
++			return psd_status_invalid_blending_channels;
++		}
+ 
+ 		// Composite gray blend source. Contains 2 black values followed by 2
+ 		// white values. Present but irrelevant for Lab & Grayscale.
+@@ -600,12 +605,12 @@
+ 				case 'phfl':
+ 					status = psd_get_layer_photo_filter(context, layer);
+ 					break;
+-				case 'lrFX':
+-					status = psd_get_layer_effects(context, layer);
+-					break;
+-				case 'lfx2':
+-					status = psd_get_layer_effects2(context,layer);
+-					break;
++				// case 'lrFX':
++				//	status = psd_get_layer_effects(context, layer);
++				//	break;
++				// case 'lfx2':
++				//	status = psd_get_layer_effects2(context,layer);
++				//	break;
+ 				case 'tySh':
+ 					status = psd_get_layer_type_tool(context, layer);
+ 					break;
+@@ -720,7 +725,7 @@
+ 			case psd_layer_type_folder:
+ 				group_layer = layer;
+ 				break;
+-			case psd_layer_type_hidden:
++			default:
+ 				group_layer = NULL;
+ 				break;
+ 		}
+diff -ur ./libpsd_source_original/src/levels.c ./libpsd_source/src/levels.c
+--- ./libpsd_source_original/src/levels.c	2007-01-28 19:16:28.000000000 +0300
++++ ./libpsd_source/src/levels.c	2017-10-10 11:47:19.491815200 +0300
+@@ -52,7 +52,7 @@
+ 	if(data == NULL)
+ 		return psd_status_malloc_failed;
+ 	memset(data, 0, sizeof(psd_layer_levels));
+-	layer->layer_info_data[layer->layer_info_count] = (psd_uint)data;
++	layer->layer_info_data[layer->layer_info_count] = (psd_pointer)data;
+ 	layer->layer_info_count ++;
+ 	
+ 	// Version ( = 2)
+@@ -133,7 +133,7 @@
+ 	return psd_status_done;
+ }
+ 
+-void psd_layer_levels_free(psd_uint info_data)
++void psd_layer_levels_free(psd_pointer info_data)
+ {
+ 	psd_layer_levels * data;
+ 
+diff -ur ./libpsd_source_original/src/pattern_fill.c ./libpsd_source/src/pattern_fill.c
+--- ./libpsd_source_original/src/pattern_fill.c	2007-01-30 16:48:46.000000000 +0300
++++ ./libpsd_source/src/pattern_fill.c	2017-10-10 11:47:23.462274100 +0300
+@@ -45,7 +45,7 @@
+ 	if(data == NULL)
+ 		return psd_status_malloc_failed;
+ 	memset(data, 0, sizeof(psd_layer_pattern_fill));
+-	layer->layer_info_data[layer->layer_info_count] = (psd_uint)data;
++	layer->layer_info_data[layer->layer_info_count] = (psd_pointer)data;
+ 	layer->layer_info_count ++;
+ 
+ 	// Version ( = 16 for Photoshop 6.0)
+diff -ur ./libpsd_source_original/src/photo_filter.c ./libpsd_source/src/photo_filter.c
+--- ./libpsd_source_original/src/photo_filter.c	2007-01-28 15:34:06.000000000 +0300
++++ ./libpsd_source/src/photo_filter.c	2017-10-10 11:47:27.631701200 +0300
+@@ -41,7 +41,7 @@
+ 	if(data == NULL)
+ 		return psd_status_malloc_failed;
+ 	memset(data, 0, sizeof(psd_layer_photo_filter));
+-	layer->layer_info_data[layer->layer_info_count] = (psd_uint)data;
++	layer->layer_info_data[layer->layer_info_count] = (psd_pointer)data;
+ 	layer->layer_info_count ++;
+ 
+ 	// Version ( = 3)
+diff -ur ./libpsd_source_original/src/posterize.c ./libpsd_source/src/posterize.c
+--- ./libpsd_source_original/src/posterize.c	2007-01-28 19:14:00.000000000 +0300
++++ ./libpsd_source/src/posterize.c	2017-10-10 11:47:31.062145200 +0300
+@@ -45,7 +45,7 @@
+ 	if(data == NULL)
+ 		return psd_status_malloc_failed;
+ 	memset(data, 0, sizeof(psd_layer_posterize));
+-	layer->layer_info_data[layer->layer_info_count] = (psd_uint)data;
++	layer->layer_info_data[layer->layer_info_count] = (psd_pointer)data;
+ 	layer->layer_info_count ++;
+ 
+ 	// (2...255)
+diff -ur ./libpsd_source_original/src/psd_gradient.h ./libpsd_source/src/psd_gradient.h
+--- ./libpsd_source_original/src/psd_gradient.h	2007-01-27 13:28:30.000000000 +0300
++++ ./libpsd_source/src/psd_gradient.h	2017-10-10 11:47:36.245752900 +0300
+@@ -21,8 +21,6 @@
+ 	psd_int start_x, psd_int start_y, psd_int end_x, psd_int end_y);
+ psd_status psd_gradient_fill_diamond(psd_bitmap * bitmap, psd_gradient_color * gradient_color, psd_bool reverse,
+ 	psd_int center_x, psd_int center_y, psd_int radius, psd_int angle);
+-psd_float psd_carm_sqrt(psd_float x);
+-
+ 
+ #ifdef __cplusplus
+ }
+diff -ur ./libpsd_source_original/src/psd_system.h ./libpsd_source/src/psd_system.h
+--- ./libpsd_source_original/src/psd_system.h	2007-02-06 17:07:14.000000000 +0300
++++ ./libpsd_source/src/psd_system.h	2017-10-10 11:47:43.716484500 +0300
+@@ -2,6 +2,7 @@
+ #define __PSD_SYSTEM_H__
+ 
+ #include <assert.h>
++#include <string.h>
+ #include "psd_types.h"
+ 
+ #ifdef __cplusplus
+@@ -10,7 +11,7 @@
+ 
+ 
+ #if 1
+-#define psd_assert(x)			assert(x)
++#define psd_assert(x)			do { int r = (x); assert(r); (void)r; } while(0)
+ #else
+ #define psd_assert(x)			do {} while(0)
+ // or
+diff -ur ./libpsd_source_original/src/psd_zip.c ./libpsd_source/src/psd_zip.c
+--- ./libpsd_source_original/src/psd_zip.c	2007-02-05 09:20:06.000000000 +0300
++++ ./libpsd_source/src/psd_zip.c	2017-10-10 11:47:48.068388700 +0300
+@@ -23,6 +23,7 @@
+  * $Id: psd_zip.c, created by Patrick in 2007.02.02, libpsd@graphest.com Exp $
+  */
+ 
++#include <string.h>
+ #include "libpsd.h"
+ #include "psd_config.h"
+ 
+diff -ur ./libpsd_source_original/src/rect.c ./libpsd_source/src/rect.c
+--- ./libpsd_source_original/src/rect.c	2007-01-28 15:34:52.000000000 +0300
++++ ./libpsd_source/src/rect.c	2017-10-10 11:47:52.115314300 +0300
+@@ -23,6 +23,7 @@
+  * $Id: rect.c, created by Patrick in 2005.06.01, libpsd@graphest.com Exp $
+  */
+ 
++#include <string.h>
+ #include "libpsd.h"
+ #include "psd_rect.h"
+ #include "psd_math.h"
+diff -ur ./libpsd_source_original/src/selective_color.c ./libpsd_source/src/selective_color.c
+--- ./libpsd_source_original/src/selective_color.c	2007-01-28 17:35:04.000000000 +0300
++++ ./libpsd_source/src/selective_color.c	2017-10-10 11:48:02.222241300 +0300
+@@ -31,9 +31,9 @@
+ #include "psd_math.h"
+ 
+ 
+-typedef void psd_adjustment_blend_proc(psd_uint layer_info_data, psd_int * red, psd_int * green, psd_int * blue);
++typedef void psd_adjustment_blend_proc(psd_pointer layer_info_data, psd_int * red, psd_int * green, psd_int * blue);
+ extern void psd_adjustment_blend_color(psd_context * context, psd_layer_record * layer, psd_rect * dst_rect, 
+-	psd_adjustment_blend_proc * blend_proc, psd_uint layer_info_data);
++	psd_adjustment_blend_proc * blend_proc, psd_pointer layer_info_data);
+ 
+ 
+ psd_status psd_get_layer_selective_color(psd_context * context, psd_layer_record * layer)
+@@ -48,7 +48,7 @@
+ 	if(data == NULL)
+ 		return psd_status_malloc_failed;
+ 	memset(data, 0, sizeof(psd_layer_selective_color));
+-	layer->layer_info_data[layer->layer_info_count] = (psd_uint)data;
++	layer->layer_info_data[layer->layer_info_count] = (psd_pointer)data;
+ 	layer->layer_info_count ++;
+ 
+ 	// Version ( = 1)
+@@ -86,7 +86,7 @@
+ 	return psd_status_done;
+ }
+ 
+-static void psd_selective_color_proc(psd_uint layer_info_data, psd_int * red, psd_int * green, psd_int * blue)
++static void psd_selective_color_proc(psd_pointer layer_info_data, psd_int * red, psd_int * green, psd_int * blue)
+ {
+ 	psd_layer_selective_color * data = (psd_layer_selective_color *)layer_info_data;
+ 	psd_int hue, saturation, lightness;
+@@ -186,7 +186,7 @@
+ 
+ psd_bool psd_layer_blend_selective_color(psd_context * context, psd_layer_record * layer, psd_rect * dst_rect)
+ {
+-	psd_uint layer_info_data;
++	psd_pointer layer_info_data;
+ 	psd_layer_selective_color * data = NULL;
+ 	psd_int i;
+ 
+diff -ur ./libpsd_source_original/src/solid_color.c ./libpsd_source/src/solid_color.c
+--- ./libpsd_source_original/src/solid_color.c	2007-01-30 10:23:42.000000000 +0300
++++ ./libpsd_source/src/solid_color.c	2017-10-10 11:48:05.870971400 +0300
+@@ -44,7 +44,7 @@
+ 	if(data == NULL)
+ 		return psd_status_malloc_failed;
+ 	memset(data, 0, sizeof(psd_layer_solid_color));
+-	layer->layer_info_data[layer->layer_info_count] = (psd_uint)data;
++	layer->layer_info_data[layer->layer_info_count] = (psd_pointer)data;
+ 	layer->layer_info_count ++;
+ 
+ 	// Version ( = 16 for Photoshop 6.0)
+diff -ur ./libpsd_source_original/src/stroke.c ./libpsd_source/src/stroke.c
+--- ./libpsd_source_original/src/stroke.c	2007-01-30 16:49:48.000000000 +0300
++++ ./libpsd_source/src/stroke.c	2017-10-10 11:48:09.919626700 +0300
+@@ -482,7 +482,7 @@
+ 				radius_y = height;
+ 				radius_x = (psd_int)(radius_y / PSD_TAN(angle) + 0.5);
+ 			}
+-			radius_corner = (psd_int)(psd_carm_sqrt((psd_float)(radius_x * radius_x + radius_y * radius_y)) + 0.5);
++			radius_corner = (psd_int)(sqrtf((psd_float)(radius_x * radius_x + radius_y * radius_y)) + 0.5);
+ 
+ 			switch(stroke->gradient_style)
+ 			{
+diff -ur ./libpsd_source_original/src/threshold.c ./libpsd_source/src/threshold.c
+--- ./libpsd_source_original/src/threshold.c	2007-01-28 15:36:30.000000000 +0300
++++ ./libpsd_source/src/threshold.c	2017-10-10 11:48:16.775044300 +0300
+@@ -45,7 +45,7 @@
+ 	if(data == NULL)
+ 		return psd_status_malloc_failed;
+ 	memset(data, 0, sizeof(psd_layer_threshold));
+-	layer->layer_info_data[layer->layer_info_count] = (psd_uint)data;
++	layer->layer_info_data[layer->layer_info_count] = (psd_pointer)data;
+ 	layer->layer_info_count ++;
+ 
+ 	// (1...255)
+@@ -62,7 +62,7 @@
+ 
+ psd_bool psd_layer_blend_threshold(psd_context * context, psd_layer_record * layer, psd_rect * dst_rect)
+ {
+-	psd_uint layer_info_data;
++	psd_pointer layer_info_data;
+ 	psd_layer_threshold * data = NULL;
+ 	psd_int i;
+ 	psd_uchar lookup_table[256];
+diff -ur ./libpsd_source_original/src/type_tool.c ./libpsd_source/src/type_tool.c
+--- ./libpsd_source_original/src/type_tool.c	2007-01-30 16:50:10.000000000 +0300
++++ ./libpsd_source/src/type_tool.c	2017-10-10 11:48:23.365773000 +0300
+@@ -41,7 +41,7 @@
+ 	if(data == NULL)
+ 		return psd_status_malloc_failed;
+ 	memset(data, 0, sizeof(psd_layer_type_tool));
+-	layer->layer_info_data[layer->layer_info_count] = (psd_uint)data;
++	layer->layer_info_data[layer->layer_info_count] = (psd_pointer)data;
+ 	layer->layer_info_count ++;
+ 
+ 	// Version ( = 1)
+@@ -205,7 +205,7 @@
+ 	return psd_status_done;
+ }
+ 
+-void psd_layer_type_tool_free(psd_uint info_data)
++void psd_layer_type_tool_free(psd_pointer info_data)
+ {
+ 	psd_layer_type_tool * data;
+ 	psd_int i;

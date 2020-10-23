@@ -1,0 +1,30 @@
+diff -ur ./libxml2_source_original/include/win32config.h ./libxml2_source/include/win32config.h
+--- ./libxml2_source_original/include/win32config.h	2010-10-12 09:25:32.000000000 +0300
++++ ./libxml2_source/include/win32config.h	2017-08-17 15:31:32.100774500 +0300
+@@ -94,8 +94,10 @@
+ #endif /* _MSC_VER */
+ 
+ #if defined(_MSC_VER)
++#if _MSC_VER < 1900
+ #define mkdir(p,m) _mkdir(p)
+ #define snprintf _snprintf
++#endif
+ #if _MSC_VER < 1500
+ #define vsnprintf(b,c,f,a) _vsnprintf(b,c,f,a)
+ #endif
+diff -ur ./libxml2_source_original/win32/Makefile.msvc ./libxml2_source/win32/Makefile.msvc
+--- ./libxml2_source_original/win32/Makefile.msvc	2010-11-04 17:58:43.000000000 +0300
++++ ./libxml2_source/win32/Makefile.msvc	2017-08-17 15:31:49.300416300 +0300
+@@ -71,9 +71,9 @@
+ !if "$(WITH_ICONV)" == "1"
+ LIBS = $(LIBS) iconv.lib
+ !endif 
+-+!if "$(WITH_ICU)" == "1"
+-+LIBS = $(LIBS) icu.lib
+-+!endif
++!if "$(WITH_ICU)" == "1"
++LIBS = $(LIBS) icu.lib
++!endif
+ !if "$(WITH_ZLIB)" == "1"
+ LIBS = $(LIBS) zdll.lib
+ !endif

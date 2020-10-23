@@ -1,0 +1,3 @@
+#!/bin/sh
+
+RepoTools/Codeformat/hook_script

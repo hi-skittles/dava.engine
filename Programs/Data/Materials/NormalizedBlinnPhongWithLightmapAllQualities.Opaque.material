@@ -1,0 +1,3 @@
+MaterialTemplate:
+    HIGH : "~res:/Materials/NormalizedBlinnPhongWithLightmapPerPixel.Opaque.material"
+    LOW : "~res:/Materials/NormalizedBlinnPhongWithLightmapPerVertex.Opaque.material"

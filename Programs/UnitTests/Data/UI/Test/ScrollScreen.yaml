@@ -1,0 +1,45 @@
+Scrollview:
+    bottomAlign: 20
+    clip: "true"
+    drawType: "DRAW_ALIGNED"
+    leftAlign: 0
+    rect: [0.0000, 0.0000, 940.0000, 120.0000]
+    rightAlign: 20
+    topAlign: 0
+    type: "UIScrollView"
+    scrollContainerControl:
+        drawType: "DRAW_ALIGNED"
+        rect: [0.0000, 0.0000, 1500.0000, 2000.0000]
+        type: "UIScrollViewContainer"
+        BigContent:
+            drawType: "DRAW_FILL"
+            noInput: "true"
+            rect: [0.0000, 0.0000, 1500.0000, 2000.0000]
+            type: "UIControl"
+            UIControl1:
+                color: [0.6431, 0.0627, 1.0000, 1.0000]
+                drawType: "DRAW_FILL"
+                noInput: "true"
+                rect: [420.0000, 336.0000, 201.0000, 173.0000]
+                type: "UIControl"
+
+VerticalScrollbar:
+    UIScrollBarDelegate: "Scrollview"
+    baseType: "UIControl"
+    bottomAlign: 20
+    drawType: "DRAW_ALIGNED"
+    rect: [940.0000, 0.0000, 20.0000, 620.0000]
+    rightAlign: 0
+    topAlign: 0
+    type: "UIScrollBar"
+
+HorizontalScrollbar:
+    UIScrollBarDelegate: "Scrollview"
+    baseType: "UIControl"
+    bottomAlign: 0
+    drawType: "DRAW_ALIGNED"
+    leftAlign: 0
+    rect: [0.0000, 620.0000, 940.0000, 20.0000]
+    rightAlign: 20
+    type: "UIScrollBar"
+

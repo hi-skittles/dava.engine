@@ -1,0 +1,117 @@
+# a comment - this is ignored
+#*.a       # no .a files
+#!lib.a    # but do track lib.a, even though you're ignoring .a files above
+#/TODO     # only ignore the root TODO file, not subdir/TODO
+build
+build/     # ignore all files in the build/ directory
+/build     # ignore all files in the build/ directory
+/build/    # ignore all files in the build/ directory
+_build/    # ignore all files in the _build/ directory
+Libs/
+Modules/
+cmake_build/
+cmake_repo/
+cmake_prebuilt/
+xcuserdata/
+/xcuserdata
+/xcuserdata/
+$process/
+/$process
+/$process/
+.DS_Store
+*.pbxuser
+#doc/*.txt # ignore doc/notes.txt, but not doc/server/arch.txt
+Documentation/doxygen/*
+Debug
+Debug_Win32
+DebugQt
+_DebugQt
+Release
+Release_Win32
+ReleaseQt
+_ReleaseQt
+_build*
+.build*
+*Generated*
+*.vcxproj.user
+*.suo
+*.sdf
+*.opensdf
+*.ipch
+*.unityignore
+unityignore
+!*.cpp
+!*.h
+ddd
+/ParticleEditorGraphIssues/
+/scene_sample/
+/scene_sample_multi/
+/testproj/
+fmod.log
+*.user
+/DavaConfig.in
+*.xccheckout
+
+.vs
+.tup
+.idea
+.gradle
+.externalNativeBuild
+AppPackages
+
+!/Libs/lib_CMake/win10/arm/Debug
+!/Libs/lib_CMake/win10/arm/Release
+!/Libs/lib_CMake/win10/x64/Debug
+!/Libs/lib_CMake/win10/x64/Release
+!/Libs/lib_CMake/win10/Win32/Debug
+!/Libs/lib_CMake/win10/Win32/Release
+!/Libs/lib_CMake/win/x86/Release
+!/Libs/lib_CMake/win/x86/Debug
+!/Libs/lib_CMake/win/x86/NGT/Release
+!/Libs/lib_CMake/win/x86/NGT/Debug
+!/Libs/lib_CMake/win/x64/Release
+!/Libs/lib_CMake/win/x64/Debug
+!/Libs/lib_CMake/win/x64/NGT/Release
+!/Libs/lib_CMake/win/x64/NGT/Debug
+!/Sources/Internal/Debug
+!/Modules/FBX/Thirdparty/lib/**/debug
+!/Modules/FBX/Thirdparty/lib/**/release
+!/Modules/**/Libs
+!/Modules/**/Libs/**/Debug
+!/Modules/**/Libs/**/Release
+
+Programs/AndroidFramework/tmp-src
+Programs/UnitTests/android/assets
+Programs/UnitTests/android/.settings/*
+Programs/TestBed/android/assets/
+Programs/TestBed/android/obj/
+Programs/TestBed/android/bin/
+Programs/TestBed/android/libs/
+Programs/TestBed/android/gen/
+Programs/TestBed/android/.settings/
+global_setting.settings
+.vscode/
+
+local.properties
+
+# Python scripts cache
+*.pyc
+Doc/Doxygen/doxygen/
+Tools/support/total_commander_plugins/packer_wcx/.cproject
+Tools/support/total_commander_plugins/packer_wcx/.gitignore
+Tools/support/total_commander_plugins/packer_wcx/.project
+Tools/support/total_commander_plugins/packer_wcx/.settings/language.settings.xml
+Tools/support/total_commander_plugins/packer_wcx/.settings/org.eclipse.cdt.managedbuilder.core.prefs
+Programs/support/total_commander_plugins/packer_wcx/.cproject
+Programs/support/total_commander_plugins/packer_wcx/.gitignore
+Programs/support/total_commander_plugins/packer_wcx/.project
+Programs/support/total_commander_plugins/packer_wcx/.settings/language.settings.xml
+Programs/support/total_commander_plugins/packer_wcx/.settings/org.eclipse.cdt.managedbuilder.core.prefs
+Thirdparty/output/
+Bin/Toolset/
+*.iml
+Programs/UnitTests/android-studio/gradle/wrapper/
+Programs/UnitTests/android-studio/gradlew
+Programs/UnitTests/android-studio/gradlew.bat
+Programs/TestBed/Platforms/Android/TestBed/assets/
+Programs/TestBed/Data/local_meta.db

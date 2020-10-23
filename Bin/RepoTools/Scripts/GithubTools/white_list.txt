@@ -1,0 +1,89 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# File name: white_list.txt                                             #
+# This file contains a list of paths to load into the GitHub repository #
+#                                                                       #
+# WARNING: Beast And SpeedTree should never been in white list!!!       #
+#                                                                       #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+/.git # Example comment for path/dir/file
+/Bin/CMakeLinux
+/Bin/CMakeMac
+/Bin/CMakeWin10
+/Bin/CMakeWin32
+/Bin/doxygen
+/Bin/lua
+/Bin/RepoTools/Scripts/GithubTools
+!/Bin/RepoTools/Scripts/GithubTools/white_list.txt # ! way beginning with "!" is an exception path
+/Bin/RepoTools/Scripts/dava_build_wrapper.py
+/Bin/RepoTools/Scripts/remove_BOM.py
+/Bin/7z.dll
+/Bin/7z.exe
+/Bin/7za
+/Bin/avcodec-57.dll
+/Bin/avformat-57.dll
+/Bin/avformat-57.dll
+/Bin/avutil-55.dll
+/Bin/distance_generator
+/Bin/distance_generator.exe
+/Bin/fmod_event64.dll
+/Bin/fmodex64.dll
+/Bin/glew32.dll
+/Bin/Qt5Core.dll
+/Bin/ResourceArchiver
+/Bin/ResourceArchiver.exe
+/Bin/sqlite3
+/Bin/sqlite3.exe
+/Bin/swresample-2.dll
+/Bin/swscale-4.dll
+/Bin/TextureConverter.dll
+/Bin/tup
+/Bin/tup.exe
+/Bin/tup32detect.exe
+/Bin/tup-dllinject.dll
+/Bin/tup-dllinject32.dll
+/Bin/UWPRunner.exe
+/Docs
+/Libs
+/Modules/AssetCache
+/Modules/CEFWebview
+/Modules/DocDirSetup
+/Modules/EditorPhysics
+/Modules/EmbeddedWebServer
+/Modules/FBX
+/Modules/LoggerService
+/Modules/MemoryProfilerService
+/Modules/NetworkCore
+/Modules/NetworkHelpers
+/Modules/Physics
+/Modules/PhysicsDebug
+/Modules/QtHelpers
+/Modules/QtTools
+/Modules/RemoteTool
+/Modules/REPlatform
+/Modules/ResourceArchiverModule
+/Modules/Sample
+/Modules/SamplePlugin
+/Modules/ScenePerformanceTests
+/Modules/Sound
+/Modules/Spine
+/Modules/TArc
+/Modules/TestCharacterController
+/Modules/TextureCompression
+/Modules/TexturePacker
+/Modules/Version
+/Modules/VisualScript
+/Modules/VisualScriptEditor
+/Platforms
+/Programs
+!/Programs/REPlugins/TerrainConverter
+!/Programs/NetworkTestGame/Data
+!/Programs/NetworkTestGame/DataSource
+/RepoTools
+/Sources
+/Thirdparty
+/.clang-format
+/.gitignore
+/.gitmodules
+/build_tools.py
+/LICENSE
+/README

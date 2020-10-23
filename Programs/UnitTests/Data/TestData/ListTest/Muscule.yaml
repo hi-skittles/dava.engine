@@ -1,0 +1,82 @@
+UIButton1:
+    color: [0.3333, 0.3333, 1.0000, 1.0000]
+    rect: [0.0000, 0.0000, 42.0000, 30.0000]
+    stateDrawTypeDisabled: "DRAW_SCALE_TO_RECT"
+    stateDrawTypeHover: "DRAW_SCALE_TO_RECT"
+    stateDrawTypeNormal: "DRAW_FILL"
+    stateDrawTypePressedInside: "DRAW_SCALE_TO_RECT"
+    stateDrawTypePressedOutside: "DRAW_SCALE_TO_RECT"
+    stateDrawTypeSelected: "DRAW_SCALE_TO_RECT"
+    stateFontDisabled: "Font_0"
+    stateFontHover: "Font_0"
+    stateFontNormal: "Font_0"
+    stateFontPressedInside: "Font_0"
+    stateFontPressedOutside: "Font_0"
+    stateFontSelected: "Font_0"
+    stateShadowcolorDisabled: [0.0000, 0.0000, 0.0000, 1.0000]
+    stateShadowcolorHover: [0.0000, 0.0000, 0.0000, 1.0000]
+    stateShadowcolorNormal: [0.0000, 0.0000, 0.0000, 1.0000]
+    stateShadowcolorPressedInside: [0.0000, 0.0000, 0.0000, 1.0000]
+    stateShadowcolorPressedOutside: [0.0000, 0.0000, 0.0000, 1.0000]
+    stateShadowcolorSelected: [0.0000, 0.0000, 0.0000, 1.0000]
+    stateShadowoffsetDisabled: [0.0000, 0.0000]
+    stateShadowoffsetHover: [0.0000, 0.0000]
+    stateShadowoffsetNormal: [0.0000, 0.0000]
+    stateShadowoffsetPressedInside: [0.0000, 0.0000]
+    stateShadowoffsetPressedOutside: [0.0000, 0.0000]
+    stateShadowoffsetSelected: [0.0000, 0.0000]
+    stateTextDisabled: "UIButton1"
+    stateTextHover: "UIButton1"
+    stateTextNormal: "One"
+    stateTextPressedInside: "UIButton1"
+    stateTextPressedOutside: "UIButton1"
+    stateTextSelected: "UIButton1"
+    stateTextcolorDisabled: [1.0000, 1.0000, 1.0000, 1.0000]
+    stateTextcolorHover: [1.0000, 1.0000, 1.0000, 1.0000]
+    stateTextcolorNormal: [1.0000, 1.0000, 0.0000, 1.0000]
+    stateTextcolorPressedInside: [1.0000, 1.0000, 1.0000, 1.0000]
+    stateTextcolorPressedOutside: [1.0000, 1.0000, 1.0000, 1.0000]
+    stateTextcolorSelected: [1.0000, 1.0000, 1.0000, 1.0000]
+    type: "UIButton"
+
+UIButton2:
+    color: [0.3333, 1.0000, 0.4980, 1.0000]
+    rect: [43.0000, 0.0000, 56.0000, 30.0000]
+    stateDrawTypeDisabled: "DRAW_FILL"
+    stateDrawTypeHover: "DRAW_FILL"
+    stateDrawTypeNormal: "DRAW_FILL"
+    stateDrawTypePressedInside: "DRAW_FILL"
+    stateDrawTypePressedOutside: "DRAW_FILL"
+    stateDrawTypeSelected: "DRAW_FILL"
+    stateFontDisabled: "Font_0"
+    stateFontHover: "Font_0"
+    stateFontNormal: "Font_0"
+    stateFontPressedInside: "Font_0"
+    stateFontPressedOutside: "Font_0"
+    stateFontSelected: "Font_0"
+    stateShadowcolorDisabled: [0.0000, 0.0000, 0.0000, 1.0000]
+    stateShadowcolorHover: [0.0000, 0.0000, 0.0000, 1.0000]
+    stateShadowcolorNormal: [0.0000, 0.0000, 0.0000, 1.0000]
+    stateShadowcolorPressedInside: [0.0000, 0.0000, 0.0000, 1.0000]
+    stateShadowcolorPressedOutside: [0.0000, 0.0000, 0.0000, 1.0000]
+    stateShadowcolorSelected: [0.0000, 0.0000, 0.0000, 1.0000]
+    stateShadowoffsetDisabled: [0.0000, 0.0000]
+    stateShadowoffsetHover: [0.0000, 0.0000]
+    stateShadowoffsetNormal: [0.0000, 0.0000]
+    stateShadowoffsetPressedInside: [0.0000, 0.0000]
+    stateShadowoffsetPressedOutside: [0.0000, 0.0000]
+    stateShadowoffsetSelected: [0.0000, 0.0000]
+    stateTextDisabled: "UIButton2"
+    stateTextHover: "UIButton2"
+    stateTextNormal: "Two"
+    stateTextPressedInside: "UIButton2"
+    stateTextPressedOutside: "UIButton2"
+    stateTextSelected: "UIButton2"
+    stateTextcolorDisabled: [1.0000, 1.0000, 1.0000, 1.0000]
+    stateTextcolorHover: [1.0000, 1.0000, 1.0000, 1.0000]
+    stateTextcolorNormal: [1.0000, 0.0000, 0.0000, 1.0000]
+    stateTextcolorPressedInside: [1.0000, 1.0000, 1.0000, 1.0000]
+    stateTextcolorPressedOutside: [1.0000, 1.0000, 1.0000, 1.0000]
+    stateTextcolorSelected: [1.0000, 1.0000, 1.0000, 1.0000]
+    type: "UIButton"
+

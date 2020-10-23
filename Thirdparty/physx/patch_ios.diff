@@ -1,0 +1,630 @@
+PATCHED: switched ARHCS from "$(ARCHS_STANDARD_64_BIT)" to "$(ARCHS_STANDARD_32_64_BIT)"
+
+From 57f48a2cb6776a5362f875a2c041575f7aa108f4 Mon Sep 17 00:00:00 2001
+From: y_rakhuba <y_rakhuba@wargaming.net>
+Date: Mon, 22 May 2017 12:03:37 +0300
+Subject: [PATCH] ios diff
+
+---
+ .../xcode_ios64/PhysX.xcodeproj/project.pbxproj    | 136 ++++++++++-----------
+ 1 file changed, 68 insertions(+), 68 deletions(-)
+
+diff --git a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/xcode_ios64/PhysX.xcodeproj/project.pbxproj b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/xcode_ios64/PhysX.xcodeproj/project.pbxproj
+index 1f64e21..72f615f 100644
+--- a/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/xcode_ios64/PhysX.xcodeproj/project.pbxproj
++++ b/Thirdparty/output/physx/PhysX-3.4-master/PhysX_3.4/Source/compiler/xcode_ios64/PhysX.xcodeproj/project.pbxproj
+@@ -5506,7 +5506,7 @@
+ 		FFF70c0b28007fa90c0b2800 /* release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -5536,7 +5536,7 @@
+ 		FFF70c0b2ef07fa90c0b2ef0 /* debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -5566,7 +5566,7 @@
+ 		FFF70c0b35e07fa90c0b35e0 /* checked */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -5596,7 +5596,7 @@
+ 		FFF70c0b3cd07fa90c0b3cd0 /* profile */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -5626,7 +5626,7 @@
+ 		FFF70c0b44007fa90c0b4400 /* debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -5656,7 +5656,7 @@
+ 		FFF70c0b4af07fa90c0b4af0 /* checked */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -5686,7 +5686,7 @@
+ 		FFF70c0b51e07fa90c0b51e0 /* profile */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -5716,7 +5716,7 @@
+ 		FFF70c0b58d07fa90c0b58d0 /* release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -5746,7 +5746,7 @@
+ 		FFF70c0b60007fa90c0b6000 /* debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -5776,7 +5776,7 @@
+ 		FFF70c0b66f07fa90c0b66f0 /* checked */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -5806,7 +5806,7 @@
+ 		FFF70c0b6de07fa90c0b6de0 /* profile */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -5836,7 +5836,7 @@
+ 		FFF70c0b74d07fa90c0b74d0 /* release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -5866,7 +5866,7 @@
+ 		FFF70c0b7c007fa90c0b7c00 /* debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -5896,7 +5896,7 @@
+ 		FFF70c0b82f07fa90c0b82f0 /* checked */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -5926,7 +5926,7 @@
+ 		FFF70c0b89e07fa90c0b89e0 /* profile */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -5956,7 +5956,7 @@
+ 		FFF70c0b90d07fa90c0b90d0 /* release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -5986,7 +5986,7 @@
+ 		FFF70c0b98007fa90c0b9800 /* debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6016,7 +6016,7 @@
+ 		FFF70c0b9ef07fa90c0b9ef0 /* checked */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6046,7 +6046,7 @@
+ 		FFF70c0ba5e07fa90c0ba5e0 /* profile */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6076,7 +6076,7 @@
+ 		FFF70c0bacd07fa90c0bacd0 /* release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6106,7 +6106,7 @@
+ 		FFF70c0bb4007fa90c0bb400 /* debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6136,7 +6136,7 @@
+ 		FFF70c0bbaf07fa90c0bbaf0 /* checked */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6166,7 +6166,7 @@
+ 		FFF70c0bc1e07fa90c0bc1e0 /* profile */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6196,7 +6196,7 @@
+ 		FFF70c0bc8d07fa90c0bc8d0 /* release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6226,7 +6226,7 @@
+ 		FFF70c0bd0007fa90c0bd000 /* release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6256,7 +6256,7 @@
+ 		FFF70c0bd6f07fa90c0bd6f0 /* debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6286,7 +6286,7 @@
+ 		FFF70c0bdde07fa90c0bdde0 /* checked */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6316,7 +6316,7 @@
+ 		FFF70c0be4d07fa90c0be4d0 /* profile */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6346,7 +6346,7 @@
+ 		FFF70c0110007fa90c011000 /* release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6376,7 +6376,7 @@
+ 		FFF70c0116f07fa90c0116f0 /* debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6406,7 +6406,7 @@
+ 		FFF70c011de07fa90c011de0 /* checked */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6436,7 +6436,7 @@
+ 		FFF70c0124d07fa90c0124d0 /* profile */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6466,7 +6466,7 @@
+ 		FFF70b1a24007fa90b1a2400 /* debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../../PxShared/lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6496,7 +6496,7 @@
+ 		FFF70b1a2af07fa90b1a2af0 /* release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../../PxShared/lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6526,7 +6526,7 @@
+ 		FFF70b1a31e07fa90b1a31e0 /* checked */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../../PxShared/lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6556,7 +6556,7 @@
+ 		FFF70b1a38d07fa90b1a38d0 /* profile */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../../PxShared/lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6586,7 +6586,7 @@
+ 		FFF70c01a0007fa90c01a000 /* debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../../PxShared/lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6616,7 +6616,7 @@
+ 		FFF70c01a6f07fa90c01a6f0 /* release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../../PxShared/lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6646,7 +6646,7 @@
+ 		FFF70c01ade07fa90c01ade0 /* checked */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../../PxShared/lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6676,7 +6676,7 @@
+ 		FFF70c01b4d07fa90c01b4d0 /* profile */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../../PxShared/lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6706,7 +6706,7 @@
+ 		FFF70c02ca007fa90c02ca00 /* debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6736,7 +6736,7 @@
+ 		FFF70c02d0f07fa90c02d0f0 /* checked */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6766,7 +6766,7 @@
+ 		FFF70c02d7e07fa90c02d7e0 /* profile */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6796,7 +6796,7 @@
+ 		FFF70c02ded07fa90c02ded0 /* release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6826,7 +6826,7 @@
+ 		FFF70b1d18007fa90b1d1800 /* debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6856,7 +6856,7 @@
+ 		FFF70b1d1ef07fa90b1d1ef0 /* checked */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6886,7 +6886,7 @@
+ 		FFF70b1d25e07fa90b1d25e0 /* profile */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6916,7 +6916,7 @@
+ 		FFF70b1d2cd07fa90b1d2cd0 /* release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6946,7 +6946,7 @@
+ 		FFF70c0366007fa90c036600 /* debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -6976,7 +6976,7 @@
+ 		FFF70c036cf07fa90c036cf0 /* checked */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7006,7 +7006,7 @@
+ 		FFF70c0373e07fa90c0373e0 /* profile */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7036,7 +7036,7 @@
+ 		FFF70c037ad07fa90c037ad0 /* release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7066,7 +7066,7 @@
+ 		FFF70b1db8007fa90b1db800 /* debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7096,7 +7096,7 @@
+ 		FFF70b1dbef07fa90b1dbef0 /* checked */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7126,7 +7126,7 @@
+ 		FFF70b1dc5e07fa90b1dc5e0 /* profile */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7156,7 +7156,7 @@
+ 		FFF70b1dccd07fa90b1dccd0 /* release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7186,7 +7186,7 @@
+ 		FFF70c040c007fa90c040c00 /* debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7216,7 +7216,7 @@
+ 		FFF70c0412f07fa90c0412f0 /* checked */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7246,7 +7246,7 @@
+ 		FFF70c0419e07fa90c0419e0 /* profile */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7276,7 +7276,7 @@
+ 		FFF70c0420d07fa90c0420d0 /* release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../Lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7306,7 +7306,7 @@
+ 		FFF70c0670007fa90c067000 /* debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../../PxShared/lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7336,7 +7336,7 @@
+ 		FFF70c0676f07fa90c0676f0 /* release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../../PxShared/lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7366,7 +7366,7 @@
+ 		FFF70c067de07fa90c067de0 /* checked */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../../PxShared/lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7396,7 +7396,7 @@
+ 		FFF70c0684d07fa90c0684d0 /* profile */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../../PxShared/lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7426,7 +7426,7 @@
+ 		FFF70c08ce007fa90c08ce00 /* debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../../PxShared/lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7456,7 +7456,7 @@
+ 		FFF70c08d4f07fa90c08d4f0 /* release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../../PxShared/lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7486,7 +7486,7 @@
+ 		FFF70c08dbe07fa90c08dbe0 /* checked */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../../PxShared/lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+@@ -7516,7 +7516,7 @@
+ 		FFF70c08e2d07fa90c08e2d0 /* profile */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
++			CODE_SIGN_IDENTITY = "iPhone Developer"; ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; TARGETED_DEVICE_FAMILY = 2; GCC_VERSION = com.apple.compilers.llvm.clang.1_0; VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)"; IPHONEOS_DEPLOYMENT_TARGET = 7.0; SDKROOT = iphoneos;
+ 				CONFIGURATION_BUILD_DIR = "../../../../PxShared/lib/ios64";
+ 				ALWAYS_SEARCH_USER_PATHS = NO;
+ 				USE_HEADERMAP = NO;
+-- 
+2.10.1 (Apple Git-78)
+

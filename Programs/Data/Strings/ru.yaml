@@ -1,0 +1,270 @@
+﻿#dialog buttons
+dialog.ok: "Ok"
+dialog.cancel: "Отмена"
+dialog.create: "Создать"
+dialog.close: "Закрыть"
+dialog.set: "Установить"
+
+#menu strings
+menu.open: "Открыть" 
+menu.open.open: "Открыть"
+menu.open.openlast: "Последние"
+menu.save: "Сохранить"
+menu.export: "Save to Game"
+menu.export.png: "PNG"
+menu.export.pvr: "PVR"
+menu.export.dxt: "DXT"
+menu.materials: "Материалы"
+menu.createnode: "Создать Node"
+menu.createnode.landscape: "Ландшафт"
+menu.createnode.light: "Источник света"
+menu.createnode.servicenode: "Service Node"
+menu.createnode.box: "Куб"
+menu.createnode.sphere: "Сфера"
+menu.createnode.camera: "Камера"
+menu.createnode.imposter: "Imposter"
+menu.createnode.lodnode: "LodNode"
+menu.createnode.usernode: "UserNode"
+menu.new: "Новая сцена"
+menu.new.emptyscene: "Сцена"
+menu.new.scenewithcamera: "Сцена с камерами"
+menu.openproject: "Открыть проект"
+menu.beast: "Beast"
+menu.landscape: "Ландшафт"
+menu.landscape.colormap: "Color Map"
+menu.landscape.heightmap: "Карта высот"
+menu.viewport: "View Port"
+menu.viewport.iphone: "iPhone"
+menu.viewport.retina: "Retina"
+menu.viewport.ipad: "iPad"
+menu.viewport.default: "По умолчанию"
+menu.textureconvertor: "Конвертор текстур"
+
+#Panels
+panel.graph.scene: "Scene Graph"
+panel.graph.data: "Data Graph"
+panel.level: "Уровень"
+panel.properties: "Свойства"
+panel.library: "Библиотека"
+panel.refresh: "Обновить"
+panel.sceneinfo: "Информация"
+
+#Output
+output.output: "Лог"
+output.camera: "Камера"
+output.clear: "Очистить"
+
+#Graph
+scenegraph.lookatobject: "Look at Object"
+scenegraph.removeobject: "Удалить объект"
+scenegraph.debugflags: "Debug Flags"
+scenegraph.bakematrices: "Bake Matrices"
+scenegraph.buildquadtree: "Build Quad Tree"
+scenegraph.removerootnode: "Remove Root Nodes"
+
+#Library
+library.refresh: "ОБновить библиотеку"
+library.convert: "Конвертировать"
+library.add: "Добавить"
+library.edit: "Редактировать"
+library.reload: "Перезагрузить"
+library.errormessage.failedtocreeatefile: "Ошибка создания файла."
+library.errormessage.filewriteerror: "Ошибка записи в файл."
+library.errormessage.versionistooold: "Версия слишком старая. Переконвертируйте файл."
+library.errormessage.cannotopenfile: "Невозможно открыть файл."
+library.errormessage.wrongextension: "Неправильное разрешение. Используйте *.sce или *.sc2."
+library.errormessage.unknownerror: "Неизвестная ошибка."
+
+#Create Node Headers
+createnode.landscape: "Создание landscape node"
+createnode.light: "Создание light node"
+createnode.servicenode: "Создание service node"
+createnode.box: "Создание box node"
+createnode.sphere: "Создание sphere node"
+createnode.camera: "Создание камеры"
+createnode.imposter: "Создание imposter"
+createnode.lodnode: "Создание lod node"
+createnode.usernode: "Создание user node"
+
+#Create Property Dialog
+createproperty.preset: "Предустановки:"
+createproperty.type: "Тип:"
+createproperty.name: "Имя:"
+
+#Landscape Editor
+landscapeeditor.size: "Размер маски:"
+landscapeeditor.texture0: "Texture0:"
+landscapeeditor.texture1: "Texture1/Detail:"
+landscapeeditor.lightmap: "Light Map:"
+landscapeeditor.maskred: "Маска Red:"
+landscapeeditor.maskgreen: "Маска Green:"
+landscapeeditor.maskblue: "Маска Blue:"
+landscapeeditor.maskalpha: "Маска Alpha:"
+landscapeeditor.savemask: "Сохранить маску"
+landscapeeditor.landscapeeditor: "Редактор ландшафта"
+landscapeeditor.drawstright: "Рисовать/Стирать"
+landscapeeditor.strength: "Сила:"
+landscapeeditor.relative: "Отн/Абс"
+landscapeeditor.average: "Сгладить"
+landscapeeditor.height: "Высота"
+landscapeeditor.showgrid: "Сетка"
+landscapeeditor.averagestrength: "Ср.сила:"
+landscapeeditor.absolutedropper: "Абс&Пипетка"
+
+#Material Editor
+materialeditor.materials: "Материалы:"
+materialeditor.selected: "Выбранные"
+materialeditor.all: "Все"
+materialeditor.nomaterials: "Нет материалов."
+materialeditor.setupfog: "Setup Fog"
+
+#Modification Panel
+modificationpanel.modification: "Modification:"
+
+#property list
+property.changecolor: "Изменить цвет"
+
+#SceneNode Section
+property.scenenode.generalc++: "General C++:"
+property.scenenode.retaincount: "Retain Count:"
+property.scenenode.classname: "Class Name:"
+property.scenenode.c++classname: "C++ Class Name:"
+property.scenenode.scenenode: "Scene Node"
+property.scenenode.ptr: "Ptr to class:"
+
+property.scenenode.name: "Название:"
+property.scenenode.matrixes: "Матрицы"
+property.scenenode.localmatrix: "Local Matrix:"
+property.scenenode.worldmatrix: "World Matrix:"
+property.scenenode.customproperties: "Custom properties"
+property.scenenode.isVisible: "Видимый"
+
+#LightNode Section
+property.lightnode.light: "Источник света"
+property.lightnode.type: "Тип:"
+property.lightnode.color: "Цвет:"
+property.lightnode.staticlight: "Static light"
+property.lightnode.ambient.color: "Ambient color:"
+property.lightnode.diffuse.color: "Diffuse color:"
+property.lightnode.specular.color: "Specular color:"
+
+#CubeNode Section
+property.cubenode.cube: "Cube"
+property.cubenode.length: "Длина:"
+property.cubenode.width: "Ширина:"
+property.cubenode.depth: "Глубина:"
+property.cubenode.color: "Цвет:"
+
+#Mesh Instance Section
+property.meshinstance.meshinstance: "Mesh Instance"
+property.meshinstance.bboxmin: "BBox.min:"
+property.meshinstance.bboxmax: "BBox.max:"
+property.meshinstance.editmaterial: "Редактировать материал"
+property.meshinstance.showtriangles: "Отобразить треугольники"
+property.meshinstance.dynamicshadow.converttovolume: "Convert to shadow volume"
+
+#SphereNode Section
+property.spherenode.sphere: "Сфера"
+property.spherenode.radius: "Радиус:"
+property.spherenode.color: "Цвет:"
+
+#Camera Section
+property.camera.camera: "Камера"
+property.camera.fov: "Fov:"
+property.camera.znear: "zNear:"
+property.camera.zfar: "zFar:"
+property.camera.isortho: "isOrtho:"
+property.camera.position.x: "position.x:"
+property.camera.position.y: "position.y:"
+property.camera.position.z: "position.z:"
+property.camera.target.x: "target.x:"
+property.camera.target.y: "target.y:"
+property.camera.target.z: "target.z:"
+
+#Landscape Section
+property.landscape.landscape: "Ландшафт"
+property.landscape.size: "Size:"
+property.landscape.height: "Высота:"
+property.landscape.lightmap: "Light Map:"
+property.landscape.alphamask: "Alpha Mask:"
+property.landscape.heightmap: "Height Map:"
+property.landscape.texture.color: "Color texture:"
+property.landscape.texture.tile0: "Tile texture 0:"
+property.landscape.texture.tile1: "Tile texture 1:"
+property.landscape.texture.tile2: "Tile texture 2:"
+property.landscape.texture.tile3: "Tile texture 3:"
+property.landscape.texture.tilemask: "Tile mask:"
+property.landscape.texture0.tilex: "Texture 0 Tiling X"
+property.landscape.texture0.tiley: "Texture 0 Tiling Y"
+property.landscape.texture1.tilex: "Texture 1 Tiling X"
+property.landscape.texture1.tiley: "Texture 1 Tiling Y"
+property.landscape.texture2.tilex: "Texture 2 Tiling X"
+property.landscape.texture2.tiley: "Texture 2 Tiling Y"
+property.landscape.texture3.tilex: "Texture 3 Tiling X"
+property.landscape.texture3.tiley: "Texture 3 Tiling Y"
+property.landscape.showgrid: "Показать сетку:"
+property.landscape.tilemode: "Tile mode:"
+property.landscape.texture.tiledtexture: "Tiled texture:"
+property.landscape.generatefulltiled: "Save TiledTexture"
+property.landscape.saveheightmaptopng: "Save height map to PNG"
+
+
+property.landscape.subsection.textures: "Landscape textures: "
+property.landscape.subsection.build_mask: "Merge png texture and alpha mask:"
+
+#Dynamic lighting
+property.meshinstance.dynamicshadow: "Dynamic lighting"
+property.meshinstance.dynamicshadow.enable: "Cast shadow"
+
+#Material
+property.material: "Материал"
+property.material.type: "Тип материала:"
+property.material.name: "Название:"
+property.material.twosided: "Двусторонний:"
+property.material.ambientcolor: "Ambient color:"
+property.material.specularcolor: "Specular color:"
+property.material.diffusecolor: "Diffuse color:"
+property.material.specularshininess: "Specular shininess:"
+property.material.isopaque: "Is Opaque"
+property.material.alphablend: "Alpha blend"
+property.material.blendSrc: "Source factor"
+property.material.blendDst: "Destination factor"
+property.material.dencity: "Dencity:"
+property.material.fogenabled: "Fog enabled:"
+property.material.fogsettings: "Fog Settings"
+property.material.fogcolor: "Fog Color"
+
+
+#LodNode
+property.lodnode: "LodNode"
+property.lodnode.distances: "Расстояние:"
+property.lodnode.forcedistance: "Force Distance"
+property.lodnode.distanceslider: ""
+
+#Settings Dialog
+settings.header: "Настройки"
+settingsdialog.screenwidth: "Ширина"
+settingsdialog.screenheight: "Высота"
+settingsdialog.autosave: "Авто сохранение(мин):"
+settingsdialog.language: "Язык:"
+settingsdialog.output: "Показывать лог:"
+settingsdialog.cameraspeed1: "1-ая скорость камеры:"
+settingsdialog.cameraspeed2: "2-ая скорость камеры:"
+settingsdialog.cameraspeed3: "3-ая скорость камеры:"
+settingsdialog.cameraspeed4: "4-ая скорость камеры:"
+settingsdialog.leftpanelwidth: "Ширина левой панели:"
+settingsdialog.rightpanelwidth: "Ширина правой панели:"
+settingsdialog.drawgrid: "Рисовать сетку в сцене:"
+settingsdialog.imposters: "Включить импостеры:"
+settingsdialog.designername: "Имя пользователя:"
+
+#Color Picker
+colorpicker.r: "Red:"
+colorpicker.g: "Green:"
+colorpicker.b: "Blue:"
+colorpicker.a: "Alpha:"
+
+#Texture Converter
+textureconverter.convert: "Конвертировать"
+textureconverter.notification: "Сохраните уровень после конвертации!"
+textureformatdialog.generatemipmap: "Сгенерировать mipmaps"

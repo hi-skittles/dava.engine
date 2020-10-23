@@ -1,0 +1,139 @@
+#!/usr/bin/env python
+#
+#  convert_3d.py
+#  DAVA SDK
+#
+#  Created by Yury Danilov on 6/14/12.
+#  Copyright (c) 2012 DAVA Consulting, LLC. All rights reserved.
+#
+
+# ResourceEditor.exe -sceneexporter -clean /projects/wot.mobile/Data/3d
+# ResourceEditor.exe -sceneexporter -scene -indir /projects/wot.mobile/DataSource/3d/ -outdir /projects/wot.mobile/Data/3d/ -processfile Maps/level_mp_2_92.sc2
+# ResourceEditor.exe -sceneexporter -scene -indir /projects/wot.mobile/DataSource/3d/ -outdir /projects/wot.mobile/Data/3d/ -processfile Tanks/German/tiger_sniper.sc2
+
+import os
+import sys
+import os.path
+import pickle
+import zlib
+import string
+import platform
+import shutil
+import subprocess
+import datetime
+
+def loadSimpleYamlAsMap(fileName):
+    f = open(fileName)
+    fileLines = f.readlines()
+    f.close()
+    data = {}
+    for fileLine in fileLines:
+        strippedLine = string.strip(fileLine)
+        if 0 != string.find(strippedLine, "#"):
+            lineWords = string.split(strippedLine, ": ")
+            if len(lineWords)==2:
+                data[lineWords[0]] = string.strip(lineWords[1], '"')
+    return data
+    
+def unix_path(path):
+    index = path.find(':')
+    if ( index != -1):
+        path = path[index + 1:]
+    path = path.replace('\\', '/')
+    return path
+    
+def log_time(msg):
+    print "convert_3d.py " + str(msg) + " time: " + str(datetime.datetime.now()).split('.')[0]
+
+def main_convert_3d(): # it's function for external usage
+    processing = []
+
+    currentDir = os.getcwd(); 
+    dataDir =  os.path.realpath(currentDir + "/../Data/3d/")
+    dataSourceDir = os.path.realpath(currentDir + "/3d/")
+    qualityConfigPath = os.path.realpath(currentDir + "/../Data/quality.yaml")
+    print "*** convert_3d.py Launching command line 3D packer - data directory: [" + dataDir + "]"
+    log_time("start")
+
+    subprocess.call([sys.executable, 'touch_Data.py'])
+
+    gpuParams = []
+    gpuParam = 'PowerVR_iOS'
+    
+    if 1 < len(sys.argv):
+        gpuParam = sys.argv[1]
+
+    if gpuParam == 'png':
+        gpuParams.append('-saveNormals')
+    else:
+        gpuParams.append('-gpu')
+        gpuParams.append(gpuParam)
+        print 'converting -gpu ' + gpuParam
+
+    if 2 < len(sys.argv):
+        if sys.argv[2] != '-teamcity':
+            qualityParamIndex = 2
+        else:
+            qualityParamIndex = 3
+            gpuParams.append('-teamcity')
+            print 'converting with teamcity logs'
+        if qualityParamIndex < len(sys.argv):
+            qualityParam = sys.argv[qualityParamIndex]
+            gpuParams.append('-quality')
+            gpuParams.append(qualityParam)
+            print 'converting with -quality ' + qualityParam
+        else:
+            print 'converting with default quality'
+    else:
+        print 'converting with default quality'
+
+    # read and process maps from maps.yaml
+    dataMap = loadSimpleYamlAsMap('../Data/maps.yaml')
+    
+    for (serverMap, localMap) in dataMap.iteritems():
+        if serverMap != "default":
+            mapPath = 'Maps/' + str(localMap)
+            processing.append(mapPath)
+            print mapPath
+
+    dataDir = unix_path(dataDir)
+    dataSourceDir = unix_path(dataSourceDir)
+    qualityConfigPath = unix_path(qualityConfigPath)
+
+    os.chdir("@RES_EDITOR_PATH@")
+    executable = "@RES_EDITOR_BINARY@"
+    
+    print "ex: " + executable
+
+    # export files
+    for i in range(0, len(processing)):
+        log_time("processfile " + processing[i])
+        params = [executable, '-sceneexporter', '-scene', '-indir', dataSourceDir, '-outdir', dataDir, '-processfile', processing[i], '-qualitycfgpath', qualityConfigPath]
+        params.extend(gpuParams)
+        print "[%s]" % ", ".join(map(str, params))
+        os.spawnv(os.P_WAIT, executable, params)
+        log_time("processfile " + processing[i] + " done")
+
+    # come back
+    os.chdir(currentDir)
+    
+    # copy blitz
+    for (serverMap, localMap) in dataMap.iteritems():
+        if serverMap != "default":
+            mapPath = '/Maps/' + str(localMap)
+            (fp, fn) = os.path.split(mapPath)
+            fp = fp + "/blitz"
+
+            srcPath = os.path.realpath(dataSourceDir + fp)
+            destPath = os.path.realpath(dataDir + fp)
+            
+            if os.path.exists(destPath):    
+                print "delete " + destPath
+                shutil.rmtree(destPath)
+            if os.path.exists(srcPath):  
+                print "copy " + srcPath + " to " + destPath
+                shutil.copytree(srcPath, destPath)
+    log_time("finish")
+                
+if __name__ == '__main__':  
+    main_convert_3d()

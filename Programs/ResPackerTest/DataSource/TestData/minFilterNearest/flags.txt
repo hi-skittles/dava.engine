@@ -1,0 +1,1 @@
+--minFilterNearest --PowerVR_iOS RGBA8888 --adreno ATC_RGB --mali ETC1 --tegra DXT5NM --PowerVR_Android ETC1

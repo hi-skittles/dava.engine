@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="DAVA::FastName">
+    <DisplayString>{db->namesTable[index], s}</DisplayString>
+  </Type>
+  <Type Name="DAVA::Type">
+    <DisplayString>{name, s}, {*flags._Array, h}</DisplayString>
+  </Type>
+  <Type Name="DAVA::AutoStorage&lt;*&gt;">
+    <DisplayString Condition="type==1">{*storage._Elems}</DisplayString>
+    <Expand>
+      <ExpandedItem Condition="type==1">storage._Elems</ExpandedItem>
+      <ExpandedItem Condition="type==2">*((AutoStorage&lt;$T1&gt;::SharedT*) storage._Elems)->_Rep</ExpandedItem>
+    </Expand>
+  </Type>
+  <Type Name="DAVA::Any">
+    <DisplayString Condition="type == nullptr">Null</DisplayString>
+    <DisplayString>{{storage={anyStorage}, type={type->name, na}}}</DisplayString>
+  </Type>
+</AutoVisualizer>

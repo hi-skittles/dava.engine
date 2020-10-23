@@ -1,0 +1,21 @@
+Whats changed: 
+1. Switched from 8.1 SDK to 10.0.10240 (Win10), 
+   - added ARM configuration, fixed machine type for ARM Configuration
+   - added ipv6 support
+2. Added win store support definition:
+  CURL_WINDOWS_APP
+3. Added curl build definitions: 
+  CURL_DISABLE_FTP
+  CURL_DISABLE_LDAP
+  CURL_DISABLE_LDAPS
+  CURL_DISABLE_TELNET
+  CURL_DISABLE_DICT
+  CURL_DISABLE_FILE
+  CURL_DISABLE_TFTP
+  CURL_DISABLE_RTSP
+  CURL_DISABLE_POP3
+  CURL_DISABLE_IMAP
+  CURL_DISABLE_SMTP
+  CURL_DISABLE_GOPHER
+3. Added include directory for OpenSSL
+  dava.framework/Libs/openssl/uwp

@@ -1,0 +1,49 @@
+set(MODULE_NAME LowLevelDynamics)
+set(MODULE_TYPE STATIC)#INLINE STATIC DYNAMIC 
+
+get_filename_component(PhysXRoot "${CMAKE_CURRENT_SOURCE_DIR}/../../" ABSOLUTE)
+
+set(HPP_FILES_RECURSE *.h *.hpp)
+set(CPP_FILES ${PhysXRoot}/Source/LowLevelDynamics/src/DyArticulation.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DyArticulationContactPrep.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DyArticulationContactPrepPF.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DyArticulationHelper.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DyArticulationScalar.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DyArticulationSIMD.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DyConstraintPartition.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DyConstraintSetup.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DyConstraintSetupBlock.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DyContactPrep.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DyContactPrep4.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DyContactPrep4PF.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DyContactPrepPF.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DyDynamics.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DyFrictionCorrelation.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DyRigidBodyToSolverBody.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DySolverConstraints.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DySolverConstraintsBlock.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DySolverControl.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DySolverControlPF.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DySolverPFConstraints.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DySolverPFConstraintsBlock.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DyThreadContext.cpp
+              ${PhysXRoot}/Source/LowLevelDynamics/src/DyThresholdTable.cpp)
+
+set(DEBUG_POSTFIX "DEBUG")
+set(CHECKED_POSTFIX "CHECKED")
+set(PROFILE_POSTFIX "PROFILE")
+set(RELEASE_POSTFIX "")
+
+set(INCLUDES_PRIVATE "${PhysXRoot}/Source/LowLevel/API/include"
+             "${PhysXRoot}/Source/LowLevel/common/include/utils"
+             "${PhysXRoot}/Source/LowLevel/common/include/pipeline"
+             "${PhysXRoot}/Source/LowLevel/software/include"
+             "${PhysXRoot}/Source/LowLevel/software/include/unix"
+             "${PhysXRoot}/Source/LowLevelAABB/include"
+             "${PhysXRoot}/Source/LowLevelAABB/src"
+             "${PhysXRoot}/Source/LowLevelAABB/unix/include"
+             "${PhysXRoot}/Source/LowLevelDynamics/src"
+             "${PhysXRoot}/Source/LowLevelDynamics/include"
+             "${PhysXRoot}/Source/LowLevelDynamics/include/unix")
+
+setup_main_module()

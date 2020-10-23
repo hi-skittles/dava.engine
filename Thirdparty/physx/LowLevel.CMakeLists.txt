@@ -1,0 +1,46 @@
+set(MODULE_NAME LowLevel)
+set(MODULE_TYPE STATIC)#INLINE STATIC DYNAMIC
+
+get_filename_component(PhysXRoot "${CMAKE_CURRENT_SOURCE_DIR}/../../" ABSOLUTE)
+set(HPP_FILES_RECURSE *.h *.hpp)
+set(CPP_FILES ${PhysXRoot}/Source/LowLevel/API/src/px_globals.cpp
+              ${PhysXRoot}/Source/LowLevel/software/src/PxsCCD.cpp
+              ${PhysXRoot}/Source/LowLevel/software/src/PxsContactManager.cpp
+              ${PhysXRoot}/Source/LowLevel/software/src/PxsContext.cpp
+              ${PhysXRoot}/Source/LowLevel/software/src/PxsDefaultMemoryManager.cpp
+              ${PhysXRoot}/Source/LowLevel/software/src/PxsIslandSim.cpp
+              ${PhysXRoot}/Source/LowLevel/software/src/PxsMaterialCombiner.cpp
+              ${PhysXRoot}/Source/LowLevel/software/src/PxsNphaseImplementationContext.cpp
+              ${PhysXRoot}/Source/LowLevel/software/src/PxsSimpleIslandManager.cpp
+              ${PhysXRoot}/Source/LowLevel/common/src/collision/PxcContact.cpp
+              ${PhysXRoot}/Source/LowLevel/common/src/pipeline/PxcContactCache.cpp
+              ${PhysXRoot}/Source/LowLevel/common/src/pipeline/PxcContactMethodImpl.cpp
+              ${PhysXRoot}/Source/LowLevel/common/src/pipeline/PxcMaterialHeightField.cpp
+              ${PhysXRoot}/Source/LowLevel/common/src/pipeline/PxcMaterialMesh.cpp
+              ${PhysXRoot}/Source/LowLevel/common/src/pipeline/PxcMaterialMethodImpl.cpp
+              ${PhysXRoot}/Source/LowLevel/common/src/pipeline/PxcMaterialShape.cpp
+              ${PhysXRoot}/Source/LowLevel/common/src/pipeline/PxcNpBatch.cpp
+              ${PhysXRoot}/Source/LowLevel/common/src/pipeline/PxcNpCacheStreamPair.cpp
+              ${PhysXRoot}/Source/LowLevel/common/src/pipeline/PxcNpContactPrepShared.cpp
+              ${PhysXRoot}/Source/LowLevel/common/src/pipeline/PxcNpMemBlockPool.cpp
+              ${PhysXRoot}/Source/LowLevel/common/src/pipeline/PxcNpThreadContext.cpp)
+
+set(DEBUG_POSTFIX "DEBUG")
+set(CHECKED_POSTFIX "CHECKED")
+set(PROFILE_POSTFIX "PROFILE")
+set(RELEASE_POSTFIX "")
+
+set(INCLUDES_PRIVATE "${PhysXRoot}/Source/LowLevel/API/include"
+                     "${PhysXRoot}/Source/LowLevel/common/include"
+                     "${PhysXRoot}/Source/LowLevel/common/include/pipeline"
+                     "${PhysXRoot}/Source/LowLevel/common/include/collision"
+                     "${PhysXRoot}/Source/LowLevel/common/include/pipeline/unix"
+                     "${PhysXRoot}/Source/LowLevel/common/include/utils"
+                     "${PhysXRoot}/Source/LowLevel/common/include/math"
+                     "${PhysXRoot}/Source/LowLevel/software/include"
+                     "${PhysXRoot}/Source/LowLevel/software/include/unix"
+                     "${PhysXRoot}/Source/LowLevelDynamics/include"
+                     "${PhysXRoot}/Source/LowLevelDynamics/src"
+                     "${PhysXRoot}/Source/LowLevelDynamics/include/unix")
+
+setup_main_module()

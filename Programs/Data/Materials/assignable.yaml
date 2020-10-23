@@ -1,0 +1,206 @@
+-
+ name: "Decal Alphablend"
+ path: Decal.Alphablend.material
+-
+ name: "Decal Alphatest"
+ path: Decal.Alphatest.material
+-
+ name: "Decal Opaque"
+ path: Decal.Opaque.material
+-
+ name: "Detail Lightmap Opaque"
+ path: Detail.Lightmap.Opaque.material
+-
+ name: "Detail Opaque"
+ path: Detail.Opaque.material
+-
+ name: "PixelLit Alphatest"
+ path: PixelLit.Alphatest.material
+-
+ name: "PixelLit Opaque"
+ path: PixelLit.Opaque.material
+-
+ name: "PixelLit Specular Alphatest"
+ path: PixelLit.Specular.Alphatest.material
+-
+ name: "PixelLit Specular Opaque"
+ path: PixelLit.Specular.Opaque.material
+-
+ name: "PixelLit SpecularMap Alphatest"
+ path: PixelLit.SpecularMap.Alphatest.material
+-
+ name: "PixelLit SpecularMap Opaque"
+ path: PixelLit.SpecularMap.Opaque.material
+-
+ name: "SpeedTree Alphatest"
+ path: SpeedTreeLeaf.Alphatest.material
+-
+ name: "SpeedTree Alphablend"
+ path: SpeedTreeLeaf.Alphablend.material
+-
+ name: "SpeedTree Opaque"
+ path: SpeedTreeLeaf.Opaque.material
+-
+ name: "SphericalLit AllQualities SpeedTree Alphatest"
+ path: SphericalLitAllQualities.SpeedTreeLeaf.Alphatest.material
+-
+ name: "SphericalLit AllQualities SpeedTree Alphablend"
+ path: SphericalLitAllQualities.SpeedTreeLeaf.Alphablend.material
+-
+ name: "SphericalLit AllQualities SpeedTree Opaque"
+ path: SphericalLitAllQualities.SpeedTreeLeaf.Opaque.material
+-
+ name: "SphericalLit AllQualities Textured Alphatest"
+ path: SphericalLitAllQualities.Textured.Alphatest.material
+-
+ name: "SphericalLit AllQualities Textured Opaque"
+ path: SphericalLitAllQualities.Textured.Opaque.material
+-
+ name: "SphericalLit AllQualities Textured VertexColor Alphatest"
+ path: SphericalLitAllQualities.Textured.VertexColor.Alphatest.material
+-
+ name: "SphericalLit AllQualities Textured VertexColor Opaque"
+ path: SphericalLitAllQualities.Textured.VertexColor.Opaque.material
+-
+ name: "Textured Alphablend"
+ path: Textured.Alphablend.material
+-
+ name: "Textured Alphablend with Alphamask"
+ path: Textured.Alphablend.Alphamask.material
+-
+ name: "Textured Alphablend with Flowmap"
+ path: Textured.Alphablend.Flowmap.material 
+-
+ name: "Textured Alphablend with Flowmap and Alphamask"
+ path: Textured.Alphablend.Flowmap.Alphamask.material 
+-
+ name: "Textured Alphatest"
+ path: Textured.Alphatest.material
+-
+ name: "Textured Opaque"
+ path: Textured.Opaque.material
+-
+ name: "Textured Opaque with Flowmap"
+ path: Textured.Opaque.Flowmap.material
+-
+ name: "Textured VertexColor Alphatest"
+ path: Textured.VertexColor.Alphatest.material
+-
+ name: "Textured VertexColor Opaque"
+ path: Textured.VertexColor.Opaque.material
+-
+ name: "TextureLightmap Alphablend"
+ path: TextureLightmap.Alphablend.material
+-
+ name: "TextureLightmap Alphatest"
+ path: TextureLightmap.Alphatest.material
+-
+ name: "TextureLightmap Opaque"
+ path: TextureLightmap.Opaque.material
+-
+ name: "TextureLightmap AllQualities Opaque"
+ path: TextureLightmapAllQualities.Opaque.material
+-
+ name: "VertexColor Alphablend"
+ path: VertexColor.Alphablend.material
+-
+ name: "VertexColor FrameBlend Alphablend"
+ path: VertexColor.FrameBlend.Alphablend.material
+-
+ name: "VertexColor FrameBlend Opaque"
+ path: VertexColor.FrameBlend.Opaque.material
+-
+ name: "VertexColor Opaque"
+ path: VertexColor.Opaque.material
+-
+ name: "VertexLit Alphatest"
+ path: VertexLit.Alphatest.material
+-
+ name: "VertexLit Opaque"
+ path: VertexLit.Opaque.material
+-
+ name: "Skyobject"
+ path: Skyobject.material
+-
+ name: "Skyobject Flowmap"
+ path: Skyobject.Flowmap.material
+-
+ name: "Landscape AllQualities"
+ path: TileMaskAllQualities.material
+-
+ name: "VertexLit Reflection"
+ path: VertexLit.Reflection.Opaque.material
+-
+ name: "PixelLit SpecularMap Reflection Opaque"
+ path: PixelLit.SpecularMap.Reflection.Opaque.material
+-
+ name: "Water All Qualities"
+ path: WaterAllQualities.material
+-
+ name: "WaterPerVertex Cubemap"
+ path: WaterPerVertexCubemap.material
+-
+ name: "Water Per Vertex Cubemap Decal"
+ path: WaterPerVertexCubemapDecal.material 
+-
+ name: "WaterPerPixel Cubemap"
+ path: WaterPerPixelCubemap.material
+-
+ name: "Water Per Pixel Cubemap Const Refraction Color"
+ path: WaterPerPixelCubemapConstRefraction.material
+-
+ name: "Water Per Pixel Cubemap Fresnael to Alpha"
+ path: WaterPerPixelCubemapAlphablend.material
+-
+ name: "Water Real Reflections"
+ path: WaterPerPixelRealReflections.material
+-
+ name: "Grass"
+ path: Grass.material
+-
+ name: "Textured Opaque.NoCull"
+ path: Textured.Opaque.NoCull.material
+-
+ name: "Normalized BlinnPhong Per Vertex Opaque"
+ path: NormalizedBlinnPhongPerVertex.Opaque.material
+-
+ name: "Normalized BlinnPhong Per Vertex Alphatest"
+ path: NormalizedBlinnPhongPerVertex.Alphatest.material
+-
+ name: "Normalized BlinnPhong Per Vertex Alphatest + Alphablend"
+ path: NormalizedBlinnPhongPerVertex.Alphatest.Alphablend.material
+-
+ name: "Normalized BlinnPhong Per Pixel Fast Opaque"
+ path: NormalizedBlinnPhongPerPixelFast.Opaque.material
+-
+ name: "Normalized BlinnPhong Per Pixel Opaque"
+ path: NormalizedBlinnPhongPerPixel.Opaque.material
+-
+ name: "Normalized BlinnPhong Per Pixel Alphatest + Alphablend"
+ path: NormalizedBlinnPhongPerPixel.Alphatest.Alphablend.material
+-
+ name: "Normalized BlinnPhong With All Qualities Opaque"
+ path: NormalizedBlinnPhongAllQualities.Opaque.material
+-
+ name: "Normalized BlinnPhong With All Qualities Alphatest"
+ path: NormalizedBlinnPhongAllQualities.Alphatest.material
+-
+ name: "Normalized BlinnPhong With All Qualities Alphatest + Alphablend"
+ path: NormalizedBlinnPhongAllQualities.Alphatest.Alphablend.material
+-
+ name: "Normalized BlinnPhong With Lightmap Per Vertex"
+ path: NormalizedBlinnPhongWithLightmapPerVertex.Opaque.material
+-
+ name: "Normalized BlinnPhong With Lightmap Per Pixel"
+ path: NormalizedBlinnPhongWithLightmapPerPixel.Opaque.material
+-
+ name: "Normalized BlinnPhong With Lightmap All Qualities"
+ path: NormalizedBlinnPhongWithLightmapAllQualities.Opaque.material
+-
+ name: "Detail All Qualities"
+ path: DetailAllQualities.Opaque.material
+-
+ name: "Detail With Lightmap All Qualities"
+ path: DetailAllQualities.Lightmap.Opaque.material
+
+ 

@@ -1,0 +1,5 @@
+type: "ft"
+fontPath: "~res:/Fonts/DejaVuSans.ttf"
+verticalSpacing: 0
+ascendScale: 1.f
+descendScale: 1.f

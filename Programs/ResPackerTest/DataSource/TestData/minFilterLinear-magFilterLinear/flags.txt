@@ -1,0 +1,1 @@
+--minFilterLinear --magFilterLinear --PowerVR_iOS PVR2 --adreno ATC_RGBA_INTERPOLATED_ALPHA --mali ETC1 --tegra DXT1NM --PowerVR_Android PVR2

@@ -1,0 +1,22 @@
+NESTED DEFINES
+
+#if !defined BLEND_OPAQUE
+#define BLEND_OPAQUE 0
+#endif
+
+#define BLEND_ALPHA 1
+#if !defined BLEND_ALPHA
+#define BLEND_ALPHA 0
+#endif
+
+#define BLEND   BLEND_ALPHA
+ 
+
+is-opaque ?
+#if BLEND != BLEND_OPAQUE
+  transparent
+#else
+  opaque
+#endif
+
+last

@@ -1,0 +1,5 @@
+keyedArchive:
+    events:
+        keyedArchive:
+            all:
+                bool: true

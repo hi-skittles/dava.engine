@@ -1,0 +1,23 @@
+REDEFINITION
+
+#ensuredefined AAA 0
+#ensuredefined BBB 0
+
+#if !AAA && !BBB
+#define AAA 1
+#define BBB 1
+#endif
+
+#if AAA == 1 
+  aaa is one
+#else
+  aaa is zero
+#endif
+
+#if BBB == 1 
+  bbb is one
+#else
+  bbb is zero
+#endif
+
+last

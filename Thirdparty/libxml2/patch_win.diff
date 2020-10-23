@@ -1,0 +1,876 @@
+PATCHED: Disabled LZMA, FTP, HTTP. Win32 - added x64 config, fixed release config. Win10 - added x64, ARM configs, fixed release config, added _CRT_SECURE_NO_WARNINGS. Changed output folder for Debug/Win32
+
+diff -ur ./libxml2_source_original_with_win10/include/libxml/xmlversion.h ./libxml2_source/include/libxml/xmlversion.h
+--- ./libxml2_source_original_with_win10/include/libxml/xmlversion.h	2016-05-23 11:00:40.000000000 +0300
++++ ./libxml2_source/include/libxml/xmlversion.h	2016-10-06 13:14:36.726845500 +0300
+@@ -174,7 +174,7 @@
+  *
+  * Whether the FTP support is configured in
+  */
+-#if 1
++#if 0
+ #define LIBXML_FTP_ENABLED
+ #endif
+ 
+@@ -183,7 +183,7 @@
+  *
+  * Whether the HTTP support is configured in
+  */
+-#if 1
++#if 0
+ #define LIBXML_HTTP_ENABLED
+ #endif
+ 
+@@ -273,7 +273,7 @@
+  *
+  * Whether iconv support is available
+  */
+-#if 1
++#if 0
+ #define LIBXML_ICONV_ENABLED
+ #endif
+ 
+@@ -405,7 +405,7 @@
+  *
+  * Whether the Lzma support is compiled in
+  */
+-#if 1
++#if 0
+ #define LIBXML_LZMA_ENABLED
+ #endif
+ 
+Only in ./libxml2_source: lib
+Only in ./libxml2_source/win32/VC10: .vs
+Only in ./libxml2_source/win32/VC10: build
+diff -ur ./libxml2_source_original_with_win10/win32/VC10/libxml2.sln ./libxml2_source/win32/VC10/libxml2.sln
+--- ./libxml2_source_original_with_win10/win32/VC10/libxml2.sln	2016-02-09 13:17:34.000000000 +0300
++++ ./libxml2_source/win32/VC10/libxml2.sln	2016-10-06 12:58:52.594329600 +0300
+@@ -1,47 +1,56 @@
+ ﻿
+-Microsoft Visual Studio Solution File, Format Version 11.00
+-# Visual Studio 2010
++Microsoft Visual Studio Solution File, Format Version 12.00
++# Visual Studio 14
++VisualStudioVersion = 14.0.25420.1
++MinimumVisualStudioVersion = 10.0.40219.1
+ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libxml2", "libxml2.vcxproj", "{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}"
+ EndProject
+ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "runsuite", "runsuite.vcxproj", "{D841B4F7-C277-49CB-B379-8B1801C8EE35}"
+-	ProjectSection(ProjectDependencies) = postProject
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE} = {BEC03130-A64C-48F8-863C-52DA83CFB3AE}
+-	EndProjectSection
+-EndProject
+-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "iconv", "..\..\..\libiconv-1.14.vc10\windows\VC10\iconv.vcxproj", "{BEC03130-A64C-48F8-863C-52DA83CFB3AE}"
+ EndProject
+ Global
+ 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+ 		Debug DLL|Win32 = Debug DLL|Win32
++		Debug DLL|x64 = Debug DLL|x64
+ 		Debug|Win32 = Debug|Win32
++		Debug|x64 = Debug|x64
+ 		Release DLL|Win32 = Release DLL|Win32
++		Release DLL|x64 = Release DLL|x64
+ 		Release|Win32 = Release|Win32
++		Release|x64 = Release|x64
+ 	EndGlobalSection
+ 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+ 		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug DLL|Win32.ActiveCfg = Debug|Win32
+ 		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug DLL|Win32.Build.0 = Debug|Win32
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug DLL|x64.ActiveCfg = Debug|x64
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug DLL|x64.Build.0 = Debug|x64
+ 		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug|Win32.ActiveCfg = Debug|Win32
+ 		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug|Win32.Build.0 = Debug|Win32
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug|x64.ActiveCfg = Debug|x64
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug|x64.Build.0 = Debug|x64
+ 		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release DLL|Win32.ActiveCfg = Release|Win32
+ 		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release DLL|Win32.Build.0 = Release|Win32
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release DLL|x64.ActiveCfg = Release|x64
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release DLL|x64.Build.0 = Release|x64
+ 		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release|Win32.ActiveCfg = Release|Win32
+ 		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release|Win32.Build.0 = Release|Win32
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release|x64.ActiveCfg = Release|x64
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release|x64.Build.0 = Release|x64
+ 		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug DLL|Win32.ActiveCfg = Debug|Win32
+ 		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug DLL|Win32.Build.0 = Debug|Win32
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug DLL|x64.ActiveCfg = Debug|x64
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug DLL|x64.Build.0 = Debug|x64
+ 		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug|Win32.ActiveCfg = Debug|Win32
+ 		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug|Win32.Build.0 = Debug|Win32
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug|x64.ActiveCfg = Debug|x64
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug|x64.Build.0 = Debug|x64
+ 		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release DLL|Win32.ActiveCfg = Release|Win32
+ 		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release DLL|Win32.Build.0 = Release|Win32
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release DLL|x64.ActiveCfg = Release|x64
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release DLL|x64.Build.0 = Release|x64
+ 		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release|Win32.ActiveCfg = Release|Win32
+ 		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release|Win32.Build.0 = Release|Win32
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE}.Debug DLL|Win32.ActiveCfg = Debug DLL|Win32
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE}.Debug DLL|Win32.Build.0 = Debug DLL|Win32
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE}.Debug|Win32.ActiveCfg = Debug|Win32
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE}.Debug|Win32.Build.0 = Debug|Win32
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE}.Release DLL|Win32.ActiveCfg = Release DLL|Win32
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE}.Release DLL|Win32.Build.0 = Release DLL|Win32
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE}.Release|Win32.ActiveCfg = Release|Win32
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE}.Release|Win32.Build.0 = Release|Win32
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release|x64.ActiveCfg = Release|x64
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release|x64.Build.0 = Release|x64
+ 	EndGlobalSection
+ 	GlobalSection(SolutionProperties) = preSolution
+ 		HideSolutionNode = FALSE
+Only in ./libxml2_source/win32/VC10: libxml2.VC.db
+diff -ur ./libxml2_source_original_with_win10/win32/VC10/libxml2.vcxproj ./libxml2_source/win32/VC10/libxml2.vcxproj
+--- ./libxml2_source_original_with_win10/win32/VC10/libxml2.vcxproj	2016-02-09 13:17:34.000000000 +0300
++++ ./libxml2_source/win32/VC10/libxml2.vcxproj	2016-10-06 13:56:47.096811000 +0300
+@@ -5,26 +5,50 @@
+       <Configuration>Debug</Configuration>
+       <Platform>Win32</Platform>
+     </ProjectConfiguration>
++    <ProjectConfiguration Include="Debug|x64">
++      <Configuration>Debug</Configuration>
++      <Platform>x64</Platform>
++    </ProjectConfiguration>
+     <ProjectConfiguration Include="Release|Win32">
+       <Configuration>Release</Configuration>
+       <Platform>Win32</Platform>
+     </ProjectConfiguration>
++    <ProjectConfiguration Include="Release|x64">
++      <Configuration>Release</Configuration>
++      <Platform>x64</Platform>
++    </ProjectConfiguration>
+   </ItemGroup>
+   <PropertyGroup Label="Globals">
+     <ProjectGuid>{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}</ProjectGuid>
+     <RootNamespace>libxml2</RootNamespace>
++    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+     <CharacterSet>Unicode</CharacterSet>
++    <PlatformToolset>v120</PlatformToolset>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
++    <ConfigurationType>StaticLibrary</ConfigurationType>
++    <UseDebugLibraries>true</UseDebugLibraries>
++    <CharacterSet>Unicode</CharacterSet>
++    <PlatformToolset>v120</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+-    <ConfigurationType>Application</ConfigurationType>
++    <ConfigurationType>StaticLibrary</ConfigurationType>
++    <UseDebugLibraries>false</UseDebugLibraries>
++    <WholeProgramOptimization>true</WholeProgramOptimization>
++    <CharacterSet>Unicode</CharacterSet>
++    <PlatformToolset>v120</PlatformToolset>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
++    <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+-    <CharacterSet>MultiByte</CharacterSet>
++    <CharacterSet>Unicode</CharacterSet>
++    <PlatformToolset>v120</PlatformToolset>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+   <ImportGroup Label="ExtensionSettings">
+@@ -32,13 +56,20 @@
+   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+   </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++  </ImportGroup>
+   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+   </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++  </ImportGroup>
+   <PropertyGroup Label="UserMacros" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+-    <OutDir>$(ProjectDir)..\..\lib\</OutDir>
++    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+   </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+     <IntDir>build\$(ProjectName)$(Configuration)\</IntDir>
+   </PropertyGroup>
+@@ -55,12 +86,40 @@
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+     </Link>
+   </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
++    <ClCompile>
++      <WarningLevel>Level3</WarningLevel>
++      <Optimization>Disabled</Optimization>
++      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\..\libiconv-1.14.vc10\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
++      <MinimalRebuild>false</MinimalRebuild>
++      <MultiProcessorCompilation>true</MultiProcessorCompilation>
++    </ClCompile>
++    <Link>
++      <GenerateDebugInformation>true</GenerateDebugInformation>
++    </Link>
++  </ItemDefinitionGroup>
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+     <ClCompile>
+       <WarningLevel>Level3</WarningLevel>
+       <Optimization>MaxSpeed</Optimization>
+       <FunctionLevelLinking>true</FunctionLevelLinking>
+       <IntrinsicFunctions>true</IntrinsicFunctions>
++      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\..\libiconv-1.14.vc10\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++    </ClCompile>
++    <Link>
++      <GenerateDebugInformation>true</GenerateDebugInformation>
++      <EnableCOMDATFolding>true</EnableCOMDATFolding>
++      <OptimizeReferences>true</OptimizeReferences>
++    </Link>
++  </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
++    <ClCompile>
++      <WarningLevel>Level3</WarningLevel>
++      <Optimization>MaxSpeed</Optimization>
++      <FunctionLevelLinking>true</FunctionLevelLinking>
++      <IntrinsicFunctions>true</IntrinsicFunctions>
++      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\..\libiconv-1.14.vc10\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+     </ClCompile>
+     <Link>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+@@ -121,16 +180,6 @@
+     <ClInclude Include="..\..\libxml.h" />
+     <ClInclude Include="config.h" />
+   </ItemGroup>
+-  <ItemGroup>
+-    <ProjectReference Include="..\..\..\libiconv-1.14.vc10\windows\VC10\iconv.vcxproj">
+-      <Project>{bec03130-a64c-48f8-863c-52da83cfb3ae}</Project>
+-      <Private>true</Private>
+-      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+-      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+-      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+-      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+-    </ProjectReference>
+-  </ItemGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+   <ImportGroup Label="ExtensionTargets">
+   </ImportGroup>
+diff -ur ./libxml2_source_original_with_win10/win32/VC10/libxml2.vcxproj.filters ./libxml2_source/win32/VC10/libxml2.vcxproj.filters
+--- ./libxml2_source_original_with_win10/win32/VC10/libxml2.vcxproj.filters	2016-02-09 13:17:34.000000000 +0300
++++ ./libxml2_source/win32/VC10/libxml2.vcxproj.filters	2016-10-06 12:58:51.177265600 +0300
+@@ -153,6 +153,9 @@
+     <ClCompile Include="..\..\HTMLtree.c">
+       <Filter>Source Files</Filter>
+     </ClCompile>
++    <ClCompile Include="..\..\buf.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
+   </ItemGroup>
+   <ItemGroup>
+     <ClInclude Include="config.h">
+Only in ./libxml2_source/win32/VC10: libxml2.vcxproj.user
+diff -ur ./libxml2_source_original_with_win10/win32/VC10/runsuite.vcxproj ./libxml2_source/win32/VC10/runsuite.vcxproj
+--- ./libxml2_source_original_with_win10/win32/VC10/runsuite.vcxproj	2016-02-09 13:17:34.000000000 +0300
++++ ./libxml2_source/win32/VC10/runsuite.vcxproj	2016-10-06 12:58:52.562422200 +0300
+@@ -5,10 +5,18 @@
+       <Configuration>Debug</Configuration>
+       <Platform>Win32</Platform>
+     </ProjectConfiguration>
++    <ProjectConfiguration Include="Debug|x64">
++      <Configuration>Debug</Configuration>
++      <Platform>x64</Platform>
++    </ProjectConfiguration>
+     <ProjectConfiguration Include="Release|Win32">
+       <Configuration>Release</Configuration>
+       <Platform>Win32</Platform>
+     </ProjectConfiguration>
++    <ProjectConfiguration Include="Release|x64">
++      <Configuration>Release</Configuration>
++      <Platform>x64</Platform>
++    </ProjectConfiguration>
+   </ItemGroup>
+   <PropertyGroup Label="Globals">
+     <ProjectGuid>{D841B4F7-C277-49CB-B379-8B1801C8EE35}</ProjectGuid>
+@@ -20,26 +28,44 @@
+     <UseDebugLibraries>true</UseDebugLibraries>
+     <CharacterSet>Unicode</CharacterSet>
+   </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
++    <ConfigurationType>Application</ConfigurationType>
++    <UseDebugLibraries>true</UseDebugLibraries>
++    <CharacterSet>Unicode</CharacterSet>
++  </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
++    <ConfigurationType>Application</ConfigurationType>
++    <UseDebugLibraries>false</UseDebugLibraries>
++    <WholeProgramOptimization>true</WholeProgramOptimization>
++    <CharacterSet>MultiByte</CharacterSet>
++  </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+   <ImportGroup Label="ExtensionSettings">
+   </ImportGroup>
+   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+   </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++  </ImportGroup>
+   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+   </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++  </ImportGroup>
+   <PropertyGroup Label="UserMacros" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+     <OutDir>$(ProjectDir)..\..\lib\</OutDir>
+     <IntDir>build\$(ProjectName)$(Configuration)\</IntDir>
+   </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+     <ClCompile>
+       <WarningLevel>Level3</WarningLevel>
+@@ -55,6 +81,21 @@
+       <AdditionalDependencies>Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+     </Link>
+   </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
++    <ClCompile>
++      <WarningLevel>Level3</WarningLevel>
++      <Optimization>Disabled</Optimization>
++      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\..\libiconv-1.14.vc10\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
++      <PreprocessorDefinitions>_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
++      <MinimalRebuild>false</MinimalRebuild>
++    </ClCompile>
++    <Link>
++      <GenerateDebugInformation>true</GenerateDebugInformation>
++      <AdditionalDependencies>Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
++    </Link>
++  </ItemDefinitionGroup>
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+     <ClCompile>
+       <WarningLevel>Level3</WarningLevel>
+@@ -68,13 +109,23 @@
+       <OptimizeReferences>true</OptimizeReferences>
+     </Link>
+   </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
++    <ClCompile>
++      <WarningLevel>Level3</WarningLevel>
++      <Optimization>MaxSpeed</Optimization>
++      <FunctionLevelLinking>true</FunctionLevelLinking>
++      <IntrinsicFunctions>true</IntrinsicFunctions>
++    </ClCompile>
++    <Link>
++      <GenerateDebugInformation>true</GenerateDebugInformation>
++      <EnableCOMDATFolding>true</EnableCOMDATFolding>
++      <OptimizeReferences>true</OptimizeReferences>
++    </Link>
++  </ItemDefinitionGroup>
+   <ItemGroup>
+     <ClCompile Include="..\..\runsuite.c" />
+   </ItemGroup>
+   <ItemGroup>
+-    <ProjectReference Include="..\..\..\libiconv-1.14.vc10\windows\VC10\iconv.vcxproj">
+-      <Project>{bec03130-a64c-48f8-863c-52da83cfb3ae}</Project>
+-    </ProjectReference>
+     <ProjectReference Include="libxml2.vcxproj">
+       <Project>{1d6039f6-5078-416f-a3af-a36efc7e6a1c}</Project>
+     </ProjectReference>
+Only in ./libxml2_source/win32/VC10: x64
+Only in ./libxml2_source/win32/Win10: .vs
+Only in ./libxml2_source/win32/Win10: ARM
+Only in ./libxml2_source/win32/Win10: build
+diff -ur ./libxml2_source_original_with_win10/win32/Win10/libxml2.sln ./libxml2_source/win32/Win10/libxml2.sln
+--- ./libxml2_source_original_with_win10/win32/Win10/libxml2.sln	2016-02-09 13:17:34.000000000 +0300
++++ ./libxml2_source/win32/Win10/libxml2.sln	2016-10-06 13:12:47.717316300 +0300
+@@ -1,47 +1,76 @@
+ ﻿
+-Microsoft Visual Studio Solution File, Format Version 11.00
+-# Visual Studio 2010
++Microsoft Visual Studio Solution File, Format Version 12.00
++# Visual Studio 14
++VisualStudioVersion = 14.0.25420.1
++MinimumVisualStudioVersion = 10.0.40219.1
+ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libxml2", "libxml2.vcxproj", "{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}"
+ EndProject
+ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "runsuite", "runsuite.vcxproj", "{D841B4F7-C277-49CB-B379-8B1801C8EE35}"
+-	ProjectSection(ProjectDependencies) = postProject
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE} = {BEC03130-A64C-48F8-863C-52DA83CFB3AE}
+-	EndProjectSection
+-EndProject
+-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "iconv", "..\..\..\libiconv-1.14.vc10\windows\VC10\iconv.vcxproj", "{BEC03130-A64C-48F8-863C-52DA83CFB3AE}"
+ EndProject
+ Global
+ 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
++		Debug DLL|ARM = Debug DLL|ARM
+ 		Debug DLL|Win32 = Debug DLL|Win32
++		Debug DLL|x64 = Debug DLL|x64
++		Debug|ARM = Debug|ARM
+ 		Debug|Win32 = Debug|Win32
++		Debug|x64 = Debug|x64
++		Release DLL|ARM = Release DLL|ARM
+ 		Release DLL|Win32 = Release DLL|Win32
++		Release DLL|x64 = Release DLL|x64
++		Release|ARM = Release|ARM
+ 		Release|Win32 = Release|Win32
++		Release|x64 = Release|x64
+ 	EndGlobalSection
+ 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug DLL|ARM.ActiveCfg = Debug|ARM
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug DLL|ARM.Build.0 = Debug|ARM
+ 		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug DLL|Win32.ActiveCfg = Debug|Win32
+ 		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug DLL|Win32.Build.0 = Debug|Win32
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug DLL|x64.ActiveCfg = Debug|x64
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug DLL|x64.Build.0 = Debug|x64
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug|ARM.ActiveCfg = Debug|ARM
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug|ARM.Build.0 = Debug|ARM
+ 		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug|Win32.ActiveCfg = Debug|Win32
+ 		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug|Win32.Build.0 = Debug|Win32
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug|x64.ActiveCfg = Debug|x64
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Debug|x64.Build.0 = Debug|x64
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release DLL|ARM.ActiveCfg = Release|ARM
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release DLL|ARM.Build.0 = Release|ARM
+ 		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release DLL|Win32.ActiveCfg = Release|Win32
+ 		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release DLL|Win32.Build.0 = Release|Win32
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release DLL|x64.ActiveCfg = Release|x64
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release DLL|x64.Build.0 = Release|x64
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release|ARM.ActiveCfg = Release|ARM
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release|ARM.Build.0 = Release|ARM
+ 		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release|Win32.ActiveCfg = Release|Win32
+ 		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release|Win32.Build.0 = Release|Win32
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release|x64.ActiveCfg = Release|x64
++		{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}.Release|x64.Build.0 = Release|x64
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug DLL|ARM.ActiveCfg = Debug|ARM
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug DLL|ARM.Build.0 = Debug|ARM
+ 		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug DLL|Win32.ActiveCfg = Debug|Win32
+ 		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug DLL|Win32.Build.0 = Debug|Win32
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug DLL|x64.ActiveCfg = Debug|x64
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug DLL|x64.Build.0 = Debug|x64
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug|ARM.ActiveCfg = Debug|ARM
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug|ARM.Build.0 = Debug|ARM
+ 		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug|Win32.ActiveCfg = Debug|Win32
+ 		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug|Win32.Build.0 = Debug|Win32
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug|x64.ActiveCfg = Debug|x64
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Debug|x64.Build.0 = Debug|x64
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release DLL|ARM.ActiveCfg = Release|ARM
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release DLL|ARM.Build.0 = Release|ARM
+ 		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release DLL|Win32.ActiveCfg = Release|Win32
+ 		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release DLL|Win32.Build.0 = Release|Win32
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release DLL|x64.ActiveCfg = Release|x64
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release DLL|x64.Build.0 = Release|x64
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release|ARM.ActiveCfg = Release|ARM
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release|ARM.Build.0 = Release|ARM
+ 		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release|Win32.ActiveCfg = Release|Win32
+ 		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release|Win32.Build.0 = Release|Win32
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE}.Debug DLL|Win32.ActiveCfg = Debug DLL|Win32
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE}.Debug DLL|Win32.Build.0 = Debug DLL|Win32
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE}.Debug|Win32.ActiveCfg = Debug|Win32
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE}.Debug|Win32.Build.0 = Debug|Win32
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE}.Release DLL|Win32.ActiveCfg = Release DLL|Win32
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE}.Release DLL|Win32.Build.0 = Release DLL|Win32
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE}.Release|Win32.ActiveCfg = Release|Win32
+-		{BEC03130-A64C-48F8-863C-52DA83CFB3AE}.Release|Win32.Build.0 = Release|Win32
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release|x64.ActiveCfg = Release|x64
++		{D841B4F7-C277-49CB-B379-8B1801C8EE35}.Release|x64.Build.0 = Release|x64
+ 	EndGlobalSection
+ 	GlobalSection(SolutionProperties) = preSolution
+ 		HideSolutionNode = FALSE
+Only in ./libxml2_source/win32/Win10: libxml2.VC.db
+diff -ur ./libxml2_source_original_with_win10/win32/Win10/libxml2.vcxproj ./libxml2_source/win32/Win10/libxml2.vcxproj
+--- ./libxml2_source_original_with_win10/win32/Win10/libxml2.vcxproj	2016-02-09 13:17:34.000000000 +0300
++++ ./libxml2_source/win32/Win10/libxml2.vcxproj	2016-10-06 13:58:09.587853000 +0300
+@@ -1,30 +1,75 @@
+ ﻿<?xml version="1.0" encoding="utf-8"?>
+ <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+   <ItemGroup Label="ProjectConfigurations">
++    <ProjectConfiguration Include="Debug|ARM">
++      <Configuration>Debug</Configuration>
++      <Platform>ARM</Platform>
++    </ProjectConfiguration>
+     <ProjectConfiguration Include="Debug|Win32">
+       <Configuration>Debug</Configuration>
+       <Platform>Win32</Platform>
+     </ProjectConfiguration>
++    <ProjectConfiguration Include="Debug|x64">
++      <Configuration>Debug</Configuration>
++      <Platform>x64</Platform>
++    </ProjectConfiguration>
++    <ProjectConfiguration Include="Release|ARM">
++      <Configuration>Release</Configuration>
++      <Platform>ARM</Platform>
++    </ProjectConfiguration>
+     <ProjectConfiguration Include="Release|Win32">
+       <Configuration>Release</Configuration>
+       <Platform>Win32</Platform>
+     </ProjectConfiguration>
++    <ProjectConfiguration Include="Release|x64">
++      <Configuration>Release</Configuration>
++      <Platform>x64</Platform>
++    </ProjectConfiguration>
+   </ItemGroup>
+   <PropertyGroup Label="Globals">
+     <ProjectGuid>{1D6039F6-5078-416F-A3AF-A36EFC7E6A1C}</ProjectGuid>
+     <RootNamespace>libxml2</RootNamespace>
++    <WindowsTargetPlatformVersion>10.0.10240.0</WindowsTargetPlatformVersion>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+     <CharacterSet>Unicode</CharacterSet>
++    <PlatformToolset>v140</PlatformToolset>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
++    <ConfigurationType>StaticLibrary</ConfigurationType>
++    <UseDebugLibraries>true</UseDebugLibraries>
++    <CharacterSet>Unicode</CharacterSet>
++    <PlatformToolset>v140</PlatformToolset>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
++    <ConfigurationType>StaticLibrary</ConfigurationType>
++    <UseDebugLibraries>true</UseDebugLibraries>
++    <CharacterSet>Unicode</CharacterSet>
++    <PlatformToolset>v140</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+-    <ConfigurationType>Application</ConfigurationType>
++    <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+-    <CharacterSet>MultiByte</CharacterSet>
++    <CharacterSet>Unicode</CharacterSet>
++    <PlatformToolset>v140</PlatformToolset>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
++    <ConfigurationType>StaticLibrary</ConfigurationType>
++    <UseDebugLibraries>false</UseDebugLibraries>
++    <WholeProgramOptimization>true</WholeProgramOptimization>
++    <CharacterSet>Unicode</CharacterSet>
++    <PlatformToolset>v140</PlatformToolset>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
++    <ConfigurationType>StaticLibrary</ConfigurationType>
++    <UseDebugLibraries>false</UseDebugLibraries>
++    <WholeProgramOptimization>true</WholeProgramOptimization>
++    <CharacterSet>Unicode</CharacterSet>
++    <PlatformToolset>v140</PlatformToolset>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+   <ImportGroup Label="ExtensionSettings">
+@@ -32,13 +77,27 @@
+   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+   </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++  </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++  </ImportGroup>
+   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+   </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++  </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++  </ImportGroup>
+   <PropertyGroup Label="UserMacros" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+-    <OutDir>$(ProjectDir)..\..\lib\</OutDir>
++    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+   </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" />
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+     <IntDir>build\$(ProjectName)$(Configuration)\</IntDir>
+   </PropertyGroup>
+@@ -50,6 +109,35 @@
+       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+       <MinimalRebuild>false</MinimalRebuild>
+       <MultiProcessorCompilation>true</MultiProcessorCompilation>
++      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++    </ClCompile>
++    <Link>
++      <GenerateDebugInformation>true</GenerateDebugInformation>
++    </Link>
++  </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
++    <ClCompile>
++      <WarningLevel>Level3</WarningLevel>
++      <Optimization>Disabled</Optimization>
++      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\..\libiconv-1.14.vc10\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
++      <MinimalRebuild>false</MinimalRebuild>
++      <MultiProcessorCompilation>true</MultiProcessorCompilation>
++      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_ARM_WINAPI_PARTITION_DESKTOP_SDK_AVAILABLE=1;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
++    </ClCompile>
++    <Link>
++      <GenerateDebugInformation>true</GenerateDebugInformation>
++    </Link>
++  </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
++    <ClCompile>
++      <WarningLevel>Level3</WarningLevel>
++      <Optimization>Disabled</Optimization>
++      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\..\libiconv-1.14.vc10\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
++      <MinimalRebuild>false</MinimalRebuild>
++      <MultiProcessorCompilation>true</MultiProcessorCompilation>
++      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+     </ClCompile>
+     <Link>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+@@ -61,6 +149,38 @@
+       <Optimization>MaxSpeed</Optimization>
+       <FunctionLevelLinking>true</FunctionLevelLinking>
+       <IntrinsicFunctions>true</IntrinsicFunctions>
++      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\..\libiconv-1.14.vc10\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++    </ClCompile>
++    <Link>
++      <GenerateDebugInformation>true</GenerateDebugInformation>
++      <EnableCOMDATFolding>true</EnableCOMDATFolding>
++      <OptimizeReferences>true</OptimizeReferences>
++    </Link>
++  </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
++    <ClCompile>
++      <WarningLevel>Level3</WarningLevel>
++      <Optimization>MaxSpeed</Optimization>
++      <FunctionLevelLinking>true</FunctionLevelLinking>
++      <IntrinsicFunctions>true</IntrinsicFunctions>
++      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\..\libiconv-1.14.vc10\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_ARM_WINAPI_PARTITION_DESKTOP_SDK_AVAILABLE=1;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
++    </ClCompile>
++    <Link>
++      <GenerateDebugInformation>true</GenerateDebugInformation>
++      <EnableCOMDATFolding>true</EnableCOMDATFolding>
++      <OptimizeReferences>true</OptimizeReferences>
++    </Link>
++  </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
++    <ClCompile>
++      <WarningLevel>Level3</WarningLevel>
++      <Optimization>MaxSpeed</Optimization>
++      <FunctionLevelLinking>true</FunctionLevelLinking>
++      <IntrinsicFunctions>true</IntrinsicFunctions>
++      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\..\libiconv-1.14.vc10\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+     </ClCompile>
+     <Link>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+@@ -121,16 +241,6 @@
+     <ClInclude Include="..\..\libxml.h" />
+     <ClInclude Include="config.h" />
+   </ItemGroup>
+-  <ItemGroup>
+-    <ProjectReference Include="..\..\..\libiconv-1.14.vc10\windows\VC10\iconv.vcxproj">
+-      <Project>{bec03130-a64c-48f8-863c-52da83cfb3ae}</Project>
+-      <Private>true</Private>
+-      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+-      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+-      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+-      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+-    </ProjectReference>
+-  </ItemGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+   <ImportGroup Label="ExtensionTargets">
+   </ImportGroup>
+diff -ur ./libxml2_source_original_with_win10/win32/Win10/libxml2.vcxproj.filters ./libxml2_source/win32/Win10/libxml2.vcxproj.filters
+--- ./libxml2_source_original_with_win10/win32/Win10/libxml2.vcxproj.filters	2016-02-09 13:17:34.000000000 +0300
++++ ./libxml2_source/win32/Win10/libxml2.vcxproj.filters	2016-10-06 13:12:45.290043900 +0300
+@@ -153,6 +153,9 @@
+     <ClCompile Include="..\..\HTMLtree.c">
+       <Filter>Source Files</Filter>
+     </ClCompile>
++    <ClCompile Include="..\..\buf.c">
++      <Filter>Source Files</Filter>
++    </ClCompile>
+   </ItemGroup>
+   <ItemGroup>
+     <ClInclude Include="config.h">
+Only in ./libxml2_source/win32/Win10: libxml2.vcxproj.user
+diff -ur ./libxml2_source_original_with_win10/win32/Win10/runsuite.vcxproj ./libxml2_source/win32/Win10/runsuite.vcxproj
+--- ./libxml2_source_original_with_win10/win32/Win10/runsuite.vcxproj	2016-02-09 13:17:34.000000000 +0300
++++ ./libxml2_source/win32/Win10/runsuite.vcxproj	2016-10-06 13:12:47.638170600 +0300
+@@ -1,14 +1,30 @@
+ ﻿<?xml version="1.0" encoding="utf-8"?>
+ <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+   <ItemGroup Label="ProjectConfigurations">
++    <ProjectConfiguration Include="Debug|ARM">
++      <Configuration>Debug</Configuration>
++      <Platform>ARM</Platform>
++    </ProjectConfiguration>
+     <ProjectConfiguration Include="Debug|Win32">
+       <Configuration>Debug</Configuration>
+       <Platform>Win32</Platform>
+     </ProjectConfiguration>
++    <ProjectConfiguration Include="Debug|x64">
++      <Configuration>Debug</Configuration>
++      <Platform>x64</Platform>
++    </ProjectConfiguration>
++    <ProjectConfiguration Include="Release|ARM">
++      <Configuration>Release</Configuration>
++      <Platform>ARM</Platform>
++    </ProjectConfiguration>
+     <ProjectConfiguration Include="Release|Win32">
+       <Configuration>Release</Configuration>
+       <Platform>Win32</Platform>
+     </ProjectConfiguration>
++    <ProjectConfiguration Include="Release|x64">
++      <Configuration>Release</Configuration>
++      <Platform>x64</Platform>
++    </ProjectConfiguration>
+   </ItemGroup>
+   <PropertyGroup Label="Globals">
+     <ProjectGuid>{D841B4F7-C277-49CB-B379-8B1801C8EE35}</ProjectGuid>
+@@ -20,26 +36,62 @@
+     <UseDebugLibraries>true</UseDebugLibraries>
+     <CharacterSet>Unicode</CharacterSet>
+   </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
++    <ConfigurationType>Application</ConfigurationType>
++    <UseDebugLibraries>true</UseDebugLibraries>
++    <CharacterSet>Unicode</CharacterSet>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
++    <ConfigurationType>Application</ConfigurationType>
++    <UseDebugLibraries>true</UseDebugLibraries>
++    <CharacterSet>Unicode</CharacterSet>
++  </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
++    <ConfigurationType>Application</ConfigurationType>
++    <UseDebugLibraries>false</UseDebugLibraries>
++    <WholeProgramOptimization>true</WholeProgramOptimization>
++    <CharacterSet>MultiByte</CharacterSet>
++  </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
++    <ConfigurationType>Application</ConfigurationType>
++    <UseDebugLibraries>false</UseDebugLibraries>
++    <WholeProgramOptimization>true</WholeProgramOptimization>
++    <CharacterSet>MultiByte</CharacterSet>
++  </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+   <ImportGroup Label="ExtensionSettings">
+   </ImportGroup>
+   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+   </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++  </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++  </ImportGroup>
+   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+   </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++  </ImportGroup>
++  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
++    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
++  </ImportGroup>
+   <PropertyGroup Label="UserMacros" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+     <OutDir>$(ProjectDir)..\..\lib\</OutDir>
+     <IntDir>build\$(ProjectName)$(Configuration)\</IntDir>
+   </PropertyGroup>
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" />
++  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+     <ClCompile>
+       <WarningLevel>Level3</WarningLevel>
+@@ -55,6 +107,36 @@
+       <AdditionalDependencies>Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+     </Link>
+   </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
++    <ClCompile>
++      <WarningLevel>Level3</WarningLevel>
++      <Optimization>Disabled</Optimization>
++      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\..\libiconv-1.14.vc10\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
++      <PreprocessorDefinitions>_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
++      <MinimalRebuild>false</MinimalRebuild>
++    </ClCompile>
++    <Link>
++      <GenerateDebugInformation>true</GenerateDebugInformation>
++      <AdditionalDependencies>Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
++    </Link>
++  </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
++    <ClCompile>
++      <WarningLevel>Level3</WarningLevel>
++      <Optimization>Disabled</Optimization>
++      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)..\..\include;$(ProjectDir)..\..\..\libiconv-1.14.vc10\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
++      <PreprocessorDefinitions>_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
++      <MinimalRebuild>false</MinimalRebuild>
++    </ClCompile>
++    <Link>
++      <GenerateDebugInformation>true</GenerateDebugInformation>
++      <AdditionalDependencies>Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
++    </Link>
++  </ItemDefinitionGroup>
+   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+     <ClCompile>
+       <WarningLevel>Level3</WarningLevel>
+@@ -68,13 +150,36 @@
+       <OptimizeReferences>true</OptimizeReferences>
+     </Link>
+   </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
++    <ClCompile>
++      <WarningLevel>Level3</WarningLevel>
++      <Optimization>MaxSpeed</Optimization>
++      <FunctionLevelLinking>true</FunctionLevelLinking>
++      <IntrinsicFunctions>true</IntrinsicFunctions>
++    </ClCompile>
++    <Link>
++      <GenerateDebugInformation>true</GenerateDebugInformation>
++      <EnableCOMDATFolding>true</EnableCOMDATFolding>
++      <OptimizeReferences>true</OptimizeReferences>
++    </Link>
++  </ItemDefinitionGroup>
++  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
++    <ClCompile>
++      <WarningLevel>Level3</WarningLevel>
++      <Optimization>MaxSpeed</Optimization>
++      <FunctionLevelLinking>true</FunctionLevelLinking>
++      <IntrinsicFunctions>true</IntrinsicFunctions>
++    </ClCompile>
++    <Link>
++      <GenerateDebugInformation>true</GenerateDebugInformation>
++      <EnableCOMDATFolding>true</EnableCOMDATFolding>
++      <OptimizeReferences>true</OptimizeReferences>
++    </Link>
++  </ItemDefinitionGroup>
+   <ItemGroup>
+     <ClCompile Include="..\..\runsuite.c" />
+   </ItemGroup>
+   <ItemGroup>
+-    <ProjectReference Include="..\..\..\libiconv-1.14.vc10\windows\VC10\iconv.vcxproj">
+-      <Project>{bec03130-a64c-48f8-863c-52da83cfb3ae}</Project>
+-    </ProjectReference>
+     <ProjectReference Include="libxml2.vcxproj">
+       <Project>{1d6039f6-5078-416f-a3af-a36efc7e6a1c}</Project>
+     </ProjectReference>

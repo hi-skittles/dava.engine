@@ -1,0 +1,7 @@
+BASIC MACRO EXPANSION
+
+{
+  fog = tick_blue_fog;
+  hog = 2*4 - (hh - 4);
+}
+last

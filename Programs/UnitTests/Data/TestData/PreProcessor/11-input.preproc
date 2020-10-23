@@ -1,0 +1,23 @@
+ENSURE-DEFINED
+
+#ensuredefined AAA 0
+
+#define BBB 22
+#ensuredefined BBB 11
+
+#if BBB == 11
+  not-expected
+#elif BBB == 22
+  expected
+#else
+  kaboom!
+#endif
+
+#if AAA
+  blam!
+#else
+  aaa is zero
+#endif  
+
+
+last

@@ -1,0 +1,28 @@
+set(MODULE_NAME LowLevelCloth)
+set(MODULE_TYPE STATIC)#INLINE STATIC DYNAMIC 
+
+get_filename_component(PhysXRoot "${CMAKE_CURRENT_SOURCE_DIR}/../../" ABSOLUTE)
+set(HPP_FILES_RECURSE *.h *.hpp)
+set(CPP_FILES ${PhysXRoot}/Source/LowLevelCloth/src/Allocator.cpp
+              ${PhysXRoot}/Source/LowLevelCloth/src/Factory.cpp
+              ${PhysXRoot}/Source/LowLevelCloth/src/PhaseConfig.cpp
+              ${PhysXRoot}/Source/LowLevelCloth/src/SwCloth.cpp
+              ${PhysXRoot}/Source/LowLevelCloth/src/SwClothData.cpp
+              ${PhysXRoot}/Source/LowLevelCloth/src/SwCollision.cpp
+              ${PhysXRoot}/Source/LowLevelCloth/src/SwFabric.cpp
+              ${PhysXRoot}/Source/LowLevelCloth/src/SwFactory.cpp
+              ${PhysXRoot}/Source/LowLevelCloth/src/SwInterCollision.cpp
+              ${PhysXRoot}/Source/LowLevelCloth/src/SwSelfCollision.cpp
+              ${PhysXRoot}/Source/LowLevelCloth/src/SwSolver.cpp
+              ${PhysXRoot}/Source/LowLevelCloth/src/SwSolverKernel.cpp
+              ${PhysXRoot}/Source/LowLevelCloth/src/TripletScheduler.cpp)
+
+set(DEBUG_POSTFIX "DEBUG")
+set(CHECKED_POSTFIX "CHECKED")
+set(PROFILE_POSTFIX "PROFILE")
+set(RELEASE_POSTFIX "")
+
+set(INCLUDES_PRIVATE "${PhysXRoot}/Source/LowLevelCloth/include"
+                     "${PhysXRoot}/Source/LowLevelCloth/src")
+
+setup_main_module()

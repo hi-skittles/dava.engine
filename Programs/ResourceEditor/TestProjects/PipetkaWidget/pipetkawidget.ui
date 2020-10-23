@@ -1,0 +1,25 @@
+<UI version="4.0" >
+ <class>PipetkaWidgetClass</class>
+ <widget class="QWidget" name="PipetkaWidgetClass" >
+  <property name="objectName" >
+   <string notr="true">PipetkaWidgetClass</string>
+  </property>
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>PipetkaWidget</string>
+  </property>
+ </widget>
+ <layoutDefault spacing="6" margin="11" />
+ <pixmapfunction></pixmapfunction>
+ <resources>
+   <include location="pipetkawidget.qrc"/>
+ </resources>
+ <connections/>
+</UI>

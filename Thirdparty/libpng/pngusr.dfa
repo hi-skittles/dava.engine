@@ -1,0 +1,6 @@
+# Redefine PNG_ZLIB_VERNUM from a real one to zero (that's also how it used to be)
+# to avoid all checks for this version in sources,
+# since Android and other plaforms use different versions of zlib for now
+# (r10e ndk includes zlib 1.2.3, other platforms use 1.2.8)
+# TODO: Check if there is any performance difference on non-Android platforms
+@# define PNG_ZLIB_VERNUM 0
